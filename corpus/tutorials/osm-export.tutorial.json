@@ -4,6 +4,7 @@
   "start_url": "https://www.openstreetmap.org/#map=16/51.5074/-0.1278",
   "extracted_by": "Claude (Claude Code, /errata skill)",
   "extracted_at": "2026-11-16",
+  "set": "docs",
   "steps": [
     {
       "n": 1,

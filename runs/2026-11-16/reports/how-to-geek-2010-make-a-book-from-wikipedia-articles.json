@@ -1,0 +1,415 @@
+{
+  "errata": "1",
+  "tutorial": "How-To Geek (2010): Make a book from Wikipedia articles",
+  "source": "https://www.howtogeek.com/27882/create-an-ebook-or-pdf-from-wikipedia-articles-for-offline-reading/",
+  "start_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "checked_at": "2026-11-16T16:03:23.820Z",
+  "agent": "Claude (Claude Code, /errata skill) · rewrite: rules (offline, deterministic)",
+  "kane": "live",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "In the left sidebar, under \"**Print/export**,\" click \"**Create a book**.\"",
+      "text": "In the left sidebar, under \"Print/export,\" click \"Create a book.\"",
+      "goal": "Wikipedia's Book creator page is shown",
+      "labels": [
+        "Print/export",
+        "Create a book"
+      ],
+      "checkable": true,
+      "status": "drifted",
+      "literal": {
+        "status": "failed",
+        "exit_code": 1,
+        "summary": "The test assumed the Print/export section would already be visible in the left sidebar. On the loaded Wikipedia page, the navigation was collapsed behind the menu and the visible sidebar showed Contents instead, so the required exact-label click could not be made.\nUpdate the test to establish the intended Wikipedia sidebar layout before requiring Print/export, or explicitly allow opening the navigation menu as a named prerequisite.",
+        "one_liner": "The run expected Print/export to be visible, but the page was in a layout where that sidebar section was not shown.",
+        "reason_code": "assertion_error.step_not_achievable",
+        "reason": "Checked the page sidebar and page tools; no element labeled exactly Print/export is present.",
+        "verdict": {
+          "confirmed": false,
+          "status": "broken",
+          "family": "automation_bug",
+          "category": "state_transition_bug",
+          "category_proposal": "",
+          "severity": "minor",
+          "root_cause": "The test assumed the Print/export section would already be visible in the left sidebar. On the loaded Wikipedia page, the navigation was collapsed behind the menu and the visible sidebar showed Contents instead, so the required exact-label click could not be made.",
+          "agent_fault_assessment": "The agent did not cause a product failure. It followed the instruction to look for the exact label and correctly stopped rather than clicking an unnamed control such as the collapsed menu, which the objective explicitly prohibited.",
+          "bug_title": "Test expects collapsed Print/export sidebar section",
+          "signals": [],
+          "confidence": 0.94,
+          "suggestion": "Update the test to establish the intended Wikipedia sidebar layout before requiring Print/export, or explicitly allow opening the navigation menu as a named prerequisite.",
+          "one_liner": "The run expected Print/export to be visible, but the page was in a layout where that sidebar section was not shown.",
+          "relevant_steps": [
+            0,
+            1
+          ],
+          "culprit_step": "step 1",
+          "credits_consumed": 1.7498,
+          "mode": "terminal"
+        },
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\25f42664-625a-40b7-88bd-5f48c9e378c3\\evidence\\7c38e35a-15b3-415e-8de5-529f3dcc26a9.evidence",
+        "final_state": {},
+        "clicks": [],
+        "credits": 13.7,
+        "duration": 92.4,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7JG2DFKK5NFYX9WKC4BQ4R7/dashboard/share/US_E1QHEN63IVDL972XDFT294VWPN9X1VAB852HSE2IYMVTS8G9LMU8J5EASNLC45GJ?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\25f42664-625a-40b7-88bd-5f48c9e378c3\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\25f42664-625a-40b7-88bd-5f48c9e378c3",
+        "trail": [
+          "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+          "wait: Waiting because the required Print/export element is not present"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"In the left sidebar, under 'Print/export,' click 'Create a book.'\"\n1. Click the element whose visible label is exactly 'Print/export'.\n2. Click the element whose visible label is exactly 'Create a book'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "action",
+        "source": "live"
+      },
+      "goal_pass": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "The request was to reach Wikipedia’s Book creator page using the visible page controls without entering a URL.\nNavigated through Wikipedia’s interface to the Book creator page.\nThe Book creator page loaded successfully, with the main heading “Manage your book.”",
+        "one_liner": "reached the Book creator page on Wikipedia",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\f6b8928d-8dec-4c54-9c5e-f564d2d94981\\evidence\\8cfab3ae-eef1-48f1-a25d-f68613049e3b.evidence",
+        "final_state": {
+          "url": "https://en.wikipedia.org/wiki/Special:Book",
+          "landed_on": "Manage your book",
+          "main_heading_present": "true"
+        },
+        "end_url": "https://en.wikipedia.org/wiki/Special:Book",
+        "clicks": [
+          {
+            "label": "Main menu",
+            "y": 17
+          },
+          {
+            "label": "Search",
+            "y": 19
+          },
+          {
+            "label": "Tools",
+            "y": 129
+          },
+          {
+            "label": "Search",
+            "names": [
+              "Search for pages containing Book creator",
+              "Search for pages containing"
+            ],
+            "y": 262
+          },
+          {
+            "label": "Main",
+            "names": [
+              "Main menu"
+            ],
+            "y": 17
+          },
+          {
+            "label": "Special pages",
+            "y": 470
+          },
+          {
+            "label": "Book",
+            "y": 532
+          }
+        ],
+        "credits": 48.5,
+        "duration": 313.5,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7JGASJA03SV2GWBHE8D8DZ7/dashboard/share/US_F57JMFRZIW04YRWBF299AX3II88W16LCS9X045KTP8KGWXV98M1EEO7MWJN64ELD?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\f6b8928d-8dec-4c54-9c5e-f564d2d94981\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\f6b8928d-8dec-4c54-9c5e-f564d2d94981",
+        "trail": [
+          "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+          "click: Clicking the Main menu button",
+          "type: Typing “Book” into the Wikipedia search box",
+          "click: Clicking Search in the site header",
+          "click: Clicking Tools in the page controls",
+          "type: Typing Book creator in Wikipedia search box",
+          "click: Clicking the Search for pages containing Book creator link",
+          "click: Clicking Main menu in the site header",
+          "click: Clicking Special pages in the left navigation menu",
+          "scroll: Scrolling to the Page tools list on Special pages",
+          "click: Clicking Book in the Special pages tools list",
+          "wait: PRIMARY: wait for the Book creator page to finish loading",
+          "analyze: The page you end on has a main heading.",
+          "assert: wikipedia's Book creator page is shown on screen.",
+          "analyze: it is stored as {{landed_on}}",
+          "wait: Waiting after the completed landed_on extraction",
+          "wait: Waiting after verification of wikipedia's Book creator page"
+        ],
+        "objective": "Goal: wikipedia's Book creator page is shown. Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\nHint: an old tutorial said \"In the left sidebar, under \"Print/export,\" click \"Create a book.\"\", but those labels may have moved or been renamed.\nWhen the goal is met, verify it on screen. If the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "testing",
+        "source": "live"
+      },
+      "actual_path": "Main menu → Search → Tools → Search → Main → Special pages → Book",
+      "trimmed_path": "Search → Tools → Search → Main → Special pages → Book",
+      "landed_on": "Manage your book",
+      "rewrite": "Open **Search** → **Tools** → **Search** → **Main** → **Special pages** and click **Book**.",
+      "attempts": [
+        {
+          "loop": 1,
+          "rewrite": "Open **Search** → **Tools** → **Search** → **Main** → **Special pages** and click **Book**.",
+          "labels": [
+            "Search",
+            "Tools",
+            "Search",
+            "Main",
+            "Special pages",
+            "Book"
+          ],
+          "proof": {
+            "status": "passed",
+            "exit_code": 0,
+            "summary": "Followed the requested navigation path: Search → Tools → Search → Main → Special pages → Book.\nReached Wikipedia’s Book page at Special:Book.\nThe final page displayed the main heading “Manage your book.”",
+            "one_liner": "navigated to the Book page on Wikipedia",
+            "reason_code": "success.complete",
+            "reason": "Objective completed",
+            "evidence": "~\\.testmuai\\kaneai\\sessions\\2b17f79e-c63b-47d5-913a-4b6266a41b5f\\evidence\\f59e368e-dd37-4c6d-9fdd-99ec0d369a73.evidence",
+            "final_state": {
+              "url": "https://en.wikipedia.org/wiki/Special:Book",
+              "main_heading_present": "true"
+            },
+            "end_url": "https://en.wikipedia.org/wiki/Special:Book",
+            "clicks": [
+              {
+                "label": "Search",
+                "y": 19
+              },
+              {
+                "label": "Tools",
+                "names": [
+                  "Tools button near the top"
+                ],
+                "y": 129
+              },
+              {
+                "label": "Search",
+                "y": 184
+              },
+              {
+                "label": "Main menu",
+                "y": 17
+              },
+              {
+                "label": "Special pages",
+                "names": [
+                  "Click the element whose visible label is exactly 'Special pages"
+                ],
+                "y": 470
+              },
+              {
+                "label": "Book",
+                "y": 532
+              }
+            ],
+            "credits": 35.5,
+            "duration": 195.9,
+            "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7JGRGPDJ2SRQ4SC23Z1PTQY/dashboard/share/US_4C21HSNUNGVFZOE4TIOO251B0PM9FYQEOLC4X3ZAMR7A50DEETAJTGW0D9E6EDJA?type=summary&agentView=true&fqdn=summary-page",
+            "run_dir": "~/.testmuai/kaneai/sessions\\2b17f79e-c63b-47d5-913a-4b6266a41b5f\\runs\\0",
+            "session_dir": "~/.testmuai/kaneai/sessions\\2b17f79e-c63b-47d5-913a-4b6266a41b5f",
+            "trail": [
+              "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+              "click: Clicking Search button",
+              "click: Clicking Tools button near the top of the page",
+              "click: Clicking Search button",
+              "click: Clicking Main menu button",
+              "click: Clicking Click the element whose visible label is exactly 'Special pages'",
+              "scroll: Scrolling to Book link in page tools list",
+              "click: Clicking Book link",
+              "analyze: the page you end on has a main heading",
+              "analyze: Get the main heading and store it as 'landed_on'.",
+              "wait: Waiting after main heading extraction",
+              "wait: Waiting briefly after reaching the Book page"
+            ],
+            "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Open Search → Tools → Search → Main → Special pages and click Book.\"\n1. Click the element whose visible label is exactly 'Search'.\n2. Click the element whose visible label is exactly 'Tools'.\n3. Click the element whose visible label is exactly 'Search'.\n4. Click the element whose visible label is exactly 'Main'.\n5. Click the element whose visible label is exactly 'Special pages'.\n6. Click the element whose visible label is exactly 'Book'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+            "mode": "action",
+            "source": "live"
+          }
+        }
+      ],
+      "note": "The doc's words no longer work. Kane found the real path; the rewrite passed a literal run in loop 1.",
+      "credits": 97.7,
+      "started_at": "https://en.wikipedia.org/wiki/Ada_Lovelace"
+    },
+    {
+      "n": 2,
+      "quote": "On the Book creator page, click \"**Start book creator**.\"",
+      "text": "On the Book creator page, click \"Start book creator.\"",
+      "goal": "The book creator is on, offering to add the current page to a book",
+      "labels": [
+        "Start book creator"
+      ],
+      "checkable": true,
+      "continues": true,
+      "status": "drifted",
+      "literal": {
+        "status": "failed",
+        "exit_code": 1,
+        "summary": "The test assumed Book creator would start disabled, but the current page already had an active book-creator session and showed “disable” instead. The exact link required by the objective therefore did not exist.\nReset Book creator to its disabled state before this check, or make the test handle an already-active session before looking for “Start book creator.”",
+        "one_liner": "The run began with Book creator already enabled, so the required “Start book creator” link was not available.",
+        "reason_code": "assertion_error.step_not_achievable",
+        "reason": "The page shows an active book creator with a 'disable' link, and no exact 'Start book creator' element exists.",
+        "verdict": {
+          "confirmed": false,
+          "status": "broken",
+          "family": "automation_bug",
+          "category": "state_transition_bug",
+          "category_proposal": "",
+          "severity": "minor",
+          "root_cause": "The test assumed Book creator would start disabled, but the current page already had an active book-creator session and showed “disable” instead. The exact link required by the objective therefore did not exist.",
+          "agent_fault_assessment": "The agent did not cause the state conflict: the only recorded action was navigation to the Book creator page. The page was already in the active state when inspected. The failure came from the test not resetting or checking the initial Book creator state before requiring the exact start link.",
+          "bug_title": "Book creator already active before required start action",
+          "signals": [],
+          "confidence": 0.98,
+          "suggestion": "Reset Book creator to its disabled state before this check, or make the test handle an already-active session before looking for “Start book creator.”",
+          "one_liner": "The run began with Book creator already enabled, so the required “Start book creator” link was not available.",
+          "relevant_steps": [
+            0,
+            1
+          ],
+          "culprit_step": "0-1",
+          "credits_consumed": 1.63145,
+          "mode": "terminal"
+        },
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\e89786d8-07e3-4e6b-ae61-7eb33448f0d0\\evidence\\ccd4f12c-51c5-4ccc-a1d4-a270491ebedf.evidence",
+        "final_state": {},
+        "clicks": [],
+        "credits": 12,
+        "duration": 63.3,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7JH1BV6JF5MPJYTGCTHED7Y/dashboard/share/US_5G309JWM29WIVRI7S5VSYZBZ27MGXAJSPPT9AP3TYU60S3KHDLHV71G9BVOP1JYH?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\e89786d8-07e3-4e6b-ae61-7eb33448f0d0\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\e89786d8-07e3-4e6b-ae61-7eb33448f0d0",
+        "trail": [
+          "navigate: Navigate to https://en.wikipedia.org/wiki/Special:Book",
+          "wait: Waiting because the exact 'Start book creator' label is unavailable"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"On the Book creator page, click 'Start book creator.'\"\n1. Click the element whose visible label is exactly 'Start book creator'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "action",
+        "source": "live"
+      },
+      "goal_pass": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to reach Wikipedia’s book creator through the visible page controls.\nThe book creator was opened on the Wikipedia Main Page.\nIt displayed the option to “Add this page to your book.”\nThe page remained on the Main Page, with the heading “Welcome to Wikipedia.”",
+        "one_liner": "opened the book creator on Wikipedia",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\9abccb2c-fd8f-436d-b71f-5789eb2a709d\\evidence\\71ee8523-4d9a-4706-b4f1-81266c4d86c2.evidence",
+        "final_state": {
+          "url": "https://en.wikipedia.org/wiki/Main_Page",
+          "book_creator_on_screen": "true",
+          "add_current_page_offer": "true",
+          "landed_on": "Welcome to Wikipedia"
+        },
+        "end_url": "https://en.wikipedia.org/wiki/Main_Page",
+        "clicks": [
+          {
+            "label": "Suggest pages",
+            "y": 115
+          },
+          {
+            "label": "Wikipedia The Free Encyclopedia",
+            "names": [
+              "Wikipedia logo",
+              "Wikipedia The Free"
+            ],
+            "y": 14
+          }
+        ],
+        "credits": 29.3,
+        "duration": 143.7,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7JH5FZ55PN722PCHNTV8T6S/dashboard/share/US_QAFRP16MPCR5DPINKI7SNNYUI9Y52ZHTTX57M7GZJ4TW5V6AORSI9XIPA0B4LG4H?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\9abccb2c-fd8f-436d-b71f-5789eb2a709d\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\9abccb2c-fd8f-436d-b71f-5789eb2a709d",
+        "trail": [
+          "navigate: Navigate to https://en.wikipedia.org/wiki/Special:Book",
+          "click: Clicking Suggest pages in the Book creator toolbar",
+          "click: Clicking Wikipedia logo in header to reach the book creator option",
+          "analyze: The page you end on has a main heading.",
+          "assert: The book creator is on, offering to add the current page to a book.",
+          "analyze: The main heading is saved as {{landed_on}}.",
+          "wait: Waiting after the completed main heading extraction",
+          "wait: Waiting after verifying the enabled book creator offers to add the current Main Page"
+        ],
+        "objective": "Goal: the book creator is on, offering to add the current page to a book. Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\nHint: an old tutorial said \"On the Book creator page, click \"Start book creator.\"\", but those labels may have moved or been renamed.\nWhen the goal is met, verify it on screen. If the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "testing",
+        "source": "live"
+      },
+      "actual_path": "Suggest pages → Wikipedia The Free Encyclopedia",
+      "landed_on": "Welcome to Wikipedia",
+      "rewrite": "Open **Suggest pages** and click **Wikipedia The Free Encyclopedia**.",
+      "attempts": [
+        {
+          "loop": 1,
+          "rewrite": "Open **Suggest pages** and click **Wikipedia The Free Encyclopedia**.",
+          "labels": [
+            "Suggest pages",
+            "Wikipedia The Free Encyclopedia"
+          ],
+          "proof": {
+            "status": "passed",
+            "exit_code": 0,
+            "summary": "You asked to open “Suggest pages” and then select “Wikipedia The Free Encyclopedia.”\nOpened “Suggest pages” and selected “Wikipedia The Free Encyclopedia.”\nArrived at Wikipedia’s Main Page, where the main heading is present.",
+            "one_liner": "opened Wikipedia’s Main Page on Wikipedia",
+            "reason_code": "success.complete",
+            "reason": "Objective completed",
+            "evidence": "~\\.testmuai\\kaneai\\sessions\\f71d2497-92e7-465f-8997-673f932a76f1\\evidence\\377343e0-6e14-4edd-8857-571dd2ba56d7.evidence",
+            "final_state": {
+              "url": "https://en.wikipedia.org/wiki/Main_Page",
+              "main_heading_present": "true"
+            },
+            "end_url": "https://en.wikipedia.org/wiki/Main_Page",
+            "clicks": [
+              {
+                "label": "Suggest pages",
+                "y": 115
+              },
+              {
+                "label": "Wikipedia The Free Encyclopedia",
+                "names": [
+                  "Wikipedia The Free"
+                ],
+                "y": 14
+              }
+            ],
+            "credits": 26.2,
+            "duration": 161.1,
+            "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7JHC07QVD809R6HPTETW2AY/dashboard/share/US_J8FPETCSQCXC4JSL1TAS4QFFT0UY6GKSILB30HTKEM6OARZBT0A62T7F6GCM2SW8?type=summary&agentView=true&fqdn=summary-page",
+            "run_dir": "~/.testmuai/kaneai/sessions\\f71d2497-92e7-465f-8997-673f932a76f1\\runs\\0",
+            "session_dir": "~/.testmuai/kaneai/sessions\\f71d2497-92e7-465f-8997-673f932a76f1",
+            "trail": [
+              "navigate: Navigate to https://en.wikipedia.org/wiki/Special:Book",
+              "click: Clicking Suggest pages",
+              "click: Clicking Wikipedia The Free Encyclopedia link",
+              "wait: PRIMARY: wait for the heading \"Welcome to Wikipedia\" to be visible",
+              "analyze: the page you end on has a main heading",
+              "analyze: it is stored as {{landed_on}}",
+              "wait: Waiting after storing the current page heading",
+              "wait: Waiting after completing the requested navigation"
+            ],
+            "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Open Suggest pages and click Wikipedia The Free Encyclopedia.\"\n1. Click the element whose visible label is exactly 'Suggest pages'.\n2. Click the element whose visible label is exactly 'Wikipedia The Free Encyclopedia'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+            "mode": "action",
+            "source": "live"
+          }
+        }
+      ],
+      "note": "The doc's words no longer work. Kane found the real path; the rewrite passed a literal run in loop 1.",
+      "credits": 67.5,
+      "started_at": "https://en.wikipedia.org/wiki/Special:Book"
+    }
+  ],
+  "totals": {
+    "steps": 2,
+    "checkable": 2,
+    "accurate": 0,
+    "drifted": 2,
+    "fixed": 2,
+    "broken": 0,
+    "skipped": 0,
+    "unchecked": 0,
+    "credits": 165.2,
+    "seconds": 1593
+  },
+  "input": "corpus/tutorials/hunt-htg-wikipedia-book.tutorial.json"
+}

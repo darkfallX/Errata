@@ -1,0 +1,274 @@
+{
+  "key": "12c75be8431ac641",
+  "recorded_at": "2026-11-16T16:48:26.382Z",
+  "exit_code": 0,
+  "mode": "testing",
+  "url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "objective": "Goal: the current article is added to a book. Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\nHint: an old tutorial said \"Click the \"Add this page to your book\" link.\", but those labels may have moved or been renamed.\nWhen the goal is met, verify it on screen. If the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+  "clicks": [
+    {
+      "label": "Tools",
+      "y": 129
+    },
+    {
+      "label": "Save",
+      "y": 130
+    },
+    {
+      "label": "close",
+      "names": [
+        "Close"
+      ],
+      "y": 190
+    },
+    {
+      "label": "Main",
+      "names": [
+        "Main menu"
+      ],
+      "y": 17
+    },
+    {
+      "label": "Search",
+      "names": [
+        "Search for pages containing Book creator",
+        "Search for pages containing"
+      ],
+      "y": 254
+    },
+    {
+      "label": "Search",
+      "y": 184
+    },
+    {
+      "label": "Help:Books",
+      "y": 417
+    },
+    {
+      "label": "Book creator",
+      "y": 531
+    },
+    {
+      "label": "Start book creator",
+      "y": 343
+    },
+    {
+      "label": "Add this page",
+      "names": [
+        "Add this page to your book"
+      ],
+      "y": 115
+    }
+  ],
+  "actions": [
+    {
+      "type": "navigate",
+      "status": "success",
+      "intent": "Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+      "instr": "Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace"
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=button[name=\"Tools\"i]",
+      "intent": "PRIMARY: Add the current article to a book by clicking through the visible UI, by any route; role=button; text=\"Tools\" | HINTS: container=Page tools navigation near article tabs",
+      "instr": "Clicking Tools in the article toolbar",
+      "y": 129
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Save\"i]",
+      "intent": "PRIMARY: Add the current article to a book by clicking through the visible UI, by any route; role=link; text=\"Save\" | HINTS: container=Views navigation beside article tabs",
+      "instr": "Clicking Save to add the article to a book",
+      "y": 130
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=button[name=\"Close\"i]",
+      "intent": "PRIMARY: close Save articles banner; role=button; text=\"Close\" | HINTS: container=Save articles banner at upper-right",
+      "instr": "Clicking close on Save articles banner",
+      "y": 190
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=button[name=\"Main menu\"i]",
+      "intent": "PRIMARY: Add the current article to a book by clicking through the visible UI, by any route; role=button; text=\"Main menu\" | HINTS: position=top-left; container=Site navigation",
+      "instr": "Clicking Main menu in site navigation",
+      "y": 17
+    },
+    {
+      "type": "wait",
+      "status": "success",
+      "intent": "queued plan (2 steps): type \"Search Wikipedia\"; click \"Search\"",
+      "instr": "Waiting for the search to start"
+    },
+    {
+      "type": "fill",
+      "status": "success",
+      "selector": "internal:role=searchbox[name=\"Search Wikipedia\"i]",
+      "intent": "PRIMARY: search input for a route to add the current article to a book; role=searchbox; text=\"Search Wikipedia\" | HINTS: position=top header",
+      "instr": "Type \"Book creator\" into \"Search Wikipedia\"",
+      "y": 22
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=option[name=\"Search for pages containing\"i]",
+      "intent": "PRIMARY: search for a route to add the current article to a book; role=option; text=\"Search for pages containing Book creator\" | HINTS: container=Search results dropdown in header",
+      "instr": "Clicking Search for pages containing Book creator in dropdown",
+      "y": 254
+    },
+    {
+      "type": "fill",
+      "status": "success",
+      "selector": "internal:label=\"\"s",
+      "intent": "PRIMARY: search input for a route to add the current article to a book; role=combobox; text=\"Search Wikipedia\" | HINTS: container=Search results form",
+      "instr": "Typing Help:Books into the search box",
+      "y": 184
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:label=\"Search results\"i >> internal:role=button[name=\"Search\"s]",
+      "intent": "PRIMARY: search submit button; role=button; text=\"Search\" | HINTS: container=Search results form beside Help:Books query",
+      "instr": "Clicking Search button",
+      "y": 184
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Help:Books\"s]",
+      "intent": "PRIMARY: add the current article to a book by clicking through the visible UI, by any route; role=link; text=\"Help:Books\" | HINTS: container=search results first result",
+      "instr": "Clicking Help:Books to add the article to a book",
+      "y": 417
+    },
+    {
+      "type": "scroll",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Book creator\"s]",
+      "intent": "Scroll into view: PRIMARY: Add the current article to a book by clicking through the visible UI, by any route; role=link; text=\"Book creator\" | HINTS: container=Step 1 Enable the Book Creator tool",
+      "instr": "Scrolling"
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Book creator\"s]",
+      "intent": "PRIMARY: Add the current article to a book by clicking through the visible UI, by any route; role=link; text=\"Book creator\" | HINTS: container=Step 1 Enable the Book Creator tool",
+      "instr": "Clicking Book creator to add the current article to a book",
+      "y": 531
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=button[name=\"Start book creator\"i]",
+      "intent": "PRIMARY: Add the current article to a book by clicking through the visible UI, by any route; role=button; text=\"Start book creator\" | HINTS: position=upper main content; container=Book creator page",
+      "instr": "Clicking Start book creator",
+      "y": 343
+    },
+    {
+      "type": "go_back",
+      "status": "success",
+      "intent": "Navigate back",
+      "instr": "Navigate back"
+    },
+    {
+      "type": "go_back",
+      "status": "success",
+      "intent": "Navigate back",
+      "instr": "Navigate back"
+    },
+    {
+      "type": "go_back",
+      "status": "success",
+      "intent": "Navigate back",
+      "instr": "Navigate back"
+    },
+    {
+      "type": "go_back",
+      "status": "success",
+      "intent": "Navigate back",
+      "instr": "Navigate back"
+    },
+    {
+      "type": "go_back",
+      "status": "success",
+      "intent": "Navigate back",
+      "instr": "Navigate back"
+    },
+    {
+      "type": "wait",
+      "status": "success",
+      "intent": "PRIMARY: wait 500 ms for navigation history to settle",
+      "instr": "Waiting for navigation history to settle"
+    },
+    {
+      "type": "go_back",
+      "status": "success",
+      "intent": "Navigate back",
+      "instr": "Navigate back"
+    },
+    {
+      "type": "wait",
+      "status": "success",
+      "intent": "PRIMARY: wait 1000 ms for the Ada Lovelace article and Book Creator toolbar to load",
+      "instr": "Waiting for Ada Lovelace article and Book Creator toolbar to load"
+    },
+    {
+      "type": "refresh",
+      "status": "success",
+      "intent": "Navigate refresh",
+      "instr": "Navigate refresh"
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Add this page to your book\"i]",
+      "intent": "PRIMARY: Add the current article to a book by clicking through the visible UI, by any route; role=link; text=\"Add this page to your book\" | HINTS: position=top collection toolbar",
+      "instr": "Clicking Add this page to your book",
+      "y": 115
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "whether the current article added to a book is present (in the Book creator controls)",
+      "instr": "Checking whether the current article is included in the book"
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "whether the page you end on main heading is present (in the main content)",
+      "instr": "Checking whether the page main heading is present"
+    },
+    {
+      "type": "assert",
+      "status": "success",
+      "intent": "",
+      "instr": "Assertion check"
+    },
+    {
+      "type": "if_else",
+      "status": "success",
+      "instr": "If-else checkpoint cp_2: condition 'the page you end on has a main heading' matched"
+    },
+    {
+      "type": "child_agent_start",
+      "status": "executing",
+      "instr": "\"store it as {{landed_on}}\""
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "it is stored as {{landed_on}}",
+      "instr": "Extracting the URL of the landed page"
+    },
+    {
+      "type": "child_agent_end",
+      "status": "success",
+      "instr": "\"store it as {{landed_on}}\""
+    }
+  ],
+  "ndjson": "{\"type\":\"stream_start\",\"cli_version\":\"0.10.4\",\"surface\":\"run\",\"pid\":788,\"v\":1,\"ts\":\"2026-11-16T16:40:06.025Z\"}\n{\"type\":\"recording_state\",\"enabled\":true,\"session_id\":\"f5533ee0-8fe8-49da-aebb-7476c88e9ffc\",\"persist\":false,\"v\":1,\"ts\":\"2026-11-16T16:40:06.060Z\"}\n{\"type\":\"skill_update_available\",\"current\":null,\"latest\":\"0.1.4\",\"install_cmd\":\"kane-cli install skill\",\"v\":1,\"ts\":\"2026-11-16T16:40:14.399Z\"}\n{\"type\":\"bifurcation\",\"flows\":[\"Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace then Goal: the current article is added to a book.\\nReach it from the current page by clicking through the visible UI, by any route.\\nNever type a URL or use the address bar.\\nHint: an old tutorial said \\\"Click the \\\"Add this page to your book\\\" link.\\\", but those labels may have moved or been renamed.\\nWhen the goal is met, verify it on screen.\\nIf the page you end on has a main heading, @v16:\\\"store it as {{landed_on}}\\\"; a page without a heading is fine.\"],\"count\":1,\"v\":1,\"ts\":\"2026-11-16T16:40:46.310Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"v\":1,\"ts\":\"2026-11-16T16:41:00.292Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace\",\"v\":1,\"ts\":\"2026-11-16T16:41:00.321Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"v\":1,\"ts\":\"2026-11-16T16:41:04.034Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"click: Clicking Tools in the article toolbar\",\"v\":1,\"ts\":\"2026-11-16T16:41:20.632Z\"}\n{\"step\":4,\"status\":\"running\",\"remark\":\"Step 3\",\"v\":1,\"ts\":\"2026-11-16T16:41:24.530Z\"}\n{\"step\":4,\"status\":\"done\",\"remark\":\"click: Clicking Save to add the article to a book\",\"v\":1,\"ts\":\"2026-11-16T16:41:55.693Z\"}\n{\"step\":5,\"status\":\"running\",\"remark\":\"Step 4\",\"v\":1,\"ts\":\"2026-11-16T16:41:59.435Z\"}\n{\"step\":5,\"status\":\"done\",\"remark\":\"click: Clicking close on Save articles banner\",\"v\":1,\"ts\":\"2026-11-16T16:42:15.466Z\"}\n{\"step\":6,\"status\":\"running\",\"remark\":\"Step 5\",\"v\":1,\"ts\":\"2026-11-16T16:42:19.185Z\"}\n{\"step\":6,\"status\":\"done\",\"remark\":\"click: Clicking Main menu in site navigation\",\"v\":1,\"ts\":\"2026-11-16T16:42:36.499Z\"}\n{\"step\":7,\"status\":\"running\",\"remark\":\"Step 6\",\"v\":1,\"ts\":\"2026-11-16T16:42:40.260Z\"}\n{\"step\":7,\"status\":\"done\",\"remark\":\"wait: queued plan (2 steps): type \\\"Search Wikipedia\\\"; click \\\"Search\\\"\",\"v\":1,\"ts\":\"2026-11-16T16:42:54.019Z\"}\n{\"step\":8,\"status\":\"running\",\"remark\":\"Step 7\",\"v\":1,\"ts\":\"2026-11-16T16:42:57.961Z\"}\n{\"step\":8,\"status\":\"done\",\"remark\":\"type: Type \\\"Book creator\\\" into \\\"Search Wikipedia\\\"\",\"v\":1,\"ts\":\"2026-11-16T16:42:58.688Z\"}\n{\"step\":9,\"status\":\"running\",\"remark\":\"Step 8\",\"v\":1,\"ts\":\"2026-11-16T16:43:02.915Z\"}\n{\"step\":9,\"status\":\"done\",\"remark\":\"\",\"v\":1,\"ts\":\"2026-11-16T16:43:03.008Z\"}\n{\"step\":10,\"status\":\"running\",\"remark\":\"Step 9\",\"v\":1,\"ts\":\"2026-11-16T16:43:06.700Z\"}\n{\"step\":10,\"status\":\"done\",\"remark\":\"click: Clicking Search for pages containing Book creator in dropdown\",\"v\":1,\"ts\":\"2026-11-16T16:43:20.714Z\"}\n{\"step\":11,\"status\":\"running\",\"remark\":\"Step 10\",\"v\":1,\"ts\":\"2026-11-16T16:43:21.860Z\"}\n{\"step\":11,\"status\":\"done\",\"remark\":\"type: Typing Help:Books\",\"v\":1,\"ts\":\"2026-11-16T16:43:32.173Z\"}\n{\"step\":12,\"status\":\"running\",\"remark\":\"Step 11\",\"v\":1,\"ts\":\"2026-11-16T16:43:33.514Z\"}\n{\"step\":12,\"status\":\"done\",\"remark\":\"type: Typing Help:Books into the search box\",\"v\":1,\"ts\":\"2026-11-16T16:43:43.744Z\"}\n{\"step\":13,\"status\":\"running\",\"remark\":\"Step 12\",\"v\":1,\"ts\":\"2026-11-16T16:43:45.036Z\"}\n{\"step\":13,\"status\":\"done\",\"remark\":\"click: Clicking Search button\",\"v\":1,\"ts\":\"2026-11-16T16:43:55.803Z\"}\n{\"step\":14,\"status\":\"running\",\"remark\":\"Step 13\",\"v\":1,\"ts\":\"2026-11-16T16:43:58.669Z\"}\n{\"step\":14,\"status\":\"done\",\"remark\":\"click: Clicking Help:Books to add the article to a book\",\"v\":1,\"ts\":\"2026-11-16T16:44:08.551Z\"}\n{\"step\":15,\"status\":\"running\",\"remark\":\"Step 14\",\"v\":1,\"ts\":\"2026-11-16T16:44:12.290Z\"}\n{\"step\":15,\"status\":\"done\",\"remark\":\"scroll: Scrolling\",\"v\":1,\"ts\":\"2026-11-16T16:44:30.828Z\"}\n{\"step\":16,\"status\":\"running\",\"remark\":\"Step 15\",\"v\":1,\"ts\":\"2026-11-16T16:44:32.057Z\"}\n{\"step\":16,\"status\":\"done\",\"remark\":\"click: Clicking Book creator to add the current article to a book\",\"v\":1,\"ts\":\"2026-11-16T16:44:35.015Z\"}\n{\"step\":17,\"status\":\"running\",\"remark\":\"Step 16\",\"v\":1,\"ts\":\"2026-11-16T16:44:36.225Z\"}\n{\"step\":17,\"status\":\"done\",\"remark\":\"click: Clicking Start book creator\",\"v\":1,\"ts\":\"2026-11-16T16:44:50.977Z\"}\n{\"step\":18,\"status\":\"running\",\"remark\":\"Step 17\",\"v\":1,\"ts\":\"2026-11-16T16:44:53.001Z\"}\n{\"step\":18,\"status\":\"done\",\"remark\":\"wait: PRIMARY: wait 500 ms for navigation history to settle\",\"v\":1,\"ts\":\"2026-11-16T16:45:19.030Z\"}\n{\"step\":19,\"status\":\"running\",\"remark\":\"Step 18\",\"v\":1,\"ts\":\"2026-11-16T16:45:20.269Z\"}\n{\"step\":19,\"status\":\"done\",\"remark\":\"wait: PRIMARY: wait 1000 ms for the Ada Lovelace article and Book Creator toolbar to l\",\"v\":1,\"ts\":\"2026-11-16T16:45:32.870Z\"}\n{\"step\":20,\"status\":\"running\",\"remark\":\"Step 19\",\"v\":1,\"ts\":\"2026-11-16T16:45:36.491Z\"}\n{\"step\":20,\"status\":\"done\",\"remark\":\"type: Typing Ada\",\"v\":1,\"ts\":\"2026-11-16T16:45:56.680Z\"}\n{\"step\":21,\"status\":\"running\",\"remark\":\"Step 20\",\"v\":1,\"ts\":\"2026-11-16T16:46:00.512Z\"}\n{\"step\":21,\"status\":\"done\",\"remark\":\"click: Clicking Add this page to your book\",\"v\":1,\"ts\":\"2026-11-16T16:46:09.883Z\"}\n{\"step\":22,\"status\":\"running\",\"remark\":\"Step 21\",\"v\":1,\"ts\":\"2026-11-16T16:46:13.785Z\"}\n{\"step\":22,\"status\":\"done\",\"remark\":\"analyze: the page you end on has a main heading\",\"v\":1,\"ts\":\"2026-11-16T16:46:40.061Z\"}\n{\"step\":23,\"status\":\"running\",\"remark\":\"Step 22\",\"v\":1,\"ts\":\"2026-11-16T16:46:43.735Z\"}\n{\"step\":23,\"status\":\"done\",\"remark\":\"assert: the current article is added to a book\",\"v\":1,\"ts\":\"2026-11-16T16:46:43.778Z\"}\n{\"step\":24,\"status\":\"running\",\"remark\":\"Step 23\",\"v\":1,\"ts\":\"2026-11-16T16:46:47.986Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"child_id\":\"d2d405c7\",\"v\":1,\"ts\":\"2026-11-16T16:46:51.271Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"analyze: it is stored as {{landed_on}}\",\"child_id\":\"d2d405c7\",\"v\":1,\"ts\":\"2026-11-16T16:47:06.993Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"child_id\":\"d2d405c7\",\"v\":1,\"ts\":\"2026-11-16T16:47:10.800Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"wait: Waiting checkpoint verification is complete\",\"child_id\":\"d2d405c7\",\"v\":1,\"ts\":\"2026-11-16T16:47:15.102Z\"}\n{\"step\":25,\"status\":\"running\",\"remark\":\"Step 24\",\"v\":1,\"ts\":\"2026-11-16T16:47:25.675Z\"}\n{\"step\":25,\"status\":\"done\",\"remark\":\"wait: Waiting 500 ms after confirming the article is added to a book\",\"v\":1,\"ts\":\"2026-11-16T16:47:30.955Z\"}\n{\"type\":\"coverage\",\"status\":\"skipped\",\"reason\":\"not_assurance_project\",\"pack\":\"~\\\\.testmuai\\\\kaneai\\\\sessions\\\\f5533ee0-8fe8-49da-aebb-7476c88e9ffc\\\\evidence\\\\39830829-4df8-4bf7-bb48-f3e6527178da.evidence\",\"v\":1,\"ts\":\"2026-11-16T16:48:20.145Z\"}\n{\"type\":\"run_end\",\"status\":\"passed\",\"summary\":\"You asked to add the current Wikipedia article to a book using the visible page controls.\\nThe Ada Lovelace article was added to the book.\\nThe page remained on the Ada Lovelace article, with its main heading visible.\",\"one_liner\":\"added the Ada Lovelace article to a book on Wikipedia\",\"final_state\":{\"url\":\"https://en.wikipedia.org/wiki/Ada_Lovelace\",\"current_article_added_to_book\":\"true\",\"landed_on\":\"Ada Lovelace\"},\"reason\":\"Objective completed\",\"duration\":425,\"bifurcated\":false,\"total_runs\":1,\"context\":{\"memory\":{\"current_article_added_to_book\":{\"extracted_value\":\"true\",\"operator\":\"equals\",\"transforms\":[],\"json_path\":null,\"reasoning\":\"value: 'true' -> 'true'; equals 'true' -> PASS\",\"analyzer_type\":\"textual_visual\",\"step\":21,\"query\":\"whether the current article added to a book is present (in the Book creator controls)\",\"condition\":\"the current article is added to a book\",\"human_description\":\"Checking whether the current article is included in the book\",\"expected_value\":\"true\",\"subject\":\"the current article added to a book\",\"must_be\":\"present\",\"code_js\":\"el(28).getAttribute('href')?.includes('bookcmd=remove_article') && el(28).getAttribute('href')?.includes('arttitle=Ada+Lovelace')\",\"wrapped_js\":\"(els) => {\\n  const __m = {28: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (el(28).getAttribute('href')?.includes('bookcmd=remove_article') && el(28).getAttribute('href')?.includes('arttitle=Ada+Lovelace'));\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:role=link[name=\\\"Remove this page from your\\\"i]\"],\"needs_unit_conversion\":false},\"landed_page_main_heading\":{\"extracted_value\":\"true\",\"operator\":\"equals\",\"transforms\":[],\"json_path\":null,\"reasoning\":\"value: 'true' -> 'true'; equals 'true' -> PASS\",\"analyzer_type\":\"textual_visual\",\"step\":21,\"query\":\"whether the page you end on main heading is present (in the main content)\",\"condition\":\"the page you end on has a main heading\",\"human_description\":\"Checking whether the page main heading is present\",\"expected_value\":\"true\",\"subject\":\"the page you end on main heading\",\"must_be\":\"present\",\"code_js\":\"el(77).textContent.trim().length > 0\",\"wrapped_js\":\"(els) => {\\n  const __m = {77: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (el(77).textContent.trim().length > 0);\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:role=heading[name=\\\"Ada Lovelace\\\"i]\"],\"needs_unit_conversion\":false}},\"variables\":{\"landed_on\":{\"syntax\":\"{{landed_on}}\",\"value\":\"https://en.wikipedia.org/wiki/Ada_Lovelace\",\"type\":\"memory\",\"secret\":false,\"source\":\"runtime\"},\"current_article_added_to_book\":{\"syntax\":\"{{current_article_added_to_book}}\",\"value\":\"true\",\"type\":\"memory\",\"secret\":false},\"landed_page_main_heading\":{\"syntax\":\"{{landed_page_main_heading}}\",\"value\":\"true\",\"type\":\"memory\",\"secret\":false}},\"pointer\":\"(passed) added the Ada Lovelace article to a book on Wikipedia\"},\"credits_consumed\":96.89972250000001,\"session_dir\":\"~/.testmuai/kaneai/sessions\\\\f5533ee0-8fe8-49da-aebb-7476c88e9ffc\",\"run_dir\":\"~/.testmuai/kaneai/sessions\\\\f5533ee0-8fe8-49da-aebb-7476c88e9ffc\\\\runs\\\\0\",\"result_code\":100,\"reason_code\":\"success.complete\",\"per_flow_metadata\":[{\"result_code\":\"100\",\"reason_code\":\"success.complete\",\"error_message\":null,\"summary\":\"You asked to add the current Wikipedia article to a book using the visible page controls.\\nThe Ada Lovelace article was added to the book.\\nThe page remained on the Ada Lovelace article, with its main heading visible.\",\"one_liner\":\"added the Ada Lovelace article to a book on Wikipedia\",\"credits_consumed\":96.89972250000001}],\"run_id\":\"run-0\",\"test_url\":\"https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7JKP2HP3XKKV7T70NWJEGZG/dashboard/share/US_TW808J5QYXLWJOF2784WFE5JITNRY64Y8DQRPL6JYAZRES1RC6LH63BIZTSZD9B5?type=summary&agentView=true&fqdn=summary-page\",\"coverage\":{\"status\":\"skipped\"},\"v\":1,\"ts\":\"2026-11-16T16:48:20.147Z\"}\n"
+}

@@ -1,0 +1,31 @@
+{
+  "title": "How-To Geek (2010): Wikipedia article to PDF",
+  "source": "https://www.howtogeek.com/27882/create-an-ebook-or-pdf-from-wikipedia-articles-for-offline-reading/",
+  "start_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "extracted_by": "Claude (Claude Code, /errata skill)",
+  "extracted_at": "2026-11-16",
+  "set": "hunt",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "In the left sidebar, click \"**Print/export**.\"",
+      "text": "In the left sidebar, click \"Print/export.\"",
+      "goal": "The article's print and export options are shown",
+      "labels": [
+        "Print/export"
+      ],
+      "checkable": true
+    },
+    {
+      "n": 2,
+      "quote": "Click \"**Download as PDF**.\"",
+      "text": "Click \"Download as PDF.\"",
+      "goal": "A page offering to download the article as a PDF is shown",
+      "labels": [
+        "Download as PDF"
+      ],
+      "checkable": true,
+      "continues": true
+    }
+  ]
+}

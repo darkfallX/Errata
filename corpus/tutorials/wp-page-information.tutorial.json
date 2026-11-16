@@ -4,6 +4,7 @@
   "start_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
   "extracted_by": "Claude (Claude Code, /errata skill)",
   "extracted_at": "2026-11-16",
+  "set": "docs",
   "steps": [
     {
       "n": 1,

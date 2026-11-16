@@ -1,0 +1,21 @@
+{
+  "title": "Vancouver Editor (2011): How to cite a Wikipedia page",
+  "source": "https://blog.vancouvereditor.com/2011/10/how-to-cite-wikipedia-page.html",
+  "start_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "extracted_by": "Claude (Claude Code, /errata skill)",
+  "extracted_at": "2026-11-16",
+  "set": "hunt",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "Look for \"**Tools**\" on the left side of the page and click on \"**Cite this page**.\"",
+      "text": "Look for \"Tools\" on the left side of the page and click on \"Cite this page.\"",
+      "goal": "A page with ready-made citations for the article is shown",
+      "labels": [
+        "Tools",
+        "Cite this page"
+      ],
+      "checkable": true
+    }
+  ]
+}

@@ -78,6 +78,24 @@ We walked **24 published tutorials, 44 checkable steps**, from GitHub Docs (15),
 
 So: well-kept docs from big projects stayed accurate, and we publish the false alarms rather than a flattering number. The Driftwood demo is where you can watch drift get caught, fixed and proven.
 
+### The drift hunt: older third-party tutorials
+
+Then we went looking for drift on purpose. We picked **6 older third-party tutorials** (How-To Geek 2010, SmartCompany 2011, Vancouver Editor 2011, labnol 2015, Dignited 2019) whose Wikipedia instructions predate Wikipedia's 2022 redesign, and walked them the same way. *This sample is biased on purpose, so its numbers say nothing about docs in general.*
+
+| Tutorial · step | Errata | Review |
+|---|---|---|
+| Dignited (2019): "In the left sidebar … **Print/export** … **Download as PDF**" | drifted → *"Open **Tools** and click **Download as PDF**."* proven by Kane | confirmed · fix good |
+| SmartCompany (2011): "a link that says **Print/Export** … **Download as PDF**" | drifted → same rewrite, proven | confirmed · fix good |
+| How-To Geek (2010): "In the left sidebar, click **Print/export**" | drifted → *"Click **Tools**."* proven | confirmed · fix good |
+| How-To Geek (2010): "under **Print/export**, click **Create a book**" | drifted, proven rewrite | confirmed (no Create a book in Tools any more) · **rewrite not usable**: Kane wandered via Search first and Errata did not trim it |
+| How-To Geek (2010): "On the Book creator page, click **Start book creator**" | drifted | **false alarm**: the button still exists on the Book creator page; Errata ran the step from the wrong page |
+| labnol (2015): "click **Add this page to your book**" | broken | **false alarm**: the link appears once the book creator is on; Errata starts each step in a fresh browser, so that state was lost. A re-run found it |
+| Vancouver Editor (2011): "**Tools** … **Cite this page**" | accurate | still right |
+
+labnol's first step ("pick **Book Creator** from the toolbox") came back accurate: Kane reached the Book Creator link through Special pages, and Errata allows extra clicks. In the first run that match came from loose matching ("Book" for "Book Creator"); we tightened it (a click name must be most of the label, with a test). In the re-run the link carried its real name "Book Creator", so it still counts as accurate under Errata's stated rule, even though a reader looking in the toolbox won't find it.
+
+So the hunt found **4 real wrong steps**, with **3 correct, Kane-proven fixes**. It also produced 1 unusable rewrite and 2 false alarms, all listed with reasons. My first review of this hunt called the two book-creator flags real; checking Wikipedia's pages directly showed I was wrong, and the review was corrected. Reviews: [`review.json`](runs/2026-11-16/review.json), marked "pending human confirmation" until a person checks them.
+
 ## The insight
 
 > **A smart test agent hides docs drift. Errata makes Kane follow the words first, then the goal. The gap between them is the bug.**
@@ -197,6 +215,7 @@ npx errata-cli skill                      # installs /errata into ~/.claude/skil
 - Each Kane run costs credits (about 20 on our runs); the goal pass and proofs only run on failures.
 - The rules agent needs numbered steps with **bold** or "quoted" UI labels. Prose-heavy docs need the Claude agent, or pre-extracted `*.tutorial.json`.
 - Icon-only buttons (no visible label) can't be followed literally, because there are no words to follow.
+- Each step starts in a fresh browser at the right URL; state such as a switched-on mode or a cookie is not carried between steps. Steps that depend on that state can be flagged wrongly (see the drift hunt).
 - If Kane's route contains the doc's labels in order but needs an extra click the doc doesn't mention (say, opening a menu first), the step counts as **accurate**. Errata checks labels, not completeness.
 
 ## Repository

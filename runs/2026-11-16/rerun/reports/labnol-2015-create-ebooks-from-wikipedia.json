@@ -1,0 +1,340 @@
+{
+  "errata": "1",
+  "tutorial": "labnol (2015): Create eBooks from Wikipedia",
+  "source": "https://labnol.org/internet/create-wikipedia-ebooks/25491",
+  "start_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "checked_at": "2026-11-16T16:48:26.385Z",
+  "agent": "Claude (Claude Code, /errata skill) · rewrite: rules (offline, deterministic)",
+  "kane": "live",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "Open any article and pick \"**Book Creator**\" from the toolbox menu in the right sidebar.",
+      "text": "Open any article and pick \"Book Creator\" from the toolbox menu in the right sidebar.",
+      "goal": "Wikipedia's book creator is on for this article",
+      "labels": [
+        "Book Creator"
+      ],
+      "checkable": true,
+      "status": "accurate",
+      "literal": {
+        "status": "failed",
+        "exit_code": 1,
+        "summary": "The test instructions assume that every Wikipedia article exposes a Book Creator tool. On the loaded Ada Lovelace article, that option was not present, so the required exact-label click could not be completed.\nUpdate the tutorial or test setup to use an article and account state where Book Creator is available, or remove this unavailable menu item from the required path.",
+        "one_liner": "The run expected a “Book Creator” option that is not available in the page’s Tools menu.",
+        "reason_code": "assertion_error.step_not_achievable",
+        "reason": "The expanded Page tools menu contains no element labeled exactly “Book Creator”.",
+        "verdict": {
+          "confirmed": false,
+          "status": "broken",
+          "family": "automation_bug",
+          "category": "config_issue",
+          "category_proposal": "",
+          "severity": "minor",
+          "root_cause": "The test instructions assume that every Wikipedia article exposes a Book Creator tool. On the loaded Ada Lovelace article, that option was not present, so the required exact-label click could not be completed.",
+          "agent_fault_assessment": "The agent did not cause the outcome. It opened the named Tools toolbox menu from the current article and then correctly stopped when the required exact label was absent; the mismatch is in the test/tutorial expectation, not the agent’s action.",
+          "bug_title": "Tutorial expects unavailable Book Creator tool",
+          "signals": [],
+          "confidence": 0.95,
+          "suggestion": "Update the tutorial or test setup to use an article and account state where Book Creator is available, or remove this unavailable menu item from the required path.",
+          "one_liner": "The run expected a “Book Creator” option that is not available in the page’s Tools menu.",
+          "relevant_steps": [
+            0,
+            1,
+            2
+          ],
+          "culprit_step": "0-2",
+          "credits_consumed": 2.3893999999999997,
+          "mode": "terminal"
+        },
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\08a96e28-8ba9-4b92-987a-7c9d428d599c\\evidence\\5f2af36d-04a5-4e09-9263-a79e8fa2c869.evidence",
+        "final_state": {},
+        "clicks": [
+          {
+            "label": "Tools",
+            "names": [
+              "Tools toolbox menu"
+            ],
+            "y": 129
+          }
+        ],
+        "credits": 13.6,
+        "duration": 105.3,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7JJW2B3RF6B9FXB1W1PJNYR/dashboard/share/US_JFF39COTOIFTGG38VH3DSBLCKC9AONCUPVW0OW19U9SX6LYQ63JNAEYIAUX7FIX2?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\08a96e28-8ba9-4b92-987a-7c9d428d599c\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\08a96e28-8ba9-4b92-987a-7c9d428d599c",
+        "trail": [
+          "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+          "click: Clicking the Tools toolbox menu button",
+          "wait: Waiting after checking the expanded toolbox menu"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Open any article and pick 'Book Creator' from the toolbox menu in the right sidebar.\"\n1. Click the element whose visible label is exactly 'Book Creator'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "action",
+        "source": "live"
+      },
+      "goal_pass": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to open Wikipedia’s Book Creator for the current Ada Lovelace article using the page’s visible controls.\nBook Creator was turned on for the Ada Lovelace article.\nThe run finished on the Ada Lovelace article page, where the main article heading remained visible.",
+        "one_liner": "enabled Book Creator for the Ada Lovelace article on Wikipedia",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\9e2d1651-4bb4-4590-b724-22c994b33298\\evidence\\90e9c225-0448-4e4c-bc2c-34b2ece8a59b.evidence",
+        "final_state": {
+          "url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+          "book_creator_on_for_article": "true",
+          "main_heading": "Ada Lovelace"
+        },
+        "end_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+        "clicks": [
+          {
+            "label": "Tools",
+            "y": 129
+          },
+          {
+            "label": "Main",
+            "names": [
+              "Main menu"
+            ],
+            "y": 17
+          },
+          {
+            "label": "Special pages",
+            "y": 470
+          },
+          {
+            "label": "Book",
+            "names": [
+              "Book Creator"
+            ],
+            "y": 532
+          },
+          {
+            "label": "Ada Lovelace English mathematician (1815–1852)",
+            "names": [
+              "Ada Lovelace English mathematician result",
+              "Ada Lovelace English"
+            ],
+            "y": 242
+          },
+          {
+            "label": "Add this page",
+            "names": [
+              "Add this page to your book"
+            ],
+            "y": 115
+          }
+        ],
+        "credits": 36.2,
+        "duration": 326.5,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7JK1RAN782261YRHGGB1SPE/dashboard/share/US_Q9F123EQW45XNKXGTMLWD39J1JL9OHIQUCFXY9YJS2QL6GBUFDNILSNUF5LDXQIX?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\9e2d1651-4bb4-4590-b724-22c994b33298\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\9e2d1651-4bb4-4590-b724-22c994b33298",
+        "trail": [
+          "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+          "click: Clicking Tools in Book Creator page tools",
+          "click: Clicking Main menu in the header",
+          "click: Clicking Special pages in the Main menu",
+          "scroll: Scrolling to the Book Creator link in page tools",
+          "click: Clicking Book Creator link",
+          "type: Typing Ada in Wikipedia search box",
+          "wait: PRIMARY: wait for an Ada Lovelace search suggestion",
+          "click: Clicking Ada Lovelace English mathematician result link",
+          "click: Clicking Add this page to your book",
+          "analyze: The page you end on has a main heading",
+          "assert: wikipedia's book creator is on for this article",
+          "analyze: it is stored as {{landed_on}}",
+          "wait: Waiting checkpoint verification is complete",
+          "wait: Waiting after successful Book Creator verification"
+        ],
+        "objective": "Goal: wikipedia's book creator is on for this article. Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\nHint: an old tutorial said \"Open any article and pick \"Book Creator\" from the toolbox menu in the right sidebar.\", but those labels may have moved or been renamed.\nWhen the goal is met, verify it on screen. If the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "testing",
+        "source": "live"
+      },
+      "actual_path": "Tools → Main → Special pages → Book → Ada Lovelace English mathematician (1815–1852) → Add this page",
+      "landed_on": "Ada Lovelace",
+      "note": "The literal pass failed once, but the route Kane found is the doc's own route. Treated as a flaky run, not drift.",
+      "credits": 49.8,
+      "started_at": "https://en.wikipedia.org/wiki/Ada_Lovelace"
+    },
+    {
+      "n": 2,
+      "quote": "Click the \"**Add this page to your book**\" link.",
+      "text": "Click the \"Add this page to your book\" link.",
+      "goal": "The current article is added to a book",
+      "labels": [
+        "Add this page to your book"
+      ],
+      "checkable": true,
+      "continues": true,
+      "status": "accurate",
+      "literal": {
+        "status": "failed",
+        "exit_code": 1,
+        "summary": "The test assumed the page would show an exact link named “Add this page to your book,” but that page state did not contain that link.\nUpdate the tutorial/test to match the current Wikipedia interface and the signed-out page state, or provide the prerequisite account and feature state that makes the book link appear.",
+        "one_liner": "The run expected a tutorial link that was not available on the Ada Lovelace page it opened.",
+        "reason_code": "assertion_error.step_not_achievable",
+        "reason": "The exact requested link is absent from the current page snapshot, including page tools.",
+        "verdict": {
+          "confirmed": false,
+          "status": "broken",
+          "family": "automation_bug",
+          "category": "state_transition_bug",
+          "category_proposal": "",
+          "severity": "minor",
+          "root_cause": "The test assumed the page would show an exact link named “Add this page to your book,” but that page state did not contain that link.",
+          "agent_fault_assessment": "The agent did not cause the outcome. It opened the required page and correctly stopped rather than clicking a different control when the exact requested label was absent.",
+          "bug_title": "Expected book link unavailable in loaded Wikipedia state",
+          "signals": [],
+          "confidence": 0.93,
+          "suggestion": "Update the tutorial/test to match the current Wikipedia interface and the signed-out page state, or provide the prerequisite account and feature state that makes the book link appear.",
+          "one_liner": "The run expected a tutorial link that was not available on the Ada Lovelace page it opened.",
+          "relevant_steps": [
+            0,
+            1
+          ],
+          "culprit_step": "0-1",
+          "credits_consumed": 1.7987,
+          "mode": "terminal"
+        },
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\32a987c9-148d-437e-9cd2-f5d6e331979a\\evidence\\68e629f5-14da-4b72-a5e6-8be38871081d.evidence",
+        "final_state": {},
+        "clicks": [],
+        "credits": 13.5,
+        "duration": 118.3,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7JKFS5MAW73YG56CE4MSXPT/dashboard/share/US_ZK9R694RIT8F20VDQUIM98ICGO5QMR12TEKLP0VGVXI1WF1OPZ0C0XX3GPW88YB8?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\32a987c9-148d-437e-9cd2-f5d6e331979a\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\32a987c9-148d-437e-9cd2-f5d6e331979a",
+        "trail": [
+          "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+          "wait: Waiting after checking for the requested link"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Click the 'Add this page to your book' link.\"\n1. Click the element whose visible label is exactly 'Add this page to your book'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "action",
+        "source": "live"
+      },
+      "goal_pass": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to add the current Wikipedia article to a book using the visible page controls.\nThe Ada Lovelace article was added to the book.\nThe page remained on the Ada Lovelace article, with its main heading visible.",
+        "one_liner": "added the Ada Lovelace article to a book on Wikipedia",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\f5533ee0-8fe8-49da-aebb-7476c88e9ffc\\evidence\\39830829-4df8-4bf7-bb48-f3e6527178da.evidence",
+        "final_state": {
+          "url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+          "current_article_added_to_book": "true",
+          "landed_on": "Ada Lovelace"
+        },
+        "end_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+        "clicks": [
+          {
+            "label": "Tools",
+            "y": 129
+          },
+          {
+            "label": "Save",
+            "y": 130
+          },
+          {
+            "label": "close",
+            "names": [
+              "Close"
+            ],
+            "y": 190
+          },
+          {
+            "label": "Main",
+            "names": [
+              "Main menu"
+            ],
+            "y": 17
+          },
+          {
+            "label": "Search",
+            "names": [
+              "Search for pages containing Book creator",
+              "Search for pages containing"
+            ],
+            "y": 254
+          },
+          {
+            "label": "Search",
+            "y": 184
+          },
+          {
+            "label": "Help:Books",
+            "y": 417
+          },
+          {
+            "label": "Book creator",
+            "y": 531
+          },
+          {
+            "label": "Start book creator",
+            "y": 343
+          },
+          {
+            "label": "Add this page",
+            "names": [
+              "Add this page to your book"
+            ],
+            "y": 115
+          }
+        ],
+        "credits": 96.9,
+        "duration": 425,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7JKP2HP3XKKV7T70NWJEGZG/dashboard/share/US_TW808J5QYXLWJOF2784WFE5JITNRY64Y8DQRPL6JYAZRES1RC6LH63BIZTSZD9B5?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\f5533ee0-8fe8-49da-aebb-7476c88e9ffc\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\f5533ee0-8fe8-49da-aebb-7476c88e9ffc",
+        "trail": [
+          "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+          "click: Clicking Tools in the article toolbar",
+          "click: Clicking Save to add the article to a book",
+          "click: Clicking close on Save articles banner",
+          "click: Clicking Main menu in site navigation",
+          "wait: queued plan (2 steps): type \"Search Wikipedia\"; click \"Search\"",
+          "type: Type \"Book creator\" into \"Search Wikipedia\"",
+          "click: Clicking Search for pages containing Book creator in dropdown",
+          "type: Typing Help:Books",
+          "type: Typing Help:Books into the search box",
+          "click: Clicking Search button",
+          "click: Clicking Help:Books to add the article to a book",
+          "scroll: Scrolling",
+          "click: Clicking Book creator to add the current article to a book",
+          "click: Clicking Start book creator",
+          "wait: PRIMARY: wait 500 ms for navigation history to settle",
+          "wait: PRIMARY: wait 1000 ms for the Ada Lovelace article and Book Creator toolbar to l",
+          "type: Typing Ada",
+          "click: Clicking Add this page to your book",
+          "analyze: the page you end on has a main heading",
+          "assert: the current article is added to a book",
+          "analyze: it is stored as {{landed_on}}",
+          "wait: Waiting checkpoint verification is complete",
+          "wait: Waiting 500 ms after confirming the article is added to a book"
+        ],
+        "objective": "Goal: the current article is added to a book. Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\nHint: an old tutorial said \"Click the \"Add this page to your book\" link.\", but those labels may have moved or been renamed.\nWhen the goal is met, verify it on screen. If the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "testing",
+        "source": "live"
+      },
+      "actual_path": "Tools → Save → close → Main → Search → Search → Help:Books → Book creator → Start book creator → Add this page",
+      "landed_on": "Ada Lovelace",
+      "note": "The literal pass failed once, but the route Kane found is the doc's own route. Treated as a flaky run, not drift.",
+      "credits": 110.4,
+      "started_at": "https://en.wikipedia.org/wiki/Ada_Lovelace"
+    }
+  ],
+  "totals": {
+    "steps": 2,
+    "checkable": 2,
+    "accurate": 2,
+    "drifted": 0,
+    "fixed": 0,
+    "broken": 0,
+    "skipped": 0,
+    "unchecked": 0,
+    "credits": 160.2,
+    "seconds": 1354
+  },
+  "input": "corpus/tutorials/hunt-labnol-wikipedia-book.tutorial.json"
+}

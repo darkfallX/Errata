@@ -1,0 +1,161 @@
+{
+  "key": "32a31e9d73cb5821",
+  "recorded_at": "2026-11-16T16:13:26.189Z",
+  "exit_code": 0,
+  "mode": "testing",
+  "url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "objective": "Goal: wikipedia's book creator is on for this article. Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\nHint: an old tutorial said \"Open any article and pick \"Book Creator\" from the toolbox menu in the right sidebar.\", but those labels may have moved or been renamed.\nWhen the goal is met, verify it on screen. If the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+  "clicks": [
+    {
+      "label": "Tools",
+      "names": [
+        "Tools toolbox"
+      ],
+      "y": 129
+    },
+    {
+      "label": "main",
+      "names": [
+        "Main menu"
+      ],
+      "y": 17
+    },
+    {
+      "label": "Special pages",
+      "y": 470
+    },
+    {
+      "label": "Book",
+      "y": 532
+    },
+    {
+      "label": "Wikipedia The Free Encyclopedia",
+      "names": [
+        "Wikipedia main page",
+        "Wikipedia The Free"
+      ],
+      "y": 14
+    },
+    {
+      "label": "Mark Satin",
+      "y": 390
+    }
+  ],
+  "actions": [
+    {
+      "type": "navigate",
+      "status": "success",
+      "intent": "Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+      "instr": "Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace"
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=button[name=\"Tools\"i]",
+      "intent": "PRIMARY: Book Creator toolbox menu; role=button; text=\"Tools\" | HINTS: container=Page tools navigation near article tabs",
+      "instr": "Clicking Tools toolbox menu in page tools navigation",
+      "y": 129
+    },
+    {
+      "type": "fill",
+      "status": "success",
+      "selector": "internal:role=searchbox[name=\"Search Wikipedia\"i]",
+      "intent": "PRIMARY: search input for finding Book Creator; role=searchbox; text=\"Search Wikipedia\" | HINTS: container=top header",
+      "instr": "Typing Boo in the search box for Book Creator",
+      "y": 22
+    },
+    {
+      "type": "press_key",
+      "status": "success",
+      "intent": "PRIMARY: dismiss the Wikipedia search suggestions with Escape",
+      "instr": "Pressing Escape to dismiss the Wikipedia search suggestions"
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=button[name=\"Main menu\"i]",
+      "intent": "PRIMARY: site navigation menu for finding Book Creator; role=button; text=\"Main menu\" | HINTS: position=top-left header",
+      "instr": "Clicking main menu in the top-left header",
+      "y": 17
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Special pages\"i]",
+      "intent": "PRIMARY: Special pages route for finding Book Creator; role=link; text=\"Special pages\" | HINTS: container=expanded Main menu at top-left",
+      "instr": "Clicking Special pages in the main menu",
+      "y": 470
+    },
+    {
+      "type": "scroll",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Book\"s]",
+      "intent": "Scroll into view: PRIMARY: Book Creator route; role=link; text=\"Book\" | HINTS: container=Page tools list on Special pages",
+      "instr": "Scrolling into view the Book Creator link in Special pages tools"
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Book\"s]",
+      "intent": "PRIMARY: Book Creator route; role=link; text=\"Book\" | HINTS: container=Page tools list on Special pages",
+      "instr": "Clicking Book in the Special pages list",
+      "y": 532
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Wikipedia The Free\"i]",
+      "intent": "PRIMARY: Wikipedia main page link to choose an article; role=link; text=\"Wikipedia The Free Encyclopedia\" | HINTS: position=top-left header",
+      "instr": "Clicking Wikipedia main page link",
+      "y": 14
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:text=\"Mark Satin\"i",
+      "intent": "PRIMARY: Wikipedia article page with Book Creator on; role=link; text=\"Mark Satin\" | HINTS: container=From today's featured article section",
+      "instr": "Clicking the Mark Satin link on the Wikipedia featured article page",
+      "y": 390
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "whether Book Creator on for the current Wikipedia article is present (in the Book Creator toolbar)",
+      "instr": "Checking whether Book Creator is on for the current article"
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "whether the page's main heading is present (at the top of the article)",
+      "instr": "Checking whether the page main heading is present"
+    },
+    {
+      "type": "assert",
+      "status": "success",
+      "intent": "",
+      "instr": "Assertion check"
+    },
+    {
+      "type": "if_else",
+      "status": "success",
+      "instr": "If-else checkpoint cp_2: condition 'The page you end on has a main heading.' matched"
+    },
+    {
+      "type": "child_agent_start",
+      "status": "executing",
+      "instr": "store it as 'landed_on'"
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "it is stored as {{landed_on}}",
+      "instr": "Storing the landing page URL"
+    },
+    {
+      "type": "child_agent_end",
+      "status": "success",
+      "instr": "store it as 'landed_on'"
+    }
+  ],
+  "ndjson": "{\"type\":\"stream_start\",\"cli_version\":\"0.10.4\",\"surface\":\"run\",\"pid\":15396,\"v\":1,\"ts\":\"2026-11-16T16:06:09.519Z\"}\n{\"type\":\"recording_state\",\"enabled\":true,\"session_id\":\"54060aaf-9685-485e-99eb-345deb2d609e\",\"persist\":false,\"v\":1,\"ts\":\"2026-11-16T16:06:09.601Z\"}\n{\"type\":\"skill_update_available\",\"current\":null,\"latest\":\"0.1.4\",\"install_cmd\":\"kane-cli install skill\",\"v\":1,\"ts\":\"2026-11-16T16:06:17.155Z\"}\n{\"type\":\"bifurcation\",\"flows\":[\"Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace then Goal: wikipedia's book creator is on for this article.\\nReach it from the current page by clicking through the visible UI, by any route.\\nNever type a URL or use the address bar.\\nHint: an old tutorial said \\\"Open any article and pick \\\"Book Creator\\\" from the toolbox menu in the right sidebar.\\\", but those labels may have moved or been renamed.\\nWhen the goal is met, verify it on screen.\\nIf the page you end on has a main heading, @v16:\\\"store it as 'landed_on'\\\"; a page without a heading is fine.\"],\"count\":1,\"v\":1,\"ts\":\"2026-11-16T16:06:54.107Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"v\":1,\"ts\":\"2026-11-16T16:07:12.705Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace\",\"v\":1,\"ts\":\"2026-11-16T16:07:12.740Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"v\":1,\"ts\":\"2026-11-16T16:07:17.255Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"click: Clicking Tools toolbox menu in page tools navigation\",\"v\":1,\"ts\":\"2026-11-16T16:07:26.422Z\"}\n{\"step\":4,\"status\":\"running\",\"remark\":\"Step 3\",\"v\":1,\"ts\":\"2026-11-16T16:07:30.533Z\"}\n{\"step\":4,\"status\":\"done\",\"remark\":\"type: Typing Boo in the search box for Book Creator\",\"v\":1,\"ts\":\"2026-11-16T16:07:48.485Z\"}\n{\"step\":5,\"status\":\"running\",\"remark\":\"Step 4\",\"v\":1,\"ts\":\"2026-11-16T16:07:53.335Z\"}\n{\"step\":5,\"status\":\"done\",\"remark\":\"press_key: PRIMARY: dismiss the Wikipedia search suggestions with Escape\",\"v\":1,\"ts\":\"2026-11-16T16:08:01.692Z\"}\n{\"step\":6,\"status\":\"running\",\"remark\":\"Step 5\",\"v\":1,\"ts\":\"2026-11-16T16:08:06.462Z\"}\n{\"step\":6,\"status\":\"done\",\"remark\":\"click: Clicking main menu in the top-left header\",\"v\":1,\"ts\":\"2026-11-16T16:08:29.415Z\"}\n{\"step\":7,\"status\":\"running\",\"remark\":\"Step 6\",\"v\":1,\"ts\":\"2026-11-16T16:08:40.963Z\"}\n{\"step\":7,\"status\":\"done\",\"remark\":\"click: Clicking Special pages in the main menu\",\"v\":1,\"ts\":\"2026-11-16T16:08:51.684Z\"}\n{\"step\":8,\"status\":\"running\",\"remark\":\"Step 7\",\"v\":1,\"ts\":\"2026-11-16T16:08:53.950Z\"}\n{\"step\":8,\"status\":\"done\",\"remark\":\"scroll: Scrolling into view the Book Creator link in Special pages tools\",\"v\":1,\"ts\":\"2026-11-16T16:09:03.863Z\"}\n{\"step\":9,\"status\":\"running\",\"remark\":\"Step 8\",\"v\":1,\"ts\":\"2026-11-16T16:09:06.142Z\"}\n{\"step\":9,\"status\":\"done\",\"remark\":\"click: Clicking Book in the Special pages list\",\"v\":1,\"ts\":\"2026-11-16T16:09:08.527Z\"}\n{\"step\":10,\"status\":\"running\",\"remark\":\"Step 9\",\"v\":1,\"ts\":\"2026-11-16T16:09:10.125Z\"}\n{\"step\":10,\"status\":\"done\",\"remark\":\"click: Clicking Wikipedia main page link\",\"v\":1,\"ts\":\"2026-11-16T16:09:21.022Z\"}\n{\"step\":11,\"status\":\"running\",\"remark\":\"Step 10\",\"v\":1,\"ts\":\"2026-11-16T16:09:24.488Z\"}\n{\"step\":11,\"status\":\"done\",\"remark\":\"click: Clicking the Mark Satin link on the Wikipedia featured article page\",\"v\":1,\"ts\":\"2026-11-16T16:09:41.172Z\"}\n{\"step\":12,\"status\":\"running\",\"remark\":\"Step 11\",\"v\":1,\"ts\":\"2026-11-16T16:09:55.338Z\"}\n{\"step\":12,\"status\":\"done\",\"remark\":\"analyze: The page you end on has a main heading.\",\"v\":1,\"ts\":\"2026-11-16T16:10:29.250Z\"}\n{\"step\":13,\"status\":\"running\",\"remark\":\"Step 12\",\"v\":1,\"ts\":\"2026-11-16T16:10:44.358Z\"}\n{\"step\":13,\"status\":\"done\",\"remark\":\"assert: wikipedia's book creator is on for this article.\",\"v\":1,\"ts\":\"2026-11-16T16:10:44.474Z\"}\n{\"step\":14,\"status\":\"running\",\"remark\":\"Step 13\",\"v\":1,\"ts\":\"2026-11-16T16:10:58.223Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"child_id\":\"346f9ed0\",\"v\":1,\"ts\":\"2026-11-16T16:11:11.595Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"analyze: it is stored as {{landed_on}}\",\"child_id\":\"346f9ed0\",\"v\":1,\"ts\":\"2026-11-16T16:11:23.283Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"child_id\":\"346f9ed0\",\"v\":1,\"ts\":\"2026-11-16T16:11:40.795Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"wait: Waiting after the required page-state extraction\",\"child_id\":\"346f9ed0\",\"v\":1,\"ts\":\"2026-11-16T16:11:46.823Z\"}\n{\"step\":15,\"status\":\"running\",\"remark\":\"Step 14\",\"v\":1,\"ts\":\"2026-11-16T16:12:06.828Z\"}\n{\"step\":15,\"status\":\"done\",\"remark\":\"wait: Waiting after successfully verifying the enabled Book Creator article state\",\"v\":1,\"ts\":\"2026-11-16T16:12:12.301Z\"}\n{\"type\":\"coverage\",\"status\":\"skipped\",\"reason\":\"not_assurance_project\",\"pack\":\"~\\\\.testmuai\\\\kaneai\\\\sessions\\\\54060aaf-9685-485e-99eb-345deb2d609e\\\\evidence\\\\77cce472-009d-4f44-951a-c47174458424.evidence\",\"v\":1,\"ts\":\"2026-11-16T16:13:22.570Z\"}\n{\"type\":\"run_end\",\"status\":\"passed\",\"summary\":\"You asked to reach a Wikipedia article through the visible site controls and turn on Book Creator.\\nNavigated through Wikipedia’s interface to the article “Mark Satin.”\\nBook Creator was enabled for the article, and the page’s main heading was “Mark Satin.”\",\"one_liner\":\"enabled Book Creator on the Mark Satin article on Wikipedia\",\"final_state\":{\"url\":\"https://en.wikipedia.org/wiki/Mark_Satin\",\"landed_on\":\"Mark Satin\",\"book_creator_on\":\"true\"},\"reason\":\"Objective completed\",\"duration\":339.6,\"bifurcated\":false,\"total_runs\":1,\"context\":{\"memory\":{\"book_creator_on_check\":{\"extracted_value\":\"true\",\"operator\":\"equals\",\"transforms\":[],\"json_path\":null,\"reasoning\":\"value: 'true' -> 'true'; equals 'true' -> PASS\",\"analyzer_type\":\"textual_visual\",\"step\":11,\"query\":\"whether Book Creator on for the current Wikipedia article is present (in the Book Creator toolbar)\",\"condition\":\"Book Creator is on for the current Wikipedia article.\",\"human_description\":\"Checking whether Book Creator is on for the current article\",\"expected_value\":\"true\",\"subject\":\"Book Creator on for the current Wikipedia article\",\"must_be\":\"present\",\"code_js\":\"/book creator/i.test(el(24).innerText) && /disable/i.test(el(24).innerText)\",\"wrapped_js\":\"(els) => {\\n  const __m = {24: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (/book creator/i.test(el(24).innerText) && /disable/i.test(el(24).innerText));\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:text=\\\"Help Book creator ( disable )\\\"i\"],\"needs_unit_conversion\":false},\"main_heading_present\":{\"extracted_value\":\"true\",\"operator\":\"equals\",\"transforms\":[],\"json_path\":null,\"reasoning\":\"value: 'true' -> 'true'; equals 'true' -> PASS\",\"analyzer_type\":\"textual_visual\",\"step\":11,\"query\":\"whether the page's main heading is present (at the top of the article)\",\"condition\":\"The page you end on has a main heading.\",\"human_description\":\"Checking whether the page main heading is present\",\"expected_value\":\"true\",\"subject\":\"the page's main heading\",\"must_be\":\"present\",\"code_js\":\"el(77).tagName === 'H1' && el(77).textContent.trim().length > 0\",\"wrapped_js\":\"(els) => {\\n  const __m = {77: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (el(77).tagName === 'H1' && el(77).textContent.trim().length > 0);\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:role=heading[name=\\\"Mark Satin\\\"i]\"],\"needs_unit_conversion\":false}},\"variables\":{\"book_creator_on_check\":{\"syntax\":\"{{book_creator_on_check}}\",\"value\":\"true\",\"type\":\"memory\",\"secret\":false},\"main_heading_present\":{\"syntax\":\"{{main_heading_present}}\",\"value\":\"true\",\"type\":\"memory\",\"secret\":false},\"landed_on\":{\"syntax\":\"{{landed_on}}\",\"value\":\"https://en.wikipedia.org/wiki/Mark_Satin\",\"type\":\"memory\",\"secret\":false}},\"pointer\":\"(passed) enabled Book Creator on the Mark Satin article on Wikipedia\"},\"credits_consumed\":38.095045,\"session_dir\":\"~/.testmuai/kaneai/sessions\\\\54060aaf-9685-485e-99eb-345deb2d609e\",\"run_dir\":\"~/.testmuai/kaneai/sessions\\\\54060aaf-9685-485e-99eb-345deb2d609e\\\\runs\\\\0\",\"result_code\":100,\"reason_code\":\"success.complete\",\"per_flow_metadata\":[{\"result_code\":\"100\",\"reason_code\":\"success.complete\",\"error_message\":null,\"summary\":\"You asked to reach a Wikipedia article through the visible site controls and turn on Book Creator.\\nNavigated through Wikipedia’s interface to the article “Mark Satin.”\\nBook Creator was enabled for the article, and the page’s main heading was “Mark Satin.”\",\"one_liner\":\"enabled Book Creator on the Mark Satin article on Wikipedia\",\"credits_consumed\":38.095045}],\"run_id\":\"run-0\",\"test_url\":\"https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7JHQXJQ6GA0Z1ZE9EH403YX/dashboard/share/US_TB9FSHATUSAIUW6T6BHK0LQK1PU52TUGYFYZTY4LQF7JDKR1TQS7L0DBADZYUL36?type=summary&agentView=true&fqdn=summary-page\",\"coverage\":{\"status\":\"skipped\"},\"v\":1,\"ts\":\"2026-11-16T16:13:22.572Z\"}\n"
+}

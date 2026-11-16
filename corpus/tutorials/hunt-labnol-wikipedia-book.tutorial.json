@@ -1,0 +1,31 @@
+{
+  "title": "labnol (2015): Create eBooks from Wikipedia",
+  "source": "https://labnol.org/internet/create-wikipedia-ebooks/25491",
+  "start_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "extracted_by": "Claude (Claude Code, /errata skill)",
+  "extracted_at": "2026-11-16",
+  "set": "hunt",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "Open any article and pick \"**Book Creator**\" from the toolbox menu in the right sidebar.",
+      "text": "Open any article and pick \"Book Creator\" from the toolbox menu in the right sidebar.",
+      "goal": "Wikipedia's book creator is on for this article",
+      "labels": [
+        "Book Creator"
+      ],
+      "checkable": true
+    },
+    {
+      "n": 2,
+      "quote": "Click the \"**Add this page to your book**\" link.",
+      "text": "Click the \"Add this page to your book\" link.",
+      "goal": "The current article is added to a book",
+      "labels": [
+        "Add this page to your book"
+      ],
+      "checkable": true,
+      "continues": true
+    }
+  ]
+}

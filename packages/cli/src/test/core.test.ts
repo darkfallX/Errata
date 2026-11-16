@@ -24,6 +24,9 @@ test("labelsMatch: doc labels must appear in order in what Kane clicked", () => 
   assert.equal(labelsMatch(["Settings", "API Keys"], "Developers → Tokens"), false);
   assert.equal(labelsMatch(["API Keys", "Settings"], ["Settings", "API Keys"]), false, "order matters");
   assert.equal(labelsMatch(["Settings"], []), false, "no clicks = not followed");
+  // Drift-hunt miss: a short click name must not stand in for a longer doc label.
+  assert.equal(labelsMatch(["Book Creator"], ["Tools", "main", "Special pages", "Book"]), false);
+  assert.equal(labelsMatch(["All activity"], [["Filter by activity type: All activity"]]), true);
 });
 
 test("guardRewrite rejects labels Kane never saw", () => {

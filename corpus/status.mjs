@@ -18,16 +18,20 @@ function snapshot() {
   const done = new Set(reports.map((x) => x.r.tutorial));
   const recDir = join(dir, "recordings");
   const recs = existsSync(recDir) ? readdirSync(recDir).map((f) => statSync(join(recDir, f)).mtimeMs) : [];
-  const start = Math.min(...recs, Date.now());
+  // Pace from the last hour of recordings, so a second batch later in the day gets a sane estimate.
+  const recent = recs.filter((t) => Date.now() - t < 60 * 60000);
+  const start = recent.length ? Math.min(...recent) : Date.now();
   const elapsed = (Date.now() - start) / 60000;
-  const perTut = done.size ? elapsed / done.size : 0;
+  const doneRecently = reports.filter((x) => x.t >= start).length;
+  // Before the first tutorial of a batch finishes, assume ~3 min per tutorial with 2 running at once.
+  const perTut = doneRecently ? elapsed / doneRecently : 1.5;
   const left = titles.length - done.size;
   const tot = reports.reduce((a, { r }) => ({ acc: a.acc + r.totals.accurate, dr: a.dr + r.totals.drifted, br: a.br + r.totals.broken, un: a.un + r.totals.unchecked, cr: a.cr + r.totals.credits }), { acc: 0, dr: 0, br: 0, un: 0, cr: 0 });
 
   const lines = [];
   lines.push(c(1, `Errata public run · ${date}`));
   const bar = 30, fill = Math.round((done.size / titles.length) * bar);
-  lines.push(`[${"█".repeat(fill)}${"░".repeat(bar - fill)}] ${done.size}/${titles.length} tutorials · ${recs.length} Kane runs · ${Math.round(tot.cr)} credits · ${Math.round(elapsed)} min so far`);
+  lines.push(`[${"█".repeat(fill)}${"░".repeat(bar - fill)}] ${done.size}/${titles.length} tutorials · ${recs.length} Kane runs · ${Math.round(tot.cr)} credits · ${recent.length ? `${Math.round(elapsed)} min into this batch` : "batch starting"}`);
   lines.push(
     left === 0
       ? c(32, "DONE. Every tutorial has a report. You can send your next message.")

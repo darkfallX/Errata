@@ -210,6 +210,65 @@ const T = [
     start_url: "https://plausible.io/plausible.io",
     steps: [step("Click on the **Filter** button, open **Location** and select **Country**.", "A control for choosing which countries to filter the dashboard by is shown", ["Filter", "Location", "Country"])],
   },
+  // ── Set B: the drift hunt (added 16 Nov 2026). Older third-party tutorials, chosen BECAUSE they are
+  // likely out of date. The selection is deliberately biased: these numbers say nothing about docs in general.
+  {
+    id: "hunt-htg-wikipedia-pdf",
+    set: "hunt",
+    title: "How-To Geek (2010): Wikipedia article to PDF",
+    source: "https://www.howtogeek.com/27882/create-an-ebook-or-pdf-from-wikipedia-articles-for-offline-reading/",
+    start_url: "https://en.wikipedia.org/wiki/Ada_Lovelace",
+    steps: [
+      step("In the left sidebar, click \"**Print/export**.\"", "The article's print and export options are shown", ["Print/export"]),
+      then("Click \"**Download as PDF**.\"", "A page offering to download the article as a PDF is shown", ["Download as PDF"]),
+    ],
+  },
+  {
+    id: "hunt-htg-wikipedia-book",
+    set: "hunt",
+    title: "How-To Geek (2010): Make a book from Wikipedia articles",
+    source: "https://www.howtogeek.com/27882/create-an-ebook-or-pdf-from-wikipedia-articles-for-offline-reading/",
+    start_url: "https://en.wikipedia.org/wiki/Ada_Lovelace",
+    steps: [
+      step("In the left sidebar, under \"**Print/export**,\" click \"**Create a book**.\"", "Wikipedia's Book creator page is shown", ["Print/export", "Create a book"]),
+      then("On the Book creator page, click \"**Start book creator**.\"", "The book creator is on, offering to add the current page to a book", ["Start book creator"]),
+    ],
+  },
+  {
+    id: "hunt-dignited-wikipedia-pdf",
+    set: "hunt",
+    title: "Dignited (2019): Export a Wikipedia page as a PDF",
+    source: "https://dignited.com/44778/how-to-export-a-wikipedia-page-as-a-pdf",
+    start_url: "https://en.wikipedia.org/wiki/Ada_Lovelace",
+    steps: [step("In the left sidebar, find the section labeled \"**Print/export**.\" Under that section, click \"**Download as PDF**\" from the list.", "A page offering to download the article as a PDF is shown", ["Print/export", "Download as PDF"])],
+  },
+  {
+    id: "hunt-smartcompany-wikipedia-pdf",
+    set: "hunt",
+    title: "SmartCompany (2011): Convert Wikipedia articles into PDF files",
+    source: "https://www.smartcompany.com.au/startupsmart/convert-wikipedia-articles-into-pdf-files/",
+    start_url: "https://en.wikipedia.org/wiki/Ada_Lovelace",
+    steps: [step("On the left hand side of the screen, you should see a link that says \"**Print/Export**\". Click it, then select \"**Download as PDF**\".", "A page offering to download the article as a PDF is shown", ["Print/Export", "Download as PDF"])],
+  },
+  {
+    id: "hunt-labnol-wikipedia-book",
+    set: "hunt",
+    title: "labnol (2015): Create eBooks from Wikipedia",
+    source: "https://labnol.org/internet/create-wikipedia-ebooks/25491",
+    start_url: "https://en.wikipedia.org/wiki/Ada_Lovelace",
+    steps: [
+      step("Open any article and pick \"**Book Creator**\" from the toolbox menu in the right sidebar.", "Wikipedia's book creator is on for this article", ["Book Creator"]),
+      then("Click the \"**Add this page to your book**\" link.", "The current article is added to a book", ["Add this page to your book"]),
+    ],
+  },
+  {
+    id: "hunt-vancouvereditor-cite",
+    set: "hunt",
+    title: "Vancouver Editor (2011): How to cite a Wikipedia page",
+    source: "https://blog.vancouvereditor.com/2011/10/how-to-cite-wikipedia-page.html",
+    start_url: "https://en.wikipedia.org/wiki/Ada_Lovelace",
+    steps: [step("Look for \"**Tools**\" on the left side of the page and click on \"**Cite this page**.\"", "A page with ready-made citations for the article is shown", ["Tools", "Cite this page"])],
+  },
 ];
 
 mkdirSync(join(here, "tutorials"), { recursive: true });
@@ -221,6 +280,7 @@ for (const t of T) {
     start_url: t.start_url,
     extracted_by: "Claude (Claude Code, /errata skill)",
     extracted_at: "2026-11-16",
+    set: t.set ?? "docs",
     steps: t.steps.map((s, i) => ({ n: i + 1, ...s })),
   };
   writeFileSync(join(here, "tutorials", `${t.id}.tutorial.json`), JSON.stringify(tut, null, 2) + "\n");

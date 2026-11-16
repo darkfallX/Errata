@@ -71,9 +71,12 @@ const agentLabel = (a) => {
 };
 /** Corpus files by tutorial title, for reports made before `input` was recorded. */
 const corpusDir = join(root, "corpus", "tutorials");
-const corpusByTitle = new Map(
-  existsSync(corpusDir) ? readdirSync(corpusDir).filter((f) => f.endsWith(".tutorial.json")).map((f) => [readJson(join(corpusDir, f)).title, `corpus/tutorials/${f}`]) : [],
+const corpusMeta = new Map(
+  existsSync(corpusDir) ? readdirSync(corpusDir).filter((f) => f.endsWith(".tutorial.json")).map((f) => { const j = readJson(join(corpusDir, f)); return [j.title, { file: `corpus/tutorials/${f}`, set: j.set ?? "docs" }]; }) : [],
 );
+const corpusByTitle = new Map([...corpusMeta].map(([t, m]) => [t, m.file]));
+/** Set B, "the drift hunt": older third-party tutorials picked because they are likely out of date. */
+const isHunt = (r) => corpusMeta.get(r.tutorial)?.set === "hunt";
 /** The exact command that reproduces a report from this repo. */
 const rerun = (r) => {
   if (r === demo) return "npx errata-cli demo --replay";
@@ -81,12 +84,20 @@ const rerun = (r) => {
   return `npx errata-cli check ${file ?? r.source}`;
 };
 
+/** A proven rewrite that a reviewer judged not usable or wrong. */
+const badFix = (r, s) => ["not usable", "wrong"].includes(review[reviewKey(r, s)]?.fix);
+function reviewNote(r, s) {
+  const v = r === demo ? undefined : review[reviewKey(r, s)];
+  if (!v?.verdict || v.verdict === "false_alarm") return "";
+  return `<div class="kv"><span>Review</span><span><b>Confirmed.</b> ${esc(v.why)} <span class="mute">· ${esc(v.reviewer || "not named")}</span></span></div>`;
+}
 const reviewKey = (r, s) => `${slugify(host(r.source))}/${slugify(r.tutorial)}#${s.n}`;
 /** A flag a reviewer marked as a false alarm is shown and counted as one, never as a docs finding. */
 const falseAlarm = (r, s) => r !== demo && review[reviewKey(r, s)]?.verdict === "false_alarm";
 /** Totals with reviewed false alarms taken out of drifted/broken. */
 function confirmedTotals(r) {
   const t = { ...r.totals, false_alarms: 0 };
+  for (const s of r.steps) if (s.status === "drifted" && s.rewrite && badFix(r, s)) t.fixed--;
   for (const s of r.steps) {
     if (!falseAlarm(r, s)) continue;
     t.false_alarms++;
@@ -174,7 +185,12 @@ function slip(r, { live = true } = {}) {
 
 // ───────────────────────────────────────── pages
 function home() {
-  const t = publicReports.reduce((a, r) => { const c = confirmedTotals(r); return { tut: a.tut + 1, steps: a.steps + c.checkable, acc: a.acc + c.accurate, dr: a.dr + c.drifted, br: a.br + c.broken, fa: a.fa + c.false_alarms, cr: a.cr + c.credits }; }, { tut: 0, steps: 0, acc: 0, dr: 0, br: 0, fa: 0, cr: 0 });
+  const docsR = publicReports.filter((r) => !isHunt(r));
+  const huntR = publicReports.filter(isHunt);
+  // Only reviewer-confirmed findings count here; unreviewed flags are not claimed.
+  const isConfirmed = (r, s) => review[reviewKey(r, s)]?.verdict === "confirmed";
+  const hc = huntR.reduce((a, r) => { const ok = r.steps.filter((s) => isConfirmed(r, s)); return { n: a.n + 1, wrong: a.wrong + ok.length, fixed: a.fixed + ok.filter((s) => s.rewrite && !badFix(r, s)).length }; }, { n: 0, wrong: 0, fixed: 0 });
+  const t = docsR.reduce((a, r) => { const c = confirmedTotals(r); return { tut: a.tut + 1, steps: a.steps + c.checkable, acc: a.acc + c.accurate, dr: a.dr + c.drifted, br: a.br + c.broken, fa: a.fa + c.false_alarms, cr: a.cr + c.credits }; }, { tut: 0, steps: 0, acc: 0, dr: 0, br: 0, fa: 0, cr: 0 });
   const install = `npx errata-cli check https://docs.your-product.com/quickstart`;
   const body = `
 <div class="wrap">
@@ -210,7 +226,7 @@ function home() {
     <div style="--i:1"><span>Steps walked</span><b class="num">${n(t.steps)}</b></div>
     <div style="--i:2"><span>Confirmed wrong steps</span><b class="num" style="color:${t.dr + t.br ? "var(--amber)" : "var(--ink)"}">${n(t.dr + t.br)}</b></div>
     <div style="--i:3"><span>False alarms, published</span><b class="num">${n(t.fa)}</b></div>
-  </div>`
+  </div>${hc.n ? `<p class="mute" style="margin-top:12px;font-size:14px">Drift hunt: ${hc.wrong} confirmed wrong step${hc.wrong === 1 ? "" : "s"} in ${hc.n} older third-party tutorials${hc.fixed ? `, ${hc.fixed} fixed and proven by Kane` : ""}. <a href="/report/#drift-hunt" style="text-decoration:underline;text-underline-offset:3px">See them</a></p>` : ""}`
       : `<div class="list"><div class="empty"><b>The public run hasn't been published yet</b>Real docs, walked word for word, every evidence pack and every false alarm. It lands here, dated.</div></div>`
   }
 </section>
@@ -257,13 +273,18 @@ cp -r skill/errata ~/.claude/skills/
 }
 
 function reportPage() {
-  const all = [...(demo ? [demo] : []), ...publicReports];
+  const docs = publicReports.filter((r) => !isHunt(r));
+  const hunt = publicReports.filter(isHunt);
+  const all = [...(demo ? [demo] : []), ...docs];
   const flagged = publicReports.flatMap((r) => r.steps.filter((s) => s.status === "drifted" || s.status === "broken").map((s) => ({ r, s, key: `${slugify(host(r.source))}/${slugify(r.tutorial)}#${s.n}` })));
   const confirmed = flagged.filter((f) => review[f.key]?.verdict === "confirmed").length;
   const falseAlarms = flagged.filter((f) => review[f.key]?.verdict === "false_alarm");
   const reviewed = confirmed + falseAlarms.length;
   const reviewers = [...new Set(flagged.map((f) => review[f.key]?.reviewer).filter(Boolean))];
-  const T = publicReports.reduce((a, r) => { const c = confirmedTotals(r); for (const k of Object.keys(a)) a[k] += c[k] || 0; return a; }, { checkable: 0, accurate: 0, drifted: 0, fixed: 0, broken: 0, false_alarms: 0, credits: 0 });
+  const sum = (list) => list.reduce((a, r) => { const c = confirmedTotals(r); for (const k of Object.keys(a)) a[k] += c[k] || 0; return a; }, { checkable: 0, accurate: 0, drifted: 0, fixed: 0, broken: 0, false_alarms: 0, credits: 0 });
+  const T = sum(docs);
+  const H = sum(hunt);
+  const confirmedFlags = flagged.filter((f) => review[f.key]?.verdict === "confirmed");
 
   const row = (r, i) => {
     const st = overall(r);
@@ -281,7 +302,7 @@ ${runDate && publicReports.length ? `<span class="pill neutral">Run of ${esc(dat
 ${
   publicReports.length
     ? `<div class="score">
-<div style="--i:0"><span>Tutorials</span><b class="num">${publicReports.length}</b></div>
+<div style="--i:0"><span>Tutorials</span><b class="num">${docs.length}</b></div>
 <div style="--i:1"><span>Steps checked</span><b class="num">${n(T.checkable)}</b></div>
 <div style="--i:2"><span>Confirmed drifted · broken</span><b class="num"><span style="color:var(--amber)">${T.drifted}</span> · <span style="color:var(--red-ink)">${T.broken}</span></b></div>
 <div style="--i:3"><span>False alarms</span><b class="num">${T.false_alarms}</b></div>
@@ -296,6 +317,20 @@ ${
 ${all.length ? all.map(row).join("") : ""}
 <div class="empty empty-filter" ${all.length ? "hidden" : ""}><b>Nothing here</b>No tutorial matches this filter.</div>
 </div>
+${
+  hunt.length
+    ? `<section class="sec" id="drift-hunt">
+<div class="sec-head"><div><h2 class="h-sec">The drift hunt</h2><p class="mute" style="margin-top:6px;max-width:44em;font-size:14px">Older third-party tutorials we picked because they were likely out of date. A biased sample on purpose: these numbers say nothing about docs in general.</p></div></div>
+<div class="score" style="margin-bottom:12px">
+<div style="--i:0"><span>Tutorials</span><b class="num">${hunt.length}</b></div>
+<div style="--i:1"><span>Steps checked</span><b class="num">${n(H.checkable)}</b></div>
+<div style="--i:2"><span>Confirmed drifted · broken</span><b class="num"><span style="color:var(--amber)">${H.drifted}</span> · <span style="color:var(--red-ink)">${H.broken}</span></b></div>
+<div style="--i:3"><span>Fixed and proven</span><b class="num" style="color:var(--green-ink)">${H.fixed}</b></div>
+</div>
+<div class="list rows">${hunt.map(row).join("")}</div>
+</section>`
+    : ""
+}
 
 <section class="sec">
 <div class="sec-head"><h2 class="h-sec">Precision</h2><span class="mute" style="font-size:13.5px">${reviewers.length ? `Reviewed by ${esc(reviewers.join(", "))}` : "Every flag gets reviewed"}</span></div>
@@ -307,6 +342,7 @@ ${
 <tr><td>Confirmed real</td><td style="color:var(--green-ink)">${confirmed}</td></tr>
 <tr><td>False alarms</td><td style="color:var(--red-ink)">${falseAlarms.length}</td></tr>
 </tbody></table></div>
+${confirmedFlags.length ? `<div class="list" style="margin-top:12px"><div class="list-head">Confirmed findings</div>${confirmedFlags.map((f, i) => `<a class="row" href="/t/${pageSlug(f.r)}/" style="grid-template-columns:minmax(0,1fr);--i:${i}"><div style="min-width:0"><div class="row-title">${esc(f.r.tutorial)} · step ${f.s.n} · ${esc(f.s.status)}</div><div class="row-meta">${esc(review[f.key].why)}</div></div></a>`).join("")}</div>` : ""}
 ${falseAlarms.length ? `<div class="list" style="margin-top:12px"><div class="list-head">False alarms, and why</div>${falseAlarms.map((f, i) => `<a class="row" href="/t/${pageSlug(f.r)}/" style="grid-template-columns:minmax(0,1fr);--i:${i}"><div style="min-width:0"><div class="row-title">${esc(f.r.tutorial)} · step ${f.s.n}</div><div class="row-meta">${esc(review[f.key].why)}</div></div></a>`).join("")}</div>` : ""}`
     : `<div class="list"><div class="empty"><b>No public flags yet</b>Once the public run lands, each drifted or broken step is reviewed against the live page, the reviewer is named, and false alarms are listed here.</div></div>`
 }
@@ -338,13 +374,13 @@ function tutorialPage(r) {
         margin = `<div class="margin">
 <div class="kv"><span>Real path</span><span class="path">${esc(usedPath(s) || "not reported")}</span></div>
 ${s.actual_path && s.actual_path !== usedPath(s) ? `<div class="kv"><span>Kane's route</span><span class="path mute">${esc(s.actual_path)}</span></div>` : ""}
-${s.rewrite ? `<div class="read"><i>Read</i>${esc(plain(s.rewrite))}</div>` : `<div class="why">No rewrite passed a literal run in ${s.attempts?.length ?? 0} loops. Needs a human.</div>`}
-<div class="kv"><span>Verdict</span><span>${esc(s.note)}</span></div></div>`;
+${s.rewrite && !badFix(r, s) ? `<div class="read"><i>Read</i>${esc(plain(s.rewrite))}</div>` : s.rewrite ? `<div class="kv"><span>Rewrite</span><span><s>${esc(plain(s.rewrite))}</s> <span class="pill neutral">rejected in review</span></span></div>` : `<div class="why">No rewrite passed a literal run in ${s.attempts?.length ?? 0} loops. Needs a human.</div>`}
+<div class="kv"><span>Verdict</span><span>${esc(s.note)}</span></div>${reviewNote(r, s)}</div>`;
       if (s.status === "broken") {
         const tried = s.goal_pass?.clicks ?? [];
         margin = `<div class="margin"><div class="why">${esc(s.goal_pass?.one_liner || s.goal_pass?.reason || s.note)}</div>
 ${tried.length ? `<div class="kv"><span>Kane tried</span><span class="path mute">${tried.length} clicks: ${esc(tried.map((c) => c.label).join(" → "))}</span></div>` : ""}
-<div class="kv"><span>Verdict</span><span>${esc(s.note)}</span></div></div>`;
+<div class="kv"><span>Verdict</span><span>${esc(s.note)}</span></div>${reviewNote(r, s)}</div>`;
       }
       if (s.status === "accurate") margin = `<div class="margin"><div class="kv"><span>Verdict</span><span>${esc(s.note)}</span></div></div>`;
       if (s.status === "skipped" || s.status === "unchecked") margin = `<div class="skipnote">${esc(s.note)}</div>`;

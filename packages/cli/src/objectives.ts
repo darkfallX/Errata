@@ -51,7 +51,10 @@ export function labelsMatch(docLabels: string[], clicked: (string | string[])[] 
   const list = typeof clicked === "string" ? splitPath(clicked) : clicked ?? [];
   if (list.length === 0) return false;
   const seq = list.map((c) => (Array.isArray(c) ? c : [c]).map(norm).filter(Boolean));
-  const hit = (names: string[], want: string) => names.some((c) => c === want || c.includes(want) || want.includes(c));
+  // A click name may contain the doc label ("Filter by activity type: All activity" ⊇ "All activity").
+  // The reverse only counts when the click name is most of the label: "Book" must not stand in for
+  // "Book Creator" (a real miss in the drift hunt, where Book Creator had been removed).
+  const hit = (names: string[], want: string) => names.some((c) => c === want || c.includes(want) || (want.includes(c) && c.length >= want.length * 0.6));
   let i = 0;
   for (const want of docLabels.map(norm)) {
     const j = seq.findIndex((c, k) => k >= i && hit(c, want));

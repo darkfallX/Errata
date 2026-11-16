@@ -1,0 +1,82 @@
+{
+  "errata": "1",
+  "tutorial": "Vancouver Editor (2011): How to cite a Wikipedia page",
+  "source": "https://blog.vancouvereditor.com/2011/10/how-to-cite-wikipedia-page.html",
+  "start_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "checked_at": "2026-11-16T16:23:59.279Z",
+  "agent": "Claude (Claude Code, /errata skill) · rewrite: rules (offline, deterministic)",
+  "kane": "live",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "Look for \"**Tools**\" on the left side of the page and click on \"**Cite this page**.\"",
+      "text": "Look for \"Tools\" on the left side of the page and click on \"Cite this page.\"",
+      "goal": "A page with ready-made citations for the article is shown",
+      "labels": [
+        "Tools",
+        "Cite this page"
+      ],
+      "checkable": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "The requested navigation was to open the Tools menu and select “Cite this page.”\nOpened Tools on the left side of the Wikipedia page, then selected “Cite this page.”\nReached Wikipedia’s “Cite This Page” page for Ada Lovelace, which displayed a main heading.",
+        "one_liner": "opened the Cite This Page page for Ada Lovelace on Wikipedia",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\581b3a9a-b8ea-40cf-8dce-96dfc8aa0e50\\evidence\\d2add631-1c40-4974-9e75-fe7b5c58691a.evidence",
+        "final_state": {
+          "url": "https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&page=Ada_Lovelace&id=1384127064&wpFormIdentifier=titleform",
+          "main_heading": "Cite This Page"
+        },
+        "end_url": "https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&page=Ada_Lovelace&id=1384127064&wpFormIdentifier=titleform",
+        "clicks": [
+          {
+            "label": "Tools",
+            "y": 129
+          },
+          {
+            "label": "Cite this page",
+            "y": 372
+          }
+        ],
+        "credits": 26,
+        "duration": 143.8,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7JJHKNPZMRQ67RPV6QW36C6/dashboard/share/US_PXIKJMLTOA1AXOZ6E7N06C1T064RD2N2SE2KGERCE8MNXYX1U3M8GHJTLO2LD1CW?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\581b3a9a-b8ea-40cf-8dce-96dfc8aa0e50\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\581b3a9a-b8ea-40cf-8dce-96dfc8aa0e50",
+        "trail": [
+          "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+          "click: Clicking Tools button",
+          "click: Clicking Cite this page",
+          "wait: PRIMARY: wait for the heading \"Cite This Page\" to be visible",
+          "analyze: The page you end on has a main heading.",
+          "analyze: The main heading is saved as {{landed_on}}.",
+          "wait: Waiting after completing the required heading extraction",
+          "wait: Waiting after completing the citation page checkpoint"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Look for 'Tools' on the left side of the page and click on 'Cite this page.'\"\n1. Click the element whose visible label is exactly 'Tools'.\n2. Click the element whose visible label is exactly 'Cite this page'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "Cite This Page",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 26,
+      "started_at": "https://en.wikipedia.org/wiki/Ada_Lovelace"
+    }
+  ],
+  "totals": {
+    "steps": 1,
+    "checkable": 1,
+    "accurate": 1,
+    "drifted": 0,
+    "fixed": 0,
+    "broken": 0,
+    "skipped": 0,
+    "unchecked": 0,
+    "credits": 26,
+    "seconds": 228
+  },
+  "input": "corpus/tutorials/hunt-vancouvereditor-cite.tutorial.json"
+}

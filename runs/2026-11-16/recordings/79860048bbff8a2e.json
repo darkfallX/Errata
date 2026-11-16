@@ -1,0 +1,88 @@
+{
+  "key": "79860048bbff8a2e",
+  "recorded_at": "2026-11-16T16:11:03.790Z",
+  "exit_code": 0,
+  "mode": "testing",
+  "url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "objective": "Goal: a page offering to download the article as a PDF is shown. Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\nHint: an old tutorial said \"On the left hand side of the screen, you should see a link that says \"Print/Export\". Click it, then select \"Download as PDF\".\", but those labels may have moved or been renamed.\nWhen the goal is met, verify it on screen. If the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+  "clicks": [
+    {
+      "label": "Tools",
+      "y": 129
+    },
+    {
+      "label": "Download as PDF",
+      "y": 559
+    }
+  ],
+  "actions": [
+    {
+      "type": "navigate",
+      "status": "success",
+      "intent": "Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+      "instr": "Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace"
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=button[name=\"Tools\"i]",
+      "intent": "PRIMARY: article tools menu; role=button; text=\"Tools\" | HINTS: container=Page tools navigation",
+      "instr": "Clicking Tools menu",
+      "y": 129
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Download as PDF\"i]",
+      "intent": "PRIMARY: a page offering to download the article as a PDF; role=link; text=\"Download as PDF\" | HINTS: container=Print/export list in Page tools",
+      "instr": "Clicking Download as PDF link",
+      "y": 559
+    },
+    {
+      "type": "wait",
+      "status": "success",
+      "intent": "PRIMARY: wait for the PDF download page to finish loading",
+      "instr": "Waiting for the PDF download page to finish loading"
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "whether a page offering to download the article as a PDF is present (in the main content download form)",
+      "instr": "Checking whether the PDF download offering is shown"
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "whether the page's main heading is present (in the main content header)",
+      "instr": "Checking whether the page main heading is present"
+    },
+    {
+      "type": "assert",
+      "status": "success",
+      "intent": "",
+      "instr": "Assertion check"
+    },
+    {
+      "type": "if_else",
+      "status": "success",
+      "instr": "If-else checkpoint cp_2: condition 'The page you end on has a main heading.' matched"
+    },
+    {
+      "type": "child_agent_start",
+      "status": "executing",
+      "instr": "Get the main heading and save as {{landed_on}}."
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "the main heading text in the page content",
+      "instr": "Extracting the main page heading"
+    },
+    {
+      "type": "child_agent_end",
+      "status": "success",
+      "instr": "Get the main heading and save as {{landed_on}}."
+    }
+  ],
+  "ndjson": "{\"type\":\"stream_start\",\"cli_version\":\"0.10.4\",\"surface\":\"run\",\"pid\":3648,\"v\":1,\"ts\":\"2026-11-16T16:07:35.930Z\"}\n{\"type\":\"recording_state\",\"enabled\":true,\"session_id\":\"96bc68c7-9dd0-4111-be13-83e345bf429a\",\"persist\":false,\"v\":1,\"ts\":\"2026-11-16T16:07:36.020Z\"}\n{\"type\":\"skill_update_available\",\"current\":null,\"latest\":\"0.1.4\",\"install_cmd\":\"kane-cli install skill\",\"v\":1,\"ts\":\"2026-11-16T16:07:43.634Z\"}\n{\"type\":\"bifurcation\",\"flows\":[\"Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace then Goal: a page offering to download the article as a PDF is shown.\\nReach it from the current page by clicking through the visible UI, by any route.\\nNever type a URL or use the address bar.\\nHint: an old tutorial said \\\"On the left hand side of the screen, you should see a link that says \\\"Print/Export\\\". Click it, then select \\\"Download as PDF\\\".\\\", but those labels may have moved or been renamed.\\nWhen the goal is met, verify it on screen.\\nIf the page you end on has a main heading, @v16:\\\"Get the main heading and save as {{landed_on}}.\\\"; a page without a heading is fine.\"],\"count\":1,\"v\":1,\"ts\":\"2026-11-16T16:08:12.481Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"v\":1,\"ts\":\"2026-11-16T16:08:41.520Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace\",\"v\":1,\"ts\":\"2026-11-16T16:08:41.568Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"v\":1,\"ts\":\"2026-11-16T16:08:52.610Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"click: Clicking Tools menu\",\"v\":1,\"ts\":\"2026-11-16T16:09:07.012Z\"}\n{\"step\":4,\"status\":\"running\",\"remark\":\"Step 3\",\"v\":1,\"ts\":\"2026-11-16T16:09:16.427Z\"}\n{\"step\":4,\"status\":\"done\",\"remark\":\"click: Clicking Download as PDF link\",\"v\":1,\"ts\":\"2026-11-16T16:09:33.072Z\"}\n{\"step\":5,\"status\":\"running\",\"remark\":\"Step 4\",\"v\":1,\"ts\":\"2026-11-16T16:09:34.284Z\"}\n{\"step\":5,\"status\":\"done\",\"remark\":\"wait: PRIMARY: wait for the PDF download page to finish loading\",\"v\":1,\"ts\":\"2026-11-16T16:09:45.734Z\"}\n{\"step\":6,\"status\":\"running\",\"remark\":\"Step 5\",\"v\":1,\"ts\":\"2026-11-16T16:09:46.843Z\"}\n{\"step\":6,\"status\":\"done\",\"remark\":\"analyze: The page you end on has a main heading.\",\"v\":1,\"ts\":\"2026-11-16T16:10:02.497Z\"}\n{\"step\":7,\"status\":\"running\",\"remark\":\"Step 6\",\"v\":1,\"ts\":\"2026-11-16T16:10:03.653Z\"}\n{\"step\":7,\"status\":\"done\",\"remark\":\"assert: A page offering to download the article as a PDF is shown on screen.\",\"v\":1,\"ts\":\"2026-11-16T16:10:03.705Z\"}\n{\"step\":8,\"status\":\"running\",\"remark\":\"Step 7\",\"v\":1,\"ts\":\"2026-11-16T16:10:04.758Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"child_id\":\"25951cdc\",\"v\":1,\"ts\":\"2026-11-16T16:10:05.564Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"analyze: The main heading is saved as {{landed_on}}.\",\"child_id\":\"25951cdc\",\"v\":1,\"ts\":\"2026-11-16T16:10:17.348Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"child_id\":\"25951cdc\",\"v\":1,\"ts\":\"2026-11-16T16:10:18.533Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"wait: Waiting after checkpoint verification\",\"child_id\":\"25951cdc\",\"v\":1,\"ts\":\"2026-11-16T16:10:21.432Z\"}\n{\"step\":9,\"status\":\"running\",\"remark\":\"Step 8\",\"v\":1,\"ts\":\"2026-11-16T16:10:26.057Z\"}\n{\"step\":9,\"status\":\"done\",\"remark\":\"wait: Waiting completion confirmed after PDF download offering verification\",\"v\":1,\"ts\":\"2026-11-16T16:10:29.806Z\"}\n{\"type\":\"coverage\",\"status\":\"skipped\",\"reason\":\"not_assurance_project\",\"pack\":\"~\\\\.testmuai\\\\kaneai\\\\sessions\\\\96bc68c7-9dd0-4111-be13-83e345bf429a\\\\evidence\\\\45066c7a-b886-4f8b-b69e-a39fd0853ec7.evidence\",\"v\":1,\"ts\":\"2026-11-16T16:10:58.689Z\"}\n{\"type\":\"run_end\",\"status\":\"passed\",\"summary\":\"You asked to navigate through Wikipedia’s visible controls to a page where the current article can be downloaded as a PDF.\\nNavigated to Wikipedia’s PDF download page for the Ada Lovelace article.\\nThe final page shows a “Download as PDF” heading and a download option.\",\"one_liner\":\"opened the PDF download page for Ada Lovelace on Wikipedia\",\"final_state\":{\"url\":\"https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&page=Ada_Lovelace&action=show-download-screen\",\"main_heading\":\"Download as PDF\",\"pdf_download_offering_visible\":\"true\"},\"reason\":\"Objective completed\",\"duration\":152.2,\"bifurcated\":false,\"total_runs\":1,\"context\":{\"memory\":{\"pdf_download_offering_visible\":{\"extracted_value\":\"true\",\"operator\":\"equals\",\"transforms\":[],\"json_path\":null,\"reasoning\":\"value: 'true' -> 'true'; equals 'true' -> PASS\",\"analyzer_type\":\"textual_visual\",\"step\":5,\"query\":\"whether a page offering to download the article as a PDF is present (in the main content download form)\",\"condition\":\"A page offering to download the article as a PDF is shown on screen.\",\"human_description\":\"Checking whether the PDF download offering is shown\",\"expected_value\":\"true\",\"subject\":\"a page offering to download the article as a PDF\",\"must_be\":\"present\",\"code_js\":\"(()=>{const label=el(72).querySelector('label');const button=el(72).querySelector('button');const s=getComputedStyle(el(72));return !!(label&&/Download as PDF/i.test(label.textContent)&&button&&/Download/i.test(button.textContent)&&s.display!=='none'&&s.visibility!=='hidden');})()\",\"wrapped_js\":\"(els) => {\\n  const __m = {72: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = ((()=>{const label=el(72).querySelector('label');const button=el(72).querySelector('button');const s=getComputedStyle(el(72));return !!(label&&/Download as PDF/i.test(label.textContent)&&button&&/Download/i.test(button.textContent)&&s.display!=='none'&&s.visibility!=='hidden');})());\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:label=\\\"Download as PDF\\\"i\"],\"needs_unit_conversion\":false},\"main_heading_present\":{\"extracted_value\":\"true\",\"operator\":\"equals\",\"transforms\":[],\"json_path\":null,\"reasoning\":\"value: 'true' -> 'true'; equals 'true' -> PASS\",\"analyzer_type\":\"textual_visual\",\"step\":5,\"query\":\"whether the page's main heading is present (in the main content header)\",\"condition\":\"The page you end on has a main heading.\",\"human_description\":\"Checking whether the page main heading is present\",\"expected_value\":\"true\",\"subject\":\"the page's main heading\",\"must_be\":\"present\",\"code_js\":\"(()=>{const s=getComputedStyle(el(25));return el(25).tagName==='H1'&&el(25).textContent.trim().length>0&&s.display!=='none'&&s.visibility!=='hidden';})()\",\"wrapped_js\":\"(els) => {\\n  const __m = {25: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = ((()=>{const s=getComputedStyle(el(25));return el(25).tagName==='H1'&&el(25).textContent.trim().length>0&&s.display!=='none'&&s.visibility!=='hidden';})());\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:role=heading[name=\\\"Download as PDF\\\"i]\"],\"needs_unit_conversion\":false}},\"variables\":{\"landed_on\":{\"syntax\":\"{{landed_on}}\",\"value\":\"Download as PDF\",\"type\":\"memory\",\"secret\":false,\"source\":\"runtime\"},\"pdf_download_offering_visible\":{\"syntax\":\"{{pdf_download_offering_visible}}\",\"value\":\"true\",\"type\":\"memory\",\"secret\":false},\"main_heading_present\":{\"syntax\":\"{{main_heading_present}}\",\"value\":\"true\",\"type\":\"memory\",\"secret\":false}},\"pointer\":\"(passed) opened the PDF download page for Ada Lovelace on Wikipedia\"},\"credits_consumed\":29.190890000000003,\"session_dir\":\"~/.testmuai/kaneai/sessions\\\\96bc68c7-9dd0-4111-be13-83e345bf429a\",\"run_dir\":\"~/.testmuai/kaneai/sessions\\\\96bc68c7-9dd0-4111-be13-83e345bf429a\\\\runs\\\\0\",\"result_code\":100,\"reason_code\":\"success.complete\",\"per_flow_metadata\":[{\"result_code\":\"100\",\"reason_code\":\"success.complete\",\"error_message\":null,\"summary\":\"You asked to navigate through Wikipedia’s visible controls to a page where the current article can be downloaded as a PDF.\\nNavigated to Wikipedia’s PDF download page for the Ada Lovelace article.\\nThe final page shows a “Download as PDF” heading and a download option.\",\"one_liner\":\"opened the PDF download page for Ada Lovelace on Wikipedia\",\"credits_consumed\":29.190890000000003}],\"run_id\":\"run-0\",\"test_url\":\"https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7JHTJ8T7RXP952EV6DSRCVK/dashboard/share/US_7C6D8CTIXAI15R57XF8OL51DX4NBNTBTWSOVC1YZ2Q4ACC0SIXY5SSKMNTERAVXO?type=summary&agentView=true&fqdn=summary-page\",\"coverage\":{\"status\":\"skipped\"},\"v\":1,\"ts\":\"2026-11-16T16:10:58.692Z\"}\n"
+}

@@ -1,0 +1,32 @@
+{
+  "title": "How-To Geek (2010): Make a book from Wikipedia articles",
+  "source": "https://www.howtogeek.com/27882/create-an-ebook-or-pdf-from-wikipedia-articles-for-offline-reading/",
+  "start_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "extracted_by": "Claude (Claude Code, /errata skill)",
+  "extracted_at": "2026-11-16",
+  "set": "hunt",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "In the left sidebar, under \"**Print/export**,\" click \"**Create a book**.\"",
+      "text": "In the left sidebar, under \"Print/export,\" click \"Create a book.\"",
+      "goal": "Wikipedia's Book creator page is shown",
+      "labels": [
+        "Print/export",
+        "Create a book"
+      ],
+      "checkable": true
+    },
+    {
+      "n": 2,
+      "quote": "On the Book creator page, click \"**Start book creator**.\"",
+      "text": "On the Book creator page, click \"Start book creator.\"",
+      "goal": "The book creator is on, offering to add the current page to a book",
+      "labels": [
+        "Start book creator"
+      ],
+      "checkable": true,
+      "continues": true
+    }
+  ]
+}
