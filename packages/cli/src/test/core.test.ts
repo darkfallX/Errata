@@ -35,6 +35,30 @@ test("guardRewrite rejects labels Kane never saw", () => {
   assert.deepEqual(guardRewrite({ text: "", labels: ["Create a new API token"] }, "Developers → Tokens", "Create a new API token"), []);
 });
 
+test("guardRewrite also checks bold labels in the sentence, not only the labels the agent reports", () => {
+  const sneaky = { text: "Open **Developers** → **Secret Vault** and press **New token**.", labels: ["Developers", "New token"] };
+  assert.deepEqual(guardRewrite(sneaky, "Developers → Tokens → New token"), ["Secret Vault"]);
+});
+
+test("trimExploration collapses dead-end loops (real drift-hunt route) and sidebar look-arounds", () => {
+  // Kane's real goal-pass route on How-To Geek's "Create a book": it wandered before finding the way.
+  const wandered = [
+    { label: "Search", y: 12 },
+    { label: "Tools", y: 12 },
+    { label: "Search", y: 12 },
+    { label: "Main menu", y: 12 },
+    { label: "Special pages", y: 420 },
+    { label: "Book", y: 300 },
+  ];
+  assert.equal(pathOf(trimExploration(wandered)), "Main menu → Special pages → Book");
+  const sidebar = [
+    { label: "General", x: 40, y: 200 },
+    { label: "API Keys", x: 40, y: 240 },
+    { label: "Create key", x: 600, y: 300 },
+  ];
+  assert.equal(pathOf(trimExploration(sidebar)), "API Keys → Create key");
+});
+
 test("literal objective is an ordered list of single clicks, no global fail rule, no setup, no self-reported path", () => {
   const o = literalObjective({ text: "Click Settings → API Keys", labels: ["Settings", "API Keys"] });
   assert.match(o, /1\. Click the element whose visible label is exactly 'Settings'\.\n2\. Click the element whose visible label is exactly 'API Keys'\./);

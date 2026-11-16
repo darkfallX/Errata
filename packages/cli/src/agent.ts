@@ -46,7 +46,10 @@ export const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, " ").t
  */
 export function guardRewrite(out: RewriteOutput, actual_path: string, landed_on?: string, aliases: string[] = []): string[] {
   const seen = new Set([...splitPath(actual_path), ...(landed_on ? [landed_on] : []), ...aliases].map(norm));
-  return out.labels.filter((l) => !seen.has(norm(l)));
+  // Check the labels the agent reports AND every **bold** or "quoted" label in the sentence it wrote,
+  // so a label slipped into the text but left out of `labels` is still caught.
+  const claimed = [...new Set([...out.labels, ...labelsIn(out.text)])];
+  return claimed.filter((l) => !seen.has(norm(l)));
 }
 
 // ---------------------------------------------------------------- Rules agent

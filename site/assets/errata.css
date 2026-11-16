@@ -198,3 +198,8 @@ details.runs[open] summary svg{transform:rotate(90deg)}
 
 /* long lists: cap the stagger so row 24 never waits 2 s */
 .row{animation-delay:calc(min(var(--i,0),8)*90ms)}
+
+/* Kane's own screenshot inside a run */
+.run .shot{display:block;border-top:.8px solid var(--line-soft);background:var(--panel)}
+.run .shot img{display:block;width:100%;height:auto}
+.run .shot-cap{padding:6px 12px;font-size:12px;color:var(--mute);border-top:.8px solid var(--line-soft)}

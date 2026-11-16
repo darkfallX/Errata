@@ -38,6 +38,8 @@
           });
           const empty = target.querySelector(".empty-filter");
           if (empty) empty.hidden = i > 0;
+          // A list (or section) whose rows are all filtered out disappears with them.
+          target.querySelectorAll("[data-hide-when-empty]").forEach((el) => (el.hidden = ![...el.querySelectorAll("[data-status]")].some((r) => !r.hidden)));
         }
       }),
     );

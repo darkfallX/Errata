@@ -39,7 +39,8 @@ export interface Click {
   names?: string[];
   /** Page the click happened on. */
   url?: string;
-  /** Element's y position on the page (used to spot look-around clicks in a header row). */
+  /** Element's position on the page (used to spot look-around clicks in a header row or a sidebar). */
+  x?: number;
   y?: number;
 }
 

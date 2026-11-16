@@ -23,6 +23,7 @@ export interface RawAction {
   selector?: string;
   intent?: string;
   instr?: string;
+  x?: number;
   y?: number;
 }
 
@@ -57,7 +58,7 @@ export function clickFromAction(a: RawAction): Click | undefined {
   // Prefer Kane's description when it is part of the element's own text/name (the visible short form).
   const label = said && [text, sel].some((x) => x && n(x).includes(n(said))) ? said : (text ?? sel ?? said)!;
   const aliases = [...new Set(names.filter((x) => x !== label))];
-  return { label, ...(aliases.length ? { names: aliases } : {}), y: a.y };
+  return { label, ...(aliases.length ? { names: aliases } : {}), x: a.x, y: a.y };
 }
 
 export function clicksFromActions(actions: RawAction[]): Click[] {
@@ -116,6 +117,7 @@ export function actionsFromPack(pack: string | undefined): RawAction[] {
               selector: Array.isArray(a.selectors) ? a.selectors[0]?.selector : undefined,
               intent: typeof a.intent === "string" ? a.intent.slice(0, 400) : undefined,
               instr: typeof a.action_instruction === "string" ? a.action_instruction.slice(0, 200) : undefined,
+              x: a.visual_data?.bbox?.x,
               y: a.visual_data?.bbox?.y,
             });
           } catch {
@@ -145,7 +147,7 @@ export function actionsFromPack(pack: string | undefined): RawAction[] {
       })
       .filter((s) => s && s.kind === "click")
       .sort((a, b) => a.ordinal - b.ordinal);
-    for (const s of steps) out.push({ type: "click", status: s.status, selector: names.get(s.ordinal), instr: String(s.summary ?? "").replace(/^click:\s*/, ""), y: s.element_rect?.y });
+    for (const s of steps) out.push({ type: "click", status: s.status, selector: names.get(s.ordinal), instr: String(s.summary ?? "").replace(/^click:\s*/, ""), x: s.element_rect?.x, y: s.element_rect?.y });
   }
   return out;
 }
@@ -177,10 +179,20 @@ export const namesOf = (c: Click) => [c.label, ...(c.names ?? [])];
  */
 export function trimExploration(clicks: Click[]): Click[] {
   const out: Click[] = [];
+  const same = (a: Click, b: Click) => a.label.toLowerCase() === b.label.toLowerCase();
   for (const c of clicks) {
+    // A loop (A → B → A) was a dead end: drop everything after the first A.
+    // Seen in the drift hunt: Search → Tools → Search → Main menu → … wandered before finding the way.
+    const seenAt = out.findIndex((o) => same(o, c));
+    if (seenAt >= 0) {
+      out.length = seenAt + 1;
+      continue;
+    }
     const prev = out.at(-1);
-    if (prev && prev.label.toLowerCase() === c.label.toLowerCase()) continue;
+    // Two clicks in a row in the same header row: the first was a look-around.
     if (prev && prev.y !== undefined && c.y !== undefined && prev.y < 120 && c.y < 120 && Math.abs(prev.y - c.y) <= 8) out.pop();
+    // Two clicks in a row in the same left-hand column (a sidebar): the first was a look-around.
+    else if (prev && prev.x !== undefined && c.x !== undefined && prev.x < 320 && c.x < 320 && Math.abs(prev.x - c.x) <= 16 && prev.y !== undefined && c.y !== undefined && prev.y >= 120 && c.y >= 120) out.pop();
     out.push(c);
   }
   return out;

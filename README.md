@@ -159,7 +159,7 @@ Then the closed loop: **the agent rewrites the step from Kane's real path → Ka
 
 ## Honesty rules (enforced in code)
 
-- A rewrite may only use UI labels that appear in Kane's real path or the heading it landed on (`guardRewrite`). A rewrite that invents a label is rejected before Kane runs it.
+- A rewrite may only use UI labels that appear in Kane's real path or the heading it landed on (`guardRewrite`). It checks both the labels the agent reports and every **bold** or "quoted" label in the sentence it wrote, so a rewrite that invents a label is rejected before Kane runs it.
 - Shell commands, file edits and "check your email" steps are **not checkable**. They are shown as such and never counted as passed.
 - When Kane itself can't run (sign-in, network, Chrome), the step is **unchecked** and never counted as a docs finding.
 - Replays are real recorded runs, labelled as replays. A missing recording is an error, never a made-up result.
@@ -238,7 +238,8 @@ site/                    the report site (static, built from report.json)
 ```
 
 ```bash
-npm install && npm run build && npm test     # 17 tests, no network or credits needed
+npm install && npm run build && npm test     # 21 tests, no network or credits needed
+node site/extract-shots.mjs                   # copies Kane's screenshots out of local evidence packs
 npm run site                                  # builds site/out from the reports
 ```
 

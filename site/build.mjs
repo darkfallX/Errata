@@ -138,7 +138,7 @@ function layout({ title, description, path, active, body }) {
 </head><body>
 <header class="bar"><div class="bar-in">
 <a class="logo" href="/" aria-label="Errata home">${LOGO()}<span>Errata</span></a>
-<nav aria-label="Main">${tab("/report/", "Report", "report")}${tab("/how-it-works/", "How it works", "how")}${tab("/judges/", "Judges", "judges", "hide-sm")}</nav>
+<nav aria-label="Main">${tab("/report/", "Report", "report")}${tab("/how-it-works/", "How it works", "how")}${tab("/judges/", "Judges", "judges")}</nav>
 <div class="end"><div class="theme" role="group" aria-label="Theme"><button data-t="light" aria-label="Light theme">${ICON.sun}</button><button data-t="system" aria-label="System theme">${ICON.sys}</button><button data-t="dark" aria-label="Dark theme">${ICON.moon}</button></div>
 <a class="gh" href="${REPO}" aria-label="Errata on GitHub">${ICON.gh}</a></div>
 </div></header>
@@ -189,8 +189,8 @@ function home() {
   const huntR = publicReports.filter(isHunt);
   // Only reviewer-confirmed findings count here; unreviewed flags are not claimed.
   const isConfirmed = (r, s) => review[reviewKey(r, s)]?.verdict === "confirmed";
-  const hc = huntR.reduce((a, r) => { const ok = r.steps.filter((s) => isConfirmed(r, s)); return { n: a.n + 1, wrong: a.wrong + ok.length, fixed: a.fixed + ok.filter((s) => s.rewrite && !badFix(r, s)).length }; }, { n: 0, wrong: 0, fixed: 0 });
-  const t = docsR.reduce((a, r) => { const c = confirmedTotals(r); return { tut: a.tut + 1, steps: a.steps + c.checkable, acc: a.acc + c.accurate, dr: a.dr + c.drifted, br: a.br + c.broken, fa: a.fa + c.false_alarms, cr: a.cr + c.credits }; }, { tut: 0, steps: 0, acc: 0, dr: 0, br: 0, fa: 0, cr: 0 });
+  const hc = huntR.reduce((a, r) => { const ok = r.steps.filter((s) => isConfirmed(r, s)); return { n: a.n + 1, wrong: a.wrong + ok.length, fixed: a.fixed + ok.filter((s) => s.rewrite && !badFix(r, s)).length, fa: a.fa + confirmedTotals(r).false_alarms }; }, { n: 0, wrong: 0, fixed: 0, fa: 0 });
+  const t = docsR.reduce((a, r) => { const c = confirmedTotals(r); return { tut: a.tut + 1, steps: a.steps + c.checkable, acc: a.acc + c.accurate, dr: a.dr + c.drifted, br: a.br + c.broken, fix: a.fix + Math.max(0, c.fixed), fa: a.fa + c.false_alarms, cr: a.cr + c.credits }; }, { tut: 0, steps: 0, acc: 0, dr: 0, br: 0, fix: 0, fa: 0, cr: 0 });
   const install = `npx errata-cli check https://docs.your-product.com/quickstart`;
   const body = `
 <div class="wrap">
@@ -199,7 +199,7 @@ function home() {
     <h1 class="h-hero">Every doc has errata.<span class="o">Find <i>yours</i>.</span></h1>
     <p class="lede">Errata follows your tutorials word for word in a real browser. When a step no longer matches the product, it finds the real path, rewrites the step, and proves the fix before anyone reads it.</p>
     <div class="ctas"><a class="x-btn lg" href="/report/">See the report</a><a class="x-btn ghost lg" href="#install">Try it on your docs</a></div>
-    <div class="cmd"><span>$</span> npx errata-cli demo <button class="copy" data-copy="npx errata-cli demo" aria-label="Copy command">${ICON.copy}</button></div>
+    <div class="cmd"><span>$</span> npx errata-cli demo --replay <button class="copy" data-copy="npx errata-cli demo --replay" aria-label="Copy command">${ICON.copy}</button></div>
   </div>
   <div>
     ${demo ? slip(demo) : `<div class="slip card hero-card"><div class="empty"><b>No demo report yet</b>Run <span class="inline">errata demo</span> to create one.</div></div>`}
@@ -222,11 +222,11 @@ function home() {
   ${
     publicReports.length
       ? `<div class="score">
-    <div style="--i:0"><span>Tutorials walked</span><b class="num">${n(t.tut)}</b></div>
-    <div style="--i:1"><span>Steps walked</span><b class="num">${n(t.steps)}</b></div>
-    <div style="--i:2"><span>Confirmed wrong steps</span><b class="num" style="color:${t.dr + t.br ? "var(--amber)" : "var(--ink)"}">${n(t.dr + t.br)}</b></div>
-    <div style="--i:3"><span>False alarms, published</span><b class="num">${n(t.fa)}</b></div>
-  </div>${hc.n ? `<p class="mute" style="margin-top:12px;font-size:14px">Drift hunt: ${hc.wrong} confirmed wrong step${hc.wrong === 1 ? "" : "s"} in ${hc.n} older third-party tutorials${hc.fixed ? `, ${hc.fixed} fixed and proven by Kane` : ""}. <a href="/report/#drift-hunt" style="text-decoration:underline;text-underline-offset:3px">See them</a></p>` : ""}`
+    <div style="--i:0"><span>Public tutorials walked</span><b class="num">${n(t.tut + hc.n)}</b></div>
+    <div style="--i:1"><span>Confirmed wrong steps</span><b class="num" style="color:${t.dr + t.br + hc.wrong ? "var(--amber)" : "var(--ink)"}">${n(t.dr + t.br + hc.wrong)}</b></div>
+    <div style="--i:2"><span>Fixed and proven by Kane</span><b class="num" style="color:${t.fix + hc.fixed ? "var(--green-ink)" : "var(--ink)"}">${n(t.fix + hc.fixed)}</b></div>
+    <div style="--i:3"><span>False alarms, published</span><b class="num">${n(t.fa + hc.fa)}</b></div>
+  </div><p class="mute" style="margin-top:12px;font-size:14px">${n(t.tut)} current tutorials from GitHub Docs, Wikipedia, Grafana, Plausible and OpenStreetMap: ${t.dr + t.br ? `${n(t.dr + t.br)} wrong` : "all accurate"}.${hc.n ? ` The wrong steps came from ${hc.n} older third-party tutorials we picked because they were likely out of date. <a href="/report/#drift-hunt" style="text-decoration:underline;text-underline-offset:3px">See the drift hunt</a>` : ""}</p>`
       : `<div class="list"><div class="empty"><b>The public run hasn't been published yet</b>Real docs, walked word for word, every evidence pack and every false alarm. It lands here, dated.</div></div>`
   }
 </section>
@@ -260,8 +260,8 @@ npm i -g @testmuai/kane-cli && kane-cli login
   env:
     KANE_USERNAME: \${{ secrets.KANE_USERNAME }}
     KANE_ACCESS_KEY: \${{ secrets.KANE_ACCESS_KEY }}</div>
-<div class="code" data-pane="skill" hidden><span class="tok-c"># Claude Code: copy the skill, then ask</span>
-cp -r skill/errata ~/.claude/skills/
+<div class="code" data-pane="skill" hidden><span class="tok-c"># Claude Code: install the skill, then ask</span>
+<span class="tok-k">npx errata-cli skill</span>
 
 <span class="tok-k">/errata</span> I renamed the Billing menu. Check the docs.</div>
       </div>
@@ -288,7 +288,8 @@ function reportPage() {
 
   const row = (r, i) => {
     const st = overall(r);
-    const flags = [st, r === demo ? "demo" : "public"].join(" ");
+    const c = confirmedTotals(r);
+    const flags = [st, c.drifted > 0 && "drifted", c.broken > 0 && "broken", c.false_alarms > 0 && "false_alarm", r === demo ? "demo" : "public"].filter(Boolean).join(" ");
     return `<a class="row" href="/t/${pageSlug(r)}/" data-status="${flags}" style="--i:${i}">
 <div style="min-width:0"><div class="row-title">${esc(r.tutorial)}</div><div class="row-meta"><span class="host">${esc(r === demo ? "demo · driftwood v2" : host(r.source))}</span></div></div>
 <div class="tb">${tbar(r.totals)}</div>
@@ -310,16 +311,16 @@ ${
     : ""
 }
 <div class="filters">
-  <div class="seg" role="group" aria-label="Filter" data-target="#rows"><button data-v="all" aria-pressed="true">All</button><button data-v="drifted" aria-pressed="false">Drifted</button><button data-v="broken" aria-pressed="false">Broken</button><button data-v="accurate" aria-pressed="false">Accurate</button><button data-v="false_alarm" aria-pressed="false">False alarms</button></div>
+  <div class="seg" role="group" aria-label="Filter" data-target="#tutorials"><button data-v="all" aria-pressed="true">All</button><button data-v="drifted" aria-pressed="false">Drifted</button><button data-v="broken" aria-pressed="false">Broken</button><button data-v="accurate" aria-pressed="false">Accurate</button><button data-v="false_alarm" aria-pressed="false">False alarms</button></div>
   <div class="legend"><span><i style="background:var(--green)"></i>accurate</span><span><i style="background:var(--amber)"></i>drifted</span><span><i style="background:var(--red)"></i>broken</span><span><i style="background:var(--line)"></i>not checkable</span></div>
 </div>
-<div class="list rows" id="rows">
+<div id="tutorials">
+<div class="list rows" id="rows" data-hide-when-empty>
 ${all.length ? all.map(row).join("") : ""}
-<div class="empty empty-filter" ${all.length ? "hidden" : ""}><b>Nothing here</b>No tutorial matches this filter.</div>
 </div>
 ${
   hunt.length
-    ? `<section class="sec" id="drift-hunt">
+    ? `<section class="sec" id="drift-hunt" data-hide-when-empty>
 <div class="sec-head"><div><h2 class="h-sec">The drift hunt</h2><p class="mute" style="margin-top:6px;max-width:44em;font-size:14px">Older third-party tutorials we picked because they were likely out of date. A biased sample on purpose: these numbers say nothing about docs in general.</p></div></div>
 <div class="score" style="margin-bottom:12px">
 <div style="--i:0"><span>Tutorials</span><b class="num">${hunt.length}</b></div>
@@ -331,6 +332,8 @@ ${
 </section>`
     : ""
 }
+<div class="list empty empty-filter" hidden><b>Nothing here</b>No tutorial matches this filter.</div>
+</div>
 
 <section class="sec">
 <div class="sec-head"><h2 class="h-sec">Precision</h2><span class="mute" style="font-size:13.5px">${reviewers.length ? `Approved by ${esc(reviewers.join(", "))}` : "Every flag gets reviewed"}</span></div>
@@ -351,8 +354,16 @@ ${falseAlarms.length ? `<div class="list" style="margin-top:12px"><div class="li
   return layout({ title: "The errata sheet · Errata", description: "Every tutorial Errata walked, word for word, with evidence and false alarms.", path: "/report/", active: "report", body });
 }
 
+/** Kane's last screenshot for a run, extracted from its evidence pack by site/extract-shots.mjs. */
+const shotOf = (k) => {
+  if (!k?.evidence) return "";
+  const id = String(k.evidence).split(/[\\/]/).pop().replace(/\.evidence$/, "");
+  return existsSync(join(here, "assets", "shots", `${id}.jpg`)) ? `/assets/shots/${id}.jpg` : "";
+};
+
 function runBlock(label, k) {
   if (!k) return "";
+  const shot = shotOf(k);
   const pill = k.status === "passed" ? '<span class="pill ok">passed</span>' : k.status === "failed" ? '<span class="pill no">failed</span>' : `<span class="pill neutral">${esc(k.status)}</span>`;
   const retried = k.retried ? ' <span class="mute" style="font-weight:500">· retried after a Kane infrastructure error</span>' : "";
   const links = [k.test_url && `<a href="${esc(k.test_url)}" target="_blank" rel="noopener">Kane test run</a>`].filter(Boolean).join("");
@@ -360,6 +371,7 @@ function runBlock(label, k) {
 ${k.trail?.length ? `<ol>${k.trail.map((t) => `<li>${esc(t)}</li>`).join("")}</ol>` : ""}
 ${k.one_liner || k.reason ? `<div class="why2">${esc(k.one_liner || k.reason)}</div>` : ""}
 ${k.clicks?.length ? `<div class="obj"><span style="color:var(--ink-2);font-weight:600">Clicked, per the evidence pack:</span> ${esc(k.clicks.map((c) => c.label).join(" → "))}</div>` : ""}
+${shot ? `<a class="shot" href="${shot}" target="_blank" rel="noopener"><img src="${shot}" alt="Kane's screenshot at the end of the ${esc(label.toLowerCase())} run" loading="lazy" width="1920" height="1080"></a><div class="shot-cap">Kane's screenshot at the end of this run, from its sealed evidence pack</div>` : ""}
 <div class="obj">${esc(k.objective)}</div>
 ${links ? `<div class="lnk">${links}</div>` : ""}</div>`;
 }
@@ -475,7 +487,7 @@ ${arrow(820, 114, 820, 196, "")}<text x="832" y="160" font-size="12" fill="var(-
 </div></section>
 <section class="sec"><div class="sec-head"><h2 class="h-sec">The honesty rules</h2></div>
 <div class="prose">
-<p>A rewrite may only use UI labels that appear in Kane's <code>actual_path</code> or the heading it landed on. The check is in code, so a rewrite that invents a label is rejected before Kane ever runs it.</p>
+<p>A rewrite may only use UI labels that appear in Kane's <code>actual_path</code> or the heading it landed on. The check is in code and covers every bold or quoted label in the sentence itself, not just the labels the agent lists, so a rewrite that invents a label is rejected before Kane ever runs it.</p>
 <p>Shell commands, file edits and "check your email" steps are marked <b>not checkable</b> and shown as such, never counted as passed. When Kane itself can't run (sign-in, network, Chrome), the step is <b>unchecked</b> and not counted as a finding.</p>
 <p>Recorded runs are labelled as replays everywhere they appear. Every flag in the public run is reviewed against the live page and the evidence, with the reviewer named, and false alarms are published.</p>
 </div></section>
