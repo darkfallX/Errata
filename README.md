@@ -74,7 +74,7 @@ We walked **24 published tutorials, 44 checkable steps**, from GitHub Docs (15),
 | False alarms (both Errata's bugs, both fixed) | 2 |
 | Kane credits | 889 |
 
-**Both flags were our bugs, not the docs'.** One: Errata asked Kane to note the page heading, and GitHub's raw file view has none, so a correct click on **Raw** failed. Two: GitHub's file view has a **Code** toggle *and* a **Code** repository tab; given only the label, Kane clicked the tab, and the next step started on the wrong page. Both are fixed: the heading is optional, and Kane now gets the doc's own sentence as context. A re-run of both tutorials came back fully accurate ([`runs/2026-11-16/rerun/`](runs/2026-11-16/rerun/)). The review is in [`review.json`](runs/2026-11-16/review.json); it was done by Claude and is marked as pending human confirmation.
+**Both flags were our bugs, not the docs'.** One: Errata asked Kane to note the page heading, and GitHub's raw file view has none, so a correct click on **Raw** failed. Two: GitHub's file view has a **Code** toggle *and* a **Code** repository tab; given only the label, Kane clicked the tab, and the next step started on the wrong page. Both are fixed: the heading is optional, and Kane now gets the doc's own sentence as context. A re-run of both tutorials came back fully accurate ([`runs/2026-11-16/rerun/`](runs/2026-11-16/rerun/)). The review is in [`review.json`](runs/2026-11-16/review.json): each verdict names its reviewer (Darkfallx, or Claude where a person has not confirmed it yet).
 
 So: well-kept docs from big projects stayed accurate, and we publish the false alarms rather than a flattering number. The Driftwood demo is where you can watch drift get caught, fixed and proven.
 

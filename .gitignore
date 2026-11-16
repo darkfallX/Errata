@@ -12,3 +12,5 @@ runs-*.log
 .old/
 runs/**/*.log
 .errata-demo-*.log
+
+.vercel
