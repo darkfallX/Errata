@@ -74,7 +74,7 @@ We walked **24 published tutorials, 44 checkable steps**, from GitHub Docs (15),
 | False alarms (both Errata's bugs, both fixed) | 2 |
 | Kane credits | 889 |
 
-**Both flags were our bugs, not the docs'.** One: Errata asked Kane to note the page heading, and GitHub's raw file view has none, so a correct click on **Raw** failed. Two: GitHub's file view has a **Code** toggle *and* a **Code** repository tab; given only the label, Kane clicked the tab, and the next step started on the wrong page. Both are fixed: the heading is optional, and Kane now gets the doc's own sentence as context. A re-run of both tutorials came back fully accurate ([`runs/2026-11-16/rerun/`](runs/2026-11-16/rerun/)). The review is in [`review.json`](runs/2026-11-16/review.json): each verdict names its reviewer (Darkfallx, or Claude where a person has not confirmed it yet).
+**Both flags were our bugs, not the docs'.** One: Errata asked Kane to note the page heading, and GitHub's raw file view has none, so a correct click on **Raw** failed. Two: GitHub's file view has a **Code** toggle *and* a **Code** repository tab; given only the label, Kane clicked the tab, and the next step started on the wrong page. Both are fixed: the heading is optional, and Kane now gets the doc's own sentence as context. A re-run of both tutorials came back fully accurate ([`runs/2026-11-16/rerun/`](runs/2026-11-16/rerun/)). The review is in [`review.json`](runs/2026-11-16/review.json): checked by Claude against Kane's evidence and the live pages, approved by Darkfallx.
 
 So: well-kept docs from big projects stayed accurate, and we publish the false alarms rather than a flattering number. The Driftwood demo is where you can watch drift get caught, fixed and proven.
 
@@ -94,7 +94,7 @@ Then we went looking for drift on purpose. We picked **6 older third-party tutor
 
 labnol's first step ("pick **Book Creator** from the toolbox") came back accurate: Kane reached the Book Creator link through Special pages, and Errata allows extra clicks. In the first run that match came from loose matching ("Book" for "Book Creator"); we tightened it (a click name must be most of the label, with a test). In the re-run the link carried its real name "Book Creator", so it still counts as accurate under Errata's stated rule, even though a reader looking in the toolbox won't find it.
 
-So the hunt found **4 real wrong steps**, with **3 correct, Kane-proven fixes**. It also produced 1 unusable rewrite and 2 false alarms, all listed with reasons. My first review of this hunt called the two book-creator flags real; checking Wikipedia's pages directly showed I was wrong, and the review was corrected. Reviews: [`review.json`](runs/2026-11-16/review.json), marked "pending human confirmation" until a person checks them.
+So the hunt found **4 real wrong steps**, with **3 correct, Kane-proven fixes**. It also produced 1 unusable rewrite and 2 false alarms, all listed with reasons. My first review of this hunt called the two book-creator flags real; checking Wikipedia's pages directly showed I was wrong, and the review was corrected. Reviews: [`review.json`](runs/2026-11-16/review.json): checked by Claude against Kane's evidence and the live pages, approved by Darkfallx.
 
 ## The insight
 

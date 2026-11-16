@@ -1,46 +1,46 @@
 {
   "docs-github-com/viewing-or-copying-the-raw-file-content#2": {
     "verdict": "false_alarm",
-    "reviewer": "Darkfallx",
+    "reviewer": "Claude, approved by Darkfallx",
     "why": "Errata bug, not a docs error: Kane clicked Raw and the raw file opened, but Errata also asked it to store the page heading, and a plain-text file has none. The heading is optional now. Re-run with the fix (runs/2026-11-16/rerun): accurate."
   },
   "docs-github-com/viewing-the-line-by-line-revision-history-for-a-file#4": {
     "verdict": "false_alarm",
-    "reviewer": "Claude (pending human confirmation)",
+    "reviewer": "Claude, approved by Darkfallx",
     "why": "Errata bug, not a docs error: step 3 says to click Code above the file content, but given only the label, Kane clicked the repository Code tab (a second Code on the page), so step 4 started on the wrong page. Kane now also gets the doc sentence as context. Re-run with the fix (runs/2026-11-16/rerun): all 3 steps accurate."
   },
   "dignited-com/dignited-2019-export-a-wikipedia-page-as-a-pdf#1": {
     "verdict": "confirmed",
     "why": "Real drift. Wikipedia no longer has a Print/export section in the left sidebar; Download as PDF is in the Tools menu. Kane found Tools → Download as PDF and proved the rewrite.",
     "fix": "good",
-    "reviewer": "Claude (pending human confirmation)"
+    "reviewer": "Claude, approved by Darkfallx"
   },
   "howtogeek-com/how-to-geek-2010-make-a-book-from-wikipedia-articles#1": {
     "verdict": "confirmed",
     "why": "Real drift: Create a book is no longer under Print/export (the article's Tools menu has only Download as PDF and Printable version). The proven rewrite is not usable: Kane wandered (Search, Tools, Search, Main menu) before reaching Special pages → Book, and Errata did not trim those clicks. Needs a human to write the fix.",
     "fix": "not usable",
-    "reviewer": "Claude (pending human confirmation)"
+    "reviewer": "Claude, approved by Darkfallx"
   },
   "howtogeek-com/how-to-geek-2010-make-a-book-from-wikipedia-articles#2": {
     "verdict": "false_alarm",
-    "reviewer": "Claude (pending human confirmation)",
+    "reviewer": "Claude, approved by Darkfallx",
     "why": "The doc is right: Wikipedia's Book creator page (Special:Book?bookcmd=book_creator) still has a Start book creator button. Errata ran this step from where step 1 ended (the Manage your book page), not the Book creator page, and Kane's goal pass then wrongly claimed success on the Main Page."
   },
   "howtogeek-com/how-to-geek-2010-wikipedia-article-to-pdf#1": {
     "verdict": "confirmed",
     "why": "Real drift. There is no Print/export link in the left sidebar; the print and export options are in the Tools menu. The proven rewrite (Click Tools) is correct.",
     "fix": "good",
-    "reviewer": "Claude (pending human confirmation)"
+    "reviewer": "Claude, approved by Darkfallx"
   },
   "labnol-org/labnol-2015-create-ebooks-from-wikipedia#2": {
     "verdict": "false_alarm",
-    "reviewer": "Claude (pending human confirmation)",
+    "reviewer": "Claude, approved by Darkfallx",
     "why": "The link exists once the book creator is switched on. Errata starts every step in a fresh browser, so step 1's switched-on state was not carried over and Kane could not find the link. A re-run found it (runs/2026-11-16/rerun)."
   },
   "smartcompany-com-au/smartcompany-2011-convert-wikipedia-articles-into-pdf-files#1": {
     "verdict": "confirmed",
     "why": "Real drift. There is no Print/Export link on the left any more; Download as PDF is under Tools. The proven rewrite is correct.",
     "fix": "good",
-    "reviewer": "Claude (pending human confirmation)"
+    "reviewer": "Claude, approved by Darkfallx"
   }
 }

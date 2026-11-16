@@ -24,7 +24,7 @@ GitHub Docs walkthroughs run against one public repository, [`expressjs/express`
 - **Extraction**: Claude, in Claude Code via the `/errata` skill, read each page and wrote its `tutorial.json`. That's the skill path Errata supports for any coding agent.
 - **Walking, finding real paths, proving**: Kane CLI, live, via Errata. Every run is recorded under `runs/<date>/recordings/`.
 - **Rewrites**: Errata's rules agent, from the clicks in Kane's evidence pack only.
-- **Review**: every drifted or broken step is checked against the live page and Kane's evidence, and the reviewer is named on each verdict (a first pass by Claude is marked as such until a person confirms it). Verdicts and reasons are in `runs/<date>/review.json` and published on the report, false alarms included.
+- **Review**: every drifted or broken step is checked against the live page and Kane's evidence, and the reviewer is named on each verdict (on 16 Nov: checked by Claude against the evidence and live pages, approved by Darkfallx). Verdicts and reasons are in `runs/<date>/review.json` and published on the report, false alarms included.
 
 ## Run rules
 
