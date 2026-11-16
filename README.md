@@ -5,10 +5,10 @@
 <p align="center"><b>Every doc has errata. Find yours.</b></p>
 
 <p align="center">
-<a href="https://errata.sh/report/">Live report</a> ·
+<a href="https://errata-nine.vercel.app/report/">Live report</a> ·
 <a href="#judges-start-here">Judges, start here</a> ·
 <code>npx errata-cli demo</code> ·
-<a href="https://errata.sh/how-it-works/">How it works</a>
+<a href="https://errata-nine.vercel.app/how-it-works/">How it works</a>
 </p>
 
 <p align="center"><img src="docs/img/home-dark.png" alt="Errata: a tutorial step struck through, with the real path Kane found and the proven rewrite" width="860"></p>
@@ -57,8 +57,8 @@ The two proven rewrites then ran together as one Kane `_test.md`, and it **passe
 | | What you see | Sign-in | Time |
 |---|---|---|---|
 | **A** | `npx errata-cli demo`: the bundled Driftwood app, its v1 docs walked against its v2 UI. Accurate, drifted and broken steps, and fixes proven by Kane. | Kane CLI login (or add `--replay`: no sign-in, no credits) | ~9 min live · 20 s replay |
-| **B** | [The errata sheet](https://errata.sh/report/): real public tutorials walked word for word, each step with Kane's own trail, objective and run link. | None | 2 min |
-| **C** | [One proof sheet](https://errata.sh/t/driftwood/quickstart/): literal run → goal run → rewrite → proof → patch, for every step. | None | 1 min |
+| **B** | [The errata sheet](https://errata-nine.vercel.app/report/): real public tutorials walked word for word, each step with Kane's own trail, objective and run link. | None | 2 min |
+| **C** | [One proof sheet](https://errata-nine.vercel.app/t/driftwood/quickstart/): literal run → goal run → rewrite → proof → patch, for every step. | None | 1 min |
 
 `--replay` plays back **recorded real Kane runs** that ship in the package, and it is labelled as a replay everywhere it appears. Without `--replay`, every run is live.
 
@@ -145,7 +145,7 @@ Then the closed loop: **the agent rewrites the step from Kane's real path → Ka
 - Shell commands, file edits and "check your email" steps are **not checkable**. They are shown as such and never counted as passed.
 - When Kane itself can't run (sign-in, network, Chrome), the step is **unchecked** and never counted as a docs finding.
 - Replays are real recorded runs, labelled as replays. A missing recording is an error, never a made-up result.
-- In the public run, every 🟡 and 🔴 is reviewed against the live page and the evidence, the reviewer is named, and false alarms are published ([report](https://errata.sh/report/#precision)).
+- In the public run, every 🟡 and 🔴 is reviewed against the live page and the evidence, the reviewer is named, and false alarms are published ([report](https://errata-nine.vercel.app/report/#precision)).
 
 ## Install
 

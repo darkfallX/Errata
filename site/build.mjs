@@ -13,7 +13,7 @@ const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
 const out = join(here, "out");
 const REPO = "https://github.com/darkfallX/Errata";
-const SITE = process.env.SITE_URL || "https://errata.sh";
+const SITE = process.env.SITE_URL || "https://errata-nine.vercel.app";
 
 // ───────────────────────────────────────── data
 const readJson = (p) => JSON.parse(readFileSync(p, "utf8"));

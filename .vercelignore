@@ -1,0 +1,12 @@
+node_modules
+.old
+.errata
+.errata-*
+runs-*.log
+runs/**/*.log
+runs/**/recordings
+packages/cli/dist
+packages/cli/demo/recordings
+packages/cli/test-fixtures
+.claude
+site/out
