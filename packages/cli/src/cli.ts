@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // errata: every doc has errata. Find yours.
 import { existsSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
-import { dirname, join, resolve } from "node:path";
+import { dirname, join, relative, resolve } from "node:path";
 import { homedir } from "node:os";
 import { fileURLToPath } from "node:url";
 import { execFileSync } from "node:child_process";
@@ -119,6 +119,7 @@ async function runCheck(sources: string[], flags: Flags, extra: { normalise?: Re
       onEvent: ui.handle,
     });
     report.agent = agentName;
+    report.input = isUrl(src) ? src : relative(process.cwd(), resolve(src)).split("\\").join("/");
     const p = await buildPatch(report, sourceFile);
     if (p.patch) {
       report.patch = p.patch;

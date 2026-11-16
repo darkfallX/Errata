@@ -32,7 +32,7 @@ await Promise.all(
     .map(
       (b, g) =>
         new Promise((resolve) => {
-          const log = createWriteStream(join(out, `run-group-${g + 1}.log`));
+          const log = createWriteStream(join(out, `run-${Date.now().toString(36)}-group-${g + 1}.log`));
           const child = spawn(process.execPath, [cli, "check", ...b, "--out", out, "--agent", "rules", "--parallel", arg("parallel", "1"), "--fail-on", "none"], { cwd: root, env: { ...process.env, NO_COLOR: "1" } });
           child.stdout.pipe(log);
           child.stderr.pipe(log);

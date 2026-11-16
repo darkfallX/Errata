@@ -108,6 +108,8 @@ export interface TutorialReport {
   source: string;
   start_url: string;
   checked_at: string;
+  /** What was passed to `errata check` (file path relative to cwd, or URL), so anyone can re-run it. */
+  input?: string;
   agent: string;
   kane: "live" | "replay";
   steps: StepReport[];

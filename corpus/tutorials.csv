@@ -20,3 +20,6 @@ wp-download-pdf,Help:Download as PDF,https://en.wikipedia.org/wiki/Help:Download
 wp-what-links-here,Help:What links here,https://en.wikipedia.org/wiki/Help:What_links_here,https://en.wikipedia.org/wiki/Ada_Lovelace,1,1
 wp-permanent-link,Help:Permanent link,https://en.wikipedia.org/wiki/Help:Permanent_link,https://en.wikipedia.org/wiki/Ada_Lovelace,1,1
 wp-page-information,Help:Page information,https://en.wikipedia.org/wiki/Help:Page_information,https://en.wikipedia.org/wiki/Ada_Lovelace,1,1
+grafana-explore,Grafana fundamentals: Explore,https://grafana.com/tutorials/grafana-fundamentals/,https://play.grafana.org/,1,1
+grafana-dashboards,Grafana fundamentals: Dashboards,https://grafana.com/tutorials/grafana-fundamentals/,https://play.grafana.org/,1,1
+plausible-filter,Plausible: Filtering the dashboard,https://plausible.io/docs/filters-segments,https://plausible.io/plausible.io,1,1

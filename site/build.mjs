@@ -63,7 +63,22 @@ const usedPath = (s) => {
   const a = s.attempts?.find((x) => x.rewrite === s.rewrite);
   return a ? a.labels.join(" → ") : s.trimmed_path ?? s.actual_path ?? "";
 };
-const agentLabel = (a) => String(a ?? "").replace(/\s*\(offline, deterministic\)/, " agent");
+const agentLabel = (a) => {
+  const t = String(a ?? "");
+  if (/Claude Code/.test(t)) return "Claude Code + rules";
+  return t.replace(/\s*\(offline, deterministic\)/, " agent");
+};
+/** Corpus files by tutorial title, for reports made before `input` was recorded. */
+const corpusDir = join(root, "corpus", "tutorials");
+const corpusByTitle = new Map(
+  existsSync(corpusDir) ? readdirSync(corpusDir).filter((f) => f.endsWith(".tutorial.json")).map((f) => [readJson(join(corpusDir, f)).title, `corpus/tutorials/${f}`]) : [],
+);
+/** The exact command that reproduces a report from this repo. */
+const rerun = (r) => {
+  if (r === demo) return "npx errata-cli demo --replay";
+  const file = r.input && !/^https?:/.test(r.input) ? r.input : corpusByTitle.get(r.tutorial);
+  return `npx errata-cli check ${file ?? r.source}`;
+};
 
 function overall(r) {
   if (r.totals.broken) return "broken";
@@ -355,7 +370,7 @@ ${runs ? `<details class="runs"><summary>${ICON.chev} What Kane did</summary>${r
   </dl></div>
   <div class="facts"><div class="card-head">Check it yourself</div><div style="padding:12px 14px;font-size:13.5px;color:var(--ink-2);display:flex;flex-direction:column;gap:10px">
     <span>Each step lists Kane's own trail and objective. Run links open the recorded session in Kane's Test Manager.</span>
-    ${r === demo ? `<div class="code" style="padding:10px 12px;font-size:12px">npx errata-cli demo --replay</div>` : `<div class="code" style="padding:10px 12px;font-size:12px;white-space:pre-wrap;word-break:break-all">npx errata-cli check ${esc(r.source)}</div>`}
+    <div class="code" style="padding:10px 12px;font-size:12px;white-space:pre-wrap;word-break:break-all">${esc(rerun(r))}</div>
   </div></div>
 </aside>
 </div></div>`;

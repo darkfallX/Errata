@@ -189,6 +189,27 @@ const T = [
     start_url: "https://en.wikipedia.org/wiki/Ada_Lovelace",
     steps: [step("A link to \"**Page information**\" is in the **Tools** panel on the desktop site.", "The page information page for the article is shown", ["Tools", "Page information"])],
   },
+  {
+    id: "grafana-explore",
+    title: "Grafana fundamentals: Explore",
+    source: "https://grafana.com/tutorials/grafana-fundamentals/",
+    start_url: "https://play.grafana.org/",
+    steps: [step("Click the menu icon and, in the sidebar, click **Explore**.", "Grafana's Explore view for querying a data source is shown", ["Explore"])],
+  },
+  {
+    id: "grafana-dashboards",
+    title: "Grafana fundamentals: Dashboards",
+    source: "https://grafana.com/tutorials/grafana-fundamentals/",
+    start_url: "https://play.grafana.org/",
+    steps: [step("Click the menu icon and, in the sidebar, click **Dashboards**.", "A list of Grafana dashboards is shown", ["Dashboards"])],
+  },
+  {
+    id: "plausible-filter",
+    title: "Plausible: Filtering the dashboard",
+    source: "https://plausible.io/docs/filters-segments",
+    start_url: "https://plausible.io/plausible.io",
+    steps: [step("Click on the **Filter** button, open **Location** and select **Country**.", "A control for choosing which countries to filter the dashboard by is shown", ["Filter", "Location", "Country"])],
+  },
 ];
 
 mkdirSync(join(here, "tutorials"), { recursive: true });
