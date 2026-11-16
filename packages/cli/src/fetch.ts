@@ -29,7 +29,7 @@ export async function loadDoc(input: string, appUrl?: string): Promise<LoadedDoc
     return { title: md.match(/^#\s+(.+)$/m)?.[1]?.trim() ?? "", source: path, markdown: md, sourceFile: path, start_url: start };
   }
 
-  const res = await fetch(input, { headers: { "user-agent": "errata-cli (+https://github.com/errata-sh/errata)", accept: "text/html,*/*" }, redirect: "follow" });
+  const res = await fetch(input, { headers: { "user-agent": "errata-cli (+https://github.com/darkfallX/Errata)", accept: "text/html,*/*" }, redirect: "follow" });
   if (!res.ok) throw new Error(`Could not fetch ${input}: HTTP ${res.status}`);
   const html = await res.text();
   const title = (html.match(/<title[^>]*>([^<]*)<\/title>/i)?.[1] ?? "").replace(/\s+/g, " ").trim();

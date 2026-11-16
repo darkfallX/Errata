@@ -156,7 +156,7 @@ Outputs go to `.errata/`: `reports/*.json`, `reports-md/*.md`, `patches/*.diff`,
 **GitHub Action**: fail a docs PR when a tutorial breaks, and comment with the proven fixes.
 
 ```yaml
-- uses: errata-sh/errata/packages/action@main
+- uses: darkfallX/Errata/packages/action@main
   with:
     docs: docs/**/*.md
     app-url: ${{ steps.preview.outputs.url }}

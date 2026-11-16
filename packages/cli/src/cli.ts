@@ -59,7 +59,7 @@ ${bold("Usage")}
   errata doctor                        Check Kane CLI, sign-in, and the agent
   errata skill [--project]             Install the /errata skill for Claude Code
 
-${dim("Docs: https://github.com/errata-sh/errata")}
+${dim("Docs: https://github.com/darkfallX/Errata")}
 `;
 
 async function makeKane(flags: Flags, recordDir: string): Promise<KaneRunner> {

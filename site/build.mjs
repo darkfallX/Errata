@@ -12,7 +12,7 @@ import { fileURLToPath } from "node:url";
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
 const out = join(here, "out");
-const REPO = "https://github.com/errata-sh/errata";
+const REPO = "https://github.com/darkfallX/Errata";
 const SITE = process.env.SITE_URL || "https://errata.sh";
 
 // ───────────────────────────────────────── data
@@ -220,7 +220,7 @@ npm i -g @testmuai/kane-cli && kane-cli login
 <span class="tok-k">npx errata-cli check</span> ./docs/quickstart.md --app http://localhost:3000
 <span class="tok-k">npx errata-cli fix</span> .errata/reports/quickstart.json --pr</div>
 <div class="code" data-pane="action" hidden><span class="tok-c"># .github/workflows/docs.yml</span>
-- uses: errata-sh/errata/packages/action@main
+- uses: darkfallX/Errata/packages/action@main
   with:
     docs: docs/**/*.md
     app-url: \${{ steps.preview.outputs.url }}

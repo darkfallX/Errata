@@ -37,6 +37,6 @@ errata doctor                                         # Kane CLI, sign-in, agent
 
 Outputs in `.errata/`: `reports/*.json`, `reports-md/*.md` (PR comment), `patches/*.diff`, `tests/*_test.md` (a Kane test of the fixed tutorial: `kane-cli testmd run <file>`), and `recordings/`.
 
-Docs, the GitHub Action and the Claude Code skill: <https://github.com/errata-sh/errata>
+Docs, the GitHub Action and the Claude Code skill: <https://github.com/darkfallX/Errata>
 
 MIT
