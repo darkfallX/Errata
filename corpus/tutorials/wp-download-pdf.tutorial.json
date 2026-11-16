@@ -1,0 +1,30 @@
+{
+  "title": "Help:Download as PDF",
+  "source": "https://en.wikipedia.org/wiki/Help:Download_as_PDF",
+  "start_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "extracted_by": "Claude (Claude Code, /errata skill)",
+  "extracted_at": "2026-11-16",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "Open the **Tools** drop-down menu in the top navigation bar, below the page name.",
+      "text": "Open the Tools drop-down menu in the top navigation bar, below the page name.",
+      "goal": "The Tools menu is open, showing page tools",
+      "labels": [
+        "Tools"
+      ],
+      "checkable": true
+    },
+    {
+      "n": 2,
+      "quote": "In the Print/export section, select \"**Download as PDF**\".",
+      "text": "In the Print/export section, select \"Download as PDF\".",
+      "goal": "A page offering to download the article as a PDF is shown",
+      "labels": [
+        "Download as PDF"
+      ],
+      "checkable": true,
+      "continues": true
+    }
+  ]
+}

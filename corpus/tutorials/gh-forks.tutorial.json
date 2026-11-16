@@ -1,0 +1,50 @@
+{
+  "title": "Accessing the forks page",
+  "source": "https://docs.github.com/en/repositories/viewing-activity-and-data-for-your-repository/understanding-connections-between-repositories",
+  "start_url": "https://github.com/expressjs/express",
+  "extracted_by": "Claude (Claude Code, /errata skill)",
+  "extracted_at": "2026-11-16",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "On GitHub, navigate to the main page of the repository.",
+      "text": "On GitHub, navigate to the main page of the repository.",
+      "goal": "The repository's main page is open",
+      "labels": [],
+      "checkable": false,
+      "skip_reason": "Covered by the start URL (the repository's main page)."
+    },
+    {
+      "n": 2,
+      "quote": "Under your repository name, click **Insights**.",
+      "text": "Under your repository name, click Insights.",
+      "goal": "The repository's Insights page is visible",
+      "labels": [
+        "Insights"
+      ],
+      "checkable": true
+    },
+    {
+      "n": 3,
+      "quote": "In the left sidebar, click **Forks**.",
+      "text": "In the left sidebar, click Forks.",
+      "goal": "A list of the repository's forks is visible",
+      "labels": [
+        "Forks"
+      ],
+      "checkable": true,
+      "continues": true
+    },
+    {
+      "n": 4,
+      "quote": "Optionally, to sort the list by most starred forks, most recently updated forks, most open issues, or most open pull requests, click **Sort**, then choose an option from the dropdown menu.",
+      "text": "Optionally, to sort the list by most starred forks, most recently updated forks, most open issues, or most open pull requests, click Sort, then choose an option from the dropdown menu.",
+      "goal": "A menu of sort options for the forks list is open",
+      "labels": [
+        "Sort"
+      ],
+      "checkable": true,
+      "continues": true
+    }
+  ]
+}

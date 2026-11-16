@@ -1,0 +1,49 @@
+{
+  "title": "Filtering issues and pull requests by labels",
+  "source": "https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/filtering-and-searching-issues-and-pull-requests",
+  "start_url": "https://github.com/expressjs/express",
+  "extracted_by": "Claude (Claude Code, /errata skill)",
+  "extracted_at": "2026-11-16",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "On GitHub, navigate to the main page of the repository.",
+      "text": "On GitHub, navigate to the main page of the repository.",
+      "goal": "The repository's main page is open",
+      "labels": [],
+      "checkable": false,
+      "skip_reason": "Covered by the start URL (the repository's main page)."
+    },
+    {
+      "n": 2,
+      "quote": "Under your repository name, click **Issues** or **Pull requests**.",
+      "text": "Under your repository name, click Issues or Pull requests.",
+      "goal": "The repository's list of issues is visible",
+      "labels": [
+        "Issues"
+      ],
+      "checkable": true
+    },
+    {
+      "n": 3,
+      "quote": "Above the list of issues or pull requests, click **Labels**.",
+      "text": "Above the list of issues or pull requests, click Labels.",
+      "goal": "The repository's list of labels is visible",
+      "labels": [
+        "Labels"
+      ],
+      "checkable": true,
+      "continues": true
+    },
+    {
+      "n": 4,
+      "quote": "In the list of labels, click a label.",
+      "text": "In the list of labels, click a label.",
+      "goal": "A list of issues filtered by one label is visible",
+      "labels": [],
+      "checkable": false,
+      "continues": true,
+      "skip_reason": "Names no specific label to follow."
+    }
+  ]
+}

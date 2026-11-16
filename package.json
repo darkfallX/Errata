@@ -1,0 +1,12 @@
+{
+  "name": "errata-monorepo",
+  "private": true,
+  "type": "module",
+  "workspaces": ["packages/cli"],
+  "scripts": {
+    "build": "npm run build -w errata-cli",
+    "test": "npm test -w errata-cli",
+    "site": "node site/build.mjs",
+    "demo": "node packages/cli/dist/cli.js demo"
+  }
+}

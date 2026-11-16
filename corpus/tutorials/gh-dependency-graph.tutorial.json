@@ -1,0 +1,50 @@
+{
+  "title": "Viewing the dependency graph",
+  "source": "https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository",
+  "start_url": "https://github.com/expressjs/express",
+  "extracted_by": "Claude (Claude Code, /errata skill)",
+  "extracted_at": "2026-11-16",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "On GitHub, navigate to the main page of the repository.",
+      "text": "On GitHub, navigate to the main page of the repository.",
+      "goal": "The repository's main page is open",
+      "labels": [],
+      "checkable": false,
+      "skip_reason": "Covered by the start URL (the repository's main page)."
+    },
+    {
+      "n": 2,
+      "quote": "Under your repository name, click **Insights**.",
+      "text": "Under your repository name, click Insights.",
+      "goal": "The repository's Insights page is visible",
+      "labels": [
+        "Insights"
+      ],
+      "checkable": true
+    },
+    {
+      "n": 3,
+      "quote": "In the left sidebar, click **Dependency graph**.",
+      "text": "In the left sidebar, click Dependency graph.",
+      "goal": "The repository's dependency graph, listing its dependencies, is visible",
+      "labels": [
+        "Dependency graph"
+      ],
+      "checkable": true,
+      "continues": true
+    },
+    {
+      "n": 4,
+      "quote": "Optionally, to view the repositories and packages that depend on your repository, under \"Dependency graph\", click **Dependents**.",
+      "text": "Optionally, to view the repositories and packages that depend on your repository, under \"Dependency graph\", click Dependents.",
+      "goal": "A list of repositories and packages that depend on this repository is visible",
+      "labels": [
+        "Dependents"
+      ],
+      "checkable": true,
+      "continues": true
+    }
+  ]
+}

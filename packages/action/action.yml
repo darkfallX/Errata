@@ -1,0 +1,112 @@
+name: Errata docs check
+description: Follow your tutorials word for word with Kane CLI. Fails when a UI change breaks a tutorial; comments with proven fixes.
+author: errata
+branding:
+  icon: book-open
+  color: orange
+
+inputs:
+  docs:
+    description: Glob of Markdown tutorials to check (docs-as-code), or one or more docs URLs separated by spaces.
+    required: true
+  app-url:
+    description: Where the app under test is running (e.g. a preview deployment). Fills {{app}} in the docs.
+    required: false
+  fail-on:
+    description: "broken | drifted | none"
+    default: broken
+  agent:
+    description: "auto | claude | rules"
+    default: auto
+  parallel:
+    description: Steps checked at once
+    default: "3"
+  comment:
+    description: Post the report as a PR comment (needs pull-requests write permission)
+    default: "true"
+  version:
+    description: errata-cli version
+    default: latest
+
+outputs:
+  drifted:
+    description: Number of drifted steps
+    value: ${{ steps.check.outputs.drifted }}
+  broken:
+    description: Number of broken steps
+    value: ${{ steps.check.outputs.broken }}
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 20
+
+    - name: Install Kane CLI and Errata
+      shell: bash
+      run: npm i -g @testmuai/kane-cli errata-cli@${{ inputs.version }}
+
+    - name: Sign in to Kane CLI
+      shell: bash
+      env:
+        KANE_USERNAME: ${{ env.KANE_USERNAME }}
+        KANE_ACCESS_KEY: ${{ env.KANE_ACCESS_KEY }}
+      run: |
+        if [ -z "$KANE_USERNAME" ] || [ -z "$KANE_ACCESS_KEY" ]; then
+          echo "::error::Set KANE_USERNAME and KANE_ACCESS_KEY as repository secrets and pass them as env."
+          exit 2
+        fi
+        kane-cli login --username "$KANE_USERNAME" --access-key "$KANE_ACCESS_KEY" < /dev/null
+
+    - name: Check tutorials
+      id: check
+      shell: bash
+      env:
+        ERRATA_AGENT: ${{ inputs.agent }}
+        INPUT_DOCS: ${{ inputs.docs }}
+        INPUT_APP: ${{ inputs.app-url }}
+        INPUT_FAIL_ON: ${{ inputs.fail-on }}
+        INPUT_PARALLEL: ${{ inputs.parallel }}
+      run: |
+        shopt -s globstar nullglob
+        files=( $INPUT_DOCS )
+        args=( check "${files[@]}" --fail-on "$INPUT_FAIL_ON" --parallel "$INPUT_PARALLEL" )
+        if [ -n "$INPUT_APP" ]; then args+=( --app "$INPUT_APP" ); fi
+        set +e
+        errata "${args[@]}"
+        code=$?
+        set -e
+        node -e '
+          const fs=require("fs"),p=".errata/reports";let d=0,b=0;
+          for(const f of fs.existsSync(p)?fs.readdirSync(p):[]){const r=JSON.parse(fs.readFileSync(p+"/"+f));d+=r.totals.drifted;b+=r.totals.broken}
+          fs.appendFileSync(process.env.GITHUB_OUTPUT,`drifted=${d}\nbroken=${b}\n`);'
+        echo "code=$code" >> "$GITHUB_OUTPUT"
+
+    - name: Comment on the pull request
+      if: ${{ inputs.comment == 'true' && github.event_name == 'pull_request' }}
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const fs = require("fs");
+          const dir = ".errata/reports-md";
+          if (!fs.existsSync(dir)) return;
+          const body = "<!-- errata -->\n" + fs.readdirSync(dir).map(f => fs.readFileSync(`${dir}/${f}`, "utf8")).join("\n\n---\n\n");
+          const { owner, repo } = context.repo;
+          const issue_number = context.issue.number;
+          const { data: comments } = await github.rest.issues.listComments({ owner, repo, issue_number });
+          const mine = comments.find(c => c.body?.startsWith("<!-- errata -->"));
+          if (mine) await github.rest.issues.updateComment({ owner, repo, comment_id: mine.id, body });
+          else await github.rest.issues.createComment({ owner, repo, issue_number, body });
+
+    - name: Keep the evidence
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: errata-report
+        path: .errata/
+        if-no-files-found: ignore
+
+    - name: Gate
+      shell: bash
+      run: exit ${{ steps.check.outputs.code }}

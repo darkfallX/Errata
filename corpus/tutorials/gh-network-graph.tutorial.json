@@ -1,0 +1,39 @@
+{
+  "title": "Accessing the network graph",
+  "source": "https://docs.github.com/en/repositories/viewing-activity-and-data-for-your-repository/understanding-connections-between-repositories",
+  "start_url": "https://github.com/expressjs/express",
+  "extracted_by": "Claude (Claude Code, /errata skill)",
+  "extracted_at": "2026-11-16",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "On GitHub, navigate to the main page of the repository.",
+      "text": "On GitHub, navigate to the main page of the repository.",
+      "goal": "The repository's main page is open",
+      "labels": [],
+      "checkable": false,
+      "skip_reason": "Covered by the start URL (the repository's main page)."
+    },
+    {
+      "n": 2,
+      "quote": "Under your repository name, click **Insights**.",
+      "text": "Under your repository name, click Insights.",
+      "goal": "The repository's Insights page is visible",
+      "labels": [
+        "Insights"
+      ],
+      "checkable": true
+    },
+    {
+      "n": 3,
+      "quote": "In the left sidebar, click **Network**.",
+      "text": "In the left sidebar, click Network.",
+      "goal": "The repository's network graph of branches and forks is visible",
+      "labels": [
+        "Network"
+      ],
+      "checkable": true,
+      "continues": true
+    }
+  ]
+}

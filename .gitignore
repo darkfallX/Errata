@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.errata/cache/
+.testmuai/evidence/
+.env
+*.log
+site/out/
+.errata-demo-live.log
+runs-*.log
+.claude/launch.json
+/.errata/

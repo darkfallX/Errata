@@ -1,0 +1,50 @@
+{
+  "title": "Viewing the line-by-line revision history for a file",
+  "source": "https://docs.github.com/en/repositories/working-with-files/using-files/viewing-and-understanding-files",
+  "start_url": "https://github.com/expressjs/express/blob/master/Readme.md",
+  "extracted_by": "Claude (Claude Code, /errata skill)",
+  "extracted_at": "2026-11-16",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "Click to open the file whose line history you want to view.",
+      "text": "Click to open the file whose line history you want to view.",
+      "goal": "A file is open",
+      "labels": [],
+      "checkable": false,
+      "skip_reason": "Covered by the start URL (a file in the repository)."
+    },
+    {
+      "n": 2,
+      "quote": "Above the file content, click **Blame**.",
+      "text": "Above the file content, click Blame.",
+      "goal": "A line-by-line blame view, with code grouped by commit, is visible",
+      "labels": [
+        "Blame"
+      ],
+      "checkable": true
+    },
+    {
+      "n": 3,
+      "quote": "To return to the raw code view, above the file content, click **Code**.",
+      "text": "To return to the raw code view, above the file content, click Code.",
+      "goal": "The file's code view is shown again",
+      "labels": [
+        "Code"
+      ],
+      "checkable": true,
+      "continues": true
+    },
+    {
+      "n": 4,
+      "quote": "If you are viewing a Markdown file, above the file content, you can also click **Preview** to return to the view with Markdown formatting applied.",
+      "text": "If you are viewing a Markdown file, above the file content, you can also click Preview to return to the view with Markdown formatting applied.",
+      "goal": "The Markdown file is shown with formatting applied",
+      "labels": [
+        "Preview"
+      ],
+      "checkable": true,
+      "continues": true
+    }
+  ]
+}

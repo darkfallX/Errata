@@ -1,0 +1,20 @@
+{
+  "title": "Help:What links here",
+  "source": "https://en.wikipedia.org/wiki/Help:What_links_here",
+  "start_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "extracted_by": "Claude (Claude Code, /errata skill)",
+  "extracted_at": "2026-11-16",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "Within the **Tools** section at the top-right of every page, click \"**What links here**\".",
+      "text": "Within the Tools section at the top-right of every page, click \"What links here\".",
+      "goal": "A list of pages that link to the article is shown",
+      "labels": [
+        "Tools",
+        "What links here"
+      ],
+      "checkable": true
+    }
+  ]
+}

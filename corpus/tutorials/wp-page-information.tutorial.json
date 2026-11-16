@@ -1,0 +1,20 @@
+{
+  "title": "Help:Page information",
+  "source": "https://en.wikipedia.org/wiki/Help:Page_information",
+  "start_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "extracted_by": "Claude (Claude Code, /errata skill)",
+  "extracted_at": "2026-11-16",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "A link to \"**Page information**\" is in the **Tools** panel on the desktop site.",
+      "text": "A link to \"Page information\" is in the Tools panel on the desktop site.",
+      "goal": "The page information page for the article is shown",
+      "labels": [
+        "Tools",
+        "Page information"
+      ],
+      "checkable": true
+    }
+  ]
+}

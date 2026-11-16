@@ -1,0 +1,52 @@
+# Example: gate a docs-as-code change on Errata. Uses the bundled Driftwood app and its docs.
+# With Kane secrets set it runs live; without them it replays recorded real Kane runs.
+name: Docs check (Errata)
+on:
+  workflow_dispatch:
+  pull_request:
+    paths: ["packages/cli/demo/driftwood/docs/**"]
+
+jobs:
+  errata:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci && npm run build
+      - name: Walk the docs
+        env:
+          KANE_USERNAME: ${{ secrets.KANE_USERNAME }}
+          KANE_ACCESS_KEY: ${{ secrets.KANE_ACCESS_KEY }}
+        run: |
+          if [ -n "$KANE_USERNAME" ]; then
+            npm i -g @testmuai/kane-cli
+            kane-cli login --username "$KANE_USERNAME" --access-key "$KANE_ACCESS_KEY" < /dev/null
+            node packages/cli/dist/cli.js demo --fail-on broken
+          else
+            node packages/cli/dist/cli.js demo --replay --fail-on broken
+          fi
+      - name: Comment the report on the PR
+        if: always() && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require("fs");
+            const dir = ".errata/reports-md";
+            if (!fs.existsSync(dir)) return;
+            const body = "<!-- errata -->\n" + fs.readdirSync(dir).map(f => fs.readFileSync(`${dir}/${f}`, "utf8")).join("\n\n---\n\n");
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+            const { data: comments } = await github.rest.issues.listComments({ owner, repo, issue_number });
+            const mine = comments.find(c => c.body?.startsWith("<!-- errata -->"));
+            if (mine) await github.rest.issues.updateComment({ owner, repo, comment_id: mine.id, body });
+            else await github.rest.issues.createComment({ owner, repo, issue_number, body });
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: errata-report
+          path: .errata/

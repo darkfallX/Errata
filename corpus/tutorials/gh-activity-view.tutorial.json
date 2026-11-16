@@ -1,0 +1,39 @@
+{
+  "title": "Using the activity view to see changes to a repository",
+  "source": "https://docs.github.com/en/repositories/viewing-activity-and-data-for-your-repository/using-the-activity-view-to-see-changes-to-a-repository",
+  "start_url": "https://github.com/expressjs/express",
+  "extracted_by": "Claude (Claude Code, /errata skill)",
+  "extracted_at": "2026-11-16",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "On GitHub, navigate to the main page of the repository.",
+      "text": "On GitHub, navigate to the main page of the repository.",
+      "goal": "The repository's main page is open",
+      "labels": [],
+      "checkable": false,
+      "skip_reason": "Covered by the start URL (the repository's main page)."
+    },
+    {
+      "n": 2,
+      "quote": "On the main page of the repository, to the right of the list of files, click **Activity**.",
+      "text": "On the main page of the repository, to the right of the list of files, click Activity.",
+      "goal": "The repository's activity view, listing pushes and merges, is visible",
+      "labels": [
+        "Activity"
+      ],
+      "checkable": true
+    },
+    {
+      "n": 3,
+      "quote": "To filter by activity type, select the **All activity** dropdown menu, then click an activity type.",
+      "text": "To filter by activity type, select the All activity dropdown menu, then click an activity type.",
+      "goal": "A menu of activity types is open",
+      "labels": [
+        "All activity"
+      ],
+      "checkable": true,
+      "continues": true
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Errata share card</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0f1419;--ink2:#2f3b44;--mute:#536471;--line:#cfd9de;--soft:#eff3f4;--green:#00a37a;--greenink:#00704f;--greenbg:rgba(0,163,122,.1);--red:#e0245e;--amber:#b26b00;--amberbg:rgba(255,173,31,.14);--paper:#fffdf8}
+*{box-sizing:border-box;margin:0}
+html,body{width:1200px;height:630px;background:#fff;font-family:Inter,system-ui,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+.wrap{display:grid;grid-template-columns:520px 1fr;gap:48px;align-items:center;height:100%;padding:0 64px}
+.logo{display:flex;align-items:center;gap:12px;font:800 28px Inter;letter-spacing:-.02em;margin-bottom:34px}
+h1{font:900 76px/1.0 Inter;letter-spacing:-.035em}
+h1 .o{display:block;color:#fff;-webkit-text-stroke:3px var(--ink);paint-order:stroke fill}
+h1 .o i{font-style:normal;color:var(--red);-webkit-text-stroke:0}
+p{margin-top:26px;font:500 22px/1.45 Inter;color:var(--ink2)}
+.slip{background:var(--paper);border:1px solid var(--line);border-radius:16px;box-shadow:0 30px 70px -36px rgba(15,20,25,.35);overflow:hidden}
+.head{padding:16px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.head b{font:800 19px Inter}.head span{font:600 14px Inter;color:var(--greenink)}
+.row{display:grid;grid-template-columns:26px 1fr auto;gap:12px;padding:15px 22px;border-top:1px solid #ece6da;align-items:start}
+.row:first-of-type{border-top:0}
+.n{font:600 15px/24px "JetBrains Mono";color:var(--mute)}
+.t{font:600 17px/24px Inter}
+.t s{text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:2px;color:var(--ink2)}
+.pill{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 11px;border-radius:999px;font:700 13px Inter;white-space:nowrap}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.ok{background:var(--greenbg);color:var(--greenink)}.warn{background:var(--amberbg);color:var(--amber)}.no{background:rgba(224,36,94,.09);color:#c0154a}
+.found{grid-column:2/4;font:500 14px "JetBrains Mono";color:var(--mute)}
+.found b{color:var(--ink)}
+.read{grid-column:2/4;padding:9px 12px;border-radius:9px;background:var(--greenbg);color:var(--greenink);font:700 16px Inter}
+.foot{padding:12px 22px;border-top:1px solid var(--line);font:500 14px "JetBrains Mono";color:var(--mute)}
+</style></head><body>
+<div class="wrap">
+  <div>
+    <div class="logo"><svg width="34" height="34" viewBox="0 0 24 24"><rect x="3" y="3.5" width="16" height="17" rx="3.5" fill="none" stroke="#0f1419" stroke-width="2"/><path d="M7 9.5h8M7 14h4.5" stroke="#0f1419" stroke-width="2" stroke-linecap="round"/><path d="M6 14.2h7.5" stroke="#e0245e" stroke-width="1.6" stroke-linecap="round"/><circle cx="19.5" cy="5" r="3" fill="#e0245e"/></svg>Errata</div>
+    <h1>Every doc has errata.<span class="o">Find <i>yours</i>.</span></h1>
+    <p>Follows your tutorials word for word in a real browser with Kane CLI, and proves every fix.</p>
+  </div>
+  <div class="slip">
+    <div class="head"><b>Driftwood quickstart</b><span>● Kane CLI run</span></div>
+    <div class="row"><span class="n">1</span><span class="t">Open the dashboard and click Projects.</span><span class="pill ok">accurate</span></div>
+    <div class="row"><span class="n">2</span><span class="t"><s>Click Settings → API Keys and press Create key.</s></span><span class="pill warn">drifted</span>
+      <div class="found">Kane found <b>Developers → Tokens → New token</b></div>
+      <div class="read">Open Developers → Tokens and press New token.</div></div>
+    <div class="row"><span class="n">6</span><span class="t"><s>Open Reports and click Export CSV.</s></span><span class="pill no">broken</span></div>
+    <div class="foot">npx errata-cli demo</div>
+  </div>
+</div>
+</body></html>

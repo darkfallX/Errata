@@ -1,0 +1,19 @@
+{
+  "title": "Help:Permanent link",
+  "source": "https://en.wikipedia.org/wiki/Help:Permanent_link",
+  "start_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "extracted_by": "Claude (Claude Code, /errata skill)",
+  "extracted_at": "2026-11-16",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "A permalink can be made by clicking \"**Permanent link**\" in the sidebar's toolbox.",
+      "text": "A permalink can be made by clicking \"Permanent link\" in the sidebar's toolbox.",
+      "goal": "The page is shown at a permanent link to its current revision (the address includes oldid)",
+      "labels": [
+        "Permanent link"
+      ],
+      "checkable": true
+    }
+  ]
+}

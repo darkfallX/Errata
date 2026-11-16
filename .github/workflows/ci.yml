@@ -1,0 +1,25 @@
+name: CI
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
+      # The judge path: Driftwood + recorded real Kane runs. No sign-in, no credits.
+      # Exits 1 because Driftwood v2 really does break a step (Export CSV was removed).
+      - name: Demo (replay of recorded Kane runs)
+        run: |
+          set +e
+          node packages/cli/dist/cli.js demo --replay --fail-on broken
+          code=$?
+          test "$code" = "1" && echo "Demo found the broken step, as expected."
+      - run: npm run site

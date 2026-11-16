@@ -1,0 +1,30 @@
+{
+  "title": "Help:Page history",
+  "source": "https://en.wikipedia.org/wiki/Help:Page_history",
+  "start_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "extracted_by": "Claude (Claude Code, /errata skill)",
+  "extracted_at": "2026-11-16",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "To view the history of a page, use the tab labeled \"**View history**\" at the top of the page.",
+      "text": "To view the history of a page, use the tab labeled \"View history\" at the top of the page.",
+      "goal": "The article's revision history list is visible",
+      "labels": [
+        "View history"
+      ],
+      "checkable": true
+    },
+    {
+      "n": 2,
+      "quote": "To compare a revision with the revision before it, click \"**prev**\" on that entry.",
+      "text": "To compare a revision with the revision before it, click \"prev\" on that entry.",
+      "goal": "A comparison of one revision with the revision before it is visible",
+      "labels": [
+        "prev"
+      ],
+      "checkable": true,
+      "continues": true
+    }
+  ]
+}

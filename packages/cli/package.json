@@ -1,0 +1,48 @@
+{
+  "name": "errata-cli",
+  "version": "0.1.0",
+  "description": "Every doc has errata. Find yours. Walks your tutorials word for word in a real browser with Kane CLI, rewrites drifted steps, and proves every fix.",
+  "type": "module",
+  "bin": {
+    "errata": "dist/cli.js",
+    "errata-cli": "dist/cli.js"
+  },
+  "files": [
+    "dist/",
+    "prompts/",
+    "demo/",
+    "skill/",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "node --test dist/test/*.test.js",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "docs",
+    "documentation",
+    "testing",
+    "kane-cli",
+    "tutorial",
+    "docs-as-code",
+    "drift",
+    "devrel"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "latest",
+    "diff": "^7.0.0",
+    "fflate": "^0.8.2",
+    "node-html-markdown": "^1.3.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/diff": "^6.0.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  }
+}

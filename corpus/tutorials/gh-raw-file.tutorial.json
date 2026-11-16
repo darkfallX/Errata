@@ -1,0 +1,28 @@
+{
+  "title": "Viewing or copying the raw file content",
+  "source": "https://docs.github.com/en/repositories/working-with-files/using-files/viewing-and-understanding-files",
+  "start_url": "https://github.com/expressjs/express/blob/master/index.js",
+  "extracted_by": "Claude (Claude Code, /errata skill)",
+  "extracted_at": "2026-11-16",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "Click the file that you want to view.",
+      "text": "Click the file that you want to view.",
+      "goal": "A file is open",
+      "labels": [],
+      "checkable": false,
+      "skip_reason": "Covered by the start URL (a file in the repository)."
+    },
+    {
+      "n": 2,
+      "quote": "In the upper-right corner of the file view, click **Raw**.",
+      "text": "In the upper-right corner of the file view, click Raw.",
+      "goal": "The file's raw content is shown as plain text",
+      "labels": [
+        "Raw"
+      ],
+      "checkable": true
+    }
+  ]
+}

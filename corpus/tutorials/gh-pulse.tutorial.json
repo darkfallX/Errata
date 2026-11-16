@@ -1,0 +1,39 @@
+{
+  "title": "Accessing Pulse",
+  "source": "https://docs.github.com/en/repositories/viewing-activity-and-data-for-your-repository/viewing-a-summary-of-repository-activity",
+  "start_url": "https://github.com/expressjs/express",
+  "extracted_by": "Claude (Claude Code, /errata skill)",
+  "extracted_at": "2026-11-16",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "On GitHub, navigate to the main page of the repository.",
+      "text": "On GitHub, navigate to the main page of the repository.",
+      "goal": "The repository's main page is open",
+      "labels": [],
+      "checkable": false,
+      "skip_reason": "Covered by the start URL (the repository's main page)."
+    },
+    {
+      "n": 2,
+      "quote": "Under your repository name, click **Insights**.",
+      "text": "Under your repository name, click Insights.",
+      "goal": "The Pulse overview of recent repository activity is visible",
+      "labels": [
+        "Insights"
+      ],
+      "checkable": true
+    },
+    {
+      "n": 3,
+      "quote": "Optionally, to choose a different time period, select the **Period** dropdown menu in the upper-right corner of the Pulse overview.",
+      "text": "Optionally, to choose a different time period, select the Period dropdown menu in the upper-right corner of the Pulse overview.",
+      "goal": "A menu for choosing the Pulse time period is open",
+      "labels": [
+        "Period"
+      ],
+      "checkable": true,
+      "continues": true
+    }
+  ]
+}

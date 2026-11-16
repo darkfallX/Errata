@@ -1,0 +1,39 @@
+{
+  "title": "Viewing tags",
+  "source": "https://docs.github.com/en/repositories/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags",
+  "start_url": "https://github.com/expressjs/express",
+  "extracted_by": "Claude (Claude Code, /errata skill)",
+  "extracted_at": "2026-11-16",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "On GitHub, navigate to the main page of the repository.",
+      "text": "On GitHub, navigate to the main page of the repository.",
+      "goal": "The repository's main page is open",
+      "labels": [],
+      "checkable": false,
+      "skip_reason": "Covered by the start URL (the repository's main page)."
+    },
+    {
+      "n": 2,
+      "quote": "To the right of the list of files, click **Releases**.",
+      "text": "To the right of the list of files, click Releases.",
+      "goal": "The repository's Releases page is visible",
+      "labels": [
+        "Releases"
+      ],
+      "checkable": true
+    },
+    {
+      "n": 3,
+      "quote": "At the top of the page, click **Tags**.",
+      "text": "At the top of the page, click Tags.",
+      "goal": "A list of the repository's tags is visible",
+      "labels": [
+        "Tags"
+      ],
+      "checkable": true,
+      "continues": true
+    }
+  ]
+}

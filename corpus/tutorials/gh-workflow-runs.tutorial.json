@@ -1,0 +1,28 @@
+{
+  "title": "Viewing workflow run history",
+  "source": "https://docs.github.com/en/actions/how-tos/monitor-workflows/view-workflow-run-history",
+  "start_url": "https://github.com/expressjs/express",
+  "extracted_by": "Claude (Claude Code, /errata skill)",
+  "extracted_at": "2026-11-16",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "On GitHub, navigate to the main page of the repository.",
+      "text": "On GitHub, navigate to the main page of the repository.",
+      "goal": "The repository's main page is open",
+      "labels": [],
+      "checkable": false,
+      "skip_reason": "Covered by the start URL (the repository's main page)."
+    },
+    {
+      "n": 2,
+      "quote": "Under your repository name, click **Actions**.",
+      "text": "Under your repository name, click Actions.",
+      "goal": "The repository's list of workflow runs is visible",
+      "labels": [
+        "Actions"
+      ],
+      "checkable": true
+    }
+  ]
+}

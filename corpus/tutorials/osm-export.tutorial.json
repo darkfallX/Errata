@@ -1,0 +1,19 @@
+{
+  "title": "OpenStreetMap: Export",
+  "source": "https://wiki.openstreetmap.org/wiki/Export",
+  "start_url": "https://www.openstreetmap.org/#map=16/51.5074/-0.1278",
+  "extracted_by": "Claude (Claude Code, /errata skill)",
+  "extracted_at": "2026-11-16",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "Use the **export** button in the top bar to open the export sidebar to get OpenStreetMap XML data for an area.",
+      "text": "Use the export button in the top bar to open the export sidebar to get OpenStreetMap XML data for an area.",
+      "goal": "The export sidebar with a bounding box for the current area is visible",
+      "labels": [
+        "Export"
+      ],
+      "checkable": true
+    }
+  ]
+}
