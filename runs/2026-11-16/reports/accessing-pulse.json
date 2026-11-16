@@ -1,0 +1,139 @@
+{
+  "errata": "1",
+  "tutorial": "Accessing Pulse",
+  "source": "https://docs.github.com/en/repositories/viewing-activity-and-data-for-your-repository/viewing-a-summary-of-repository-activity",
+  "start_url": "https://github.com/expressjs/express",
+  "checked_at": "2026-11-16T00:37:41.495Z",
+  "agent": "Claude (Claude Code, /errata skill) · rewrite: rules (offline, deterministic)",
+  "kane": "live",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "On GitHub, navigate to the main page of the repository.",
+      "text": "On GitHub, navigate to the main page of the repository.",
+      "goal": "The repository's main page is open",
+      "labels": [],
+      "checkable": false,
+      "skip_reason": "Covered by the start URL (the repository's main page).",
+      "status": "skipped",
+      "note": "Covered by the start URL (the repository's main page).",
+      "credits": 0,
+      "started_at": "https://github.com/expressjs/express"
+    },
+    {
+      "n": 2,
+      "quote": "Under your repository name, click **Insights**.",
+      "text": "Under your repository name, click Insights.",
+      "goal": "The Pulse overview of recent repository activity is visible",
+      "labels": [
+        "Insights"
+      ],
+      "checkable": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to click the item labeled “Insights.”\nClicked “Insights” on the expressjs/express GitHub repository.\nReached the repository Insights page, whose main heading is “Insights: expressjs/express.”",
+        "one_liner": "opened repository Insights on GitHub",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\b5f78940-35ac-48a1-bdc1-a88a1ad9bff1\\evidence\\39dcbc28-78cd-4ba0-a4c7-c53c0cb049b5.evidence",
+        "final_state": {
+          "url": "https://github.com/expressjs/express/pulse",
+          "landed_on": "Insights: expressjs/express"
+        },
+        "end_url": "https://github.com/expressjs/express/pulse",
+        "clicks": [
+          {
+            "label": "Insights",
+            "y": 134
+          }
+        ],
+        "credits": 15.2,
+        "duration": 103.4,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GWB93BGGCG5KT46Y4BG68N/dashboard/share/US_BEFPTCD8GNGR0VXRIFDC0AS9KAGB52JMJHVMTESWGLN6T67QNO6J84OMWWS46YU8?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\b5f78940-35ac-48a1-bdc1-a88a1ad9bff1\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\b5f78940-35ac-48a1-bdc1-a88a1ad9bff1",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express",
+          "click: Clicking Insights link",
+          "wait: PRIMARY: wait for the Insights page heading to be visible",
+          "analyze: ANALYZE(textual_visual, 'The main heading of the page you end on is saved as {{l",
+          "wait: Waiting after the completed Insights navigation and heading extraction"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'Insights'.\nThen store the main heading of the page you end on as 'landed_on'.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "Insights: expressjs/express",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 15.2,
+      "started_at": "https://github.com/expressjs/express"
+    },
+    {
+      "n": 3,
+      "quote": "Optionally, to choose a different time period, select the **Period** dropdown menu in the upper-right corner of the Pulse overview.",
+      "text": "Optionally, to choose a different time period, select the Period dropdown menu in the upper-right corner of the Pulse overview.",
+      "goal": "A menu for choosing the Pulse time period is open",
+      "labels": [
+        "Period"
+      ],
+      "checkable": true,
+      "continues": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "The requested 'Period' control was selected.\nThe page opened the Insights view for the expressjs/express repository.\nThe final page heading was “Insights: expressjs/express”.",
+        "one_liner": "opened the Insights page for expressjs/express on GitHub",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\6ca60846-f445-427f-adc8-936a96d86710\\evidence\\03fa4a52-3e22-4bd5-901c-4f148000ae41.evidence",
+        "final_state": {
+          "url": "https://github.com/expressjs/express/pulse",
+          "landed_on": "Insights: expressjs/express"
+        },
+        "end_url": "https://github.com/expressjs/express/pulse",
+        "clicks": [
+          {
+            "label": "Period",
+            "names": [
+              "Period: 1 week"
+            ],
+            "y": 193
+          }
+        ],
+        "credits": 17.3,
+        "duration": 38.2,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GWGM0XTPKB491WSQPH5FH5/dashboard/share/US_ALC2OVLEPHQPV251SRYGBV4L8YQXO73PZ4CZ66VNSTFAD9SZD0C4EM4X1MODLGAU?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\6ca60846-f445-427f-adc8-936a96d86710\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\6ca60846-f445-427f-adc8-936a96d86710",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express/pulse",
+          "click: Clicking Period button in Pulse overview header",
+          "analyze: ANALYZE(textual_visual, 'The main heading of the page you end on is saved as {{l",
+          "wait: Waiting briefly after confirming the page heading"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'Period'.\nThen store the main heading of the page you end on as 'landed_on'.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "Insights: expressjs/express",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 17.3,
+      "started_at": "https://github.com/expressjs/express/pulse"
+    }
+  ],
+  "totals": {
+    "steps": 3,
+    "checkable": 2,
+    "accurate": 2,
+    "drifted": 0,
+    "fixed": 0,
+    "broken": 0,
+    "skipped": 1,
+    "unchecked": 0,
+    "credits": 32.5,
+    "seconds": 279
+  }
+}

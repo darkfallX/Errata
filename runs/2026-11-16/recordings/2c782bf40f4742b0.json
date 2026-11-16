@@ -1,0 +1,76 @@
+{
+  "key": "2c782bf40f4742b0",
+  "recorded_at": "2026-11-16T00:29:38.940Z",
+  "exit_code": 0,
+  "mode": "testing",
+  "url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "objective": "Goal: the page is shown at a permanent link to its current revision (the address includes oldid). Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\nHint: an old tutorial said \"A permalink can be made by clicking \"Permanent link\" in the sidebar's toolbox.\", but those labels may have moved or been renamed.\nWhen the goal is met, store the main heading of the page you end on as 'landed_on', then verify the goal on screen.",
+  "clicks": [
+    {
+      "label": "Tools",
+      "y": 129
+    },
+    {
+      "label": "Permanent",
+      "names": [
+        "Permanent link"
+      ],
+      "y": 313
+    }
+  ],
+  "actions": [
+    {
+      "type": "navigate",
+      "status": "success",
+      "intent": "Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+      "instr": "Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace"
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=button[name=\"Tools\"i]",
+      "intent": "PRIMARY: permanent link navigation; role=button; text=\"Tools\" | HINTS: container=Page tools",
+      "instr": "Clicking Tools in the page tools menu",
+      "y": 129
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Permanent link\"i]",
+      "intent": "PRIMARY: Use the visible UI to reach a permanent link to the current page revision, by any route; role=link; text=\"Permanent link\" | HINTS: container=General list in Page tools menu",
+      "instr": "Clicking Permanent link in Page tools menu",
+      "y": 313
+    },
+    {
+      "type": "wait",
+      "status": "success",
+      "intent": "PRIMARY: wait for the permanent-link page heading to load",
+      "instr": "Waiting for the permanent-link page heading to load"
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "the page is shown at a permanent link to its current revision",
+      "instr": "Checking the permanent revision link"
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "the address includes oldid",
+      "instr": "Checking the address for oldid"
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "the main heading of the current page",
+      "instr": "Reading the current page main heading"
+    },
+    {
+      "type": "assert",
+      "status": "success",
+      "intent": "",
+      "instr": "Assertion check"
+    }
+  ],
+  "ndjson": "{\"type\":\"stream_start\",\"cli_version\":\"0.10.4\",\"surface\":\"run\",\"pid\":16792,\"v\":1,\"ts\":\"2026-11-16T00:26:34.689Z\"}\n{\"type\":\"recording_state\",\"enabled\":true,\"session_id\":\"8c36962d-f284-4b3b-8747-bef2c423753f\",\"persist\":false,\"v\":1,\"ts\":\"2026-11-16T00:26:35.062Z\"}\n{\"type\":\"skill_update_available\",\"current\":null,\"latest\":\"0.1.4\",\"install_cmd\":\"kane-cli install skill\",\"v\":1,\"ts\":\"2026-11-16T00:26:40.391Z\"}\n{\"type\":\"bifurcation\",\"flows\":[\"Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace then Goal: the page is shown at a permanent link to its current revision (the address includes oldid). Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\\nHint: an old tutorial said \\\"A permalink can be made by clicking \\\"Permanent link\\\" in the sidebar's toolbox.\\\", but those labels may have moved or been renamed.\\nWhen the goal is met, Get the main heading of the page you end on and save as {{landed_on}}.\\nverify the goal on screen.\"],\"count\":1,\"v\":1,\"ts\":\"2026-11-16T00:27:23.383Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"v\":1,\"ts\":\"2026-11-16T00:27:48.663Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace\",\"v\":1,\"ts\":\"2026-11-16T00:27:48.696Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"v\":1,\"ts\":\"2026-11-16T00:27:57.265Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"click: Clicking Tools in the page tools menu\",\"v\":1,\"ts\":\"2026-11-16T00:28:04.882Z\"}\n{\"step\":4,\"status\":\"running\",\"remark\":\"Step 3\",\"v\":1,\"ts\":\"2026-11-16T00:28:11.394Z\"}\n{\"step\":4,\"status\":\"done\",\"remark\":\"click: Clicking Permanent link in Page tools menu\",\"v\":1,\"ts\":\"2026-11-16T00:28:23.709Z\"}\n{\"step\":5,\"status\":\"running\",\"remark\":\"Step 4\",\"v\":1,\"ts\":\"2026-11-16T00:28:28.971Z\"}\n{\"step\":5,\"status\":\"done\",\"remark\":\"wait: PRIMARY: wait for the permanent-link page heading to load\",\"v\":1,\"ts\":\"2026-11-16T00:28:36.987Z\"}\n{\"step\":6,\"status\":\"running\",\"remark\":\"Step 5\",\"v\":1,\"ts\":\"2026-11-16T00:28:43.408Z\"}\n{\"step\":6,\"status\":\"done\",\"remark\":\"analyze: ANALYZE(textual_visual, 'the main heading of the page you end on is saved as {{l\",\"v\":1,\"ts\":\"2026-11-16T00:29:05.716Z\"}\n{\"step\":7,\"status\":\"running\",\"remark\":\"Step 6\",\"v\":1,\"ts\":\"2026-11-16T00:29:12.945Z\"}\n{\"step\":7,\"status\":\"done\",\"remark\":\"assert: the page is shown at a permanent link to its current revision and the address in\",\"v\":1,\"ts\":\"2026-11-16T00:29:12.993Z\"}\n{\"type\":\"coverage\",\"status\":\"skipped\",\"reason\":\"not_assurance_project\",\"pack\":\"~\\\\.testmuai\\\\kaneai\\\\sessions\\\\8c36962d-f284-4b3b-8747-bef2c423753f\\\\evidence\\\\cf70f40f-5b2d-48a3-ae0b-55a869fed0e1.evidence\",\"v\":1,\"ts\":\"2026-11-16T00:29:35.286Z\"}\n{\"type\":\"run_end\",\"status\":\"passed\",\"summary\":\"Opened Wikipedia’s Ada Lovelace article and used the page’s visible options to reach a permanent link for the current revision.\\nThe article remained titled “Ada Lovelace.”\\nFinished on the permanent revision URL, which includes oldid=1384127064.\",\"one_liner\":\"opened a permanent revision link for Ada Lovelace on Wikipedia\",\"final_state\":{\"url\":\"https://en.wikipedia.org/w/index.php?title=Ada_Lovelace&oldid=1384127064\",\"page_title\":\"Ada Lovelace\",\"revision_id\":\"1384127064\"},\"reason\":\"Objective completed\",\"duration\":119.1,\"bifurcated\":false,\"total_runs\":1,\"context\":{\"memory\":{\"permanent_link_current_revision_check\":{\"extracted_value\":\"https://en.wikipedia.org/w/index.php?title=Ada_Lovelace&oldid=1384127064\",\"operator\":\"contains\",\"transforms\":[],\"json_path\":null,\"reasoning\":\"value: 'https://en.wikipedia.org/w/index.php?title=Ada_Lovelace&oldid=1384127064' -> 'https://en.wikipedia.org/w/index.php?title=Ada_Lovelace&oldid=1384127064'; contains 'oldid=1384127064' -> PASS\",\"analyzer_type\":\"url\",\"step\":5,\"query\":\"the page is shown at a permanent link to its current revision\",\"condition\":\"the page is shown at a permanent link to its current revision\",\"human_description\":\"Checking the permanent revision link\",\"expected_value\":\"oldid=1384127064\"},\"address_includes_oldid_check\":{\"extracted_value\":\"https://en.wikipedia.org/w/index.php?title=Ada_Lovelace&oldid=1384127064\",\"operator\":\"contains\",\"transforms\":[],\"json_path\":null,\"reasoning\":\"value: 'https://en.wikipedia.org/w/index.php?title=Ada_Lovelace&oldid=1384127064' -> 'https://en.wikipedia.org/w/index.php?title=Ada_Lovelace&oldid=1384127064'; contains 'oldid' -> PASS\",\"analyzer_type\":\"url\",\"step\":5,\"query\":\"the address includes oldid\",\"condition\":\"the address includes oldid\",\"human_description\":\"Checking the address for oldid\",\"expected_value\":\"oldid\"},\"landed_on\":{\"extracted_value\":\"Ada Lovelace\",\"operator\":\"equals\",\"transforms\":[\"strip\"],\"json_path\":null,\"reasoning\":\"value: 'Ada Lovelace' (stored, no comparison)\",\"analyzer_type\":\"textual_visual\",\"step\":5,\"query\":\"the main heading of the current page\",\"condition\":\"the main heading of the page you end on is saved as {{landed_on}}\",\"human_description\":\"Reading the current page main heading\",\"expected_value\":\"\",\"code_js\":\"el(69).textContent.trim()\",\"wrapped_js\":\"(els) => {\\n  const __m = {69: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (el(69).textContent.trim());\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:role=heading[name=\\\"Ada Lovelace\\\"i]\"],\"needs_unit_conversion\":false}},\"variables\":{\"landed_on\":{\"syntax\":\"{{landed_on}}\",\"value\":\"Ada Lovelace\",\"type\":\"memory\",\"secret\":false,\"source\":\"runtime\"},\"permanent_link_current_revision_check\":{\"syntax\":\"{{permanent_link_current_revision_check}}\",\"value\":\"https://en.wikipedia.org/w/index.php?title=Ada_Lovelace&oldid=1384127064\",\"type\":\"memory\",\"secret\":false},\"address_includes_oldid_check\":{\"syntax\":\"{{address_includes_oldid_check}}\",\"value\":\"https://en.wikipedia.org/w/index.php?title=Ada_Lovelace&oldid=1384127064\",\"type\":\"memory\",\"secret\":false}},\"pointer\":\"(passed) opened a permanent revision link for Ada Lovelace on Wikipedia\"},\"credits_consumed\":21.42325,\"session_dir\":\"~/.testmuai/kaneai/sessions\\\\8c36962d-f284-4b3b-8747-bef2c423753f\",\"run_dir\":\"~/.testmuai/kaneai/sessions\\\\8c36962d-f284-4b3b-8747-bef2c423753f\\\\runs\\\\0\",\"result_code\":100,\"reason_code\":\"success.complete\",\"per_flow_metadata\":[{\"result_code\":\"100\",\"reason_code\":\"success.complete\",\"error_message\":null,\"summary\":\"Opened Wikipedia’s Ada Lovelace article and used the page’s visible options to reach a permanent link for the current revision.\\nThe article remained titled “Ada Lovelace.”\\nFinished on the permanent revision URL, which includes oldid=1384127064.\",\"one_liner\":\"opened a permanent revision link for Ada Lovelace on Wikipedia\",\"credits_consumed\":21.42325}],\"run_id\":\"run-0\",\"test_url\":\"https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GVZE1CZ1JZZ3YCEVBVKBWG/dashboard/share/US_NIK1KX2HYEIV5K5M0UMHXNKT6HKSF7FNM2A25BAWOOGUZX25OOXLZDMZAPWVSDPK?type=summary&agentView=true&fqdn=summary-page\",\"coverage\":{\"status\":\"skipped\"},\"v\":1,\"ts\":\"2026-11-16T00:29:35.291Z\"}\n"
+}

@@ -1,0 +1,49 @@
+{
+  "key": "e962720267d42eae",
+  "recorded_at": "2026-11-16T00:33:04.646Z",
+  "exit_code": 1,
+  "mode": "testing",
+  "url": "https://github.com/expressjs/express/blob/master/index.js",
+  "objective": "Goal: the file's raw content is shown as plain text. Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\nHint: an old tutorial said \"In the upper-right corner of the file view, click Raw.\", but those labels may have moved or been renamed.\nWhen the goal is met, store the main heading of the page you end on as 'landed_on', then verify the goal on screen.",
+  "clicks": [
+    {
+      "label": "Raw",
+      "y": 304
+    }
+  ],
+  "actions": [
+    {
+      "type": "navigate",
+      "status": "success",
+      "intent": "Navigate to https://github.com/expressjs/express/blob/master/index.js",
+      "instr": "Navigate to https://github.com/expressjs/express/blob/master/index.js"
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:testid=[data-testid=\"raw-button\"s]",
+      "intent": "PRIMARY: Reach the file's raw-content view from the current page by clicking through the visible UI, by any route; role=link; text=\"Raw\" | HINTS: container=file view controls, next to Blame",
+      "instr": "Clicking Raw to open the file's raw view",
+      "y": 304
+    },
+    {
+      "type": "press_key",
+      "status": "success",
+      "intent": "PRIMARY: activate the focused Raw link to reach the file's raw-content view",
+      "instr": "Pressing Enter to open the raw content view"
+    },
+    {
+      "type": "wait",
+      "status": "success",
+      "intent": "PRIMARY: wait for the raw file content to load",
+      "instr": "Waiting for the raw file content to load"
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "whether the file's raw content shown as plain text is present (in the raw file page)",
+      "instr": "Checking whether the file raw content is shown as plain text"
+    }
+  ],
+  "ndjson": "{\"type\":\"stream_start\",\"cli_version\":\"0.10.4\",\"surface\":\"run\",\"pid\":4188,\"v\":1,\"ts\":\"2026-11-16T00:30:45.807Z\"}\n{\"type\":\"recording_state\",\"enabled\":true,\"session_id\":\"89bd7a52-291b-44ad-a983-1638161416d9\",\"persist\":false,\"v\":1,\"ts\":\"2026-11-16T00:30:45.922Z\"}\n{\"type\":\"skill_update_available\",\"current\":null,\"latest\":\"0.1.4\",\"install_cmd\":\"kane-cli install skill\",\"v\":1,\"ts\":\"2026-11-16T00:30:49.700Z\"}\n{\"type\":\"bifurcation\",\"flows\":[\"Navigate to https://github.com/expressjs/express/blob/master/index.js then Goal: the file's raw content is shown as plain text.\\nReach it from the current page by clicking through the visible UI, by any route.\\nNever type a URL or use the address bar.\\nHint: an old tutorial said \\\"In the upper-right corner of the file view, click Raw.\\\", but those labels may have moved or been renamed.\\nWhen the goal is met, store the main heading of the page you end on as 'landed_on', then verify the goal on screen.\"],\"count\":1,\"v\":1,\"ts\":\"2026-11-16T00:31:26.246Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"v\":1,\"ts\":\"2026-11-16T00:31:38.537Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"navigate: Navigate to https://github.com/expressjs/express/blob/master/index.js\",\"v\":1,\"ts\":\"2026-11-16T00:31:38.593Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"v\":1,\"ts\":\"2026-11-16T00:31:40.396Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"click: Clicking Raw to open the file's raw view\",\"v\":1,\"ts\":\"2026-11-16T00:31:48.937Z\"}\n{\"step\":4,\"status\":\"running\",\"remark\":\"Step 3\",\"v\":1,\"ts\":\"2026-11-16T00:31:50.619Z\"}\n{\"step\":4,\"status\":\"done\",\"remark\":\"press_key: PRIMARY: activate the focused Raw link to reach the file's raw-content view\",\"v\":1,\"ts\":\"2026-11-16T00:31:59.788Z\"}\n{\"step\":5,\"status\":\"running\",\"remark\":\"Step 4\",\"v\":1,\"ts\":\"2026-11-16T00:32:00.950Z\"}\n{\"step\":5,\"status\":\"done\",\"remark\":\"wait: PRIMARY: wait for the raw file content to load\",\"v\":1,\"ts\":\"2026-11-16T00:32:09.983Z\"}\n{\"step\":6,\"status\":\"running\",\"remark\":\"Step 5\",\"v\":1,\"ts\":\"2026-11-16T00:32:10.704Z\"}\n{\"step\":6,\"status\":\"done\",\"remark\":\"analyze: ANALYZE(unknown, 'the main heading of the page you end on is stored as {{landed_\",\"v\":1,\"ts\":\"2026-11-16T00:32:32.805Z\"}\n{\"step\":7,\"status\":\"running\",\"remark\":\"Step 6\",\"v\":1,\"ts\":\"2026-11-16T00:32:33.488Z\"}\n{\"step\":7,\"status\":\"failed\",\"remark\":\"wait: Waiting after checkpoint analysis failure\",\"v\":1,\"ts\":\"2026-11-16T00:32:36.457Z\"}\n{\"type\":\"coverage\",\"status\":\"skipped\",\"reason\":\"not_assurance_project\",\"pack\":\"~\\\\.testmuai\\\\kaneai\\\\sessions\\\\89bd7a52-291b-44ad-a983-1638161416d9\\\\evidence\\\\b4b045d4-641c-4e6d-b3ce-7bd7ab14e964.evidence\",\"v\":1,\"ts\":\"2026-11-16T00:33:00.894Z\"}\n{\"type\":\"run_end\",\"status\":\"failed\",\"summary\":\"The test treated the raw-text page as though it would contain a main heading. The required outcome is plain file content, and the final screen shows that content without a page heading.\\nChange the completion check to verify visible raw file text or the raw-content URL/content type. Do not require a main heading after navigating to a plain-text resource.\",\"one_liner\":\"The raw file opened successfully, but the run then required a page heading that raw text pages do not have.\",\"final_state\":{},\"reason\":\"The required heading checkpoint cannot be satisfied because the raw text page has no heading.\",\"duration\":82.9,\"bifurcated\":false,\"total_runs\":1,\"context\":{\"memory\":{\"file_raw_content_plain_text\":{\"extracted_value\":\"true\",\"operator\":\"equals\",\"transforms\":[],\"json_path\":null,\"reasoning\":\"value: 'true' -> 'true'; equals 'true' -> PASS\",\"analyzer_type\":\"visual\",\"step\":5,\"query\":\"whether the file's raw content shown as plain text is present (in the raw file page)\",\"condition\":\"the file's raw content is shown as plain text\",\"human_description\":\"Checking whether the file raw content is shown as plain text\",\"expected_value\":\"true\",\"subject\":\"the file's raw content shown as plain text\",\"must_be\":\"present\"}},\"variables\":{\"landed_on\":{\"syntax\":\"{{landed_on}}\",\"value\":\"\",\"type\":\"text\",\"secret\":false,\"source\":\"runtime\"},\"file_raw_content_plain_text\":{\"syntax\":\"{{file_raw_content_plain_text}}\",\"value\":\"true\",\"type\":\"memory\",\"secret\":false}},\"pointer\":\"(failed) The raw file opened successfully, but the run then required a page heading that raw text pages do not have.\"},\"credits_consumed\":25.64196,\"session_dir\":\"~/.testmuai/kaneai/sessions\\\\89bd7a52-291b-44ad-a983-1638161416d9\",\"run_dir\":\"~/.testmuai/kaneai/sessions\\\\89bd7a52-291b-44ad-a983-1638161416d9\\\\runs\\\\0\",\"result_code\":750,\"reason_code\":\"assertion_error.step_not_achievable\",\"per_flow_metadata\":[{\"result_code\":\"750\",\"reason_code\":\"assertion_error.step_not_achievable\",\"error_message\":\"The required heading checkpoint cannot be satisfied because the raw text page has no heading.\",\"summary\":\"The test treated the raw-text page as though it would contain a main heading. The required outcome is plain file content, and the final screen shows that content without a page heading.\\nChange the completion check to verify visible raw file text or the raw-content URL/content type. Do not require a main heading after navigating to a plain-text resource.\",\"one_liner\":\"The raw file opened successfully, but the run then required a page heading that raw text pages do not have.\",\"credits_consumed\":25.64196}],\"run_id\":\"run-0\",\"verdict\":{\"confirmed\":false,\"status\":\"broken\",\"family\":\"automation_bug\",\"category\":\"state_transition_bug\",\"category_proposal\":\"\",\"severity\":\"minor\",\"root_cause\":\"The test treated the raw-text page as though it would contain a main heading. The required outcome is plain file content, and the final screen shows that content without a page heading.\",\"agent_fault_assessment\":\"The agent followed the visible Raw control and reached the raw-content URL. It also waited for the content to load. The final screen shows the JavaScript file as plain text, so the agent achieved the navigation goal; the failure came from the incompatible heading checkpoint rather than an incorrect agent action.\",\"bug_title\":\"Raw-content checkpoint requires a nonexistent heading\",\"signals\":[],\"confidence\":0.99,\"suggestion\":\"Change the completion check to verify visible raw file text or the raw-content URL/content type. Do not require a main heading after navigating to a plain-text resource.\",\"one_liner\":\"The raw file opened successfully, but the run then required a page heading that raw text pages do not have.\",\"relevant_steps\":[2,3,4,5],\"culprit_step\":\"0-5\",\"credits_consumed\":3.7108999999999996,\"mode\":\"terminal\"},\"test_url\":\"https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GW71CWJ41EKGFMCXH3X9QM/dashboard/share/US_WV8XYEGBXYJG785SVPSJWFVCBDDH227X0J48YSZ5CHT4FX7XF9H7K29FHVMW3YTP?type=summary&agentView=true&fqdn=summary-page\",\"coverage\":{\"status\":\"skipped\"},\"v\":1,\"ts\":\"2026-11-16T00:33:00.895Z\"}\n"
+}

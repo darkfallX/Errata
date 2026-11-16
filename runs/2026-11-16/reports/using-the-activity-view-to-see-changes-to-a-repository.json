@@ -1,0 +1,145 @@
+{
+  "errata": "1",
+  "tutorial": "Using the activity view to see changes to a repository",
+  "source": "https://docs.github.com/en/repositories/viewing-activity-and-data-for-your-repository/using-the-activity-view-to-see-changes-to-a-repository",
+  "start_url": "https://github.com/expressjs/express",
+  "checked_at": "2026-11-15T23:57:05.092Z",
+  "agent": "Claude (Claude Code, /errata skill) · rewrite: rules (offline, deterministic)",
+  "kane": "live",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "On GitHub, navigate to the main page of the repository.",
+      "text": "On GitHub, navigate to the main page of the repository.",
+      "goal": "The repository's main page is open",
+      "labels": [],
+      "checkable": false,
+      "skip_reason": "Covered by the start URL (the repository's main page).",
+      "status": "skipped",
+      "note": "Covered by the start URL (the repository's main page).",
+      "credits": 0,
+      "started_at": "https://github.com/expressjs/express"
+    },
+    {
+      "n": 2,
+      "quote": "On the main page of the repository, to the right of the list of files, click **Activity**.",
+      "text": "On the main page of the repository, to the right of the list of files, click Activity.",
+      "goal": "The repository's activity view, listing pushes and merges, is visible",
+      "labels": [
+        "Activity"
+      ],
+      "checkable": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to open the repository’s Activity page.\nClicked the visible “Activity” link on the Express GitHub repository.\nThe Activity page opened successfully, with the main heading shown as “Activity”.",
+        "one_liner": "opened the Activity page on GitHub",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\0f630c90-642c-4f70-831f-cf897eefcc7b\\evidence\\344b3ae9-73bc-450e-8d98-6783b6053b56.evidence",
+        "final_state": {
+          "url": "https://github.com/expressjs/express/activity",
+          "landed_on": "Activity"
+        },
+        "end_url": "https://github.com/expressjs/express/activity",
+        "clicks": [
+          {
+            "label": "Activity"
+          },
+          {
+            "label": "Activity",
+            "y": 530
+          }
+        ],
+        "credits": 13.7,
+        "duration": 130.2,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GSZCNG86T7MRWD6DBTV0SP/dashboard/share/US_N2KRF1XXGXZ50D5LOJZLG6RYZ0FGLKA2EW6HXQ9N7I4V8SVT783ZT72EF983O7A3?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\0f630c90-642c-4f70-831f-cf897eefcc7b\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\0f630c90-642c-4f70-831f-cf897eefcc7b",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express",
+          "scroll: Scrolling to Activity in the repository sidebar",
+          "click: PRIMARY: Click the element whose visible label is exactly 'Activity'; role=link;",
+          "click: Clicking Activity in the sidebar",
+          "wait: PRIMARY: wait for the heading 'Activity' to be visible",
+          "analyze: ANALYZE(textual_visual, 'The main heading of the page you end on is saved as {{l",
+          "wait: Waiting after completing the Activity navigation and heading checkpoint"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'Activity'.\nThen store the main heading of the page you end on as 'landed_on'.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "Activity",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 13.7,
+      "started_at": "https://github.com/expressjs/express"
+    },
+    {
+      "n": 3,
+      "quote": "To filter by activity type, select the **All activity** dropdown menu, then click an activity type.",
+      "text": "To filter by activity type, select the All activity dropdown menu, then click an activity type.",
+      "goal": "A menu of activity types is open",
+      "labels": [
+        "All activity"
+      ],
+      "checkable": true,
+      "continues": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to open the repository’s “All activity” view.\nClicked “All activity” on the Express repository page.\nThe GitHub Activity page opened successfully, with the main heading “Activity”.",
+        "one_liner": "opened the All activity view on GitHub",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\fc078033-168e-48ce-8c91-7935865f847e\\evidence\\8ab5d039-84fa-487c-a87f-cd6138a087cc.evidence",
+        "final_state": {
+          "url": "https://github.com/expressjs/express/activity",
+          "landed_on": "Activity"
+        },
+        "end_url": "https://github.com/expressjs/express/activity",
+        "clicks": [
+          {
+            "label": "All activity",
+            "names": [
+              "Filter by activity type: All activity",
+              "Filter by activity type: All"
+            ],
+            "y": 262
+          }
+        ],
+        "credits": 14.3,
+        "duration": 53.4,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GT64Q9VPZB22S38V0AW7KR/dashboard/share/US_UWICV9REDVEGNO02AF353583SP0B8M4B1ANVBHP1EBIOBAFX0M6OSE394R2V3M2B?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\fc078033-168e-48ce-8c91-7935865f847e\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\fc078033-168e-48ce-8c91-7935865f847e",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express/activity",
+          "click: Clicking All activity in the activity filter bar",
+          "analyze: ANALYZE(textual_visual, 'The main heading of the page you end on is stored as {{",
+          "wait: Waiting after verifying the completed activity page heading"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'All activity'.\nThen store the main heading of the page you end on as 'landed_on'.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "Activity",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 14.3,
+      "started_at": "https://github.com/expressjs/express/activity"
+    }
+  ],
+  "totals": {
+    "steps": 3,
+    "checkable": 2,
+    "accurate": 2,
+    "drifted": 0,
+    "fixed": 0,
+    "broken": 0,
+    "skipped": 1,
+    "unchecked": 0,
+    "credits": 28,
+    "seconds": 340
+  }
+}

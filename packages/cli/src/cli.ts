@@ -8,7 +8,7 @@ import { execFileSync } from "node:child_process";
 import { pickAgent } from "./agent.js";
 import { checkTutorial } from "./engine.js";
 import { loadDoc, isUrl } from "./fetch.js";
-import { kaneAvailable, LiveKane, ReplayKane, type KaneRunner } from "./kane.js";
+import { FillKane, kaneAvailable, LiveKane, ReplayKane, type KaneRunner } from "./kane.js";
 import { applyFixes, buildPatch, slug, toMarkdown, writeOutputs } from "./report.js";
 import type { Tutorial, TutorialReport } from "./types.js";
 import { LiveUI, printSummary, bold, dim, green, red, amber } from "./ui.js";
@@ -167,7 +167,11 @@ async function demo(flags: Flags) {
   const copy = join(out, "demo", "quickstart.md");
   mkdirSync(dirname(copy), { recursive: true });
   writeFileSync(copy, readFileSync(docs, "utf8"));
-  const kane: KaneRunner = replay ? new ReplayKane([recordings], 320) : new LiveKane(typeof flags.record === "string" ? resolve(flags.record) : join(out, "recordings"));
+  const kane: KaneRunner = replay
+    ? new ReplayKane([recordings], 320)
+    : typeof flags.fill === "string"
+      ? new FillKane(resolve(flags.fill))
+      : new LiveKane(typeof flags.record === "string" ? resolve(flags.record) : join(out, "recordings"));
   let reports: TutorialReport[] = [];
   try {
     reports = await runCheck([copy], { ...flags, app: app.url, agent: replay ? "rules" : (flags.agent ?? "rules"), out }, { normalise: { [app.url]: "{{app}}" }, kane });

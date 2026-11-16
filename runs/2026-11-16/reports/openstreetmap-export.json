@@ -1,0 +1,73 @@
+{
+  "errata": "1",
+  "tutorial": "OpenStreetMap: Export",
+  "source": "https://wiki.openstreetmap.org/wiki/Export",
+  "start_url": "https://www.openstreetmap.org/#map=16/51.5074/-0.1278",
+  "checked_at": "2026-11-16T00:49:52.420Z",
+  "agent": "Claude (Claude Code, /errata skill) · rewrite: rules (offline, deterministic)",
+  "kane": "live",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "Use the **export** button in the top bar to open the export sidebar to get OpenStreetMap XML data for an area.",
+      "text": "Use the export button in the top bar to open the export sidebar to get OpenStreetMap XML data for an area.",
+      "goal": "The export sidebar with a bounding box for the current area is visible",
+      "labels": [
+        "Export"
+      ],
+      "checkable": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to click the “Export” option.\nClicked “Export” on OpenStreetMap.\nThe Export page opened successfully, with the main heading “Export”.",
+        "one_liner": "opened the Export page on OpenStreetMap",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\502ef96a-4182-4559-a755-daa77c882f8b\\evidence\\facb44b8-d582-4639-92e0-15fd1c517253.evidence",
+        "final_state": {
+          "url": "https://www.openstreetmap.org/export#map=16/51.50740/-0.12405",
+          "landed_on": "Export"
+        },
+        "end_url": "https://www.openstreetmap.org/export#map=16/51.50740/-0.12405",
+        "clicks": [
+          {
+            "label": "Export",
+            "y": 17
+          }
+        ],
+        "credits": 17.8,
+        "duration": 47.2,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GX6XSH1H4J14BNDFTVVX0W/dashboard/share/US_MY1IC09R9OL6NXOUXZ16WQ8B1QSNR3N3VW121GXME9B54LUWCDTCBXOKD6ST6AB4?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\502ef96a-4182-4559-a755-daa77c882f8b\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\502ef96a-4182-4559-a755-daa77c882f8b",
+        "trail": [
+          "navigate: Navigate to https://www.openstreetmap.org/#map=16/51.5074/-0.1278",
+          "click: Clicking Export in main navigation",
+          "wait: PRIMARY: wait for the heading 'Export' to be visible",
+          "analyze: ANALYZE(textual_visual, 'The main heading of the page you end on is stored as {{",
+          "wait: Waiting after successful Export page heading verification"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'Export'.\nThen store the main heading of the page you end on as 'landed_on'.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "Export",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 17.8,
+      "started_at": "https://www.openstreetmap.org/#map=16/51.5074/-0.1278"
+    }
+  ],
+  "totals": {
+    "steps": 1,
+    "checkable": 1,
+    "accurate": 1,
+    "drifted": 0,
+    "fixed": 0,
+    "broken": 0,
+    "skipped": 0,
+    "unchecked": 0,
+    "credits": 17.8,
+    "seconds": 103
+  }
+}

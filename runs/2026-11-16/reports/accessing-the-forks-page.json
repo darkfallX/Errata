@@ -1,0 +1,190 @@
+{
+  "errata": "1",
+  "tutorial": "Accessing the forks page",
+  "source": "https://docs.github.com/en/repositories/viewing-activity-and-data-for-your-repository/understanding-connections-between-repositories",
+  "start_url": "https://github.com/expressjs/express",
+  "checked_at": "2026-11-16T00:33:02.726Z",
+  "agent": "Claude (Claude Code, /errata skill) · rewrite: rules (offline, deterministic)",
+  "kane": "live",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "On GitHub, navigate to the main page of the repository.",
+      "text": "On GitHub, navigate to the main page of the repository.",
+      "goal": "The repository's main page is open",
+      "labels": [],
+      "checkable": false,
+      "skip_reason": "Covered by the start URL (the repository's main page).",
+      "status": "skipped",
+      "note": "Covered by the start URL (the repository's main page).",
+      "credits": 0,
+      "started_at": "https://github.com/expressjs/express"
+    },
+    {
+      "n": 2,
+      "quote": "Under your repository name, click **Insights**.",
+      "text": "Under your repository name, click Insights.",
+      "goal": "The repository's Insights page is visible",
+      "labels": [
+        "Insights"
+      ],
+      "checkable": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to open the repository’s Insights section.\nClicked the “Insights” link and arrived at the repository insights page.\nThe page heading is “Insights: expressjs/express”.",
+        "one_liner": "opened the Insights page on GitHub",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\e8c36d65-c26d-4c60-b94b-cb2b2920ba9d\\evidence\\8124d98e-8e81-47fc-95be-8da4bef32511.evidence",
+        "final_state": {
+          "url": "https://github.com/expressjs/express/pulse",
+          "landed_on": "Insights: expressjs/express"
+        },
+        "end_url": "https://github.com/expressjs/express/pulse",
+        "clicks": [
+          {
+            "label": "Insights",
+            "y": 134
+          }
+        ],
+        "credits": 14.5,
+        "duration": 111.7,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GVYXJ2VZREZFJ57JJX53VZ/dashboard/share/US_5XNZK5HK7YBF1AC9XB63FY75HVFD336ZCV5G8GS5RX4CZO9HBF7YR5H1M7MAHHAA?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\e8c36d65-c26d-4c60-b94b-cb2b2920ba9d\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\e8c36d65-c26d-4c60-b94b-cb2b2920ba9d",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express",
+          "click: Clicking Insights",
+          "wait: PRIMARY: wait for the Insights page heading to load",
+          "analyze: ANALYZE(textual_visual, 'Get the main heading of the page you end on and save as",
+          "wait: Waiting after successful Insights heading verification"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'Insights'.\nThen store the main heading of the page you end on as 'landed_on'.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "Insights: expressjs/express",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 14.5,
+      "started_at": "https://github.com/expressjs/express"
+    },
+    {
+      "n": 3,
+      "quote": "In the left sidebar, click **Forks**.",
+      "text": "In the left sidebar, click Forks.",
+      "goal": "A list of the repository's forks is visible",
+      "labels": [
+        "Forks"
+      ],
+      "checkable": true,
+      "continues": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "Clicked the “Forks” link as requested.\nOpened the Express repository’s Forks page, where the main heading is “Forks”.",
+        "one_liner": "opened the Forks page on GitHub",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\6c9195de-3a54-4990-8eab-1f312f1bd3f6\\evidence\\5101fc02-e45f-439c-bb49-86bda3390eef.evidence",
+        "final_state": {
+          "url": "https://github.com/expressjs/express/forks",
+          "landed_on": "Forks"
+        },
+        "end_url": "https://github.com/expressjs/express/forks",
+        "clicks": [
+          {
+            "label": "Forks",
+            "y": 467
+          }
+        ],
+        "credits": 18.8,
+        "duration": 57.7,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GW4SEDRGH4N6FESAWYDMB1/dashboard/share/US_3D8CWLDP3VVT68G8ELES4OS8B77V5X93UD9XDBW56NQ0CENMMO0RCSIOYHMDT2YO?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\6c9195de-3a54-4990-8eab-1f312f1bd3f6\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\6c9195de-3a54-4990-8eab-1f312f1bd3f6",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express/pulse",
+          "click: Clicking Forks in the Insights sidebar",
+          "wait: PRIMARY: wait 1000 ms for the Forks page to load",
+          "analyze: ANALYZE(textual_visual, 'the main heading of the page you end on is stored as {{",
+          "wait: Waiting after successfully verifying the Forks page heading"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'Forks'.\nThen store the main heading of the page you end on as 'landed_on'.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "Forks",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 18.8,
+      "started_at": "https://github.com/expressjs/express/pulse"
+    },
+    {
+      "n": 4,
+      "quote": "Optionally, to sort the list by most starred forks, most recently updated forks, most open issues, or most open pull requests, click **Sort**, then choose an option from the dropdown menu.",
+      "text": "Optionally, to sort the list by most starred forks, most recently updated forks, most open issues, or most open pull requests, click Sort, then choose an option from the dropdown menu.",
+      "goal": "A menu of sort options for the forks list is open",
+      "labels": [
+        "Sort"
+      ],
+      "checkable": true,
+      "continues": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to select the “Sort” option.\nThe “Sort” control was selected on the Express repository’s forks page.\nThe page ended on the Forks view, with the main heading shown as “Forks”.",
+        "one_liner": "selected Sort on GitHub",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\d1ac5f51-aee0-4cdb-83bf-597370a65038\\evidence\\2a1ccb5e-725a-4d9b-90a9-d3519bf8530e.evidence",
+        "final_state": {
+          "url": "https://github.com/expressjs/express/forks",
+          "landed_on": "Forks"
+        },
+        "end_url": "https://github.com/expressjs/express/forks",
+        "clicks": [
+          {
+            "label": "Sort",
+            "names": [
+              "Sort: Most starred"
+            ],
+            "y": 229
+          }
+        ],
+        "credits": 17.8,
+        "duration": 41.3,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GW8G19B7WYHBMBVPR1JXJP/dashboard/share/US_RCMJ0XDLSRACNICWHQIJOLUNY6BJ9PR1NVMJQ6LMDV81E93P5HKU77WKKH50G4W1?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\d1ac5f51-aee0-4cdb-83bf-597370a65038\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\d1ac5f51-aee0-4cdb-83bf-597370a65038",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express/forks",
+          "click: Clicking the Sort button",
+          "analyze: ANALYZE(textual_visual, 'The main heading of the page you end on is stored as {{",
+          "wait: Waiting briefly after checkpoint verification"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'Sort'.\nThen store the main heading of the page you end on as 'landed_on'.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "Forks",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 17.8,
+      "started_at": "https://github.com/expressjs/express/forks"
+    }
+  ],
+  "totals": {
+    "steps": 4,
+    "checkable": 3,
+    "accurate": 3,
+    "drifted": 0,
+    "fixed": 0,
+    "broken": 0,
+    "skipped": 1,
+    "unchecked": 0,
+    "credits": 51.1,
+    "seconds": 406
+  }
+}

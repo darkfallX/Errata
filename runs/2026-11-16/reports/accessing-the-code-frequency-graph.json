@@ -1,0 +1,137 @@
+{
+  "errata": "1",
+  "tutorial": "Accessing the code frequency graph",
+  "source": "https://docs.github.com/en/repositories/viewing-activity-and-data-for-your-repository/analyzing-changes-to-a-repositorys-content",
+  "start_url": "https://github.com/expressjs/express",
+  "checked_at": "2026-11-16T00:02:38.960Z",
+  "agent": "Claude (Claude Code, /errata skill) · rewrite: rules (offline, deterministic)",
+  "kane": "live",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "On GitHub, navigate to the main page of the repository.",
+      "text": "On GitHub, navigate to the main page of the repository.",
+      "goal": "The repository's main page is open",
+      "labels": [],
+      "checkable": false,
+      "skip_reason": "Covered by the start URL (the repository's main page).",
+      "status": "skipped",
+      "note": "Covered by the start URL (the repository's main page).",
+      "credits": 0,
+      "started_at": "https://github.com/expressjs/express"
+    },
+    {
+      "n": 2,
+      "quote": "Under your repository name, click **Insights**.",
+      "text": "Under your repository name, click Insights.",
+      "goal": "The repository's Insights page is visible",
+      "labels": [
+        "Insights"
+      ],
+      "checkable": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to click the item labeled “Insights.”\nClicked “Insights” on the expressjs/express GitHub repository.\nThe Insights page opened successfully, with the heading “Insights: expressjs/express.”",
+        "one_liner": "opened Insights on github.com",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\03908753-a781-4309-8157-bbbebe621529\\evidence\\75327dca-9537-495f-83b5-8f188312c9f7.evidence",
+        "final_state": {
+          "url": "https://github.com/expressjs/express/pulse",
+          "landed_on": "Insights: expressjs/express"
+        },
+        "end_url": "https://github.com/expressjs/express/pulse",
+        "clicks": [
+          {
+            "label": "Insights",
+            "y": 134
+          }
+        ],
+        "credits": 15.3,
+        "duration": 118.8,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GT9E7RSWPKWQYAEMB1AX74/dashboard/share/US_8HOHR0M3DOM1L9W945FTMEH79OEFZGJUDZ5S3ZT61HNLA6UW2XA4KZQH9Q8NUT59?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\03908753-a781-4309-8157-bbbebe621529\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\03908753-a781-4309-8157-bbbebe621529",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express",
+          "click: Clicking Insights link",
+          "wait: PRIMARY: wait for the Insights page heading to be visible",
+          "analyze: ANALYZE(textual_visual, 'the main heading of the page you end on is stored as {{",
+          "wait: Waiting after the verified Insights heading extraction"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'Insights'.\nThen store the main heading of the page you end on as 'landed_on'.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "Insights: expressjs/express",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 15.3,
+      "started_at": "https://github.com/expressjs/express"
+    },
+    {
+      "n": 3,
+      "quote": "In the left sidebar, click **Code frequency**.",
+      "text": "In the left sidebar, click Code frequency.",
+      "goal": "A code frequency graph of additions and deletions is visible",
+      "labels": [
+        "Code frequency"
+      ],
+      "checkable": true,
+      "continues": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to open the repository's Code frequency view.\nClicked the “Code frequency” option on the expressjs/express GitHub repository.\nThe Code frequency page opened successfully, showing the heading “Code frequency over the history of expressjs/express”.",
+        "one_liner": "opened the Code frequency view on GitHub",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\04a90784-02bf-4e96-8b9b-daaad257a861\\evidence\\a47379db-a39b-43c7-a2e5-98dccac10bc2.evidence",
+        "final_state": {
+          "url": "https://github.com/expressjs/express/graphs/code-frequency",
+          "landed_on": "Code frequency over the history of expressjs/express"
+        },
+        "end_url": "https://github.com/expressjs/express/graphs/code-frequency",
+        "clicks": [
+          {
+            "label": "Code frequency",
+            "y": 353
+          }
+        ],
+        "credits": 17.4,
+        "duration": 65.5,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GTF8XGCD4NS6C0DVM32SY9/dashboard/share/US_775O3LN3HCNBCN5DQX9HP5AGRFZ4YBKWOX2NCRF0M84Y7NVBKFC1M5TZZXGEJGCM?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\04a90784-02bf-4e96-8b9b-daaad257a861\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\04a90784-02bf-4e96-8b9b-daaad257a861",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express/pulse",
+          "click: Clicking Code frequency link in Insights navigation",
+          "wait: PRIMARY: wait for the Code frequency page heading to load",
+          "analyze: ANALYZE(textual_visual, 'The main heading of the page you end on is stored as {{",
+          "wait: Waiting after checkpoint verification"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'Code frequency'.\nThen store the main heading of the page you end on as 'landed_on'.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "Code frequency over the history of expressjs/express",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 17.4,
+      "started_at": "https://github.com/expressjs/express/pulse"
+    }
+  ],
+  "totals": {
+    "steps": 3,
+    "checkable": 2,
+    "accurate": 2,
+    "drifted": 0,
+    "fixed": 0,
+    "broken": 0,
+    "skipped": 1,
+    "unchecked": 0,
+    "credits": 32.7,
+    "seconds": 334
+  }
+}

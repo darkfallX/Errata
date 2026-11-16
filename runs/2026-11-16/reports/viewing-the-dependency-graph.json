@@ -1,0 +1,188 @@
+{
+  "errata": "1",
+  "tutorial": "Viewing the dependency graph",
+  "source": "https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository",
+  "start_url": "https://github.com/expressjs/express",
+  "checked_at": "2026-11-16T00:26:17.006Z",
+  "agent": "Claude (Claude Code, /errata skill) · rewrite: rules (offline, deterministic)",
+  "kane": "live",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "On GitHub, navigate to the main page of the repository.",
+      "text": "On GitHub, navigate to the main page of the repository.",
+      "goal": "The repository's main page is open",
+      "labels": [],
+      "checkable": false,
+      "skip_reason": "Covered by the start URL (the repository's main page).",
+      "status": "skipped",
+      "note": "Covered by the start URL (the repository's main page).",
+      "credits": 0,
+      "started_at": "https://github.com/expressjs/express"
+    },
+    {
+      "n": 2,
+      "quote": "Under your repository name, click **Insights**.",
+      "text": "Under your repository name, click Insights.",
+      "goal": "The repository's Insights page is visible",
+      "labels": [
+        "Insights"
+      ],
+      "checkable": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to click the “Insights” option.\nThe Insights option was opened for the expressjs/express repository on GitHub.\nThe page reached was titled “Insights: expressjs/express.”",
+        "one_liner": "opened Insights on GitHub",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\f3eec002-e1cc-44b1-9235-83e156e2289a\\evidence\\ae07f5e5-66ac-4280-b3d6-2fead48563d4.evidence",
+        "final_state": {
+          "url": "https://github.com/expressjs/express/pulse",
+          "landed_on": "Insights: expressjs/express"
+        },
+        "end_url": "https://github.com/expressjs/express/pulse",
+        "clicks": [
+          {
+            "label": "Insights",
+            "y": 134
+          }
+        ],
+        "credits": 15.1,
+        "duration": 123.5,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GVGS1RGQ0Q5ATB8AV2MJS0/dashboard/share/US_G08MUWLI3P3PB57E4B9W2H5HMY7JMM7HI32RSM652WCACZL8B60QX41ESITW89C2?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\f3eec002-e1cc-44b1-9235-83e156e2289a\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\f3eec002-e1cc-44b1-9235-83e156e2289a",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express",
+          "click: Clicking Insights link",
+          "wait: PRIMARY: wait for the Insights page heading to load",
+          "analyze: ANALYZE(textual_visual, 'The main heading of the page you end on is stored as {{",
+          "wait: Waiting after verifying the Insights page heading"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'Insights'.\nThen store the main heading of the page you end on as 'landed_on'.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "Insights: expressjs/express",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 15.1,
+      "started_at": "https://github.com/expressjs/express"
+    },
+    {
+      "n": 3,
+      "quote": "In the left sidebar, click **Dependency graph**.",
+      "text": "In the left sidebar, click Dependency graph.",
+      "goal": "The repository's dependency graph, listing its dependencies, is visible",
+      "labels": [
+        "Dependency graph"
+      ],
+      "checkable": true,
+      "continues": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to open the “Dependency graph” section for the expressjs/express repository.\nClicked “Dependency graph” and reached the repository’s Insights page.\nThe page heading shown was “Insights: expressjs/express”.",
+        "one_liner": "opened the Dependency graph section on GitHub",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\f1cc75fb-cb39-468a-9e28-07a3158f1c64\\evidence\\b79f5ce3-6198-4e0c-b528-8107d90ac508.evidence",
+        "final_state": {
+          "url": "https://github.com/expressjs/express/network/dependencies",
+          "landed_on": "Insights: expressjs/express"
+        },
+        "end_url": "https://github.com/expressjs/express/network/dependencies",
+        "clicks": [
+          {
+            "label": "Dependency graph",
+            "y": 391
+          }
+        ],
+        "credits": 17.8,
+        "duration": 63.6,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GVPM9J2JXRPVMWR5ZBQMQD/dashboard/share/US_FPUSGF3I21ALAE0ELP613J56NXNJUAPX822LYSKRJKAC0AFOUR6HMU8MP7ZODIBG?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\f1cc75fb-cb39-468a-9e28-07a3158f1c64\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\f1cc75fb-cb39-468a-9e28-07a3158f1c64",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express/pulse",
+          "click: Clicking the Dependency graph link in Insights navigation",
+          "wait: PRIMARY: wait for the Dependency graph heading to be visible",
+          "analyze: ANALYZE(textual_visual, 'The main heading of the page you end on is stored as {{",
+          "wait: Waiting after successful checkpoint verification"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'Dependency graph'.\nThen store the main heading of the page you end on as 'landed_on'.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "Insights: expressjs/express",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 17.8,
+      "started_at": "https://github.com/expressjs/express/pulse"
+    },
+    {
+      "n": 4,
+      "quote": "Optionally, to view the repositories and packages that depend on your repository, under \"Dependency graph\", click **Dependents**.",
+      "text": "Optionally, to view the repositories and packages that depend on your repository, under \"Dependency graph\", click Dependents.",
+      "goal": "A list of repositories and packages that depend on this repository is visible",
+      "labels": [
+        "Dependents"
+      ],
+      "checkable": true,
+      "continues": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "Clicked the “Dependents” option for the expressjs/express repository on GitHub.\nThe Dependents page opened successfully at the repository’s network/dependents address.\nThe page heading shown was “Insights: expressjs/express.”",
+        "one_liner": "opened the Dependents page for expressjs/express on GitHub",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\8e724ba8-1828-4fdd-8e7c-13bd945ceeb4\\evidence\\b37162ad-b8d9-468a-98a1-8b8b26b0e712.evidence",
+        "final_state": {
+          "url": "https://github.com/expressjs/express/network/dependents",
+          "landed_on": "Insights: expressjs/express"
+        },
+        "end_url": "https://github.com/expressjs/express/network/dependents",
+        "clicks": [
+          {
+            "label": "Dependents",
+            "y": 283
+          }
+        ],
+        "credits": 21,
+        "duration": 71.2,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GVTFPQCC5T1DSTF65GTDJ4/dashboard/share/US_V32XDWAUDFZFXLS4IE0NPNEOWTM6OK6G5SWDB6PMQ8R18F9C15857ZR0O7FUF354?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\8e724ba8-1828-4fdd-8e7c-13bd945ceeb4\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\8e724ba8-1828-4fdd-8e7c-13bd945ceeb4",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express/network/dependencies",
+          "click: Clicking Dependents",
+          "wait: PRIMARY: wait for the heading 'Dependents' to become visible",
+          "analyze: ANALYZE(textual_visual, 'The main heading of the page you end on is stored as {{",
+          "wait: Waiting after confirming the Dependents destination heading"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'Dependents'.\nThen store the main heading of the page you end on as 'landed_on'.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "Insights: expressjs/express",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 21,
+      "started_at": "https://github.com/expressjs/express/network/dependencies"
+    }
+  ],
+  "totals": {
+    "steps": 4,
+    "checkable": 3,
+    "accurate": 3,
+    "drifted": 0,
+    "fixed": 0,
+    "broken": 0,
+    "skipped": 1,
+    "unchecked": 0,
+    "credits": 53.9,
+    "seconds": 468
+  }
+}

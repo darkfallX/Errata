@@ -1,0 +1,143 @@
+{
+  "errata": "1",
+  "tutorial": "Accessing the commits graph",
+  "source": "https://docs.github.com/en/repositories/viewing-activity-and-data-for-your-repository/analyzing-changes-to-a-repositorys-content",
+  "start_url": "https://github.com/expressjs/express",
+  "checked_at": "2026-11-16T00:18:29.213Z",
+  "agent": "Claude (Claude Code, /errata skill) · rewrite: rules (offline, deterministic)",
+  "kane": "live",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "On GitHub, navigate to the main page of the repository.",
+      "text": "On GitHub, navigate to the main page of the repository.",
+      "goal": "The repository's main page is open",
+      "labels": [],
+      "checkable": false,
+      "skip_reason": "Covered by the start URL (the repository's main page).",
+      "status": "skipped",
+      "note": "Covered by the start URL (the repository's main page).",
+      "credits": 0,
+      "started_at": "https://github.com/expressjs/express"
+    },
+    {
+      "n": 2,
+      "quote": "Under your repository name, click **Insights**.",
+      "text": "Under your repository name, click Insights.",
+      "goal": "The repository's Insights page is visible",
+      "labels": [
+        "Insights"
+      ],
+      "checkable": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to open the item labeled “Insights.”\nClicked “Insights” in the expressjs/express GitHub repository.\nThe Insights page opened successfully, with the heading “Insights: expressjs/express.”",
+        "one_liner": "opened Insights on GitHub",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\1aabdb91-c455-4438-91a6-8c679d687ab6\\evidence\\2c00c04b-3c98-4aaf-8bab-a3c087b9382d.evidence",
+        "final_state": {
+          "url": "https://github.com/expressjs/express/pulse",
+          "landed_on": "Insights: expressjs/express"
+        },
+        "end_url": "https://github.com/expressjs/express/pulse",
+        "clicks": [
+          {
+            "label": "Insights",
+            "y": 134
+          }
+        ],
+        "credits": 6.5,
+        "duration": 141.6,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GTZ3K510FYYBMHJ8S5486V/dashboard/share/US_HD4377DEWNY53ZNYNKOO06FBTCJHRYAZUZK2CDXFZ17FPPDEI038MT5V7Y398JD1?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\1aabdb91-c455-4438-91a6-8c679d687ab6\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\1aabdb91-c455-4438-91a6-8c679d687ab6",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express",
+          "click: Clicking Insights",
+          "wait: PRIMARY: wait for the Insights page heading to load",
+          "analyze: ANALYZE(textual_visual, 'Get the main heading of the page you end on and save as",
+          "wait: Waiting after successful checkpoint verification"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'Insights'.\nThen store the main heading of the page you end on as 'landed_on'.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "Insights: expressjs/express",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 6.5,
+      "started_at": "https://github.com/expressjs/express"
+    },
+    {
+      "n": 3,
+      "quote": "In the left sidebar, click **Commits**.",
+      "text": "In the left sidebar, click Commits.",
+      "goal": "A graph of commits to the repository over time is visible",
+      "labels": [
+        "Commits"
+      ],
+      "checkable": true,
+      "continues": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to open the repository’s commit activity view by selecting “Commits.”\nThe “Commits” link was selected, opening the commit activity page for expressjs/express.\nThe page heading shown was “Insights: expressjs/express.”",
+        "one_liner": "opened commit activity on GitHub",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\11e63c46-d533-428e-bfbf-70652bb5f250\\evidence\\1e2d473c-56a5-442d-a593-717769d870da.evidence",
+        "final_state": {
+          "url": "https://github.com/expressjs/express/graphs/commit-activity",
+          "landed_on": "Insights: expressjs/express"
+        },
+        "end_url": "https://github.com/expressjs/express/graphs/commit-activity",
+        "clicks": [
+          {
+            "label": "Commits",
+            "y": 315
+          },
+          {
+            "label": "Commits",
+            "y": 315
+          }
+        ],
+        "credits": 21.7,
+        "duration": 124.8,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GV7JKSFRBB8C6BH3PPVE0W/dashboard/share/US_AP9SFE8VBCXWWKKA5FGF2X79M0DEPB1VCSIT93LCI4YWOPGPNM6KS7YMWAYDHJQH?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\11e63c46-d533-428e-bfbf-70652bb5f250\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\11e63c46-d533-428e-bfbf-70652bb5f250",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express/pulse",
+          "click: Clicking Commits link",
+          "wait: PRIMARY: wait for the Commits activity heading to be visible",
+          "click: Clicking Commits link",
+          "wait: PRIMARY: wait for the Commits activity heading to be visible",
+          "analyze: ANALYZE(textual_visual, 'the main heading of the page you end on is stored as {{",
+          "wait: Waiting briefly after the passed checkpoint"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'Commits'.\nThen store the main heading of the page you end on as 'landed_on'.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "Insights: expressjs/express",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 21.7,
+      "started_at": "https://github.com/expressjs/express/pulse"
+    }
+  ],
+  "totals": {
+    "steps": 3,
+    "checkable": 2,
+    "accurate": 2,
+    "drifted": 0,
+    "fixed": 0,
+    "broken": 0,
+    "skipped": 1,
+    "unchecked": 0,
+    "credits": 28.2,
+    "seconds": 579
+  }
+}

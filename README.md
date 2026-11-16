@@ -23,12 +23,13 @@ That's not rare. In a survey of 202 developers at All Things Open 2025, **73% sa
 
 **Errata follows your tutorials word for word in a real browser with [Kane CLI](https://www.testmuai.com/kane-cli/).** When a step no longer matches the product, Kane finds the real path, the agent rewrites the step, and Kane proves the rewrite before anyone sees it.
 
-A real run (`npx errata-cli demo`, live Kane CLI, 16 Nov 2026):
+What `npx errata-cli demo --replay` prints (recorded live Kane CLI runs, 16 Nov 2026):
 
 ```
   Errata · Driftwood quickstart
 
    1  Open the Driftwood dashboard and click Proj…  ● accurate
+   4  Open Team and click Invite member.            ● accurate
    2  Click Settings → API Keys and press Create …  ● drifted
         docs say   S̶e̶t̶t̶i̶n̶g̶s̶ ̶→̶ ̶A̶P̶I̶ ̶K̶e̶y̶s̶ ̶→̶ ̶C̶r̶e̶a̶t̶e̶ ̶k̶e̶y̶
         real path  Developers → Tokens → New token  found by Kane
@@ -37,17 +38,16 @@ A real run (`npx errata-cli demo`, live Kane CLI, 16 Nov 2026):
         re-proven  ● literal pass on the rewrite  1 loop
    3  Copy the key into your .env file as DRIFTWO…  ○ not checkable
         Happens outside the browser (terminal, files or email).
-   4  Open Team and click Invite member.            ● accurate
    5  Go to Settings → Billing and open Invoices.   ● drifted
         docs say   S̶e̶t̶t̶i̶n̶g̶s̶ ̶→̶ ̶B̶i̶l̶l̶i̶n̶g̶ ̶→̶ ̶I̶n̶v̶o̶i̶c̶e̶s̶
         real path  Account → Billing history  found by Kane
+                   Kane's full route: Settings → Account → Billing history
         rewritten  Open Account and click Billing history.
         re-proven  ● literal pass on the rewrite  1 loop
    6  Open Reports and click Export CSV.            ● broken
-        unreachable The run expected a CSV export in an application version that explicitly does not pr…
+        unreachable The Reports page states that exports are unavailable, so a CSV download cannot be p…
 
   2 of 5 checkable steps accurate · 2 drifted, 2 fixed and proven · 1 broken
-  215.4 Kane credits · 542s · Kane live
 ```
 
 The two proven rewrites then ran together as one Kane `_test.md`, and it **passed**.
@@ -61,6 +61,22 @@ The two proven rewrites then ran together as one Kane `_test.md`, and it **passe
 | **C** | [One proof sheet](https://errata.sh/t/driftwood/quickstart/): literal run → goal run → rewrite → proof → patch, for every step. | None | 1 min |
 
 `--replay` plays back **recorded real Kane runs** that ship in the package, and it is labelled as a replay everywhere it appears. Without `--replay`, every run is live.
+
+## The public run (16 Nov 2026)
+
+We walked **24 published tutorials, 44 checkable steps**, from GitHub Docs (15), Wikipedia Help (5), Grafana (2), Plausible (1) and OpenStreetMap (1), with Kane CLI, live. Selection rule and every quote: [`corpus/`](corpus/). Reports, recordings and the review: [`runs/2026-11-16/`](runs/2026-11-16/).
+
+| | Steps |
+|---|---|
+| Accurate on the first run | 42 |
+| Flagged (drifted or broken) | 2 |
+| Confirmed docs errors | **0** |
+| False alarms (both Errata's bugs, both fixed) | 2 |
+| Kane credits | 889 |
+
+**Both flags were our bugs, not the docs'.** One: Errata asked Kane to note the page heading, and GitHub's raw file view has none, so a correct click on **Raw** failed. Two: GitHub's file view has a **Code** toggle *and* a **Code** repository tab; given only the label, Kane clicked the tab, and the next step started on the wrong page. Both are fixed: the heading is optional, and Kane now gets the doc's own sentence as context. A re-run of both tutorials came back fully accurate ([`runs/2026-11-16/rerun/`](runs/2026-11-16/rerun/)). The review is in [`review.json`](runs/2026-11-16/review.json); it was done by Claude and is marked as pending human confirmation.
+
+So: well-kept docs from big projects stayed accurate, and we publish the false alarms rather than a flattering number. The Driftwood demo is where you can watch drift get caught, fixed and proven.
 
 ## The insight
 
@@ -120,6 +136,8 @@ Then the closed loop: **the agent rewrites the step from Kane's real path → Ka
 7. **One button, three names.** GitHub's activity filter shows "All activity", but the evidence pack records its accessible name, `Filter by activity type: All`. Our first matcher flagged that passing step as drift. Each click now keeps every name Kane recorded (Kane's own description, the element text and the accessible name), and any of them can match. The label shown to readers is the visible one.
 8. **A crash is not a broken doc.** Running too many headless Chromes on GitHub's heavy pages ran the machine out of memory. Kane reported it honestly (`reason_code: infra_error.screenshot_failed`, triage `environment_issue`). Errata now retries such runs once, then marks the step **unchecked**, never broken. The public run uses at most two Kane runs at a time.
 9. **Kane's test.md format.** A `## heading` names a step and the text under it is the instruction. Our first export put the instruction in the heading, so Kane only checked the "Verify" line. The export now writes `## Step n: …`, then the instruction, then `Verify that …`. The fixed Driftwood tutorial then passed as one Kane test.
+10. **The same label, twice.** In the public run Kane clicked the repository's **Code** tab when the doc meant the file view's **Code** toggle, since we had only told it the label. Each literal objective now carries the doc's own sentence as context for *where* the label is (context, not a pass/fail rule).
+11. **Not every page has a heading.** We asked Kane to note the page heading after each step. A raw text file has none, so a correct click failed. It's optional now.
 
 ## Honesty rules (enforced in code)
 

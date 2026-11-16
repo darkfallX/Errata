@@ -1,0 +1,43 @@
+{
+  "key": "b162b0ad9cc82517",
+  "recorded_at": "2026-11-16T00:42:29.703Z",
+  "exit_code": 0,
+  "mode": "action",
+  "url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'View history'.\nThen store the main heading of the page you end on as 'landed_on'.",
+  "clicks": [
+    {
+      "label": "View history",
+      "y": 129
+    }
+  ],
+  "actions": [
+    {
+      "type": "navigate",
+      "status": "success",
+      "intent": "Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+      "instr": "Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace"
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"View history\"i]",
+      "intent": "PRIMARY: Click the element whose visible label is exactly 'View history'.; role=link; text=\"View history\" | HINTS: container=Views navigation",
+      "instr": "Clicking View history",
+      "y": 129
+    },
+    {
+      "type": "wait",
+      "status": "success",
+      "intent": "PRIMARY: wait for the heading 'Ada Lovelace: Revision history' to be visible",
+      "instr": "Waiting for Ada Lovelace: Revision history heading to appear"
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "the main heading of the current page",
+      "instr": "Reading the main page heading"
+    }
+  ],
+  "ndjson": "{\"type\":\"stream_start\",\"cli_version\":\"0.10.4\",\"surface\":\"run\",\"pid\":31096,\"v\":1,\"ts\":\"2026-11-16T00:40:22.933Z\"}\n{\"type\":\"recording_state\",\"enabled\":true,\"session_id\":\"cfa31c96-e645-47ec-97cb-cb37fc7c855c\",\"persist\":false,\"v\":1,\"ts\":\"2026-11-16T00:40:23.079Z\"}\n{\"type\":\"skill_update_available\",\"current\":null,\"latest\":\"0.1.4\",\"install_cmd\":\"kane-cli install skill\",\"v\":1,\"ts\":\"2026-11-16T00:40:26.732Z\"}\n{\"type\":\"bifurcation\",\"flows\":[\"Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace then Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\\nClick the element whose visible label is exactly 'View history'.\\nGet the main heading of the page you end on and save as {{landed_on}}.\"],\"count\":1,\"v\":1,\"ts\":\"2026-11-16T00:40:56.780Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"v\":1,\"ts\":\"2026-11-16T00:41:10.589Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace\",\"v\":1,\"ts\":\"2026-11-16T00:41:10.632Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"v\":1,\"ts\":\"2026-11-16T00:41:17.369Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"click: Clicking View history\",\"v\":1,\"ts\":\"2026-11-16T00:41:24.231Z\"}\n{\"step\":4,\"status\":\"running\",\"remark\":\"Step 3\",\"v\":1,\"ts\":\"2026-11-16T00:41:27.684Z\"}\n{\"step\":4,\"status\":\"done\",\"remark\":\"wait: PRIMARY: wait for the heading 'Ada Lovelace: Revision history' to be visible\",\"v\":1,\"ts\":\"2026-11-16T00:41:35.331Z\"}\n{\"step\":5,\"status\":\"running\",\"remark\":\"Step 4\",\"v\":1,\"ts\":\"2026-11-16T00:41:40.193Z\"}\n{\"step\":5,\"status\":\"done\",\"remark\":\"analyze: ANALYZE(textual_visual, 'The main heading of the page you end on is saved as {{l\",\"v\":1,\"ts\":\"2026-11-16T00:41:53.552Z\"}\n{\"step\":6,\"status\":\"running\",\"remark\":\"Step 5\",\"v\":1,\"ts\":\"2026-11-16T00:41:56.105Z\"}\n{\"step\":6,\"status\":\"done\",\"remark\":\"wait: Waiting after confirming the revision history heading\",\"v\":1,\"ts\":\"2026-11-16T00:42:00.178Z\"}\n{\"type\":\"coverage\",\"status\":\"skipped\",\"reason\":\"not_assurance_project\",\"pack\":\"~\\\\.testmuai\\\\kaneai\\\\sessions\\\\cfa31c96-e645-47ec-97cb-cb37fc7c855c\\\\evidence\\\\15603385-8234-4076-8993-76ca1f4a4d45.evidence\",\"v\":1,\"ts\":\"2026-11-16T00:42:27.566Z\"}\n{\"type\":\"run_end\",\"status\":\"passed\",\"summary\":\"Opened the revision history for the Ada Lovelace Wikipedia article by selecting “View history.”\\nThe page ended on the “Ada Lovelace: Revision history” page.\",\"one_liner\":\"opened the Ada Lovelace revision history on Wikipedia\",\"final_state\":{\"url\":\"https://en.wikipedia.org/w/index.php?title=Ada_Lovelace&action=history\",\"landed_on\":\"Ada Lovelace: Revision history\"},\"reason\":\"Objective completed\",\"duration\":69.5,\"bifurcated\":false,\"total_runs\":1,\"context\":{\"memory\":{\"landed_on\":{\"extracted_value\":\"Ada Lovelace: Revision history\",\"operator\":\"equals\",\"transforms\":[\"strip\"],\"json_path\":null,\"reasoning\":\"value: 'Ada Lovelace: Revision history' (stored, no comparison)\",\"analyzer_type\":\"textual_visual\",\"step\":4,\"query\":\"the main heading of the current page\",\"condition\":\"The main heading of the page you end on is saved as {{landed_on}}.\",\"human_description\":\"Reading the main page heading\",\"expected_value\":\"\",\"code_js\":\"el(25).innerText\",\"wrapped_js\":\"(els) => {\\n  const __m = {25: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (el(25).innerText);\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:role=heading[name=\\\"Ada Lovelace: Revision history\\\"i]\"],\"needs_unit_conversion\":false}},\"variables\":{\"landed_on\":{\"syntax\":\"{{landed_on}}\",\"value\":\"Ada Lovelace: Revision history\",\"type\":\"memory\",\"secret\":false,\"source\":\"runtime\"}},\"pointer\":\"(passed) opened the Ada Lovelace revision history on Wikipedia\"},\"credits_consumed\":18.460832500000002,\"session_dir\":\"~/.testmuai/kaneai/sessions\\\\cfa31c96-e645-47ec-97cb-cb37fc7c855c\",\"run_dir\":\"~/.testmuai/kaneai/sessions\\\\cfa31c96-e645-47ec-97cb-cb37fc7c855c\\\\runs\\\\0\",\"result_code\":100,\"reason_code\":\"success.complete\",\"per_flow_metadata\":[{\"result_code\":\"100\",\"reason_code\":\"success.complete\",\"error_message\":null,\"summary\":\"Opened the revision history for the Ada Lovelace Wikipedia article by selecting “View history.”\\nThe page ended on the “Ada Lovelace: Revision history” page.\",\"one_liner\":\"opened the Ada Lovelace revision history on Wikipedia\",\"credits_consumed\":18.460832500000002}],\"run_id\":\"run-0\",\"test_url\":\"https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GWRN1D10QK9CMGKDEW4RVW/dashboard/share/US_LLVG8F565HM1G4VKPL1CU1N6EBCKS1ZE4BJEUNRUS2ETR32MKZPJ9QFZIX3JITIT?type=summary&agentView=true&fqdn=summary-page\",\"coverage\":{\"status\":\"skipped\"},\"v\":1,\"ts\":\"2026-11-16T00:42:27.567Z\"}\n"
+}

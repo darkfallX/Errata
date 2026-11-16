@@ -1,0 +1,52 @@
+{
+  "key": "939ab59891b66c8f",
+  "recorded_at": "2026-11-16T00:58:40.704Z",
+  "exit_code": 1,
+  "mode": "action",
+  "url": "https://github.com/expressjs/express/blame/master/Readme.md",
+  "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"To return to the raw code view, above the file content, click Code.\"\n1. Click the element whose visible label is exactly 'Code'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+  "clicks": [
+    {
+      "label": "Code",
+      "y": 134
+    }
+  ],
+  "actions": [
+    {
+      "type": "navigate",
+      "status": "success",
+      "intent": "Navigate to https://github.com/expressjs/express/blame/master/Readme.md",
+      "instr": "Navigate to https://github.com/expressjs/express/blame/master/Readme.md"
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Code\"i]",
+      "intent": "PRIMARY: Click the element whose visible label is exactly 'Code'.; role=link; text=\"Code\" | HINTS: container=repository navigation",
+      "instr": "Clicking Code link in repository navigation",
+      "y": 134
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "whether the page main heading is present (at the top of the repository content area)",
+      "instr": "Checking whether the page main heading is present"
+    },
+    {
+      "type": "if_else",
+      "status": "success",
+      "instr": "If-else checkpoint cp_1: condition 'the page you end on has a main heading' matched"
+    },
+    {
+      "type": "child_agent_start",
+      "status": "executing",
+      "instr": "Get the main heading and save as {{landed_on}}."
+    },
+    {
+      "type": "child_agent_end",
+      "status": "error",
+      "instr": "Get the main heading and save as {{landed_on}}."
+    }
+  ],
+  "ndjson": "{\"type\":\"stream_start\",\"cli_version\":\"0.10.4\",\"surface\":\"run\",\"pid\":30696,\"v\":1,\"ts\":\"2026-11-16T00:56:15.824Z\"}\n{\"type\":\"recording_state\",\"enabled\":true,\"session_id\":\"3e346c30-93e3-4982-b042-8a4ba9cebbd3\",\"persist\":false,\"v\":1,\"ts\":\"2026-11-16T00:56:15.865Z\"}\n{\"type\":\"skill_update_available\",\"current\":null,\"latest\":\"0.1.4\",\"install_cmd\":\"kane-cli install skill\",\"v\":1,\"ts\":\"2026-11-16T00:56:18.119Z\"}\n{\"type\":\"bifurcation\",\"flows\":[\"Navigate to https://github.com/expressjs/express/blame/master/Readme.md then Follow these steps literally, one at a time, from the current page.\\nClick only what each step names.\\nNever type a URL, search, or take another route.\\nWhere to find them, in the tutorial's own words: \\\"To return to the raw code view, above the file content, click Code.\\\"\\nClick the element whose visible label is exactly 'Code'.\\nIf the page you end on has a main heading, @v16:\\\"Get the main heading and save as {{landed_on}}.\\\"; a page without a heading is fine.\"],\"count\":1,\"v\":1,\"ts\":\"2026-11-16T00:56:56.425Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"v\":1,\"ts\":\"2026-11-16T00:57:09.929Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"navigate: Navigate to https://github.com/expressjs/express/blame/master/Readme.md\",\"v\":1,\"ts\":\"2026-11-16T00:57:10.058Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"v\":1,\"ts\":\"2026-11-16T00:57:14.961Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"click: Clicking Code link in repository navigation\",\"v\":1,\"ts\":\"2026-11-16T00:57:20.207Z\"}\n{\"step\":4,\"status\":\"running\",\"remark\":\"Step 3\",\"v\":1,\"ts\":\"2026-11-16T00:57:22.800Z\"}\n{\"step\":4,\"status\":\"done\",\"remark\":\"analyze: the page you end on has a main heading\",\"v\":1,\"ts\":\"2026-11-16T00:57:38.777Z\"}\n{\"step\":5,\"status\":\"running\",\"remark\":\"Step 4\",\"v\":1,\"ts\":\"2026-11-16T00:57:40.821Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"child_id\":\"4a6bd4db\",\"v\":1,\"ts\":\"2026-11-16T00:57:41.924Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"analyze: The main heading is saved as {{landed_on}}.\",\"child_id\":\"4a6bd4db\",\"v\":1,\"ts\":\"2026-11-16T00:58:03.908Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"child_id\":\"4a6bd4db\",\"v\":1,\"ts\":\"2026-11-16T00:58:05.011Z\"}\n{\"step\":3,\"status\":\"failed\",\"remark\":\"wait: Waiting after unsuccessful heading extraction\",\"child_id\":\"4a6bd4db\",\"v\":1,\"ts\":\"2026-11-16T00:58:07.802Z\"}\n{\"type\":\"coverage\",\"status\":\"skipped\",\"reason\":\"not_assurance_project\",\"pack\":\"~\\\\.testmuai\\\\kaneai\\\\sessions\\\\3e346c30-93e3-4982-b042-8a4ba9cebbd3\\\\evidence\\\\0a5ed856-014f-440a-82da-e018d8b3a58e.evidence\",\"v\":1,\"ts\":\"2026-11-16T00:58:38.195Z\"}\n{\"type\":\"run_end\",\"status\":\"failed\",\"summary\":\"The agent completed the click and recognized that the destination had a main heading, but it did not finish saving that heading value before its turn limit ended.\\nRecord the heading immediately after detecting it, and reserve a final turn to commit the extracted value.\",\"one_liner\":\"The browser reached the requested Code view, but the required heading value was not saved before the run ran out of turns.\",\"final_state\":{},\"reason\":\"Child agent failed: The required extraction could not be committed because the run turn budget was exhausted.\",\"duration\":92.1,\"bifurcated\":false,\"total_runs\":1,\"context\":{\"memory\":{\"main_heading_present\":{\"extracted_value\":\"true\",\"operator\":\"equals\",\"transforms\":[],\"json_path\":null,\"reasoning\":\"value: 'true' -> 'true'; equals 'true' -> PASS\",\"analyzer_type\":\"visual\",\"step\":3,\"query\":\"whether the page main heading is present (at the top of the repository content area)\",\"condition\":\"the page you end on has a main heading\",\"human_description\":\"Checking whether the page main heading is present\",\"expected_value\":\"true\",\"subject\":\"the page main heading\",\"must_be\":\"present\"}},\"variables\":{\"landed_on\":{\"syntax\":\"{{landed_on}}\",\"value\":\"\",\"type\":\"text\",\"secret\":false,\"source\":\"runtime\"},\"main_heading_present\":{\"syntax\":\"{{main_heading_present}}\",\"value\":\"true\",\"type\":\"memory\",\"secret\":false}},\"pointer\":\"(failed) The browser reached the requested Code view, but the required heading value was not saved before the run ran out of turns.\"},\"credits_consumed\":29.253384999999998,\"session_dir\":\"~/.testmuai/kaneai/sessions\\\\3e346c30-93e3-4982-b042-8a4ba9cebbd3\",\"run_dir\":\"~/.testmuai/kaneai/sessions\\\\3e346c30-93e3-4982-b042-8a4ba9cebbd3\\\\runs\\\\0\",\"result_code\":440,\"reason_code\":\"agent_error.child_failed\",\"per_flow_metadata\":[{\"result_code\":\"440\",\"reason_code\":\"agent_error.child_failed\",\"error_message\":\"Child agent failed: The required extraction could not be committed because the run turn budget was exhausted.\",\"summary\":\"The agent completed the click and recognized that the destination had a main heading, but it did not finish saving that heading value before its turn limit ended.\\nRecord the heading immediately after detecting it, and reserve a final turn to commit the extracted value.\",\"one_liner\":\"The browser reached the requested Code view, but the required heading value was not saved before the run ran out of turns.\",\"credits_consumed\":29.253384999999998}],\"run_id\":\"run-0\",\"verdict\":{\"confirmed\":false,\"status\":\"broken\",\"family\":\"automation_bug\",\"category\":\"agent_misstep\",\"category_proposal\":\"\",\"severity\":\"minor\",\"root_cause\":\"The agent completed the click and recognized that the destination had a main heading, but it did not finish saving that heading value before its turn limit ended.\",\"agent_fault_assessment\":\"The agent's click was correct: step 0-2 successfully opened the repository Code view and step 0-3 recognized that the page had a main heading. The failure came from the agent workflow not committing the required extraction within the available run budget, not from GitHub failing to load or respond.\",\"bug_title\":\"Heading extraction was not committed before turn budget expired\",\"signals\":[],\"confidence\":0.93,\"suggestion\":\"Record the heading immediately after detecting it, and reserve a final turn to commit the extracted value.\",\"one_liner\":\"The browser reached the requested Code view, but the required heading value was not saved before the run ran out of turns.\",\"relevant_steps\":[2,3,4],\"culprit_step\":\"0-4\",\"credits_consumed\":2.3592,\"mode\":\"terminal\"},\"test_url\":\"https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GXNP73W7EGQQKND5HDT4XX/dashboard/share/US_0X05O9P7OG2BKJC7XC1UX6NOJ4S4MLNTMA31P05EOJZTDR4IMJ3N0YO6FUNKDRVX?type=summary&agentView=true&fqdn=summary-page\",\"coverage\":{\"status\":\"skipped\"},\"v\":1,\"ts\":\"2026-11-16T00:58:38.197Z\"}\n"
+}

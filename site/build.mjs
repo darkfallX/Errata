@@ -56,7 +56,8 @@ const ICON = {
 const LOGO = (s = 22) => `<svg width="${s}" height="${s}" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3.5" width="16" height="17" rx="3.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 9.5h8M7 14h4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M6 14.2h7.5" stroke="#e0245e" stroke-width="1.6" stroke-linecap="round"/><circle cx="19.5" cy="5" r="3" fill="#e0245e"/></svg>`;
 const FAVICON = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><style>.i{stroke:#0f1419}@media(prefers-color-scheme:dark){.i{stroke:#e7e9ea}}</style><rect class="i" x="3" y="3.5" width="16" height="17" rx="3.5" fill="none" stroke-width="2"/><path class="i" d="M7 9.5h8M7 14h4.5" stroke-width="2" stroke-linecap="round"/><path d="M6 14.2h7.5" stroke="#e0245e" stroke-width="1.6" stroke-linecap="round"/><circle cx="19.5" cy="5" r="3" fill="#e0245e"/></svg>`;
 
-const STATUS_PILL = { accurate: '<span class="pill ok">accurate</span>', drifted: '<span class="pill warn">drifted</span>', broken: '<span class="pill no">broken</span>', skipped: '<span class="pill neutral">not checkable</span>', unchecked: '<span class="pill neutral">unchecked</span>' };
+const STATUS_PILL = {
+  false_alarm: '<span class="pill neutral">false alarm</span>', accurate: '<span class="pill ok">accurate</span>', drifted: '<span class="pill warn">drifted</span>', broken: '<span class="pill no">broken</span>', skipped: '<span class="pill neutral">not checkable</span>', unchecked: '<span class="pill neutral">unchecked</span>' };
 
 /** The route the proven rewrite used (trimmed of look-around clicks), else Kane's full route. */
 const usedPath = (s) => {
@@ -80,10 +81,26 @@ const rerun = (r) => {
   return `npx errata-cli check ${file ?? r.source}`;
 };
 
+const reviewKey = (r, s) => `${slugify(host(r.source))}/${slugify(r.tutorial)}#${s.n}`;
+/** A flag a reviewer marked as a false alarm is shown and counted as one, never as a docs finding. */
+const falseAlarm = (r, s) => r !== demo && review[reviewKey(r, s)]?.verdict === "false_alarm";
+/** Totals with reviewed false alarms taken out of drifted/broken. */
+function confirmedTotals(r) {
+  const t = { ...r.totals, false_alarms: 0 };
+  for (const s of r.steps) {
+    if (!falseAlarm(r, s)) continue;
+    t.false_alarms++;
+    if (s.status === "drifted") { t.drifted--; if (s.rewrite) t.fixed--; }
+    if (s.status === "broken") t.broken--;
+  }
+  return t;
+}
 function overall(r) {
-  if (r.totals.broken) return "broken";
-  if (r.totals.drifted) return "drifted";
-  if (r.totals.accurate) return "accurate";
+  const t = confirmedTotals(r);
+  if (t.broken) return "broken";
+  if (t.drifted) return "drifted";
+  if (t.false_alarms) return "false_alarm";
+  if (t.accurate) return "accurate";
   return "unchecked";
 }
 
@@ -157,8 +174,7 @@ function slip(r, { live = true } = {}) {
 
 // ───────────────────────────────────────── pages
 function home() {
-  const t = publicReports.reduce((a, r) => ({ tut: a.tut + 1, steps: a.steps + r.totals.checkable, acc: a.acc + r.totals.accurate, dr: a.dr + r.totals.drifted, br: a.br + r.totals.broken, cr: a.cr + r.totals.credits }), { tut: 0, steps: 0, acc: 0, dr: 0, br: 0, cr: 0 });
-  const withIssue = publicReports.filter((r) => r.totals.drifted + r.totals.broken > 0).length;
+  const t = publicReports.reduce((a, r) => { const c = confirmedTotals(r); return { tut: a.tut + 1, steps: a.steps + c.checkable, acc: a.acc + c.accurate, dr: a.dr + c.drifted, br: a.br + c.broken, fa: a.fa + c.false_alarms, cr: a.cr + c.credits }; }, { tut: 0, steps: 0, acc: 0, dr: 0, br: 0, fa: 0, cr: 0 });
   const install = `npx errata-cli check https://docs.your-product.com/quickstart`;
   const body = `
 <div class="wrap">
@@ -191,9 +207,9 @@ function home() {
     publicReports.length
       ? `<div class="score">
     <div style="--i:0"><span>Tutorials walked</span><b class="num">${n(t.tut)}</b></div>
-    <div style="--i:1"><span>With a wrong step</span><b class="num">${n(withIssue)} <small class="mute" style="font-size:15px;font-weight:600">${Math.round((withIssue / t.tut) * 100)}%</small></b></div>
-    <div style="--i:2"><span>Steps drifted</span><b class="num" style="color:var(--amber)">${n(t.dr)}</b></div>
-    <div style="--i:3"><span>Steps broken</span><b class="num" style="color:var(--red-ink)">${n(t.br)}</b></div>
+    <div style="--i:1"><span>Steps walked</span><b class="num">${n(t.steps)}</b></div>
+    <div style="--i:2"><span>Confirmed wrong steps</span><b class="num" style="color:${t.dr + t.br ? "var(--amber)" : "var(--ink)"}">${n(t.dr + t.br)}</b></div>
+    <div style="--i:3"><span>False alarms, published</span><b class="num">${n(t.fa)}</b></div>
   </div>`
       : `<div class="list"><div class="empty"><b>The public run hasn't been published yet</b>Real docs, walked word for word, every evidence pack and every false alarm. It lands here, dated.</div></div>`
   }
@@ -247,7 +263,7 @@ function reportPage() {
   const falseAlarms = flagged.filter((f) => review[f.key]?.verdict === "false_alarm");
   const reviewed = confirmed + falseAlarms.length;
   const reviewers = [...new Set(flagged.map((f) => review[f.key]?.reviewer).filter(Boolean))];
-  const T = publicReports.reduce((a, r) => { for (const k of Object.keys(a)) a[k] += r.totals[k] || 0; return a; }, { checkable: 0, accurate: 0, drifted: 0, fixed: 0, broken: 0, credits: 0 });
+  const T = publicReports.reduce((a, r) => { const c = confirmedTotals(r); for (const k of Object.keys(a)) a[k] += c[k] || 0; return a; }, { checkable: 0, accurate: 0, drifted: 0, fixed: 0, broken: 0, false_alarms: 0, credits: 0 });
 
   const row = (r, i) => {
     const st = overall(r);
@@ -267,13 +283,13 @@ ${
     ? `<div class="score">
 <div style="--i:0"><span>Tutorials</span><b class="num">${publicReports.length}</b></div>
 <div style="--i:1"><span>Steps checked</span><b class="num">${n(T.checkable)}</b></div>
-<div style="--i:2"><span>Drifted · fixed</span><b class="num"><span style="color:var(--amber)">${T.drifted}</span> · <span style="color:var(--green-ink)">${T.fixed}</span></b></div>
-<div style="--i:3"><span>Broken</span><b class="num" style="color:var(--red-ink)">${T.broken}</b></div>
+<div style="--i:2"><span>Confirmed drifted · broken</span><b class="num"><span style="color:var(--amber)">${T.drifted}</span> · <span style="color:var(--red-ink)">${T.broken}</span></b></div>
+<div style="--i:3"><span>False alarms</span><b class="num">${T.false_alarms}</b></div>
 </div>`
     : ""
 }
 <div class="filters">
-  <div class="seg" role="group" aria-label="Filter" data-target="#rows"><button data-v="all" aria-pressed="true">All</button><button data-v="drifted" aria-pressed="false">Drifted</button><button data-v="broken" aria-pressed="false">Broken</button><button data-v="accurate" aria-pressed="false">Accurate</button></div>
+  <div class="seg" role="group" aria-label="Filter" data-target="#rows"><button data-v="all" aria-pressed="true">All</button><button data-v="drifted" aria-pressed="false">Drifted</button><button data-v="broken" aria-pressed="false">Broken</button><button data-v="accurate" aria-pressed="false">Accurate</button><button data-v="false_alarm" aria-pressed="false">False alarms</button></div>
   <div class="legend"><span><i style="background:var(--green)"></i>accurate</span><span><i style="background:var(--amber)"></i>drifted</span><span><i style="background:var(--red)"></i>broken</span><span><i style="background:var(--line)"></i>not checkable</span></div>
 </div>
 <div class="list rows" id="rows">
@@ -315,7 +331,8 @@ ${links ? `<div class="lnk">${links}</div>` : ""}</div>`;
 function tutorialPage(r) {
   const steps = r.steps
     .map((s) => {
-      const struck = s.status === "drifted" || s.status === "broken";
+      const fa = falseAlarm(r, s);
+      const struck = !fa && (s.status === "drifted" || s.status === "broken");
       let margin = "";
       if (s.status === "drifted")
         margin = `<div class="margin">
@@ -331,8 +348,14 @@ ${tried.length ? `<div class="kv"><span>Kane tried</span><span class="path mute"
       }
       if (s.status === "accurate") margin = `<div class="margin"><div class="kv"><span>Verdict</span><span>${esc(s.note)}</span></div></div>`;
       if (s.status === "skipped" || s.status === "unchecked") margin = `<div class="skipnote">${esc(s.note)}</div>`;
+      if (fa) {
+        const v = review[reviewKey(r, s)];
+        margin = `<div class="margin"><div class="kv"><span>Errata said</span><span>${esc(s.status)}${s.rewrite ? `, with a rewrite: “${esc(plain(s.rewrite))}”` : ""}</span></div>
+<div class="kv"><span>Review</span><span><b>False alarm.</b> ${esc(v.why)}</span></div>
+<div class="kv"><span>Reviewer</span><span class="mute">${esc(v.reviewer || "not named")}</span></div></div>`;
+      }
       const runs = [runBlock("Literal", s.literal), runBlock("Goal", s.goal_pass), ...(s.attempts ?? []).map((a) => runBlock(`Proof · loop ${a.loop}`, a.proof))].join("");
-      return `<div class="erratum ${struck ? "struck open" : ""} ${s.status === "skipped" ? "skip" : ""}"><span class="n">${s.n}</span><span class="t">${struck ? `<s>${rich(s.text)}</s>` : rich(s.text)}</span><span class="st">${STATUS_PILL[s.status]}</span>${margin}
+      return `<div class="erratum ${struck ? "struck open" : ""} ${s.status === "skipped" ? "skip" : ""}"><span class="n">${s.n}</span><span class="t">${struck ? `<s>${rich(s.text)}</s>` : rich(s.text)}</span><span class="st">${fa ? STATUS_PILL.false_alarm : STATUS_PILL[s.status]}</span>${margin}
 ${runs ? `<details class="runs"><summary>${ICON.chev} What Kane did</summary>${runs}</details>` : ""}</div>`;
     })
     .join("");
@@ -410,6 +433,9 @@ ${arrow(820, 114, 820, 196, "")}<text x="832" y="160" font-size="12" fill="var(-
 <div><b>One button, three names.</b><p>GitHub's activity filter shows "All activity", but its accessible name is "Filter by activity type: All". Errata keeps every name Kane recorded, so a passing step is never flagged over an aria-label.</p></div>
 <div><b>A crash is not a broken doc.</b><p>Kane reports <code>infra_error.*</code> when the browser crashes or the machine runs out of memory. Errata retries once, then marks the step unchecked, never broken.</p></div>
 <div><b>Kane's triage is a signal, not a verdict.</b><p>On a moved menu Kane calls its literal failure an "agent misstep", because from its side the label simply isn't there. Errata decides drift from the goal pass, not the triage.</p></div>
+<div><b>The same label, twice.</b><p>GitHub's file view has a "Code" toggle, and the repository has a "Code" tab. Given only the label, Kane clicked the tab, and the next step started on the wrong page. Kane now also gets the doc's own sentence ("above the file content") as context.</p></div>
+<div><b>Not every page has a heading.</b><p>Errata asked Kane to note the page heading after each step. A raw text file has none, so a correct click failed. The heading is optional now. Both bugs came from the public run and are listed there as false alarms.</p></div>
+<div><b>Well-kept docs stay accurate.</b><p>24 published tutorials from GitHub Docs, Wikipedia, Grafana, Plausible and OpenStreetMap: no confirmed drift. That's a real result too. The demo app shows what drift looks like when it's there.</p></div>
 </div></section>
 <section class="sec"><div class="sec-head"><h2 class="h-sec">The honesty rules</h2></div>
 <div class="prose">

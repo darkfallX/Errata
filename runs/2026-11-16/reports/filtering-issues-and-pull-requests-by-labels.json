@@ -1,0 +1,154 @@
+{
+  "errata": "1",
+  "tutorial": "Filtering issues and pull requests by labels",
+  "source": "https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/filtering-and-searching-issues-and-pull-requests",
+  "start_url": "https://github.com/expressjs/express",
+  "checked_at": "2026-11-16T00:23:22.749Z",
+  "agent": "Claude (Claude Code, /errata skill) · rewrite: rules (offline, deterministic)",
+  "kane": "live",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "On GitHub, navigate to the main page of the repository.",
+      "text": "On GitHub, navigate to the main page of the repository.",
+      "goal": "The repository's main page is open",
+      "labels": [],
+      "checkable": false,
+      "skip_reason": "Covered by the start URL (the repository's main page).",
+      "status": "skipped",
+      "note": "Covered by the start URL (the repository's main page).",
+      "credits": 0,
+      "started_at": "https://github.com/expressjs/express"
+    },
+    {
+      "n": 2,
+      "quote": "Under your repository name, click **Issues** or **Pull requests**.",
+      "text": "Under your repository name, click Issues or Pull requests.",
+      "goal": "The repository's list of issues is visible",
+      "labels": [
+        "Issues"
+      ],
+      "checkable": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to open the Issues section.\nClicked the “Issues” link on the Express GitHub repository.\nThe Issues page opened successfully, with the main heading “Issues”.",
+        "one_liner": "opened the Issues page on GitHub",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\fffd593f-6940-421a-bb99-4616982e657f\\evidence\\edee49fa-fd4e-4f88-b30b-ba8d0f0a1b30.evidence",
+        "final_state": {
+          "url": "https://github.com/expressjs/express/issues",
+          "landed_on": "Issues"
+        },
+        "end_url": "https://github.com/expressjs/express/issues",
+        "clicks": [
+          {
+            "label": "Issues",
+            "names": [
+              "Issues  (113)"
+            ],
+            "y": 134
+          }
+        ],
+        "credits": 18.2,
+        "duration": 73.5,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GVG8HKY7HACKHEDCCXJ1TN/dashboard/share/US_V3ORN24QQVJU239UTH86J2CLLEUCJTNEYHIPEVP2Q7EFW6RZC8HA6OJIJMWGXG7E?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\fffd593f-6940-421a-bb99-4616982e657f\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\fffd593f-6940-421a-bb99-4616982e657f",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express",
+          "click: Clicking Issues",
+          "wait: PRIMARY: wait for the Issues page heading to be visible",
+          "analyze: ANALYZE(textual_visual, 'the main heading of the page you end on is stored as {{",
+          "wait: Waiting after successful completion"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'Issues'.\nThen store the main heading of the page you end on as 'landed_on'.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "Issues",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 18.2,
+      "started_at": "https://github.com/expressjs/express"
+    },
+    {
+      "n": 3,
+      "quote": "Above the list of issues or pull requests, click **Labels**.",
+      "text": "Above the list of issues or pull requests, click Labels.",
+      "goal": "The repository's list of labels is visible",
+      "labels": [
+        "Labels"
+      ],
+      "checkable": true,
+      "continues": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to open the repository’s Labels page.\nClicked the “Labels” link in the expressjs/express repository.\nThe Labels page opened successfully, with the main heading shown as “Labels”.",
+        "one_liner": "opened the Labels page on GitHub",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\0442a164-539d-47d8-9ecb-b51120aff0a4\\evidence\\61911a38-19bd-4804-964f-8a1c5dd71d52.evidence",
+        "final_state": {
+          "url": "https://github.com/expressjs/express/labels",
+          "landed_on": "Labels"
+        },
+        "end_url": "https://github.com/expressjs/express/labels",
+        "clicks": [
+          {
+            "label": "Labels",
+            "y": 455
+          }
+        ],
+        "credits": 18.2,
+        "duration": 80.4,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GVMTBSEJSDNG3JRD2C1QEZ/dashboard/share/US_V03SXE93GCVHR4EDRFDYLPGKTNBXXILB34ZOO217OUDWKVW1PG0PDCE9GIMYKUGA?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\0442a164-539d-47d8-9ecb-b51120aff0a4\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\0442a164-539d-47d8-9ecb-b51120aff0a4",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express/issues",
+          "click: Clicking Labels link in Pages navigation",
+          "wait: PRIMARY: wait for the heading \"Labels\" to become visible",
+          "analyze: ANALYZE(textual_visual, 'The main heading of the page you end on is stored as {{",
+          "wait: Waiting after successful checkpoint verification"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'Labels'.\nThen store the main heading of the page you end on as 'landed_on'.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "Labels",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 18.2,
+      "started_at": "https://github.com/expressjs/express/issues"
+    },
+    {
+      "n": 4,
+      "quote": "In the list of labels, click a label.",
+      "text": "In the list of labels, click a label.",
+      "goal": "A list of issues filtered by one label is visible",
+      "labels": [],
+      "checkable": false,
+      "continues": true,
+      "skip_reason": "Names no specific label to follow.",
+      "status": "skipped",
+      "note": "Names no specific label to follow.",
+      "credits": 0,
+      "started_at": "https://github.com/expressjs/express/labels"
+    }
+  ],
+  "totals": {
+    "steps": 4,
+    "checkable": 2,
+    "accurate": 2,
+    "drifted": 0,
+    "fixed": 0,
+    "broken": 0,
+    "skipped": 2,
+    "unchecked": 0,
+    "credits": 36.4,
+    "seconds": 312
+  }
+}

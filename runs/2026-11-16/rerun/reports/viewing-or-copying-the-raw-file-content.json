@@ -1,0 +1,87 @@
+{
+  "errata": "1",
+  "tutorial": "Viewing or copying the raw file content",
+  "source": "https://docs.github.com/en/repositories/working-with-files/using-files/viewing-and-understanding-files",
+  "start_url": "https://github.com/expressjs/express/blob/master/index.js",
+  "checked_at": "2026-11-16T00:54:05.105Z",
+  "agent": "Claude (Claude Code, /errata skill) · rewrite: rules (offline, deterministic)",
+  "kane": "live",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "Click the file that you want to view.",
+      "text": "Click the file that you want to view.",
+      "goal": "A file is open",
+      "labels": [],
+      "checkable": false,
+      "skip_reason": "Covered by the start URL (a file in the repository).",
+      "status": "skipped",
+      "note": "Covered by the start URL (a file in the repository).",
+      "credits": 0,
+      "started_at": "https://github.com/expressjs/express/blob/master/index.js"
+    },
+    {
+      "n": 2,
+      "quote": "In the upper-right corner of the file view, click **Raw**.",
+      "text": "In the upper-right corner of the file view, click Raw.",
+      "goal": "The file's raw content is shown as plain text",
+      "labels": [
+        "Raw"
+      ],
+      "checkable": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "The requested action was to open the file’s Raw view.\nClicked the “Raw” control in the upper-right area of the file view.\nThe raw index.js file opened successfully on raw.githubusercontent.com; the resulting page did not show a main heading.",
+        "one_liner": "opened the raw index.js file on GitHub",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\ddd50e14-6c55-40fa-a4ff-10c90f4c59ec\\evidence\\bf6dbca6-a67f-45df-a56f-71c4522c3fd6.evidence",
+        "final_state": {
+          "url": "https://raw.githubusercontent.com/expressjs/express/refs/heads/master/index.js",
+          "main_heading_present": "false"
+        },
+        "end_url": "https://raw.githubusercontent.com/expressjs/express/refs/heads/master/index.js",
+        "clicks": [
+          {
+            "label": "Raw",
+            "y": 304
+          }
+        ],
+        "credits": 19.3,
+        "duration": 74.1,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GXDD471VC3AQ3SPS0JDXWR/dashboard/share/US_MGPV3A3V5SOHW47PWJW6J2PGNYGG7R4EKN8UCCH4YEYTGH5W5WHGPZQ8YILKPEZT?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\ddd50e14-6c55-40fa-a4ff-10c90f4c59ec\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\ddd50e14-6c55-40fa-a4ff-10c90f4c59ec",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express/blob/master/index.js",
+          "click: Clicking Raw link",
+          "wait: PRIMARY: wait for the raw file content to load",
+          "analyze: The page you end on has a main heading.",
+          "wait: Waiting after completing the Raw link navigation and checkpoint"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"In the upper-right corner of the file view, click Raw.\"\n1. Click the element whose visible label is exactly 'Raw'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "false",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 19.3,
+      "started_at": "https://github.com/expressjs/express/blob/master/index.js"
+    }
+  ],
+  "totals": {
+    "steps": 2,
+    "checkable": 1,
+    "accurate": 1,
+    "drifted": 0,
+    "fixed": 0,
+    "broken": 0,
+    "skipped": 1,
+    "unchecked": 0,
+    "credits": 19.3,
+    "seconds": 147
+  },
+  "input": "corpus/tutorials/gh-raw-file.tutorial.json"
+}

@@ -1,0 +1,79 @@
+{
+  "errata": "1",
+  "tutorial": "Help:What links here",
+  "source": "https://en.wikipedia.org/wiki/Help:What_links_here",
+  "start_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "checked_at": "2026-11-16T00:32:25.771Z",
+  "agent": "Claude (Claude Code, /errata skill) · rewrite: rules (offline, deterministic)",
+  "kane": "live",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "Within the **Tools** section at the top-right of every page, click \"**What links here**\".",
+      "text": "Within the Tools section at the top-right of every page, click \"What links here\".",
+      "goal": "A list of pages that link to the article is shown",
+      "labels": [
+        "Tools",
+        "What links here"
+      ],
+      "checkable": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to open the “What links here” page using the Tools menu.\nOpened Tools, then selected “What links here.”\nReached Wikipedia’s page titled “Pages that link to \"Ada Lovelace\".”",
+        "one_liner": "opened the What links here page on Wikipedia",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\476e6642-f139-4bd1-b1a4-9ec44ba6f99c\\evidence\\f2d6e46b-27ba-4bf2-8eca-da09c93e76a8.evidence",
+        "final_state": {
+          "url": "https://en.wikipedia.org/wiki/Special:WhatLinksHere/Ada_Lovelace",
+          "landed_on": "Pages that link to \"Ada Lovelace\""
+        },
+        "end_url": "https://en.wikipedia.org/wiki/Special:WhatLinksHere/Ada_Lovelace",
+        "clicks": [
+          {
+            "label": "Tools",
+            "y": 129
+          },
+          {
+            "label": "What links here",
+            "y": 255
+          }
+        ],
+        "credits": 20.4,
+        "duration": 98.2,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GW55NT6126AEQW8JKF2WH6/dashboard/share/US_NB5VP2WXJAT78AW1NK3T54N4UNBVPEOHYQPEX8RVFWJYXPQTDFE768936YHRP6YO?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\476e6642-f139-4bd1-b1a4-9ec44ba6f99c\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\476e6642-f139-4bd1-b1a4-9ec44ba6f99c",
+        "trail": [
+          "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+          "click: Clicking Tools in the page navigation",
+          "click: Clicking What links here link in the Tools menu",
+          "wait: PRIMARY: wait for the destination page heading to load",
+          "analyze: ANALYZE(textual_visual, 'The main heading of the page you end on is stored as {{",
+          "wait: Waiting after confirming the destination page heading"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'Tools'.\n2. Click the element whose visible label is exactly 'What links here'.\nThen store the main heading of the page you end on as 'landed_on'.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "Pages that link to \"Ada Lovelace\"",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 20.4,
+      "started_at": "https://en.wikipedia.org/wiki/Ada_Lovelace"
+    }
+  ],
+  "totals": {
+    "steps": 1,
+    "checkable": 1,
+    "accurate": 1,
+    "drifted": 0,
+    "fixed": 0,
+    "broken": 0,
+    "skipped": 0,
+    "unchecked": 0,
+    "credits": 20.4,
+    "seconds": 167
+  }
+}

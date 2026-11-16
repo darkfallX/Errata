@@ -17,12 +17,20 @@ import type { Step } from "./types.js";
 /** Lower-case the first letter so a goal reads mid-sentence, but leave acronyms ("CSV", "API") alone. */
 const lower = (s: string) => (/^[A-Z][A-Z]/.test(s) ? s : s.charAt(0).toLowerCase() + s.slice(1)).replace(/\.$/, "");
 
+// Learned in the public run:
+//  4. A label can appear twice on a page (GitHub has a "Code" repo tab and a "Code" file-view toggle).
+//     Given only the label, Kane clicked the wrong one. So the doc's own sentence goes along as context
+//     for *where* each label is. It is context, not a pass/fail rule.
+//  5. "Store the main heading" failed a run on a raw text file, which has no heading. It is optional now.
+const HEADING = `If the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.`;
+
 export function literalObjective(step: Pick<Step, "text" | "labels">): string {
   const clicks = step.labels.length ? step.labels.map((l, i) => `${i + 1}. Click the element whose visible label is exactly '${l}'.`) : [`1. ${step.text}`];
   return (
     `Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n` +
+    (step.labels.length ? `Where to find them, in the tutorial's own words: "${step.text.replace(/"/g, "'")}"\n` : "") +
     clicks.join("\n") +
-    `\nThen store the main heading of the page you end on as 'landed_on'.`
+    `\n${HEADING}`
   );
 }
 
@@ -30,7 +38,7 @@ export function goalObjective(step: Step): string {
   return (
     `Goal: ${lower(step.goal)}. Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\n` +
     `Hint: an old tutorial said "${step.text}", but those labels may have moved or been renamed.\n` +
-    `When the goal is met, store the main heading of the page you end on as 'landed_on', then verify the goal on screen.`
+    `When the goal is met, verify it on screen. ${HEADING}`
   );
 }
 

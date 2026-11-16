@@ -1,0 +1,37 @@
+{
+  "key": "6019cee2e2f0ecc3",
+  "recorded_at": "2026-11-16T00:30:41.796Z",
+  "exit_code": 1,
+  "mode": "action",
+  "url": "https://github.com/expressjs/express/blob/master/index.js",
+  "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'Raw'.\nThen store the main heading of the page you end on as 'landed_on'.",
+  "clicks": [
+    {
+      "label": "Raw",
+      "y": 304
+    }
+  ],
+  "actions": [
+    {
+      "type": "navigate",
+      "status": "success",
+      "intent": "Navigate to https://github.com/expressjs/express/blob/master/index.js",
+      "instr": "Navigate to https://github.com/expressjs/express/blob/master/index.js"
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:testid=[data-testid=\"raw-button\"s]",
+      "intent": "PRIMARY: Click the element whose visible label is exactly 'Raw'.; role=link; text=\"Raw\" | HINTS: container=file content toolbar",
+      "instr": "Clicking the Raw link",
+      "y": 304
+    },
+    {
+      "type": "wait",
+      "status": "success",
+      "intent": "PRIMARY: wait 1000 ms for the Raw file page to load",
+      "instr": "Waiting 1000 ms for the Raw file page to load"
+    }
+  ],
+  "ndjson": "{\"type\":\"stream_start\",\"cli_version\":\"0.10.4\",\"surface\":\"run\",\"pid\":31448,\"v\":1,\"ts\":\"2026-11-16T00:28:47.971Z\"}\n{\"type\":\"recording_state\",\"enabled\":true,\"session_id\":\"bd6c99c2-d572-4829-af6d-2ccbf6e469c9\",\"persist\":false,\"v\":1,\"ts\":\"2026-11-16T00:28:48.056Z\"}\n{\"type\":\"skill_update_available\",\"current\":null,\"latest\":\"0.1.4\",\"install_cmd\":\"kane-cli install skill\",\"v\":1,\"ts\":\"2026-11-16T00:28:52.139Z\"}\n{\"type\":\"bifurcation\",\"flows\":[\"Navigate to https://github.com/expressjs/express/blob/master/index.js then Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\\nClick the element whose visible label is exactly 'Raw'.\\nGet the main heading of the page you end on and save as {{landed_on}}.\"],\"count\":1,\"v\":1,\"ts\":\"2026-11-16T00:29:27.489Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"v\":1,\"ts\":\"2026-11-16T00:29:41.491Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"navigate: Navigate to https://github.com/expressjs/express/blob/master/index.js\",\"v\":1,\"ts\":\"2026-11-16T00:29:41.534Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"v\":1,\"ts\":\"2026-11-16T00:29:43.197Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"click: Clicking the Raw link\",\"v\":1,\"ts\":\"2026-11-16T00:29:50.944Z\"}\n{\"step\":4,\"status\":\"running\",\"remark\":\"Step 3\",\"v\":1,\"ts\":\"2026-11-16T00:29:53.319Z\"}\n{\"step\":4,\"status\":\"done\",\"remark\":\"wait: PRIMARY: wait 1000 ms for the Raw file page to load\",\"v\":1,\"ts\":\"2026-11-16T00:29:58.381Z\"}\n{\"step\":5,\"status\":\"running\",\"remark\":\"Step 4\",\"v\":1,\"ts\":\"2026-11-16T00:29:59.515Z\"}\n{\"step\":5,\"status\":\"done\",\"remark\":\"analyze: ANALYZE(unknown, 'The main heading of the page you end on is saved as {{landed_o\",\"v\":1,\"ts\":\"2026-11-16T00:30:10.965Z\"}\n{\"step\":6,\"status\":\"running\",\"remark\":\"Step 5\",\"v\":1,\"ts\":\"2026-11-16T00:30:11.761Z\"}\n{\"step\":6,\"status\":\"failed\",\"remark\":\"wait: Waiting after failed heading extraction\",\"v\":1,\"ts\":\"2026-11-16T00:30:14.223Z\"}\n{\"type\":\"coverage\",\"status\":\"skipped\",\"reason\":\"not_assurance_project\",\"pack\":\"~\\\\.testmuai\\\\kaneai\\\\sessions\\\\bd6c99c2-d572-4829-af6d-2ccbf6e469c9\\\\evidence\\\\bc577824-c7ea-45cc-b879-1c89efa3d2bb.evidence\",\"v\":1,\"ts\":\"2026-11-16T00:30:38.885Z\"}\n{\"type\":\"run_end\",\"status\":\"failed\",\"summary\":\"The test assumed the destination after selecting Raw would contain a main page heading. That destination is a raw JavaScript file shown as plain text, so there is no heading to save.\\nChange the check to validate the raw-file content or URL instead of requiring a main heading. If a heading is required, do not use the Raw link as the destination.\",\"one_liner\":\"The run correctly opened the raw source file, but the test then expected that plain-text response to have a main heading.\",\"final_state\":{},\"reason\":\"The Raw response has no main heading to save as landed_on.\",\"duration\":58,\"bifurcated\":false,\"total_runs\":1,\"context\":{\"memory\":{},\"variables\":{\"landed_on\":{\"syntax\":\"{{landed_on}}\",\"value\":\"\",\"type\":\"text\",\"secret\":false,\"source\":\"runtime\"}},\"pointer\":\"(failed) The run correctly opened the raw source file, but the test then expected that plain-text response to have a main heading.\"},\"credits_consumed\":21.338944999999995,\"session_dir\":\"~/.testmuai/kaneai/sessions\\\\bd6c99c2-d572-4829-af6d-2ccbf6e469c9\",\"run_dir\":\"~/.testmuai/kaneai/sessions\\\\bd6c99c2-d572-4829-af6d-2ccbf6e469c9\\\\runs\\\\0\",\"result_code\":750,\"reason_code\":\"assertion_error.step_not_achievable\",\"per_flow_metadata\":[{\"result_code\":\"750\",\"reason_code\":\"assertion_error.step_not_achievable\",\"error_message\":\"The Raw response has no main heading to save as landed_on.\",\"summary\":\"The test assumed the destination after selecting Raw would contain a main page heading. That destination is a raw JavaScript file shown as plain text, so there is no heading to save.\\nChange the check to validate the raw-file content or URL instead of requiring a main heading. If a heading is required, do not use the Raw link as the destination.\",\"one_liner\":\"The run correctly opened the raw source file, but the test then expected that plain-text response to have a main heading.\",\"credits_consumed\":21.338944999999995}],\"run_id\":\"run-0\",\"verdict\":{\"confirmed\":false,\"status\":\"broken\",\"family\":\"automation_bug\",\"category\":\"state_transition_bug\",\"category_proposal\":\"\",\"severity\":\"minor\",\"root_cause\":\"The test assumed the destination after selecting Raw would contain a main page heading. That destination is a raw JavaScript file shown as plain text, so there is no heading to save.\",\"agent_fault_assessment\":\"The agent did not cause the outcome: it clicked the visible label exactly named “Raw,” as required, and arrived at the expected raw-file destination. The failure came from the follow-up assertion expecting a heading on that kind of response.\",\"bug_title\":\"Raw-file heading assertion assumes unavailable page structure\",\"signals\":[],\"confidence\":0.98,\"suggestion\":\"Change the check to validate the raw-file content or URL instead of requiring a main heading. If a heading is required, do not use the Raw link as the destination.\",\"one_liner\":\"The run correctly opened the raw source file, but the test then expected that plain-text response to have a main heading.\",\"relevant_steps\":[2,3,4],\"culprit_step\":\"0-4\",\"credits_consumed\":3.7087499999999998,\"mode\":\"terminal\"},\"test_url\":\"https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GW3ERBYB3DAEJKNRFQ1YK2/dashboard/share/US_MDOW8KPUQGQ72S2BIIC558JMVYPVOL236YPM8WEOTSMCFE1906853R7RMOY9KHDL?type=summary&agentView=true&fqdn=summary-page\",\"coverage\":{\"status\":\"skipped\"},\"v\":1,\"ts\":\"2026-11-16T00:30:38.887Z\"}\n"
+}

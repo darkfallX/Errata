@@ -195,3 +195,6 @@ details.runs[open] summary svg{transform:rotate(90deg)}
   .bar .tab.hide-sm{display:none}
   .facts dd{white-space:normal;word-break:break-word}
 }
+
+/* long lists: cap the stagger so row 24 never waits 2 s */
+.row{animation-delay:calc(min(var(--i,0),8)*90ms)}

@@ -1,0 +1,86 @@
+{
+  "errata": "1",
+  "tutorial": "Viewing workflow run history",
+  "source": "https://docs.github.com/en/actions/how-tos/monitor-workflows/view-workflow-run-history",
+  "start_url": "https://github.com/expressjs/express",
+  "checked_at": "2026-11-16T00:40:20.193Z",
+  "agent": "Claude (Claude Code, /errata skill) · rewrite: rules (offline, deterministic)",
+  "kane": "live",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "On GitHub, navigate to the main page of the repository.",
+      "text": "On GitHub, navigate to the main page of the repository.",
+      "goal": "The repository's main page is open",
+      "labels": [],
+      "checkable": false,
+      "skip_reason": "Covered by the start URL (the repository's main page).",
+      "status": "skipped",
+      "note": "Covered by the start URL (the repository's main page).",
+      "credits": 0,
+      "started_at": "https://github.com/expressjs/express"
+    },
+    {
+      "n": 2,
+      "quote": "Under your repository name, click **Actions**.",
+      "text": "Under your repository name, click Actions.",
+      "goal": "The repository's list of workflow runs is visible",
+      "labels": [
+        "Actions"
+      ],
+      "checkable": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to open the repository’s Actions section.\nClicked “Actions” and arrived at the GitHub Actions page.\nThe page heading is “All workflows.”",
+        "one_liner": "opened the Actions section on github.com",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\3544e6f7-c0f3-4341-bb36-7366a1a48e36\\evidence\\a4d0dc3b-2bc8-4a5b-83b6-7f330910c031.evidence",
+        "final_state": {
+          "url": "https://github.com/expressjs/express/actions",
+          "landed_on": "All workflows"
+        },
+        "end_url": "https://github.com/expressjs/express/actions",
+        "clicks": [
+          {
+            "label": "Actions",
+            "y": 134
+          }
+        ],
+        "credits": 19.8,
+        "duration": 69.5,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GWMCHSXX8JNRZQS10P684Q/dashboard/share/US_NGJYAMMIH8AR6490P43T7802RDFSK6RE16ID24902HFDJI6Z5UKNIYD7ZWUDVSYR?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\3544e6f7-c0f3-4341-bb36-7366a1a48e36\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\3544e6f7-c0f3-4341-bb36-7366a1a48e36",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express",
+          "click: Clicking Actions link",
+          "wait: PRIMARY: wait for the heading 'All workflows' to be visible",
+          "analyze: ANALYZE(textual_visual, 'the main heading of the page you end on is stored as {{",
+          "wait: Waiting after confirming the Actions page main heading"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'Actions'.\nThen store the main heading of the page you end on as 'landed_on'.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "All workflows",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 19.8,
+      "started_at": "https://github.com/expressjs/express"
+    }
+  ],
+  "totals": {
+    "steps": 2,
+    "checkable": 1,
+    "accurate": 1,
+    "drifted": 0,
+    "fixed": 0,
+    "broken": 0,
+    "skipped": 1,
+    "unchecked": 0,
+    "credits": 19.8,
+    "seconds": 152
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "key": "1f04f663f20e03eb",
+  "recorded_at": "2026-11-16T00:54:05.099Z",
+  "exit_code": 0,
+  "mode": "action",
+  "url": "https://github.com/expressjs/express/blob/master/index.js",
+  "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"In the upper-right corner of the file view, click Raw.\"\n1. Click the element whose visible label is exactly 'Raw'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+  "clicks": [
+    {
+      "label": "Raw",
+      "y": 304
+    }
+  ],
+  "actions": [
+    {
+      "type": "navigate",
+      "status": "success",
+      "intent": "Navigate to https://github.com/expressjs/express/blob/master/index.js",
+      "instr": "Navigate to https://github.com/expressjs/express/blob/master/index.js"
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:testid=[data-testid=\"raw-button\"s]",
+      "intent": "PRIMARY: Click the element whose visible label is exactly 'Raw'.; role=link; text=\"Raw\" | HINTS: container=file view upper-right actions beside Blame and Copy raw file",
+      "instr": "Clicking Raw link",
+      "y": 304
+    },
+    {
+      "type": "wait",
+      "status": "success",
+      "intent": "PRIMARY: wait for the raw file content to load",
+      "instr": "Waiting for the raw file content to load"
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "whether a main heading on the page you end on is present (on the page)",
+      "instr": "Checking whether a main heading is present"
+    },
+    {
+      "type": "if_else",
+      "status": "success",
+      "instr": "If-else checkpoint cp_1: no condition matched — resolved with no action"
+    }
+  ],
+  "ndjson": "{\"type\":\"stream_start\",\"cli_version\":\"0.10.4\",\"surface\":\"run\",\"pid\":30748,\"v\":1,\"ts\":\"2026-11-16T00:51:41.253Z\"}\n{\"type\":\"recording_state\",\"enabled\":true,\"session_id\":\"ddd50e14-6c55-40fa-a4ff-10c90f4c59ec\",\"persist\":false,\"v\":1,\"ts\":\"2026-11-16T00:51:41.578Z\"}\n{\"type\":\"skill_update_available\",\"current\":null,\"latest\":\"0.1.4\",\"install_cmd\":\"kane-cli install skill\",\"v\":1,\"ts\":\"2026-11-16T00:51:46.685Z\"}\n{\"type\":\"bifurcation\",\"flows\":[\"Navigate to https://github.com/expressjs/express/blob/master/index.js then Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\\nWhere to find them, in the tutorial's own words: \\\"In the upper-right corner of the file view, click Raw.\\\"\\nClick the element whose visible label is exactly 'Raw'.\\nIf the page you end on has a main heading, @v16:\\\"store it as 'landed_on'\\\"; a page without a heading is fine.\"],\"count\":1,\"v\":1,\"ts\":\"2026-11-16T00:52:40.041Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"v\":1,\"ts\":\"2026-11-16T00:53:02.654Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"navigate: Navigate to https://github.com/expressjs/express/blob/master/index.js\",\"v\":1,\"ts\":\"2026-11-16T00:53:02.733Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"v\":1,\"ts\":\"2026-11-16T00:53:05.338Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"click: Clicking Raw link\",\"v\":1,\"ts\":\"2026-11-16T00:53:13.821Z\"}\n{\"step\":4,\"status\":\"running\",\"remark\":\"Step 3\",\"v\":1,\"ts\":\"2026-11-16T00:53:15.387Z\"}\n{\"step\":4,\"status\":\"done\",\"remark\":\"wait: PRIMARY: wait for the raw file content to load\",\"v\":1,\"ts\":\"2026-11-16T00:53:25.840Z\"}\n{\"step\":5,\"status\":\"running\",\"remark\":\"Step 4\",\"v\":1,\"ts\":\"2026-11-16T00:53:27.263Z\"}\n{\"step\":5,\"status\":\"done\",\"remark\":\"analyze: The page you end on has a main heading.\",\"v\":1,\"ts\":\"2026-11-16T00:53:38.828Z\"}\n{\"step\":6,\"status\":\"running\",\"remark\":\"Step 5\",\"v\":1,\"ts\":\"2026-11-16T00:53:39.731Z\"}\n{\"step\":7,\"status\":\"running\",\"remark\":\"Step 6\",\"v\":1,\"ts\":\"2026-11-16T00:53:40.497Z\"}\n{\"step\":7,\"status\":\"done\",\"remark\":\"wait: Waiting after completing the Raw link navigation and checkpoint\",\"v\":1,\"ts\":\"2026-11-16T00:53:43.263Z\"}\n{\"type\":\"coverage\",\"status\":\"skipped\",\"reason\":\"not_assurance_project\",\"pack\":\"~\\\\.testmuai\\\\kaneai\\\\sessions\\\\ddd50e14-6c55-40fa-a4ff-10c90f4c59ec\\\\evidence\\\\bf6dbca6-a67f-45df-a56f-71c4522c3fd6.evidence\",\"v\":1,\"ts\":\"2026-11-16T00:54:02.633Z\"}\n{\"type\":\"run_end\",\"status\":\"passed\",\"summary\":\"The requested action was to open the file’s Raw view.\\nClicked the “Raw” control in the upper-right area of the file view.\\nThe raw index.js file opened successfully on raw.githubusercontent.com; the resulting page did not show a main heading.\",\"one_liner\":\"opened the raw index.js file on GitHub\",\"final_state\":{\"url\":\"https://raw.githubusercontent.com/expressjs/express/refs/heads/master/index.js\",\"main_heading_present\":\"false\"},\"reason\":\"Objective completed\",\"duration\":74.1,\"bifurcated\":false,\"total_runs\":1,\"context\":{\"memory\":{\"main_heading_present\":{\"extracted_value\":\"false\",\"operator\":\"equals\",\"transforms\":[],\"json_path\":null,\"reasoning\":\"value: 'false' -> 'false'; equals 'true' -> FAIL\",\"analyzer_type\":\"visual\",\"step\":4,\"query\":\"whether a main heading on the page you end on is present (on the page)\",\"condition\":\"The page you end on has a main heading.\",\"human_description\":\"Checking whether a main heading is present\",\"expected_value\":\"true\",\"subject\":\"a main heading on the page you end on\",\"must_be\":\"present\"}},\"variables\":{\"landed_on\":{\"syntax\":\"{{landed_on}}\",\"value\":\"\",\"type\":\"text\",\"secret\":false,\"source\":\"runtime\"},\"main_heading_present\":{\"syntax\":\"{{main_heading_present}}\",\"value\":\"false\",\"type\":\"memory\",\"secret\":false}},\"pointer\":\"(passed) opened the raw index.js file on GitHub\"},\"credits_consumed\":19.32634,\"session_dir\":\"~/.testmuai/kaneai/sessions\\\\ddd50e14-6c55-40fa-a4ff-10c90f4c59ec\",\"run_dir\":\"~/.testmuai/kaneai/sessions\\\\ddd50e14-6c55-40fa-a4ff-10c90f4c59ec\\\\runs\\\\0\",\"result_code\":100,\"reason_code\":\"success.complete\",\"per_flow_metadata\":[{\"result_code\":\"100\",\"reason_code\":\"success.complete\",\"error_message\":null,\"summary\":\"The requested action was to open the file’s Raw view.\\nClicked the “Raw” control in the upper-right area of the file view.\\nThe raw index.js file opened successfully on raw.githubusercontent.com; the resulting page did not show a main heading.\",\"one_liner\":\"opened the raw index.js file on GitHub\",\"credits_consumed\":19.32634}],\"run_id\":\"run-0\",\"test_url\":\"https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GXDD471VC3AQ3SPS0JDXWR/dashboard/share/US_MGPV3A3V5SOHW47PWJW6J2PGNYGG7R4EKN8UCCH4YEYTGH5W5WHGPZQ8YILKPEZT?type=summary&agentView=true&fqdn=summary-page\",\"coverage\":{\"status\":\"skipped\"},\"v\":1,\"ts\":\"2026-11-16T00:54:02.634Z\"}\n"
+}

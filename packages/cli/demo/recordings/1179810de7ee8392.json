@@ -1,0 +1,112 @@
+{
+  "key": "1179810de7ee8392",
+  "recorded_at": "2026-11-16T00:57:02.703Z",
+  "exit_code": 0,
+  "mode": "testing",
+  "url": "http://localhost:4177",
+  "objective": "Goal: a form to create a new API key or token is visible. Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\nHint: an old tutorial said \"Click Settings → API Keys and press Create key.\", but those labels may have moved or been renamed.\nWhen the goal is met, verify it on screen. If the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+  "clicks": [
+    {
+      "label": "Settings",
+      "y": 16
+    },
+    {
+      "label": "Developers",
+      "y": 16
+    },
+    {
+      "label": "Tokens",
+      "y": 92
+    },
+    {
+      "label": "New token",
+      "y": 206
+    }
+  ],
+  "actions": [
+    {
+      "type": "navigate",
+      "status": "success",
+      "intent": "Navigate to http://localhost:4177",
+      "instr": "Navigate to http://localhost:4177"
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Settings\"i]",
+      "intent": "PRIMARY: Settings; role=link; text=\"Settings\" | HINTS: container=top navigation",
+      "instr": "Clicking Settings in the top navigation",
+      "y": 16
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Developers\"i]",
+      "intent": "PRIMARY: Developers; role=link; text=\"Developers\" | HINTS: container=top navigation",
+      "instr": "Clicking Developers link in top navigation",
+      "y": 16
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Tokens\"i]",
+      "intent": "PRIMARY: Tokens; role=link; text=\"Tokens\" | HINTS: container=Developers sidebar",
+      "instr": "Clicking Tokens in the Developers sidebar",
+      "y": 92
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"New token\"i]",
+      "intent": "PRIMARY: New token; role=link; text=\"New token\" | HINTS: container=Tokens main content",
+      "instr": "Clicking New token",
+      "y": 206
+    },
+    {
+      "type": "wait",
+      "status": "success",
+      "intent": "PRIMARY: wait for the Create a new API token form to load",
+      "instr": "Waiting for the Create a new API token form to load"
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "whether a main heading on the page you end on is present (at the top of the main content area)",
+      "instr": "Checking whether the page main heading is present"
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "whether a form to create a new API key or token is present (in the main content area)",
+      "instr": "Checking whether the API token creation form is present"
+    },
+    {
+      "type": "assert",
+      "status": "success",
+      "intent": "",
+      "instr": "Assertion check"
+    },
+    {
+      "type": "if_else",
+      "status": "success",
+      "instr": "If-else checkpoint cp_2: condition 'the page you end on has a main heading' matched"
+    },
+    {
+      "type": "child_agent_start",
+      "status": "executing",
+      "instr": "Get the main heading and save it as {{landed_on}}."
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "the main page heading",
+      "instr": "Reading the main page heading"
+    },
+    {
+      "type": "child_agent_end",
+      "status": "success",
+      "instr": "Get the main heading and save it as {{landed_on}}."
+    }
+  ],
+  "ndjson": "{\"type\":\"stream_start\",\"cli_version\":\"0.10.4\",\"surface\":\"run\",\"pid\":6032,\"v\":1,\"ts\":\"2026-11-16T00:54:47.846Z\"}\n{\"type\":\"recording_state\",\"enabled\":true,\"session_id\":\"3525c350-fc1d-4c7f-ae22-48254851707f\",\"persist\":false,\"v\":1,\"ts\":\"2026-11-16T00:54:47.955Z\"}\n{\"type\":\"skill_update_available\",\"current\":null,\"latest\":\"0.1.4\",\"install_cmd\":\"kane-cli install skill\",\"v\":1,\"ts\":\"2026-11-16T00:54:51.070Z\"}\n{\"type\":\"bifurcation\",\"flows\":[\"Navigate to http://localhost:4177 then Goal: a form to create a new API key or token is visible.\\nReach it from the current page by clicking through the visible UI, by any route.\\nNever type a URL or use the address bar.\\nHint: an old tutorial said \\\"Click Settings → API Keys and press Create key.\\\", but those labels may have moved or been renamed.\\nWhen the goal is met, verify it on screen.\\nIf the page you end on has a main heading, @v16:\\\"Get the main heading and save it as {{landed_on}}.\\\"; a page without a heading is fine.\"],\"count\":1,\"v\":1,\"ts\":\"2026-11-16T00:55:22.307Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"v\":1,\"ts\":\"2026-11-16T00:55:25.875Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"navigate: Navigate to http://localhost:4177\",\"v\":1,\"ts\":\"2026-11-16T00:55:25.902Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"v\":1,\"ts\":\"2026-11-16T00:55:31.364Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"click: Clicking Settings in the top navigation\",\"v\":1,\"ts\":\"2026-11-16T00:55:35.861Z\"}\n{\"step\":4,\"status\":\"running\",\"remark\":\"Step 3\",\"v\":1,\"ts\":\"2026-11-16T00:55:36.584Z\"}\n{\"step\":4,\"status\":\"done\",\"remark\":\"click: Clicking Developers link in top navigation\",\"v\":1,\"ts\":\"2026-11-16T00:55:42.265Z\"}\n{\"step\":5,\"status\":\"running\",\"remark\":\"Step 4\",\"v\":1,\"ts\":\"2026-11-16T00:55:42.926Z\"}\n{\"step\":5,\"status\":\"done\",\"remark\":\"click: Clicking Tokens in the Developers sidebar\",\"v\":1,\"ts\":\"2026-11-16T00:55:46.775Z\"}\n{\"step\":6,\"status\":\"running\",\"remark\":\"Step 5\",\"v\":1,\"ts\":\"2026-11-16T00:55:47.465Z\"}\n{\"step\":6,\"status\":\"done\",\"remark\":\"click: Clicking New token\",\"v\":1,\"ts\":\"2026-11-16T00:55:50.994Z\"}\n{\"step\":7,\"status\":\"running\",\"remark\":\"Step 6\",\"v\":1,\"ts\":\"2026-11-16T00:55:51.771Z\"}\n{\"step\":7,\"status\":\"done\",\"remark\":\"wait: PRIMARY: wait for the Create a new API token form to load\",\"v\":1,\"ts\":\"2026-11-16T00:55:58.644Z\"}\n{\"step\":8,\"status\":\"running\",\"remark\":\"Step 7\",\"v\":1,\"ts\":\"2026-11-16T00:55:59.328Z\"}\n{\"step\":8,\"status\":\"done\",\"remark\":\"analyze: ANALYZE(textual_visual, 'a form to create a new API key or token is visible on s\",\"v\":1,\"ts\":\"2026-11-16T00:56:21.609Z\"}\n{\"step\":9,\"status\":\"running\",\"remark\":\"Step 8\",\"v\":1,\"ts\":\"2026-11-16T00:56:22.744Z\"}\n{\"step\":9,\"status\":\"done\",\"remark\":\"assert: a form to create a new API key or token is visible on screen\",\"v\":1,\"ts\":\"2026-11-16T00:56:22.809Z\"}\n{\"step\":10,\"status\":\"running\",\"remark\":\"Step 9\",\"v\":1,\"ts\":\"2026-11-16T00:56:24.158Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"child_id\":\"29672c79\",\"v\":1,\"ts\":\"2026-11-16T00:56:25.085Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"analyze: Get the main heading and save it as {{landed_on}}.\",\"child_id\":\"29672c79\",\"v\":1,\"ts\":\"2026-11-16T00:56:34.053Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"child_id\":\"29672c79\",\"v\":1,\"ts\":\"2026-11-16T00:56:34.948Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"wait: Waiting after saving the main heading\",\"child_id\":\"29672c79\",\"v\":1,\"ts\":\"2026-11-16T00:56:37.341Z\"}\n{\"step\":11,\"status\":\"running\",\"remark\":\"Step 10\",\"v\":1,\"ts\":\"2026-11-16T00:56:40.426Z\"}\n{\"step\":11,\"status\":\"done\",\"remark\":\"wait: Waiting after verifying the completed API token creation form\",\"v\":1,\"ts\":\"2026-11-16T00:56:42.744Z\"}\n{\"type\":\"coverage\",\"status\":\"skipped\",\"reason\":\"not_assurance_project\",\"pack\":\"~\\\\.testmuai\\\\kaneai\\\\sessions\\\\3525c350-fc1d-4c7f-ae22-48254851707f\\\\evidence\\\\37dec849-5e78-426f-9eef-b43841e8a5d8.evidence\",\"v\":1,\"ts\":\"2026-11-16T00:56:59.932Z\"}\n{\"type\":\"run_end\",\"status\":\"passed\",\"summary\":\"Opened the developer token creation page through the site’s visible navigation.\\nReached a page with the heading “Create a new API token,” where the token creation form is visible.\\nThe requested destination was reached successfully; no API key or token was created.\",\"one_liner\":\"opened the API token creation form on the developer portal\",\"final_state\":{\"url\":\"http://localhost:4177/developers/tokens/new\",\"main_heading\":\"Create a new API token\",\"api_key_or_token_creation_form_visible\":\"true\"},\"reason\":\"Objective completed\",\"duration\":90.6,\"bifurcated\":false,\"total_runs\":1,\"context\":{\"memory\":{\"main_heading_present\":{\"extracted_value\":\"true\",\"operator\":\"equals\",\"transforms\":[],\"json_path\":null,\"reasoning\":\"value: 'true' -> 'true'; equals 'true' -> PASS\",\"analyzer_type\":\"textual_visual\",\"step\":7,\"query\":\"whether a main heading on the page you end on is present (at the top of the main content area)\",\"condition\":\"the page you end on has a main heading\",\"human_description\":\"Checking whether the page main heading is present\",\"expected_value\":\"true\",\"subject\":\"a main heading on the page you end on\",\"must_be\":\"present\",\"code_js\":\"el(15).tagName === 'H1' && el(15).textContent.trim().length > 0\",\"wrapped_js\":\"(els) => {\\n  const __m = {15: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (el(15).tagName === 'H1' && el(15).textContent.trim().length > 0);\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:role=heading[name=\\\"Create a new API token\\\"i]\"],\"needs_unit_conversion\":false},\"api_key_or_token_creation_form_visible\":{\"extracted_value\":\"true\",\"operator\":\"equals\",\"transforms\":[],\"json_path\":null,\"reasoning\":\"value: 'true' -> 'true'; equals 'true' -> PASS\",\"analyzer_type\":\"textual_visual\",\"step\":7,\"query\":\"whether a form to create a new API key or token is present (in the main content area)\",\"condition\":\"a form to create a new API key or token is visible on screen\",\"human_description\":\"Checking whether the API token creation form is present\",\"expected_value\":\"true\",\"subject\":\"a form to create a new API key or token\",\"must_be\":\"present\",\"code_js\":\"el(14).querySelector('input, textarea, select') !== null && /create a new api token/i.test(el(14).innerText)\",\"wrapped_js\":\"(els) => {\\n  const __m = {14: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (el(14).querySelector('input, textarea, select') !== null && /create a new api token/i.test(el(14).innerText));\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:text=\\\"Create a new API tokenToken\\\"i\"],\"needs_unit_conversion\":false}},\"variables\":{\"landed_on\":{\"syntax\":\"{{landed_on}}\",\"value\":\"Create a new API token\",\"type\":\"memory\",\"secret\":false,\"source\":\"runtime\"},\"main_heading_present\":{\"syntax\":\"{{main_heading_present}}\",\"value\":\"true\",\"type\":\"memory\",\"secret\":false},\"api_key_or_token_creation_form_visible\":{\"syntax\":\"{{api_key_or_token_creation_form_visible}}\",\"value\":\"true\",\"type\":\"memory\",\"secret\":false}},\"pointer\":\"(passed) opened the API token creation form on the developer portal\"},\"credits_consumed\":34.3112225,\"session_dir\":\"~/.testmuai/kaneai/sessions\\\\3525c350-fc1d-4c7f-ae22-48254851707f\",\"run_dir\":\"~/.testmuai/kaneai/sessions\\\\3525c350-fc1d-4c7f-ae22-48254851707f\\\\runs\\\\0\",\"result_code\":100,\"reason_code\":\"success.complete\",\"per_flow_metadata\":[{\"result_code\":\"100\",\"reason_code\":\"success.complete\",\"error_message\":null,\"summary\":\"Opened the developer token creation page through the site’s visible navigation.\\nReached a page with the heading “Create a new API token,” where the token creation form is visible.\\nThe requested destination was reached successfully; no API key or token was created.\",\"one_liner\":\"opened the API token creation form on the developer portal\",\"credits_consumed\":34.3112225}],\"run_id\":\"run-0\",\"test_url\":\"https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GXK17EDRRB0GV3YZK35QFR/dashboard/share/US_7YTDBH51YCUEWIVHLR6CGO9NYQWE6R95X2RFXWMO35ZL02G0MFIEZ966M3T48P1I?type=summary&agentView=true&fqdn=summary-page\",\"coverage\":{\"status\":\"skipped\"},\"v\":1,\"ts\":\"2026-11-16T00:56:59.938Z\"}\n"
+}

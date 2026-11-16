@@ -38,6 +38,10 @@ test("literal objective is an ordered list of single clicks, no global fail rule
   assert.doesNotMatch(o, /if any of those labels/i);
   assert.doesNotMatch(o, /clicked_path/);
   assert.doesNotMatch(o, /setup/i);
+  // Public-run lessons: the doc's sentence travels as context (two "Code" labels on one page),
+  // and a page without a heading (a raw text file) must not fail the run.
+  assert.match(o, /in the tutorial's own words: "Click Settings → API Keys"/);
+  assert.match(o, /a page without a heading is fine/);
 });
 
 test("goal objective states the goal, the old words as a hint, and keeps CSV capitalised", () => {

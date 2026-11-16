@@ -1,0 +1,137 @@
+{
+  "errata": "1",
+  "tutorial": "Viewing tags",
+  "source": "https://docs.github.com/en/repositories/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags",
+  "start_url": "https://github.com/expressjs/express",
+  "checked_at": "2026-11-16T00:48:09.016Z",
+  "agent": "Claude (Claude Code, /errata skill) · rewrite: rules (offline, deterministic)",
+  "kane": "live",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "On GitHub, navigate to the main page of the repository.",
+      "text": "On GitHub, navigate to the main page of the repository.",
+      "goal": "The repository's main page is open",
+      "labels": [],
+      "checkable": false,
+      "skip_reason": "Covered by the start URL (the repository's main page).",
+      "status": "skipped",
+      "note": "Covered by the start URL (the repository's main page).",
+      "credits": 0,
+      "started_at": "https://github.com/expressjs/express"
+    },
+    {
+      "n": 2,
+      "quote": "To the right of the list of files, click **Releases**.",
+      "text": "To the right of the list of files, click Releases.",
+      "goal": "The repository's Releases page is visible",
+      "labels": [
+        "Releases"
+      ],
+      "checkable": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to open the “Releases” section.\nClicked the “Releases” link on the Express GitHub repository.\nThe Releases page opened successfully, with the main heading shown as “Releases”.",
+        "one_liner": "opened the Releases page on GitHub",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\be5aa952-4b91-4c36-9fcb-5c2aead86619\\evidence\\0ea23237-3e9f-417e-8633-201224547df4.evidence",
+        "final_state": {
+          "url": "https://github.com/expressjs/express/releases",
+          "landed_on": "Releases"
+        },
+        "end_url": "https://github.com/expressjs/express/releases",
+        "clicks": [
+          {
+            "label": "Releases",
+            "y": 767
+          }
+        ],
+        "credits": 14.9,
+        "duration": 62.2,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GX0WBMCTXCMZD14SBE5K2V/dashboard/share/US_R3IE3QM2LWCWJALWWSLOT7UFWE2BE7X9RHIS4J564LLUURAGQ0IP2U0F4HA670KL?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\be5aa952-4b91-4c36-9fcb-5c2aead86619\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\be5aa952-4b91-4c36-9fcb-5c2aead86619",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express",
+          "click: Clicking Releases in the sidebar",
+          "wait: PRIMARY: wait for the heading 'Releases' to be visible",
+          "analyze: ANALYZE(textual_visual, 'The main heading of the page you end on is saved as {{l",
+          "wait: Waiting after verifying the Releases page heading"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'Releases'.\nThen store the main heading of the page you end on as 'landed_on'.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "Releases",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 14.9,
+      "started_at": "https://github.com/expressjs/express"
+    },
+    {
+      "n": 3,
+      "quote": "At the top of the page, click **Tags**.",
+      "text": "At the top of the page, click Tags.",
+      "goal": "A list of the repository's tags is visible",
+      "labels": [
+        "Tags"
+      ],
+      "checkable": true,
+      "continues": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to open the Tags section of the expressjs/express repository on GitHub.\nClicked the “Tags” link and reached the repository’s Tags page.\nThe page heading is “Tags”.",
+        "one_liner": "opened the Tags page on GitHub",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\458fd3a8-5975-4aaa-bbb0-e88af0d6c96c\\evidence\\e4d9d1af-b80d-4425-b2b0-acf3ff1c5f8a.evidence",
+        "final_state": {
+          "url": "https://github.com/expressjs/express/tags",
+          "landed_on": "Tags"
+        },
+        "end_url": "https://github.com/expressjs/express/tags",
+        "clicks": [
+          {
+            "label": "Tags",
+            "y": 218
+          }
+        ],
+        "credits": 17.7,
+        "duration": 49.4,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GX42Z5MN50FNPBR3C9N4AT/dashboard/share/US_ZUVG6WBYJVEJA0G6I6W516AFB14EEGQGRRPMH9JIQ2NXTBV29NF2X8ER0S6NK44H?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\458fd3a8-5975-4aaa-bbb0-e88af0d6c96c\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\458fd3a8-5975-4aaa-bbb0-e88af0d6c96c",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express/releases",
+          "click: Clicking Tags link",
+          "wait: PRIMARY: wait for the heading 'Tags' to be visible",
+          "analyze: ANALYZE(textual_visual, 'The main heading of the page you end on is stored as {{",
+          "wait: Waiting after completing the Tags navigation and heading extraction"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'Tags'.\nThen store the main heading of the page you end on as 'landed_on'.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "Tags",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 17.7,
+      "started_at": "https://github.com/expressjs/express/releases"
+    }
+  ],
+  "totals": {
+    "steps": 3,
+    "checkable": 2,
+    "accurate": 2,
+    "drifted": 0,
+    "fixed": 0,
+    "broken": 0,
+    "skipped": 1,
+    "unchecked": 0,
+    "credits": 32.6,
+    "seconds": 196
+  }
+}

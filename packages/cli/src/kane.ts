@@ -215,3 +215,22 @@ export class ReplayKane implements KaneRunner {
     return { ...result, source: "replay", recorded_at: rec.recorded_at };
   }
 }
+
+/**
+ * Replay what was recorded, run live (and record) only what is missing or errored.
+ * Used to complete a recording set after a transient Kane failure without paying for every run again.
+ */
+export class FillKane implements KaneRunner {
+  readonly kind = "live" as const;
+  private replay: ReplayKane;
+  private live: LiveKane;
+  constructor(private dir: string) {
+    this.replay = new ReplayKane([dir]);
+    this.live = new LiveKane(dir);
+  }
+  async run(opts: KaneRunOptions): Promise<KaneResult> {
+    const rec = await this.replay.run(opts);
+    if (rec.status !== "error" && rec.status !== "timeout") return rec;
+    return this.live.run(opts);
+  }
+}

@@ -1,0 +1,250 @@
+{
+  "errata": "1",
+  "tutorial": "Viewing the line-by-line revision history for a file",
+  "source": "https://docs.github.com/en/repositories/working-with-files/using-files/viewing-and-understanding-files",
+  "start_url": "https://github.com/expressjs/express/blob/master/Readme.md",
+  "checked_at": "2026-11-16T01:02:26.294Z",
+  "agent": "Claude (Claude Code, /errata skill) · rewrite: rules (offline, deterministic)",
+  "kane": "live",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "Click to open the file whose line history you want to view.",
+      "text": "Click to open the file whose line history you want to view.",
+      "goal": "A file is open",
+      "labels": [],
+      "checkable": false,
+      "skip_reason": "Covered by the start URL (a file in the repository).",
+      "status": "skipped",
+      "note": "Covered by the start URL (a file in the repository).",
+      "credits": 0,
+      "started_at": "https://github.com/expressjs/express/blob/master/Readme.md"
+    },
+    {
+      "n": 2,
+      "quote": "Above the file content, click **Blame**.",
+      "text": "Above the file content, click Blame.",
+      "goal": "A line-by-line blame view, with code grouped by commit, is visible",
+      "labels": [
+        "Blame"
+      ],
+      "checkable": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to click the “Blame” option above the file content.\nClicked “Blame” and opened the blame view for Readme.md.\nThe resulting page displayed the Readme.md main heading.",
+        "one_liner": "opened the blame view for Readme.md on GitHub",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\ce94a686-9810-4d6c-ac8a-bff11490152f\\evidence\\44b03b83-2d69-4af0-840a-c73cf3a5661a.evidence",
+        "final_state": {
+          "url": "https://github.com/expressjs/express/blame/master/Readme.md",
+          "main_heading_present": "true"
+        },
+        "end_url": "https://github.com/expressjs/express/blame/master/Readme.md",
+        "clicks": [
+          {
+            "label": "Blame",
+            "y": 307
+          }
+        ],
+        "credits": 29.7,
+        "duration": 84.9,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GXHV6RAVTDP3KC24V122X3/dashboard/share/US_VLMEZORHWYVYPFCFB4H30XA7RNROHUAYMVIRJLL3AZQCUZDXEQNQLGGPS8F5Z5O6?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\ce94a686-9810-4d6c-ac8a-bff11490152f\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\ce94a686-9810-4d6c-ac8a-bff11490152f",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express/blob/master/Readme.md",
+          "click: Clicking Blame button",
+          "wait: PRIMARY: wait for the file blame content to appear",
+          "analyze: the page you end on has a main heading",
+          "analyze: The main heading is saved as {{landed_on}}.",
+          "wait: Waiting after saving the main heading",
+          "wait: Waiting after confirming the Blame view is active"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Above the file content, click Blame.\"\n1. Click the element whose visible label is exactly 'Blame'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "true",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 29.7,
+      "started_at": "https://github.com/expressjs/express/blob/master/Readme.md"
+    },
+    {
+      "n": 3,
+      "quote": "To return to the raw code view, above the file content, click **Code**.",
+      "text": "To return to the raw code view, above the file content, click Code.",
+      "goal": "The file's code view is shown again",
+      "labels": [
+        "Code"
+      ],
+      "checkable": true,
+      "continues": true,
+      "status": "accurate",
+      "literal": {
+        "status": "failed",
+        "exit_code": 1,
+        "summary": "The agent completed the click and recognized that the destination had a main heading, but it did not finish saving that heading value before its turn limit ended.\nRecord the heading immediately after detecting it, and reserve a final turn to commit the extracted value.",
+        "one_liner": "The browser reached the requested Code view, but the required heading value was not saved before the run ran out of turns.",
+        "reason_code": "agent_error.child_failed",
+        "reason": "Child agent failed: The required extraction could not be committed because the run turn budget was exhausted.",
+        "verdict": {
+          "confirmed": false,
+          "status": "broken",
+          "family": "automation_bug",
+          "category": "agent_misstep",
+          "category_proposal": "",
+          "severity": "minor",
+          "root_cause": "The agent completed the click and recognized that the destination had a main heading, but it did not finish saving that heading value before its turn limit ended.",
+          "agent_fault_assessment": "The agent's click was correct: step 0-2 successfully opened the repository Code view and step 0-3 recognized that the page had a main heading. The failure came from the agent workflow not committing the required extraction within the available run budget, not from GitHub failing to load or respond.",
+          "bug_title": "Heading extraction was not committed before turn budget expired",
+          "signals": [],
+          "confidence": 0.93,
+          "suggestion": "Record the heading immediately after detecting it, and reserve a final turn to commit the extracted value.",
+          "one_liner": "The browser reached the requested Code view, but the required heading value was not saved before the run ran out of turns.",
+          "relevant_steps": [
+            2,
+            3,
+            4
+          ],
+          "culprit_step": "0-4",
+          "credits_consumed": 2.3592,
+          "mode": "terminal"
+        },
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\3e346c30-93e3-4982-b042-8a4ba9cebbd3\\evidence\\0a5ed856-014f-440a-82da-e018d8b3a58e.evidence",
+        "final_state": {},
+        "clicks": [
+          {
+            "label": "Code",
+            "y": 134
+          }
+        ],
+        "credits": 29.3,
+        "duration": 92.1,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GXNP73W7EGQQKND5HDT4XX/dashboard/share/US_0X05O9P7OG2BKJC7XC1UX6NOJ4S4MLNTMA31P05EOJZTDR4IMJ3N0YO6FUNKDRVX?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\3e346c30-93e3-4982-b042-8a4ba9cebbd3\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\3e346c30-93e3-4982-b042-8a4ba9cebbd3",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express/blame/master/Readme.md",
+          "click: Clicking Code link in repository navigation",
+          "analyze: the page you end on has a main heading",
+          "analyze: The main heading is saved as {{landed_on}}.",
+          "wait: Waiting after unsuccessful heading extraction"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"To return to the raw code view, above the file content, click Code.\"\n1. Click the element whose visible label is exactly 'Code'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "action",
+        "source": "live"
+      },
+      "goal_pass": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "Returned to the Readme.md file’s code view on GitHub using the visible page controls.\nThe code view was shown successfully, and the page displayed the Readme.md heading.",
+        "one_liner": "returned to the Readme.md code view on GitHub",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\910649db-64aa-4da4-a257-9e8228f54aec\\evidence\\32247959-1daf-4969-b64f-6eec3298b6ea.evidence",
+        "final_state": {
+          "url": "https://github.com/expressjs/express/blob/master/Readme.md?plain=1",
+          "file_code_view_visible": "true",
+          "main_heading_present": "true"
+        },
+        "end_url": "https://github.com/expressjs/express/blob/master/Readme.md?plain=1",
+        "clicks": [
+          {
+            "label": "Code",
+            "y": 307
+          }
+        ],
+        "credits": 27,
+        "duration": 62.2,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GXT6W5CDS6KDJ9JVWW024M/dashboard/share/US_LQ2MA76F3JUWEIAKCHAPU40OC5Y0OUQRP26MQM4F20CFWDD5URBXG6VM8XBZSZ3P?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\910649db-64aa-4da4-a257-9e8228f54aec\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\910649db-64aa-4da4-a257-9e8228f54aec",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express/blame/master/Readme.md",
+          "click: Clicking the Code tab to return to the file’s code view",
+          "analyze: the page you end on has a main heading",
+          "assert: the file's code view is shown again on screen",
+          "analyze: The main heading is saved as {{landed_on}}.",
+          "wait: Waiting checkpoint extraction is complete",
+          "wait: Waiting after verifying the file's code view"
+        ],
+        "objective": "Goal: the file's code view is shown again. Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\nHint: an old tutorial said \"To return to the raw code view, above the file content, click Code.\", but those labels may have moved or been renamed.\nWhen the goal is met, verify it on screen. If the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "testing",
+        "source": "live"
+      },
+      "actual_path": "Code",
+      "landed_on": "true",
+      "note": "The literal pass failed once, but the route Kane found is the doc's own route. Treated as a flaky run, not drift.",
+      "credits": 56.3,
+      "started_at": "https://github.com/expressjs/express/blame/master/Readme.md"
+    },
+    {
+      "n": 4,
+      "quote": "If you are viewing a Markdown file, above the file content, you can also click **Preview** to return to the view with Markdown formatting applied.",
+      "text": "If you are viewing a Markdown file, above the file content, you can also click Preview to return to the view with Markdown formatting applied.",
+      "goal": "The Markdown file is shown with formatting applied",
+      "labels": [
+        "Preview"
+      ],
+      "checkable": true,
+      "continues": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to click “Preview” while viewing the Markdown file.\nClicked “Preview” to return to the formatted Markdown view.\nThe formatted README page loaded successfully and displayed its main heading.",
+        "one_liner": "previewed the README Markdown file on github.com",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\6444b4a5-716e-4eb7-9673-332f83cbfe30\\evidence\\5f9c8c95-00f2-4d04-8bac-2f01e48d8005.evidence",
+        "final_state": {
+          "url": "https://github.com/expressjs/express/blob/master/Readme.md",
+          "main_heading_present": "true"
+        },
+        "end_url": "https://github.com/expressjs/express/blob/master/Readme.md",
+        "clicks": [
+          {
+            "label": "Preview",
+            "y": 307
+          }
+        ],
+        "credits": 24.3,
+        "duration": 71.2,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GXXK5APT1GAKVR7K7BFQ8X/dashboard/share/US_VHQQJRY4JDUWTQYRSQS3V7OR24K1D3FFBKM4VF65U2RFSIQNIRJAKATN7MX2P5PA?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\6444b4a5-716e-4eb7-9673-332f83cbfe30\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\6444b4a5-716e-4eb7-9673-332f83cbfe30",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express/blob/master/Readme.md?plain=1",
+          "click: Clicking Preview",
+          "analyze: The page you end on has a main heading.",
+          "analyze: The main heading is saved as {{landed_on}}.",
+          "wait: Waiting completion after saving the main heading",
+          "wait: Waiting 1000 ms after the rendered Markdown view is confirmed."
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"If you are viewing a Markdown file, above the file content, you can also click Preview to return to the view with Markdown formatting applied.\"\n1. Click the element whose visible label is exactly 'Preview'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "true",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 24.3,
+      "started_at": "https://github.com/expressjs/express/blob/master/Readme.md?plain=1"
+    }
+  ],
+  "totals": {
+    "steps": 4,
+    "checkable": 3,
+    "accurate": 3,
+    "drifted": 0,
+    "fixed": 0,
+    "broken": 0,
+    "skipped": 1,
+    "unchecked": 0,
+    "credits": 110.3,
+    "seconds": 501
+  },
+  "input": "corpus/tutorials/gh-blame.tutorial.json"
+}

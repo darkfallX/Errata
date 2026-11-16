@@ -1,0 +1,78 @@
+{
+  "errata": "1",
+  "tutorial": "Help:Page information",
+  "source": "https://en.wikipedia.org/wiki/Help:Page_information",
+  "start_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "checked_at": "2026-11-16T00:24:08.744Z",
+  "agent": "Claude (Claude Code, /errata skill) · rewrite: rules (offline, deterministic)",
+  "kane": "live",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "A link to \"**Page information**\" is in the **Tools** panel on the desktop site.",
+      "text": "A link to \"Page information\" is in the Tools panel on the desktop site.",
+      "goal": "The page information page for the article is shown",
+      "labels": [
+        "Tools",
+        "Page information"
+      ],
+      "checkable": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to open the page information for the Ada Lovelace article.\nOpened the Tools menu and selected Page information.\nThe page information screen opened successfully, with the heading Information for \"Ada Lovelace\".",
+        "one_liner": "opened page information for Ada Lovelace on Wikipedia",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\61f7bb06-7dba-4452-8314-069db975bac9\\evidence\\2b2b38a5-56a0-4598-b55b-c000be63937e.evidence",
+        "final_state": {
+          "url": "https://en.wikipedia.org/w/index.php?title=Ada_Lovelace&action=info",
+          "landed_on": "Information for \"Ada Lovelace\""
+        },
+        "end_url": "https://en.wikipedia.org/w/index.php?title=Ada_Lovelace&action=info",
+        "clicks": [
+          {
+            "label": "Tools",
+            "y": 129
+          },
+          {
+            "label": "Page information",
+            "y": 343
+          }
+        ],
+        "credits": 18.3,
+        "duration": 89,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GVP5H01BMSRXYZ5ZBAR7PY/dashboard/share/US_SF3Z1RA8TJNWYUGDO7T8RWP8ABJ882O2P9UPI6AUK3C4QMSMW252OQ5IN3E8BB87?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\61f7bb06-7dba-4452-8314-069db975bac9\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\61f7bb06-7dba-4452-8314-069db975bac9",
+        "trail": [
+          "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+          "click: Clicking the Tools button",
+          "click: Clicking Page information link",
+          "analyze: ANALYZE(textual_visual, 'The main heading of the page you end on is saved as {{l",
+          "wait: Waiting after Page information opened and its heading was saved"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'Tools'.\n2. Click the element whose visible label is exactly 'Page information'.\nThen store the main heading of the page you end on as 'landed_on'.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "Information for \"Ada Lovelace\"",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 18.3,
+      "started_at": "https://en.wikipedia.org/wiki/Ada_Lovelace"
+    }
+  ],
+  "totals": {
+    "steps": 1,
+    "checkable": 1,
+    "accurate": 1,
+    "drifted": 0,
+    "fixed": 0,
+    "broken": 0,
+    "skipped": 0,
+    "unchecked": 0,
+    "credits": 18.3,
+    "seconds": 160
+  }
+}

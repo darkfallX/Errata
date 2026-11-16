@@ -1,0 +1,73 @@
+{
+  "errata": "1",
+  "tutorial": "Grafana fundamentals: Explore",
+  "source": "https://grafana.com/tutorials/grafana-fundamentals/",
+  "start_url": "https://play.grafana.org/",
+  "checked_at": "2026-11-16T00:09:56.810Z",
+  "agent": "Claude (Claude Code, /errata skill) · rewrite: rules (offline, deterministic)",
+  "kane": "live",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "Click the menu icon and, in the sidebar, click **Explore**.",
+      "text": "Click the menu icon and, in the sidebar, click Explore.",
+      "goal": "Grafana's Explore view for querying a data source is shown",
+      "labels": [
+        "Explore"
+      ],
+      "checkable": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to click the element labeled “Explore.”\nClicked “Explore” and opened the Explore page.\nThe page’s main heading is “Explore.”",
+        "one_liner": "opened Explore on play.grafana.org",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\f8e0c2fb-297d-4df0-9fce-4c485f32297d\\evidence\\d521504c-8455-4efd-ad58-64fbe6b40bb3.evidence",
+        "final_state": {
+          "url": "https://play.grafana.org/explore?schemaVersion=1&panes=%7B%22pry%22%3A%7B%22datasource%22%3A%22grafana%22%2C%22queries%22%3A%5B%7B%22queryType%22%3A%22randomWalk%22%2C%22refId%22%3A%22A%22%2C%22datasource%22%3A%7B%22type%22%3A%22datasource%22%2C%22uid%22%3A%22grafana%22%7D%7D%5D%2C%22range%22%3A%7B%22from%22%3A%22now-1h%22%2C%22to%22%3A%22now%22%7D%2C%22compact%22%3Afalse%7D%7D",
+          "landed_on": "Explore"
+        },
+        "end_url": "https://play.grafana.org/explore?schemaVersion=1&panes=%7B%22pry%22%3A%7B%22datasource%22%3A%22grafana%22%2C%22queries%22%3A%5B%7B%22queryType%22%3A%22randomWalk%22%2C%22refId%22%3A%22A%22%2C%22datasource%22%3A%7B%22type%22%3A%22datasource%22%2C%22uid%22%3A%22grafana%22%7D%7D%5D%2C%22range%22%3A%7B%22from%22%3A%22now-1h%22%2C%22to%22%3A%22now%22%7D%2C%22compact%22%3Afalse%7D%7D",
+        "clicks": [
+          {
+            "label": "Explore",
+            "y": 152
+          }
+        ],
+        "credits": 18.7,
+        "duration": 97,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GTV0SWZQPEC437D560C88D/dashboard/share/US_PHZXDUDGBSZ8K4Y6BH6C16S844XXX3R02AQDOL0LMZ7XATHK5GF00SEL7GXOL3GQ?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\f8e0c2fb-297d-4df0-9fce-4c485f32297d\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\f8e0c2fb-297d-4df0-9fce-4c485f32297d",
+        "trail": [
+          "navigate: Navigate to https://play.grafana.org/",
+          "click: Clicking the Explore link in the navigation sidebar",
+          "wait: PRIMARY: wait for the heading 'Explore' to be visible",
+          "analyze: ANALYZE(textual_visual, 'The main heading of the page you end on is saved as {{l",
+          "wait: Waiting after verifying the completed Explore destination"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'Explore'.\nThen store the main heading of the page you end on as 'landed_on'.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "Explore",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 18.7,
+      "started_at": "https://play.grafana.org/"
+    }
+  ],
+  "totals": {
+    "steps": 1,
+    "checkable": 1,
+    "accurate": 1,
+    "drifted": 0,
+    "fixed": 0,
+    "broken": 0,
+    "skipped": 0,
+    "unchecked": 0,
+    "credits": 18.7,
+    "seconds": 201
+  }
+}

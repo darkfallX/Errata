@@ -1,0 +1,70 @@
+{
+  "key": "a8aaad293fabc44a",
+  "recorded_at": "2026-11-16T00:55:04.891Z",
+  "exit_code": 0,
+  "mode": "action",
+  "url": "http://localhost:4177",
+  "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Open Team and click Invite member.\"\n1. Click the element whose visible label is exactly 'Team'.\n2. Click the element whose visible label is exactly 'Invite member'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+  "clicks": [
+    {
+      "label": "Team",
+      "y": 16
+    },
+    {
+      "label": "Invite member",
+      "y": 206
+    }
+  ],
+  "actions": [
+    {
+      "type": "navigate",
+      "status": "success",
+      "intent": "Navigate to http://localhost:4177",
+      "instr": "Navigate to http://localhost:4177"
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "role=link[name='Team']",
+      "intent": "PRIMARY: Click the element whose visible label is exactly 'Team'.; role=link; text=\"Team\" | HINTS: container=navigation",
+      "instr": "Clicking Team in the navigation",
+      "y": 16
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "role=link[name='Invite member']",
+      "intent": "PRIMARY: Click the element whose visible label is exactly 'Invite member'.; role=link; text=\"Invite member\" | HINTS: container=Team page",
+      "instr": "Clicking Invite member",
+      "y": 206
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "whether the page's main heading is present (in the main content area)",
+      "instr": "Checking whether the page's main heading is present"
+    },
+    {
+      "type": "if_else",
+      "status": "success",
+      "instr": "If-else checkpoint cp_1: condition 'The page you end on has a main heading.' matched"
+    },
+    {
+      "type": "child_agent_start",
+      "status": "executing",
+      "instr": "\"store it as 'landed_on'\""
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "it is stored as {{landed_on}}",
+      "instr": "Recording the landing page URL"
+    },
+    {
+      "type": "child_agent_end",
+      "status": "success",
+      "instr": "\"store it as 'landed_on'\""
+    }
+  ],
+  "ndjson": "{\"type\":\"stream_start\",\"cli_version\":\"0.10.4\",\"surface\":\"run\",\"pid\":2244,\"v\":1,\"ts\":\"2026-11-16T00:52:20.981Z\"}\n{\"type\":\"recording_state\",\"enabled\":true,\"session_id\":\"0245252d-a3aa-4741-8848-dfa1ef2aa467\",\"persist\":false,\"v\":1,\"ts\":\"2026-11-16T00:52:21.043Z\"}\n{\"type\":\"skill_update_available\",\"current\":null,\"latest\":\"0.1.4\",\"install_cmd\":\"kane-cli install skill\",\"v\":1,\"ts\":\"2026-11-16T00:52:30.992Z\"}\n{\"type\":\"bifurcation\",\"flows\":[\"Navigate to http://localhost:4177 then Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\\nWhere to find them, in the tutorial's own words: \\\"Open Team and click Invite member.\\\"\\nClick the element whose visible label is exactly 'Team'.\\nClick the element whose visible label is exactly 'Invite member'.\\nIf the page you end on has a main heading, @v16:\\\"store it as 'landed_on'\\\"; a page without a heading is fine.\"],\"count\":1,\"v\":1,\"ts\":\"2026-11-16T00:53:38.598Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"v\":1,\"ts\":\"2026-11-16T00:53:49.073Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"navigate: Navigate to http://localhost:4177\",\"v\":1,\"ts\":\"2026-11-16T00:53:49.167Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"v\":1,\"ts\":\"2026-11-16T00:53:53.813Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"click: Clicking Team in the navigation\",\"v\":1,\"ts\":\"2026-11-16T00:54:00.740Z\"}\n{\"step\":4,\"status\":\"running\",\"remark\":\"Step 3\",\"v\":1,\"ts\":\"2026-11-16T00:54:01.476Z\"}\n{\"step\":4,\"status\":\"done\",\"remark\":\"click: Clicking Invite member\",\"v\":1,\"ts\":\"2026-11-16T00:54:12.045Z\"}\n{\"step\":5,\"status\":\"running\",\"remark\":\"Step 4\",\"v\":1,\"ts\":\"2026-11-16T00:54:13.788Z\"}\n{\"step\":5,\"status\":\"done\",\"remark\":\"analyze: The page you end on has a main heading.\",\"v\":1,\"ts\":\"2026-11-16T00:54:24.433Z\"}\n{\"step\":6,\"status\":\"running\",\"remark\":\"Step 5\",\"v\":1,\"ts\":\"2026-11-16T00:54:25.245Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"child_id\":\"a8d7af38\",\"v\":1,\"ts\":\"2026-11-16T00:54:25.660Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"analyze: it is stored as {{landed_on}}\",\"child_id\":\"a8d7af38\",\"v\":1,\"ts\":\"2026-11-16T00:54:33.922Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"child_id\":\"a8d7af38\",\"v\":1,\"ts\":\"2026-11-16T00:54:34.643Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"wait: Waiting after checkpoint verification\",\"child_id\":\"a8d7af38\",\"v\":1,\"ts\":\"2026-11-16T00:54:37.019Z\"}\n{\"step\":7,\"status\":\"running\",\"remark\":\"Step 6\",\"v\":1,\"ts\":\"2026-11-16T00:54:40.694Z\"}\n{\"step\":7,\"status\":\"done\",\"remark\":\"wait: Waiting after all requested clicks and checkpoint verification\",\"v\":1,\"ts\":\"2026-11-16T00:54:44.055Z\"}\n{\"type\":\"coverage\",\"status\":\"skipped\",\"reason\":\"not_assurance_project\",\"pack\":\"~\\\\.testmuai\\\\kaneai\\\\sessions\\\\0245252d-a3aa-4741-8848-dfa1ef2aa467\\\\evidence\\\\6494a66d-a8e4-428b-9d6a-6573bedc4a9e.evidence\",\"v\":1,\"ts\":\"2026-11-16T00:55:02.398Z\"}\n{\"type\":\"run_end\",\"status\":\"passed\",\"summary\":\"Opened the Team section as requested.\\nClicked “Invite member.”\\nReached the Settings page, which displays a main heading.\",\"one_liner\":\"opened Team and clicked Invite member on the settings site\",\"final_state\":{\"url\":\"http://localhost:4177/settings\",\"main_heading_present\":\"true\"},\"reason\":\"Objective completed\",\"duration\":76.6,\"bifurcated\":false,\"total_runs\":1,\"context\":{\"memory\":{\"main_heading_present\":{\"extracted_value\":\"true\",\"operator\":\"equals\",\"transforms\":[],\"json_path\":null,\"reasoning\":\"value: 'true' -> 'true'; equals 'true' -> PASS\",\"analyzer_type\":\"textual_visual\",\"step\":4,\"query\":\"whether the page's main heading is present (in the main content area)\",\"condition\":\"The page you end on has a main heading.\",\"human_description\":\"Checking whether the page's main heading is present\",\"expected_value\":\"true\",\"subject\":\"the page's main heading\",\"must_be\":\"present\",\"code_js\":\"!!(el(15) && el(15).tagName === 'H1' && el(15).textContent.trim())\",\"wrapped_js\":\"(els) => {\\n  const __m = {15: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (!!(el(15) && el(15).tagName === 'H1' && el(15).textContent.trim()));\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:role=heading[name=\\\"General\\\"i]\"],\"needs_unit_conversion\":false}},\"variables\":{\"landed_on\":{\"syntax\":\"{{landed_on}}\",\"value\":\"http://localhost:4177/settings\",\"type\":\"memory\",\"secret\":false,\"source\":\"runtime\"},\"main_heading_present\":{\"syntax\":\"{{main_heading_present}}\",\"value\":\"true\",\"type\":\"memory\",\"secret\":false}},\"pointer\":\"(passed) opened Team and clicked Invite member on the settings site\"},\"credits_consumed\":17.090156,\"session_dir\":\"~/.testmuai/kaneai/sessions\\\\0245252d-a3aa-4741-8848-dfa1ef2aa467\",\"run_dir\":\"~/.testmuai/kaneai/sessions\\\\0245252d-a3aa-4741-8848-dfa1ef2aa467\\\\runs\\\\0\",\"result_code\":100,\"reason_code\":\"success.complete\",\"per_flow_metadata\":[{\"result_code\":\"100\",\"reason_code\":\"success.complete\",\"error_message\":null,\"summary\":\"Opened the Team section as requested.\\nClicked “Invite member.”\\nReached the Settings page, which displays a main heading.\",\"one_liner\":\"opened Team and clicked Invite member on the settings site\",\"credits_consumed\":17.090156}],\"run_id\":\"run-0\",\"test_url\":\"https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GXEQEK6CVGBTVTJD9YN6EW/dashboard/share/US_WZTZ29CK8YL94NYZ6VBJWUBBYK1YRO08HB3CJHM14HT4Q4EXBA403W9MRX9C5QOK?type=summary&agentView=true&fqdn=summary-page\",\"coverage\":{\"status\":\"skipped\"},\"v\":1,\"ts\":\"2026-11-16T00:55:02.401Z\"}\n"
+}

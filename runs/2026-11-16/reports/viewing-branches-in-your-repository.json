@@ -1,0 +1,238 @@
+{
+  "errata": "1",
+  "tutorial": "Viewing branches in your repository",
+  "source": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/viewing-branches-in-your-repository",
+  "start_url": "https://github.com/expressjs/express",
+  "checked_at": "2026-11-16T00:44:52.973Z",
+  "agent": "Claude (Claude Code, /errata skill) · rewrite: rules (offline, deterministic)",
+  "kane": "live",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "On GitHub, navigate to the main page of the repository.",
+      "text": "On GitHub, navigate to the main page of the repository.",
+      "goal": "The repository's main page is open",
+      "labels": [],
+      "checkable": false,
+      "skip_reason": "Covered by the start URL (the repository's main page).",
+      "status": "skipped",
+      "note": "Covered by the start URL (the repository's main page).",
+      "credits": 0,
+      "started_at": "https://github.com/expressjs/express"
+    },
+    {
+      "n": 2,
+      "quote": "From the file tree view on the left, select the branch dropdown menu, then click **View all branches**.",
+      "text": "From the file tree view on the left, select the branch dropdown menu, then click View all branches.",
+      "goal": "The repository's branches page is visible",
+      "labels": [
+        "View all branches"
+      ],
+      "checkable": true,
+      "status": "accurate",
+      "literal": {
+        "status": "failed",
+        "exit_code": 1,
+        "summary": "The test used an exact visible label that is not present on the current GitHub repository page. The available branch control is labeled “23 Branches,” so the recorded locator is out of date.\nUpdate the test to use the current branch control label or a stable selector, then verify that it reaches the branches page and stores its main heading.",
+        "one_liner": "The run expected a control labeled “View all branches,” but this repository page shows the branch control with a different label.",
+        "reason_code": "assertion_error.step_not_achievable",
+        "reason": "Checked the full page and visible repository controls; no element has the exact requested label.",
+        "verdict": {
+          "confirmed": false,
+          "status": "broken",
+          "family": "automation_bug",
+          "category": "locator_rot",
+          "category_proposal": "",
+          "severity": "minor",
+          "root_cause": "The test used an exact visible label that is not present on the current GitHub repository page. The available branch control is labeled “23 Branches,” so the recorded locator is out of date.",
+          "agent_fault_assessment": "The agent did not cause the outcome: it followed the instruction to find an element with the exact requested visible label and correctly stopped when that label was absent. The failure came from the test's stale exact-label expectation, not from an incorrect agent action.",
+          "bug_title": "Branch link label no longer matches recorded selector",
+          "signals": [],
+          "confidence": 0.98,
+          "suggestion": "Update the test to use the current branch control label or a stable selector, then verify that it reaches the branches page and stores its main heading.",
+          "one_liner": "The run expected a control labeled “View all branches,” but this repository page shows the branch control with a different label.",
+          "relevant_steps": [
+            0,
+            1
+          ],
+          "culprit_step": "0-1",
+          "credits_consumed": 1.56335,
+          "mode": "terminal"
+        },
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\ee4485a2-7baf-4779-a2da-bf5edd4bf36a\\evidence\\08e21bdd-3798-4895-89a8-4165c290b7aa.evidence",
+        "final_state": {},
+        "clicks": [],
+        "credits": 13.9,
+        "duration": 42.5,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GWKT78K254TW60X362Q6X3/dashboard/share/US_FIOICST7XJ0X5E4U0ML9MM4WYYPMFL5OVXH77AB1YODBIS94CF6NJTA5OKQD14MP?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\ee4485a2-7baf-4779-a2da-bf5edd4bf36a\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\ee4485a2-7baf-4779-a2da-bf5edd4bf36a",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express",
+          "wait: Waiting element whose visible label is exactly 'View all branches'"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'View all branches'.\nThen store the main heading of the page you end on as 'landed_on'.",
+        "mode": "action",
+        "source": "live"
+      },
+      "goal_pass": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "Opened the expressjs/express repository’s branches page using the visible site interface.\nConfirmed that the page heading is “Branches” and the repository’s branches list page is displayed.",
+        "one_liner": "opened the repository branches page on GitHub",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\e6bf6bfe-a78b-411e-8901-994f8f8ae48b\\evidence\\bc854ecd-4e47-4f64-90a7-0e9b3fde2928.evidence",
+        "final_state": {
+          "url": "https://github.com/expressjs/express/branches",
+          "landed_on": "Branches",
+          "repository_branches_page_visible": "true"
+        },
+        "end_url": "https://github.com/expressjs/express/branches",
+        "clicks": [
+          {
+            "label": "23 Branches",
+            "names": [
+              "Branches"
+            ],
+            "y": 262
+          }
+        ],
+        "credits": 17.8,
+        "duration": 57.8,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GWQQFV8VCQTZGC3W5HFXAE/dashboard/share/US_L87SDNYXRH6GUE1X7HZWQHP99D7S19NY71G586M33H7EDCVQ3SXJG5Y1T9QXOTHV?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\e6bf6bfe-a78b-411e-8901-994f8f8ae48b\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\e6bf6bfe-a78b-411e-8901-994f8f8ae48b",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express",
+          "click: Clicking 23 Branches link",
+          "wait: PRIMARY: wait for the repository's branches page heading to be visible",
+          "analyze: ANALYZE(textual_visual, 'The main heading of the page you end on is saved as {{l",
+          "assert: The repository's branches page is visible on screen."
+        ],
+        "objective": "Goal: the repository's branches page is visible. Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\nHint: an old tutorial said \"From the file tree view on the left, select the branch dropdown menu, then click View all branches.\", but those labels may have moved or been renamed.\nWhen the goal is met, store the main heading of the page you end on as 'landed_on', then verify the goal on screen.",
+        "mode": "testing",
+        "source": "live"
+      },
+      "actual_path": "23 Branches",
+      "landed_on": "Branches",
+      "note": "The literal pass failed once, but the route Kane found is the doc's own route. Treated as a flaky run, not drift.",
+      "credits": 31.7,
+      "started_at": "https://github.com/expressjs/express"
+    },
+    {
+      "n": 3,
+      "quote": "**Active branches:** The **Active** view shows all branches (excluding the default branch) that anyone has committed to within the last three months, ordered by the branches with the most recent commits first.",
+      "text": "Active branches: The Active view shows all branches (excluding the default branch) that anyone has committed to within the last three months, ordered by the branches with the most recent commits first.",
+      "goal": "The Active view of branches is shown",
+      "labels": [
+        "Active"
+      ],
+      "checkable": true,
+      "continues": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to open the repository’s Active branches view.\nClicked the “Active” option on the Express GitHub repository.\nThe Active branches page opened successfully, with the heading “Active branches”.",
+        "one_liner": "opened the Active branches view on github.com",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\23b23162-54e1-44e0-9b4f-5a3d87762708\\evidence\\cb0edf33-90a0-4595-9ae5-b58433b052ef.evidence",
+        "final_state": {
+          "url": "https://github.com/expressjs/express/branches/active",
+          "landed_on": "Active branches"
+        },
+        "end_url": "https://github.com/expressjs/express/branches/active",
+        "clicks": [
+          {
+            "label": "Active",
+            "y": 218
+          }
+        ],
+        "credits": 18.1,
+        "duration": 47.3,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GWTTE9J0MNHG6R5A3MNTM0/dashboard/share/US_B94X6C46KVLCA49CWUZE611R4MF4V1H5XHDXCX0BH9VM8H7S06I6Y5D2P5KQHBIX?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\23b23162-54e1-44e0-9b4f-5a3d87762708\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\23b23162-54e1-44e0-9b4f-5a3d87762708",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express/branches",
+          "click: Clicking Active link in Branch views navigation",
+          "wait: PRIMARY: wait for the heading 'Active branches' to be visible",
+          "analyze: ANALYZE(textual_visual, 'the main heading of the page you end on is stored as {{",
+          "wait: Waiting after confirming the Active branches heading"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'Active'.\nThen store the main heading of the page you end on as 'landed_on'.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "Active branches",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 18.1,
+      "started_at": "https://github.com/expressjs/express/branches"
+    },
+    {
+      "n": 4,
+      "quote": "**All branches:** The **All** view shows the default branch, followed by all other branches ordered by the branches with the most recent commits first.",
+      "text": "All branches: The All view shows the default branch, followed by all other branches ordered by the branches with the most recent commits first.",
+      "goal": "The All view of branches is shown, starting with the default branch",
+      "labels": [
+        "All"
+      ],
+      "checkable": true,
+      "continues": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to click the element labeled “All.”\nThe “All” option was selected on the Express repository’s branches page.\nThe page opened the full branches view, with the heading “All branches.”",
+        "one_liner": "opened all branches on github.com",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\bd09724b-a0c9-4ee4-a662-c83e3ab775a2\\evidence\\64200ca5-4996-470a-8048-cb71cf03f841.evidence",
+        "final_state": {
+          "url": "https://github.com/expressjs/express/branches/all",
+          "landed_on": "All branches"
+        },
+        "end_url": "https://github.com/expressjs/express/branches/all",
+        "clicks": [
+          {
+            "label": "All",
+            "y": 282
+          }
+        ],
+        "credits": 17.8,
+        "duration": 51.3,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GWXRCVVABYQ7TTB6MM0F0B/dashboard/share/US_QO942SXJ2HD2QXGJT2APBBQT0M00HR5V3QQJ0FZZ26T68SH6IZT3NRVYA1PMEIQE?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\bd09724b-a0c9-4ee4-a662-c83e3ab775a2\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\bd09724b-a0c9-4ee4-a662-c83e3ab775a2",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express/branches/active",
+          "click: Clicking All link in Branch views navigation",
+          "wait: PRIMARY: wait for the heading 'All branches' to be visible",
+          "analyze: ANALYZE(textual_visual, 'The main heading of the page you end on is saved as {{l",
+          "wait: Waiting after saving the landed-on page heading"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'All'.\nThen store the main heading of the page you end on as 'landed_on'.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "All branches",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 17.8,
+      "started_at": "https://github.com/expressjs/express/branches/active"
+    }
+  ],
+  "totals": {
+    "steps": 4,
+    "checkable": 3,
+    "accurate": 3,
+    "drifted": 0,
+    "fixed": 0,
+    "broken": 0,
+    "skipped": 1,
+    "unchecked": 0,
+    "credits": 67.6,
+    "seconds": 431
+  }
+}

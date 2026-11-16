@@ -9,3 +9,6 @@ site/out/
 runs-*.log
 .claude/launch.json
 /.errata/
+.old/
+runs/**/*.log
+.errata-demo-*.log
