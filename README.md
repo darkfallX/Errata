@@ -5,6 +5,7 @@
 <p align="center"><b>Every doc has errata. Find yours.</b></p>
 
 <p align="center">
+<a href="https://errata-nine.vercel.app">Live app</a> ·
 <a href="https://youtu.be/cjgjqvsVSbA">Watch the demo (4:49)</a> ·
 <a href="https://errata-nine.vercel.app/report/">Live report</a> ·
 <a href="#judges-start-here">Judges, start here</a> ·
@@ -13,6 +14,18 @@
 </p>
 
 <p align="center"><img src="docs/img/home-dark.png" alt="Errata: a tutorial step struck through, with the real path Kane found and the proven rewrite" width="860"></p>
+
+## Links
+
+| | |
+|---|---|
+| 🌐 **Live app** | [errata-nine.vercel.app](https://errata-nine.vercel.app) |
+| 📊 **Live report** | [errata-nine.vercel.app/report](https://errata-nine.vercel.app/report/) |
+| 🎥 **Demo video** (YouTube, 4:49) | [youtu.be/cjgjqvsVSbA](https://youtu.be/cjgjqvsVSbA) |
+| 📦 **npm package** | [errata-cli](https://www.npmjs.com/package/errata-cli) |
+| 💻 **Source code** | [github.com/darkfallX/Errata](https://github.com/darkfallX/Errata) |
+| 𝕏 **Launch post on X** | [x.com/Darkfall_x](https://x.com/Darkfall_x/status/2122707693878284477) |
+| 💼 **Launch post on LinkedIn** | [LinkedIn post](https://lnkd.in/p/dj_jTGXG) |
 
 ---
 

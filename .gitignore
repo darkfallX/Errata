@@ -14,3 +14,10 @@ runs/**/*.log
 .errata-demo-*.log
 
 .vercel
+
+# not part of the app: video production, launch drafts, submission files
+video/
+submission/
+docs/launch-posts.md
+docs/medium-post.md
+.claude/
