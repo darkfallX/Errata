@@ -88,6 +88,8 @@ async function scrollToText(page, text, offset = 300) {
 // ── Errata site (dark, cinematic) ──
 for (const scheme of ["dark"]) {
   const c = await ctx(scheme); const p = await c.newPage();
+  // the site scrolls smoothly; captures need instant scrolling
+  await p.addInitScript(() => { const st = document.createElement("style"); st.textContent = "html{scroll-behavior:auto!important}"; document.addEventListener("DOMContentLoaded", () => document.head.appendChild(st)); });
   const site = "https://errata-nine.vercel.app";
   await p.goto(site + "/", { waitUntil: "networkidle" });
   await shot(`site-home`, p, ["Every doc has errata.", "npx errata-cli demo --replay"]);
@@ -99,9 +101,9 @@ for (const scheme of ["dark"]) {
   await p.evaluate(() => window.scrollBy(0, -40));
   await shot(`site-hunt`, p, ["The drift hunt", "Dignited (2019): Export a Wikipedia page as a PDF"]);
   await p.evaluate(() => [...document.querySelectorAll("h2")].find((h) => h.textContent.includes("Precision")).scrollIntoView());
-  await shot(`site-precision`, p, ["Precision", "False alarms, and why", "Approved by Darkfallx"]);
+  await p.evaluate(() => window.scrollBy(0, 260)); await shot(`site-precision`, p, ["Precision", "False alarms, and why", "Confirmed findings"]);
   await p.goto(site + "/t/dignited-com/dignited-2019-export-a-wikipedia-page-as-a-pdf/", { waitUntil: "networkidle" });
-  await shot(`site-proof`, p, ["Real path", "Open Tools and click Download as PDF.", "What Kane did"]);
+  await shot(`site-proof`, p, ["Real path", "Click Tools.", "What Kane did"]);
   await p.evaluate(() => { const d = document.querySelector("details.runs"); d.open = true; document.querySelectorAll(".run")[0].scrollIntoView(); scrollBy(0, -20); });
   await shot(`site-proof-run`, p, ["Literal", "Clicked, per the evidence pack", "failed"]);
   await p.evaluate(() => { document.querySelector(".run .shot").scrollIntoView({ block: "center" }); });

@@ -281,49 +281,60 @@ scene("patch", (L, s) => {
   };
 });
 
-// 8 · the drift hunt: real old tutorials vs Wikipedia today
+// 8 · the drift hunt: real old tutorials vs Wikipedia today (Kane's own screenshots)
 scene("hunt", (L, s) => {
   const big = el("div", "center"); const n30 = el("div", "big", "30"); const n30l = el("div", "lead", "public tutorials, walked word for word", { marginTop: "18px" });
   const chips = el("div", null, ["GitHub Docs", "Wikipedia Help", "Grafana", "Plausible", "OpenStreetMap"].map((c) => `<span class="chip">${c}</span>`).join("") + `<span class="pill ok" style="height:46px;font-size:21px">✓ all accurate</span>`, { marginTop: "44px", display: "flex", gap: "14px", alignItems: "center" });
   big.append(n30, n30l, chips); L.appendChild(big);
-  const dg = card(L, { img: "dignited", url: "dignited.com/<b>44778/how-to-export-a-wikipedia-page-as-a-pdf</b>" });
-  const dgTag = el("div", "tag n", "Dignited · published March 2019", { left: "190px", top: "132px" }); L.appendChild(dgTag);
-  const kl = card(L, { img: "kane-literal", url: "en.wikipedia.org/wiki/<b>Ada_Lovelace</b>" });
-  const klTag = el("div", "tag no", "Kane · literal pass · failed · its own screenshot", { left: "190px", top: "132px" }); L.appendChild(klTag);
-  const wt = card(L, { img: "wiki-tools", url: "en.wikipedia.org/wiki/<b>Ada_Lovelace</b>" });
-  const wtTag = el("div", "tag warn", "Kane · goal pass · the real path", { left: "190px", top: "132px" }); L.appendChild(wtTag);
-  const kp = card(L, { img: "kane-proof", url: "en.wikipedia.org/w/index.php?title=<b>Special:DownloadAsPdf</b>" });
-  const kpTag = el("div", "tag ok", "Kane · proof · passed", { left: "190px", top: "132px" }); L.appendChild(kpTag);
-  const fix = el("div", "pill ok", "Read: Open Tools and click Download as PDF.", { position: "absolute", left: "0", right: "0", margin: "0 auto", width: "fit-content", top: "560px", height: "64px", fontSize: "28px", background: "rgba(8,40,28,.92)", boxShadow: "0 20px 60px -20px rgba(0,0,0,.6)" }); L.appendChild(fix);
-  const fin = el("div", "center"); fin.innerHTML = `<div style="display:flex;gap:80px"><div><div class="big" style="color:#ffb340">4</div><div class="lead" style="margin-top:10px">real wrong steps</div></div><div><div class="big" style="color:#21c08b">3</div><div class="lead" style="margin-top:10px">fixes proven by Kane</div></div></div>`; L.appendChild(fin);
-  const DB = BOX.dignited["Print/export"] || { x: 600, y: 500, w: 140, h: 30 };
-  const hD = highlight(dg.world, { x: DB.x - 6, y: DB.y - 4, w: (BOX.dignited["Download as PDF"] ? Math.max(DB.w + 20, 420) : 300), h: DB.h + 8 }, "#ffb340", 8);
-  const hK = highlight(kl.world, { x: 215, y: 130, w: 260, h: 360 }, "#ff4d6d", 6);
-  const TOOLS = { x: 1418, y: 140, w: 30, h: 30 }, DPDF = BOX["wiki-tools"]["Download as PDF"];
-  const hT = highlight(wt.world, { x: DPDF.x - 6, y: DPDF.y - 4, w: DPDF.w + 12, h: DPDF.h + 8 }, "#21c08b", 6);
-  const cur = cursor(wt.world);
-  const tOld = W("hunt", "Older"), tLit = W("hunt", "literally"), tCont = W("hunt", "Contents"), tGoal = W("hunt", "goal"), tTools = W("hunt", "Tools"), tRew = W("hunt", "rewrite"), tFour = W("hunt", "Four"), tAcc = W("hunt", "accurate");
+  const old = card(L, { img: "htg", url: "howtogeek.com/<b>27882/create-an-ebook-or-pdf-from-wikipedia-articles</b>" });
+  const oldTag = el("div", "tag n", "How-To Geek · 2010 · the same tutorial", { left: "190px", top: "132px" }); L.appendChild(oldTag);
+  const lit = card(L, { img: "htg-literal", url: "en.wikipedia.org/wiki/<b>Ada_Lovelace</b>" });
+  const litTag = el("div", "tag no", "Kane · literal pass · failed · its own screenshot", { left: "190px", top: "132px" }); L.appendChild(litTag);
+  const pr = card(L, { img: "htg-proof", url: "en.wikipedia.org/wiki/<b>Ada_Lovelace</b>" });
+  const prTag = el("div", "tag warn", "Kane · goal pass → proof", { left: "190px", top: "132px" }); L.appendChild(prTag);
+  const fix = el("div", "pill ok", "Read: Click Tools.", { position: "absolute", left: "0", right: "0", margin: "0 auto", width: "fit-content", top: "800px", height: "64px", fontSize: "30px", background: "rgba(8,40,28,.94)", boxShadow: "0 20px 60px -20px rgba(0,0,0,.6)" }); L.appendChild(fix);
+  const next = el("div", "pill ok", "✓ Next step, Download as PDF, works as written", { position: "absolute", left: "0", right: "0", margin: "0 auto", width: "fit-content", top: "880px", height: "52px", fontSize: "22px", background: "rgba(8,40,28,.94)" }); L.appendChild(next);
+  const fin = el("div", "center"); fin.innerHTML = `<div style="display:flex;gap:90px;align-items:flex-start"><div><div class="big" style="color:#ffb340">5</div><div class="lead" style="margin-top:10px">real wrong steps</div></div><div><div class="big" style="color:#21c08b">3</div><div class="lead" style="margin-top:10px">fixes proven by Kane</div></div><div><div class="big" style="color:#c7cdd3">2</div><div class="lead" style="margin-top:10px">"needs a human"</div></div></div><div class="mono" style="margin-top:46px;font-size:19px;color:#6f7880">6 older tutorials, picked because they were likely out of date</div>`; L.appendChild(fin);
+  const BX = BOX.htg["Print/export"];
+  const hOld = highlight(old.world, { x: BX.x - 78, y: BX.y - 2, w: Math.min(1250 - BX.x, 470) + 74, h: 30 }, "#ffb340", 8);
+  const hSide = highlight(lit.world, { x: 212, y: 132, w: 240, h: 350 }, "#ff4d6d", 6);
+  const TOOLS = { x: 1404, y: 132, w: 30, h: 30 }, SECT = { x: 1262, y: 520, w: 170, h: 90 };
+  const hSect = highlight(pr.world, SECT, "#21c08b", 6);
+  const cur = cursor(pr.world);
+  const tHunt = W("hunt", "hunting"), tRem = W("hunt", "Remember"), tLit = W("hunt", "literally"), tCont = W("hunt", "Contents"), tGoal = W("hunt", "goal"), tTools = W("hunt", "Tools"), tThere = W("hunt", "there"), tRew = W("hunt", "rewrite"), tNext = W("hunt", "next"), tAcross = W("hunt", "Across"), tAcc = W("hunt", "accurate");
   const win = (t, a, b) => k(t, a, 0.6) * (1 - k(t, b, 0.6));
   return (t) => {
-    const w0 = win(t, s.start, tOld - 0.5); big.style.opacity = w0; rise(n30, k(t, s.start + 0.3, 0.9)); rise(n30l, k(t, s.start + 0.8, 0.9)); rise(chips, k(t, tAcc - 0.8, 0.9));
-    const w1 = win(t, tOld - 0.3, tLit - 0.3); dg.c.style.opacity = dgTag.style.opacity = w1; dg.look(lerp(1.1, 1.9, eio((t - tOld) / 5)), DB.x + 200, DB.y + 10); hD.set(k(t, tOld + 1.6, 1));
-    const w2 = win(t, tLit - 0.3, tGoal - 0.4); kl.c.style.opacity = klTag.style.opacity = w2; kl.look(lerp(1.0, 1.6, eio((t - tLit) / 4)), 520, 380); hK.set(k(t, tCont - 0.2, 1));
-    const w3 = win(t, tGoal - 0.4, tRew - 0.4); wt.c.style.opacity = wtTag.style.opacity = w3; wt.look(lerp(1.15, 1.55, eio((t - tGoal) / 5)), 1300, 380);
-    const [cx, cy] = path([[tGoal, 900, 600], [tTools - 0.2, TOOLS.x + 10, TOOLS.y + 10], [tTools + 1.2, DPDF.x + 40, DPDF.y + 10]], t); cur.at(cx, cy);
-    cur.click(TOOLS.x + 15, TOOLS.y + 15, (t - tTools + 0.1) / 0.6); hT.set(k(t, tTools + 1.2, 0.8));
-    const w4 = win(t, tRew - 0.4, tFour - 0.4); kp.c.style.opacity = kpTag.style.opacity = w4; kp.look(lerp(1.0, 1.25, eio((t - tRew) / 4)), 700, 380); rise(fix, w4 * k(t, tRew + 0.6, 0.8));
-    fin.style.opacity = k(t, tFour - 0.4, 0.7); [...fin.querySelectorAll(".big")].forEach((b, i) => rise(b, k(t, tFour - 0.2 + i * 0.6, 0.8)));
+    big.style.opacity = win(t, s.start, tRem - 0.5); rise(n30, k(t, s.start + 0.3, 0.9)); rise(n30l, k(t, s.start + 0.8, 0.9)); rise(chips, k(t, tAcc - 0.8, 0.9));
+    const w1 = win(t, tRem - 0.3, tLit - 0.3); old.c.style.opacity = oldTag.style.opacity = w1; old.look(lerp(1.2, 1.7, eio((t - tRem) / 4)), 800, BX.y + 20); hOld.set(k(t, tRem + 0.6, 1));
+    const w2 = win(t, tLit - 0.3, tGoal - 0.4); lit.c.style.opacity = litTag.style.opacity = w2; lit.look(lerp(1.0, 1.55, eio((t - tLit) / 4)), 560, 360); hSide.set(k(t, tCont - 0.2, 1));
+    const w3 = k(t, tGoal - 0.4, 0.6) * (1 - k(t, tAcross - 0.5, 0.6)); pr.c.style.opacity = prTag.style.opacity = w3;
+    pr.look(lerp(1.05, 1.5, eio((t - tGoal) / 5)), 1150, 420);
+    // the image shows the menu already open (Kane's end state); before the click, cover it with the closed state
+    pr.setImg(t < tTools + 0.15 ? "htg-literal" : "htg-proof");
+    const [cx, cy] = path([[tGoal, 900, 620], [tTools - 0.15, TOOLS.x + 14, TOOLS.y + 14], [tThere + 0.2, SECT.x + 60, SECT.y + 52]], t); cur.at(cx, cy);
+    cur.click(TOOLS.x + 15, TOOLS.y + 15, (t - tTools) / 0.6); hSect.set(k(t, tThere, 0.9));
+    rise(fix, k(t, tRew - 0.2, 0.8) * (1 - k(t, tAcross - 0.5, 0.6))); rise(next, k(t, tNext - 0.2, 0.8) * (1 - k(t, tAcross - 0.5, 0.6)));
+    fin.style.opacity = k(t, tAcross - 0.4, 0.7); [...fin.querySelectorAll(".big")].forEach((b, i) => rise(b, k(t, tAcross + 0.4 + i * 0.7, 0.8)));
   };
 });
 
-// 9 · honest
+// 9 · honest: the false alarms, and the quotes we caught ourselves
 scene("honest", (L, s) => {
   const c = card(L, { img: "site-precision", url: "errata-nine.vercel.app/<b>report/#precision</b>" });
-  const FA = BOX["site-precision"]["False alarms, and why"] || { x: 300, y: 600, w: 300, h: 30 };
-  const h = highlight(c.world, { x: FA.x - 10, y: FA.y - 10, w: 1100, h: 220 }, "#ffb340", 6);
-  const lab = el("div", "pill warn", "4 false alarms, each with its reason", { position: "absolute", left: "190px", top: "132px", background: "rgba(50,35,10,.92)" }); L.appendChild(lab);
-  const tFour = W("honest", "four"), tList = W("honest", "listed");
-  return (t) => { c.c.style.opacity = k(t, s.start, 0.6); c.look(lerp(1.0, 1.35, eio((t - s.start) / 10)), FA.x + 480, FA.y + 80); h.set(k(t, tList - 0.3, 1)); rise(lab, k(t, tFour, 0.8)); };
+  const lab = el("div", "pill warn", "2 false alarms, each with its reason", { position: "absolute", left: "190px", top: "132px", background: "rgba(50,35,10,.92)" }); L.appendChild(lab);
+  const T = el("div", "term", `<div class="bar"><i></i><i></i><i></i><span style="margin-left:14px">~/Errata</span></div><pre></pre>`, { left: "260px", top: "250px", width: "1400px", height: "460px" }); L.appendChild(T);
+  const pre = T.querySelector("pre");
+  const CMD = "node corpus/verify-quotes.mjs";
+  const tTwo = W("honest", "two"), tCaught = W("honest", "caught"), tChecked = W("honest", "checked"), tFifteen = W("honest", "fifteen"), tAgain = W("honest", "again"), tRather = W("honest", "rather");
+  return (t) => {
+    const w1 = k(t, s.start, 0.6) * (1 - k(t, tCaught - 0.4, 0.6)); c.c.style.opacity = w1; lab.style.opacity = w1 * k(t, tTwo - 0.2, 0.6);
+    c.look(lerp(1.0, 1.25, eio((t - s.start) / 8)), 1000, 600);
+    T.style.opacity = k(t, tCaught - 0.2, 0.7) * (1 - k(t, tRather + 1.4, 0.8));
+    const lines = [`<span class="d">$</span> ${typed(CMD, t, tChecked - 0.4, 18)}`];
+    if (t > tChecked + 1.4) lines.push("", `<span class="d"># first check</span>`, `<span class="r">NOT FOUND</span> hunt-dignited-wikipedia-pdf#1   <span class="d">ours was paraphrased</span>`, `<span class="r">NOT FOUND</span> hunt-htg-wikipedia-pdf#1        <span class="d">ours was paraphrased</span>`, `<span class="d">… 15 quotes fixed, 11 tutorials walked again</span>`);
+    if (t > tAgain) lines.push("", `<span class="d"># after fixing the quotes</span>`, `<span class="g" style="font-weight:700">56/56 verbatim</span>`);
+    pre.innerHTML = lines.join("\n");
+  };
 });
 
 // 10 · the site

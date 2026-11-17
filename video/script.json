@@ -32,11 +32,11 @@
     },
     {
       "id": "hunt",
-      "say": "Okay, but does it work on real docs? We walked thirty public tutorials. The current ones, GitHub Docs, Wikipedia help, Grafana, were all accurate, which, honestly, good for them. So then we went hunting. Older tutorials, like this one from twenty nineteen. In the left sidebar, find Print slash export, then click Download as PDF. Kane follows it literally, and here's Kane's own screenshot. The sidebar just says Contents now. On the goal pass, Kane opens Tools, clicks Download as PDF, done. So the rewrite is: open Tools and click Download as PDF. Proven. Four real wrong steps, three proven fixes."
+      "say": "Okay, but does it work on real docs? We walked thirty public tutorials. The current ones, GitHub Docs, Wikipedia help, Grafana, they were all accurate. Which, honestly, good for them. So then we went hunting, in older tutorials. Remember that How-To Geek one from the start? Kane follows it literally, and here's Kane's own screenshot. The left sidebar just says Contents now. No Print slash export. On the goal pass, Kane opens Tools, and there it is. Print slash export, Download as PDF. So the rewrite is just, click Tools. Proven. And the next step works exactly as written. Across the hunt, five real wrong steps, three proven fixes, and for the two it couldn't fix cleanly, it just says, needs a human."
     },
     {
       "id": "honest",
-      "say": "And we publish our mistakes too. Errata raised four false alarms. Like a GitHub page with two buttons that are both called Code. Every one is listed, with the reason, and we fixed what caused them. I'd rather show you that than some perfect looking number."
+      "say": "And we publish our mistakes too. On GitHub, Errata raised two false alarms, like a page with two buttons that are both called Code. They're listed with the reason, and we fixed what caused them. We even caught ourselves. The tool we used to read those old tutorials had paraphrased some of the quotes. So we checked every quote against the live page, fixed fifteen of them, and walked them all again. I'd rather show you that than some perfect looking number."
     },
     {
       "id": "site",
