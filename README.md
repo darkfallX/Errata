@@ -1,4 +1,4 @@
-<p align="center"><img src="site/assets/logo.svg" width="44" alt=""></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="docs/img/logo-white.svg"><img src="site/assets/logo.svg" width="44" alt="Errata logo"></picture></p>
 
 <h1 align="center">Errata</h1>
 
