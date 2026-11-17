@@ -91,7 +91,7 @@ Then we went looking for drift on purpose. We picked **6 older third-party tutor
 | labnol (2015): "choose **Book Creator** from the toolbox menu in the right sidebar" | drifted · no rewrite passed in 3 loops | confirmed · needs a human |
 | Vancouver Editor (2011): "**Tools** … **Cite this page**" | accurate | still right |
 
-So the hunt found **5 real wrong steps**, with **3 Kane-proven fixes**, and it said "needs a human" for the 2 it could not fix cleanly. No false alarms in the hunt. Reviews: [`review.json`](runs/2026-11-16/review.json) (the drift-hunt verdicts are pending approval).
+So the hunt found **5 real wrong steps**, with **3 Kane-proven fixes**, and it said "needs a human" for the 2 it could not fix cleanly. No false alarms in the hunt. Reviews: [`review.json`](runs/2026-11-16/review.json) (the 3 proven fixes are approved by Darkfallx; the 2 "needs a human" verdicts are pending approval).
 
 **We caught ourselves, too.** The tool we used to read these pages had paraphrased 15 of the 54 tutorial sentences, and our first runs used those paraphrases. We now check every quote against the live page ([`corpus/verify-quotes.mjs`](corpus/verify-quotes.mjs), 56/56 verbatim), re-walked the 11 affected tutorials, and kept the first reports in [`runs/2026-11-16/superseded/`](runs/2026-11-16/superseded/). With exact quotes, two book-creator flags from the first runs disappeared.
 

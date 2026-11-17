@@ -19,7 +19,7 @@
     "verdict": "confirmed",
     "fix": "good",
     "why": "Real drift. There is no Print/export link on the left sidebar any more; the print and export options sit in the Tools menu. The proven rewrite (Click Tools) is correct, and step 2 (Download as PDF) then works as written.",
-    "reviewer": "pending approval"
+    "reviewer": "Darkfallx"
   },
   "labnol-org/labnol-2015-create-ebooks-from-wikipedia#1": {
     "verdict": "confirmed",
@@ -31,12 +31,12 @@
     "verdict": "confirmed",
     "fix": "good",
     "why": "Real drift. There is no Print/Export link on the left-hand side any more; it is the Print/export section of the Tools menu. The proven rewrite (Click Tools) is correct, and step 2 then works as written.",
-    "reviewer": "pending approval"
+    "reviewer": "Darkfallx"
   },
   "dignited-com/dignited-2019-export-a-wikipedia-page-as-a-pdf#1": {
     "verdict": "confirmed",
     "fix": "good",
-    "reviewer": "pending approval",
+    "reviewer": "Darkfallx",
     "why": "Real drift. The left panel no longer has a Print/export section; it is in the Tools menu. The proven rewrite (Click Tools) is correct, and step 2 (Select Download as PDF) then works as written."
   }
 }
