@@ -143,7 +143,7 @@ function layout({ title, description, path, active, body }) {
 <a class="gh" href="${REPO}" aria-label="Errata on GitHub">${ICON.gh}</a></div>
 </div></header>
 <main>${body}</main>
-<footer class="foot"><span>Errata · built on <a href="https://www.testmuai.com/kane-cli/" style="text-decoration:underline;text-underline-offset:3px">Kane CLI</a> for the KaneCLI hackathon</span><span><a href="${REPO}">GitHub</a> · <a href="/judges/">Judges</a> · MIT</span></footer>
+<footer class="foot"><span>Errata · built on <a href="https://www.testmuai.com/kane-cli/" style="text-decoration:underline;text-underline-offset:3px">Kane CLI</a> for the KaneCLI hackathon</span><span><a href="https://youtu.be/cjgjqvsVSbA">Demo video</a> · <a href="${REPO}">GitHub</a> · <a href="/judges/">Judges</a> · MIT</span></footer>
 <script src="/assets/app.js" defer></script>
 </body></html>`;
 }

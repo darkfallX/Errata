@@ -5,6 +5,7 @@
 <p align="center"><b>Every doc has errata. Find yours.</b></p>
 
 <p align="center">
+<a href="https://youtu.be/cjgjqvsVSbA">Watch the demo (4:49)</a> ·
 <a href="https://errata-nine.vercel.app/report/">Live report</a> ·
 <a href="#judges-start-here">Judges, start here</a> ·
 <code>npx errata-cli demo</code> ·
