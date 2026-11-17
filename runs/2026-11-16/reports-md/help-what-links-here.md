@@ -4,6 +4,6 @@
 
 | | Step | Result |
 |---|---|---|
-| 🟢 | 1. Within the Tools section at the top-right of every page, click "What links here". | accurate |
+| 🟢 | 1. Within the Tools section at the top-right of every page (in the standard view) is a link labeled "What links here". | accurate |
 
-**1 of 1 checkable steps accurate** · 0 drifted (0 fixed and proven) · 0 broken · 20.4 Kane credits
+**1 of 1 checkable steps accurate** · 0 drifted (0 fixed and proven) · 0 broken · 31.2 Kane credits

@@ -8,8 +8,8 @@
   "steps": [
     {
       "n": 1,
-      "quote": "In the left sidebar, click \"**Print/export**.\"",
-      "text": "In the left sidebar, click \"Print/export.\"",
+      "quote": "To do this, click the **Print/export** link on the left sidebar in Wikipedia when you're on an article you want to save.",
+      "text": "To do this, click the Print/export link on the left sidebar in Wikipedia when you're on an article you want to save.",
       "goal": "The article's print and export options are shown",
       "labels": [
         "Print/export"
@@ -18,8 +18,8 @@
     },
     {
       "n": 2,
-      "quote": "Click \"**Download as PDF**.\"",
-      "text": "Click \"Download as PDF.\"",
+      "quote": "Click **Download as PDF** to have Wikipedia automatically generate a PDF copy of this article.",
+      "text": "Click Download as PDF to have Wikipedia automatically generate a PDF copy of this article.",
       "goal": "A page offering to download the article as a PDF is shown",
       "labels": [
         "Download as PDF"

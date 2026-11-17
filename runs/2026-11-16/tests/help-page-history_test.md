@@ -6,12 +6,12 @@ url: https://en.wikipedia.org/wiki/Ada_Lovelace
 
 # Help:Page history
 
-## Step 1: To view the history of a page, use the tab labeled "View history" at the top of the page
+## Step 1: You can view a page's history by clicking the "View history" tab at the top of the associated page (pictured)
 
-To view the history of a page, use the tab labeled "View history" at the top of the page.
+You can view a page's history by clicking the "View history" tab at the top of the associated page (pictured).
 Verify that the article's revision history list is visible.
 
-## Step 2: To compare a revision with the revision before it, click "prev" on that entry
+## Step 2: To compare a revision with its predecessor, click "prev"
 
-To compare a revision with the revision before it, click "prev" on that entry.
+To compare a revision with its predecessor, click "prev".
 Verify that a comparison of one revision with the revision before it is visible.

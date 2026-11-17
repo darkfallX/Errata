@@ -4,10 +4,10 @@
 
 | | Step | Result |
 |---|---|---|
-| 🟡 | 1. In the left sidebar, click "Print/export." | drifted · fixed, proven in 1 loop(s) |
-| 🟢 | 2. Click "Download as PDF." | accurate |
+| 🟡 | 1. To do this, click the Print/export link on the left sidebar in Wikipedia when you're on an article you want to save. | drifted · fixed, proven in 1 loop(s) |
+| 🟢 | 2. Click Download as PDF to have Wikipedia automatically generate a PDF copy of this article. | accurate |
 
-**1 of 2 checkable steps accurate** · 1 drifted (1 fixed and proven) · 0 broken · 112.5 Kane credits
+**1 of 2 checkable steps accurate** · 1 drifted (1 fixed and proven) · 0 broken · 118.6 Kane credits
 
 <details><summary>What changed</summary>
 
@@ -17,6 +17,6 @@
 - Real path (found by Kane): Tools
 - Proven rewrite: Click **Tools**.
 - The doc's words no longer work. Kane found the real path; the rewrite passed a literal run in loop 1.
-- Evidence: [literal run](https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7JGTG0B2JGF7W29ZJBW5NVV/dashboard/share/US_G67I2J86FESBXJ7N0BZY8N4R9CLBGP09ITW68O66CYM9WXX4NBB51Z45R5GTT9CB?type=summary&agentView=true&fqdn=summary-page) · [goal run](https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7JGZAN4KY1EY3X8Q1FQJ9WK/dashboard/share/US_T1LESTNARGQSAHNCSZXTY02KJ5HWQ5N46Z460QTERIYHTZ45724S5XWAOVF10P0S?type=summary&agentView=true&fqdn=summary-page) · [proof run](https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7JH6T928YCA1ZTA25TXCD6N/dashboard/share/US_FIMRFWPDFEH49PVJ4PDJ5WONVAY329NR9KESF5HBJ12BFRPOL7TKJPEAXK0SY7L7?type=summary&agentView=true&fqdn=summary-page)
+- Evidence: [literal run](https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7KABS6BX6FS5SP76BW0CFCD/dashboard/share/US_TB6EG78720CC7V4B9S2HCLRF8M4MHVCWJB59IBD8Q8K0MFVSIUR33LC1UDI71DWU?type=summary&agentView=true&fqdn=summary-page) · [goal run](https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7KAFGBQ5PSD3ZSTYG3D9M0M/dashboard/share/US_TUG2VP81XF35B2IFC62DS0PHX16G3O6R7ET400KRABCS0DZJ0XZR0RQ5DACYN97D?type=summary&agentView=true&fqdn=summary-page) · [proof run](https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7KAN3DWW7E2D0ZPPGCNVZHZ/dashboard/share/US_WO7AL433X2RF6OGZVJFYJ8R18ITHRLGMMN70AV3E80K39GOG88P1DW0OWU2415F5?type=summary&agentView=true&fqdn=summary-page)
 
 </details>

@@ -3,14 +3,14 @@
   "tutorial": "Help:Download as PDF",
   "source": "https://en.wikipedia.org/wiki/Help:Download_as_PDF",
   "start_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
-  "checked_at": "2026-11-16T00:21:29.176Z",
+  "checked_at": "2026-11-16T23:48:20.409Z",
   "agent": "Claude (Claude Code, /errata skill) · rewrite: rules (offline, deterministic)",
   "kane": "live",
   "steps": [
     {
       "n": 1,
-      "quote": "Open the **Tools** drop-down menu in the top navigation bar, below the page name.",
-      "text": "Open the Tools drop-down menu in the top navigation bar, below the page name.",
+      "quote": "In the top navigation bar, under the Page name, select the **Tools** drop-down menu.",
+      "text": "In the top navigation bar, under the Page name, select the Tools drop-down menu.",
       "goal": "The Tools menu is open, showing page tools",
       "labels": [
         "Tools"
@@ -20,46 +20,52 @@
       "literal": {
         "status": "passed",
         "exit_code": 0,
-        "summary": "Clicked the element labeled “Tools” as requested.\nThe run finished on the Ada Lovelace Wikipedia page, whose main heading is “Ada Lovelace”.",
-        "one_liner": "clicked Tools on Wikipedia",
+        "summary": "The requested action was to select the “Tools” menu in the top navigation bar.\nThe “Tools” menu was selected on the Ada Lovelace Wikipedia page.\nThe page remained on the Ada Lovelace article, where the main heading was present.",
+        "one_liner": "selected the Tools menu on Wikipedia",
         "reason_code": "success.complete",
         "reason": "Objective completed",
-        "evidence": "~\\.testmuai\\kaneai\\sessions\\1f0dc41a-91b6-4859-88a4-44c28b4bc6f7\\evidence\\b37e9640-1afc-40e4-9547-d6ee324e7039.evidence",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\1bbd26e4-f9af-41f5-b594-ac3b81a1f43c\\evidence\\96bd19d0-f676-444e-bbea-1b64a7702842.evidence",
         "final_state": {
           "url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
-          "landed_on": "Ada Lovelace"
+          "main_heading_present": "true"
         },
         "end_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
         "clicks": [
           {
             "label": "Tools",
+            "names": [
+              "Tools navigation"
+            ],
+            "x": 1402,
             "y": 129
           }
         ],
-        "credits": 17,
-        "duration": 142.9,
-        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GV8AKBEN0JP12RD7GRW4J8/dashboard/share/US_NU2W4IG67IA52DY0E4CPO10SG1DGV0MNEKM0MWBQP39B8DNZLLU4TFK2O7VA9X5E?type=summary&agentView=true&fqdn=summary-page",
-        "run_dir": "~/.testmuai/kaneai/sessions\\1f0dc41a-91b6-4859-88a4-44c28b4bc6f7\\runs\\0",
-        "session_dir": "~/.testmuai/kaneai/sessions\\1f0dc41a-91b6-4859-88a4-44c28b4bc6f7",
+        "credits": 23.1,
+        "duration": 98.2,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7KBWQ1BR3KRHYFQVNAHW0MA/dashboard/share/US_QSWSEHQKDVF6NZRI34WI7ZG0MX3EXC2GBZP36NAZNVY2AMSM7EMS2N8H43988R0K?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\1bbd26e4-f9af-41f5-b594-ac3b81a1f43c\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\1bbd26e4-f9af-41f5-b594-ac3b81a1f43c",
         "trail": [
           "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
-          "click: Clicking Tools in the page navigation",
-          "analyze: ANALYZE(textual_visual, 'the main heading of the page you end on is stored as {{",
-          "wait: Waiting after confirming the Tools action and heading extraction"
+          "click: Clicking Tools navigation tab",
+          "analyze: the page you end on has a main heading",
+          "analyze: it is stored as {{landed_on}}",
+          "wait: Waiting after successful page heading extraction",
+          "wait: Waiting after opening the Tools drop-down menu"
         ],
-        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'Tools'.\nThen store the main heading of the page you end on as 'landed_on'.",
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"In the top navigation bar, under the Page name, select the Tools drop-down menu.\"\n1. Click the element whose visible label is exactly 'Tools'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
         "mode": "action",
         "source": "live"
       },
-      "landed_on": "Ada Lovelace",
+      "landed_on": "true",
       "note": "Kane followed the doc's exact words and reached the goal.",
-      "credits": 17,
+      "credits": 23.1,
       "started_at": "https://en.wikipedia.org/wiki/Ada_Lovelace"
     },
     {
       "n": 2,
-      "quote": "In the Print/export section, select \"**Download as PDF**\".",
-      "text": "In the Print/export section, select \"Download as PDF\".",
+      "quote": "In the **Print/export** section select **Download as PDF**.",
+      "text": "In the Print/export section select Download as PDF.",
       "goal": "A page offering to download the article as a PDF is shown",
       "labels": [
         "Download as PDF"
@@ -70,49 +76,51 @@
       "literal": {
         "status": "passed",
         "exit_code": 0,
-        "summary": "You asked to select the “Download as PDF” option.\nThe “Download as PDF” option was selected on the Ada Lovelace Wikipedia page.\nThe download page opened successfully, with the heading “Download as PDF”.",
-        "one_liner": "opened the PDF download page on Wikipedia",
+        "summary": "The requested “Download as PDF” option was selected in the Print/export section.\nThe page opened the PDF download screen for the Ada Lovelace article.\nThe destination page displayed the main heading “Download as PDF”.",
+        "one_liner": "opened the PDF download screen for Ada Lovelace on Wikipedia",
         "reason_code": "success.complete",
         "reason": "Objective completed",
-        "evidence": "~\\.testmuai\\kaneai\\sessions\\306ad0fa-4748-4edf-bd09-c65b14c09bb7\\evidence\\7fa03af9-b2cf-49a9-9e50-d5c13fb48c62.evidence",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\93830442-1f49-4207-9bd9-fb38e569f04d\\evidence\\bd8918ec-1d80-4291-ae95-7d4d6907cd13.evidence",
         "final_state": {
           "url": "https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&page=Ada_Lovelace&action=show-download-screen",
-          "landed_on": "Download as PDF"
+          "landed_on": "Download as PDF",
+          "main_heading_present": "true"
         },
         "end_url": "https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&page=Ada_Lovelace&action=show-download-screen",
         "clicks": [
           {
             "label": "Tools",
-            "names": [
-              "Download as PDF"
-            ],
+            "x": 1402,
             "y": 129
           },
           {
             "label": "Download as PDF",
+            "x": 1268,
             "y": 559
           }
         ],
-        "credits": 20,
-        "duration": 93.6,
-        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GVH3QQQ183F8TG8RN9R889/dashboard/share/US_NM7WBFTOP6FJB3Y1IIW27LK8C1THWI3DVKTIK91LRXXDB9Y1JHJ4S84MHAXTTVNY?type=summary&agentView=true&fqdn=summary-page",
-        "run_dir": "~/.testmuai/kaneai/sessions\\306ad0fa-4748-4edf-bd09-c65b14c09bb7\\runs\\0",
-        "session_dir": "~/.testmuai/kaneai/sessions\\306ad0fa-4748-4edf-bd09-c65b14c09bb7",
+        "credits": 33,
+        "duration": 103,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7KC10J1AJ4GP859DMZGN916/dashboard/share/US_O0TA6CMZ6HJM412OTY87OM36OP5YTFY3G90OLS260BIYI3Z7EUCM25J36RBLMKNF?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\93830442-1f49-4207-9bd9-fb38e569f04d\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\93830442-1f49-4207-9bd9-fb38e569f04d",
         "trail": [
           "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
-          "click: Clicking Download as PDF in Tools navigation",
-          "click: Clicking Download as PDF link",
+          "click: Clicking the Tools button",
+          "click: Clicking Download as PDF link in page tools menu",
           "wait: PRIMARY: wait for the heading \"Download as PDF\" to be visible",
-          "analyze: ANALYZE(textual_visual, 'The main heading of the page you end on is stored as {{",
+          "analyze: The page you end on has a main heading.",
+          "analyze: the value it is stored as {{landed_on}}",
+          "wait: Waiting after checkpoint verification",
           "wait: Waiting after checkpoint verification"
         ],
-        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'Download as PDF'.\nThen store the main heading of the page you end on as 'landed_on'.",
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"In the Print/export section select Download as PDF.\"\n1. Click the element whose visible label is exactly 'Download as PDF'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
         "mode": "action",
         "source": "live"
       },
       "landed_on": "Download as PDF",
       "note": "Kane followed the doc's exact words and reached the goal.",
-      "credits": 20,
+      "credits": 33,
       "started_at": "https://en.wikipedia.org/wiki/Ada_Lovelace"
     }
   ],
@@ -125,7 +133,8 @@
     "broken": 0,
     "skipped": 0,
     "unchecked": 0,
-    "credits": 37,
-    "seconds": 460
-  }
+    "credits": 56.1,
+    "seconds": 309
+  },
+  "input": "corpus/tutorials/wp-download-pdf.tutorial.json"
 }

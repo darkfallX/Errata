@@ -3,14 +3,14 @@
   "tutorial": "Help:Page history",
   "source": "https://en.wikipedia.org/wiki/Help:Page_history",
   "start_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
-  "checked_at": "2026-11-16T00:44:59.921Z",
+  "checked_at": "2026-11-16T23:58:29.285Z",
   "agent": "Claude (Claude Code, /errata skill) · rewrite: rules (offline, deterministic)",
   "kane": "live",
   "steps": [
     {
       "n": 1,
-      "quote": "To view the history of a page, use the tab labeled \"**View history**\" at the top of the page.",
-      "text": "To view the history of a page, use the tab labeled \"View history\" at the top of the page.",
+      "quote": "You can view a page's history by clicking the \"**View history**\" tab at the top of the associated page (pictured).",
+      "text": "You can view a page's history by clicking the \"View history\" tab at the top of the associated page (pictured).",
       "goal": "The article's revision history list is visible",
       "labels": [
         "View history"
@@ -20,47 +20,51 @@
       "literal": {
         "status": "passed",
         "exit_code": 0,
-        "summary": "Opened the revision history for the Ada Lovelace Wikipedia article by selecting “View history.”\nThe page ended on the “Ada Lovelace: Revision history” page.",
-        "one_liner": "opened the Ada Lovelace revision history on Wikipedia",
+        "summary": "Opened the revision history for the Ada Lovelace Wikipedia page by clicking “View history.”\nThe revision history page loaded successfully and displayed the heading “Ada Lovelace: Revision history.”",
+        "one_liner": "opened revision history on Wikipedia",
         "reason_code": "success.complete",
         "reason": "Objective completed",
-        "evidence": "~\\.testmuai\\kaneai\\sessions\\cfa31c96-e645-47ec-97cb-cb37fc7c855c\\evidence\\15603385-8234-4076-8993-76ca1f4a4d45.evidence",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\bd38da61-c5ed-4919-8f60-b2cd97e49d28\\evidence\\03bbbbd6-f2c8-46af-9377-3b74d70c5f0e.evidence",
         "final_state": {
           "url": "https://en.wikipedia.org/w/index.php?title=Ada_Lovelace&action=history",
-          "landed_on": "Ada Lovelace: Revision history"
+          "main_heading_present": "true",
+          "main_heading": "Ada Lovelace: Revision history"
         },
         "end_url": "https://en.wikipedia.org/w/index.php?title=Ada_Lovelace&action=history",
         "clicks": [
           {
             "label": "View history",
+            "x": 1287,
             "y": 129
           }
         ],
-        "credits": 18.5,
-        "duration": 69.5,
-        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GWRN1D10QK9CMGKDEW4RVW/dashboard/share/US_LLVG8F565HM1G4VKPL1CU1N6EBCKS1ZE4BJEUNRUS2ETR32MKZPJ9QFZIX3JITIT?type=summary&agentView=true&fqdn=summary-page",
-        "run_dir": "~/.testmuai/kaneai/sessions\\cfa31c96-e645-47ec-97cb-cb37fc7c855c\\runs\\0",
-        "session_dir": "~/.testmuai/kaneai/sessions\\cfa31c96-e645-47ec-97cb-cb37fc7c855c",
+        "credits": 23.7,
+        "duration": 91.8,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7KCFXJNP4FGXZA1Z0S27JTB/dashboard/share/US_PY06QX8EK9IFXMY1IWQO92QT0R7G4C5Y7VPGZ2K2IGWES1XP3QTSJ9SCED8H17O5?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\bd38da61-c5ed-4919-8f60-b2cd97e49d28\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\bd38da61-c5ed-4919-8f60-b2cd97e49d28",
         "trail": [
           "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
-          "click: Clicking View history",
+          "click: Clicking View history link",
           "wait: PRIMARY: wait for the heading 'Ada Lovelace: Revision history' to be visible",
-          "analyze: ANALYZE(textual_visual, 'The main heading of the page you end on is saved as {{l",
-          "wait: Waiting after confirming the revision history heading"
+          "analyze: The page you end on has a main heading.",
+          "analyze: it is stored as {{landed_on}}",
+          "wait: Waiting verification complete after storing the landing page URL",
+          "wait: Waiting after the completed history-page checkpoint"
         ],
-        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'View history'.\nThen store the main heading of the page you end on as 'landed_on'.",
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"You can view a page's history by clicking the 'View history' tab at the top of the associated page (pictured).\"\n1. Click the element whose visible label is exactly 'View history'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
         "mode": "action",
         "source": "live"
       },
-      "landed_on": "Ada Lovelace: Revision history",
+      "landed_on": "true",
       "note": "Kane followed the doc's exact words and reached the goal.",
-      "credits": 18.5,
+      "credits": 23.7,
       "started_at": "https://en.wikipedia.org/wiki/Ada_Lovelace"
     },
     {
       "n": 2,
-      "quote": "To compare a revision with the revision before it, click \"**prev**\" on that entry.",
-      "text": "To compare a revision with the revision before it, click \"prev\" on that entry.",
+      "quote": "To compare a revision with its predecessor, click \"**prev**\".",
+      "text": "To compare a revision with its predecessor, click \"prev\".",
       "goal": "A comparison of one revision with the revision before it is visible",
       "labels": [
         "prev"
@@ -71,42 +75,45 @@
       "literal": {
         "status": "passed",
         "exit_code": 0,
-        "summary": "You asked to click the control labeled “prev.”\nClicked “prev” on the Ada Lovelace Wikipedia revision comparison page.\nThe page showed the heading “Ada Lovelace: Difference between revisions.”",
-        "one_liner": "viewed the previous Ada Lovelace revision comparison on Wikipedia",
+        "summary": "You asked to compare the Ada Lovelace revision with its predecessor by clicking “prev.”\nClicked “prev” on Wikipedia.\nThe comparison page opened successfully and displayed the heading “Ada Lovelace: Difference.”",
+        "one_liner": "compared an Ada Lovelace revision with its predecessor on Wikipedia",
         "reason_code": "success.complete",
         "reason": "Objective completed",
-        "evidence": "~\\.testmuai\\kaneai\\sessions\\ab772702-bb88-43d8-9536-7f1fb8f00bc0\\evidence\\1380ac69-17d1-46a6-943d-22b95d60bdf3.evidence",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\5079d42f-8d5f-48f6-8b5e-45dd9c6a2110\\evidence\\9dcd421c-a431-4c3b-90de-2d7cfd1bf9e2.evidence",
         "final_state": {
-          "url": "https://en.wikipedia.org/w/index.php?title=Ada_Lovelace&diff=prev&oldid=1383337217",
-          "landed_on": "Ada Lovelace: Difference between revisions"
+          "url": "https://en.wikipedia.org/w/index.php?title=Ada_Lovelace&diff=prev&oldid=1384127064",
+          "main_heading_present": "true",
+          "landed_on": "Ada Lovelace: Difference"
         },
-        "end_url": "https://en.wikipedia.org/w/index.php?title=Ada_Lovelace&diff=prev&oldid=1383337217",
+        "end_url": "https://en.wikipedia.org/w/index.php?title=Ada_Lovelace&diff=prev&oldid=1384127064",
         "clicks": [
           {
             "label": "prev"
           }
         ],
-        "credits": 23,
-        "duration": 108.2,
-        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GWWH23B74DA65GDAGBR3K5/dashboard/share/US_3R3Q6QEW1O4S2NR2TX6RLPICUV63X3HJ0AYOH2TW61XU83AUA8OFC95IK2T9QEK0?type=summary&agentView=true&fqdn=summary-page",
-        "run_dir": "~/.testmuai/kaneai/sessions\\ab772702-bb88-43d8-9536-7f1fb8f00bc0\\runs\\0",
-        "session_dir": "~/.testmuai/kaneai/sessions\\ab772702-bb88-43d8-9536-7f1fb8f00bc0",
+        "credits": 28.2,
+        "duration": 117.2,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7KCKYTYTJMDDMF61H06YQR0/dashboard/share/US_V40FG7SIAQTN19N6QSBBEIP3L0YFLO75LM50CD19ZHGJZFPA1SQTXLW1PC7X6082?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\5079d42f-8d5f-48f6-8b5e-45dd9c6a2110\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\5079d42f-8d5f-48f6-8b5e-45dd9c6a2110",
         "trail": [
           "navigate: Navigate to https://en.wikipedia.org/w/index.php?title=Ada_Lovelace&action=histo",
-          "wait: PRIMARY: wait for the user to choose a “prev” link",
-          "click: Clicking Click the element whose visible label is exactly 'prev'",
-          "click: PRIMARY: Click the element whose visible label is exactly 'prev'; role=link; tex",
-          "wait: PRIMARY: wait for the comparison page heading to be visible",
-          "analyze: ANALYZE(textual_visual, 'The main heading of the page you end on is stored as {{",
-          "wait: Waiting after completing the requested click and checkpoint verification"
+          "wait: PRIMARY: wait for the user to identify the intended “prev” link",
+          "wait: PRIMARY: wait for the user’s selection of the intended “prev” link",
+          "click: Clicking Click the element whose visible label is exactly 'prev'.",
+          "click: PRIMARY: Click the element whose visible label is exactly 'prev'.; role=link; te",
+          "analyze: The page you end on has a main heading.",
+          "analyze: it is stored as {{landed_on}}",
+          "wait: Waiting finish after storing the required page value",
+          "wait: Waiting after completing the requested prev-link action and checkpoint"
         ],
-        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'prev'.\nThen store the main heading of the page you end on as 'landed_on'.",
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"To compare a revision with its predecessor, click 'prev'.\"\n1. Click the element whose visible label is exactly 'prev'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
         "mode": "action",
         "source": "live"
       },
-      "landed_on": "Ada Lovelace: Difference between revisions",
+      "landed_on": "Ada Lovelace: Difference",
       "note": "Kane followed the doc's exact words and reached the goal.",
-      "credits": 23,
+      "credits": 28.2,
       "started_at": "https://en.wikipedia.org/w/index.php?title=Ada_Lovelace&action=history"
     }
   ],
@@ -119,7 +126,8 @@
     "broken": 0,
     "skipped": 0,
     "unchecked": 0,
-    "credits": 41.5,
-    "seconds": 280
-  }
+    "credits": 51.9,
+    "seconds": 287
+  },
+  "input": "corpus/tutorials/wp-page-history.tutorial.json"
 }

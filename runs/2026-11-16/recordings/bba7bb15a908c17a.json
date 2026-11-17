@@ -1,0 +1,83 @@
+{
+  "key": "bba7bb15a908c17a",
+  "recorded_at": "2026-11-17T00:01:26.601Z",
+  "exit_code": 0,
+  "mode": "action",
+  "url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"A permalink can be made by clicking 'Permanent link' in the sidebar's toolbox or by accessing a prior revision of a page from its page history tab.\"\n1. Click the element whose visible label is exactly 'Permanent link'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+  "clicks": [
+    {
+      "label": "Tools",
+      "x": 1402,
+      "y": 129
+    },
+    {
+      "label": "Permanent",
+      "names": [
+        "Permanent link"
+      ],
+      "x": 1268,
+      "y": 313
+    }
+  ],
+  "actions": [
+    {
+      "type": "navigate",
+      "status": "success",
+      "intent": "Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+      "instr": "Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace"
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=button[name=\"Tools\"i]",
+      "intent": "PRIMARY: Page tools button; role=button; text=\"Tools\" | HINTS: position=top-right of article action bar; container=Page tools",
+      "instr": "Clicking Tools button",
+      "x": 1402,
+      "y": 129
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Permanent link\"i]",
+      "intent": "PRIMARY: Click the element whose visible label is exactly 'Permanent link'; role=link; text=\"Permanent link\" | HINTS: container=General list in the expanded Page tools menu",
+      "instr": "Clicking Permanent link",
+      "x": 1268,
+      "y": 313
+    },
+    {
+      "type": "wait",
+      "status": "success",
+      "intent": "PRIMARY: wait for the heading \"Ada Lovelace\" to be visible",
+      "instr": "Waiting for the Ada Lovelace heading to become visible"
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "whether a main heading on the page you end on is present (in the page main content)",
+      "instr": "Checking whether the page has a main heading"
+    },
+    {
+      "type": "if_else",
+      "status": "success",
+      "instr": "If-else checkpoint cp_1: condition 'The page you end on has a main heading.' matched"
+    },
+    {
+      "type": "child_agent_start",
+      "status": "executing",
+      "instr": "store it as 'landed_on'"
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "it is stored as {{landed_on}}",
+      "instr": "Recording the current page URL"
+    },
+    {
+      "type": "child_agent_end",
+      "status": "success",
+      "instr": "store it as 'landed_on'"
+    }
+  ],
+  "ndjson": "{\"type\":\"stream_start\",\"cli_version\":\"0.10.4\",\"surface\":\"run\",\"pid\":17908,\"v\":1,\"ts\":\"2026-11-16T23:58:30.291Z\"}\n{\"type\":\"recording_state\",\"enabled\":true,\"session_id\":\"2c00f543-2b41-4ac6-a127-36cf87b1571f\",\"persist\":false,\"v\":1,\"ts\":\"2026-11-16T23:58:30.303Z\"}\n{\"type\":\"skill_update_available\",\"current\":null,\"latest\":\"0.1.4\",\"install_cmd\":\"kane-cli install skill\",\"v\":1,\"ts\":\"2026-11-16T23:58:33.160Z\"}\n{\"type\":\"bifurcation\",\"flows\":[\"Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace then Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\\nWhere to find them, in the tutorial's own words: \\\"A permalink can be made by clicking 'Permanent link' in the sidebar's toolbox or by accessing a prior revision of a page from its page history tab.\\\"\\nClick the element whose visible label is exactly 'Permanent link'.\\nIf the page you end on has a main heading, @v16:\\\"store it as 'landed_on'\\\"; a page without a heading is fine.\"],\"count\":1,\"v\":1,\"ts\":\"2026-11-16T23:59:02.855Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"v\":1,\"ts\":\"2026-11-16T23:59:14.018Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace\",\"v\":1,\"ts\":\"2026-11-16T23:59:14.045Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"v\":1,\"ts\":\"2026-11-16T23:59:17.310Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"click: Clicking Tools button\",\"v\":1,\"ts\":\"2026-11-16T23:59:35.924Z\"}\n{\"step\":4,\"status\":\"running\",\"remark\":\"Step 3\",\"v\":1,\"ts\":\"2026-11-16T23:59:38.572Z\"}\n{\"step\":4,\"status\":\"done\",\"remark\":\"click: Clicking Permanent link\",\"v\":1,\"ts\":\"2026-11-16T23:59:45.405Z\"}\n{\"step\":5,\"status\":\"running\",\"remark\":\"Step 4\",\"v\":1,\"ts\":\"2026-11-16T23:59:48.342Z\"}\n{\"step\":5,\"status\":\"done\",\"remark\":\"wait: PRIMARY: wait for the heading \\\"Ada Lovelace\\\" to be visible\",\"v\":1,\"ts\":\"2026-11-16T23:59:59.829Z\"}\n{\"step\":6,\"status\":\"running\",\"remark\":\"Step 5\",\"v\":1,\"ts\":\"2026-11-17T00:00:05.366Z\"}\n{\"step\":6,\"status\":\"done\",\"remark\":\"analyze: The page you end on has a main heading.\",\"v\":1,\"ts\":\"2026-11-17T00:00:17.925Z\"}\n{\"step\":7,\"status\":\"running\",\"remark\":\"Step 6\",\"v\":1,\"ts\":\"2026-11-17T00:00:23.652Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"child_id\":\"fcba7656\",\"v\":1,\"ts\":\"2026-11-17T00:00:28.278Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"analyze: it is stored as {{landed_on}}\",\"child_id\":\"fcba7656\",\"v\":1,\"ts\":\"2026-11-17T00:00:41.705Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"child_id\":\"fcba7656\",\"v\":1,\"ts\":\"2026-11-17T00:00:44.282Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"wait: Waiting after storing the required page heading value\",\"child_id\":\"fcba7656\",\"v\":1,\"ts\":\"2026-11-17T00:00:47.320Z\"}\n{\"step\":8,\"status\":\"running\",\"remark\":\"Step 7\",\"v\":1,\"ts\":\"2026-11-17T00:00:54.625Z\"}\n{\"step\":8,\"status\":\"done\",\"remark\":\"wait: Waiting after successful checkpoint verification\",\"v\":1,\"ts\":\"2026-11-17T00:01:00.003Z\"}\n{\"type\":\"coverage\",\"status\":\"skipped\",\"reason\":\"not_assurance_project\",\"pack\":\"~\\\\.testmuai\\\\kaneai\\\\sessions\\\\2c00f543-2b41-4ac6-a127-36cf87b1571f\\\\evidence\\\\7614381f-806d-47f7-bf9e-f1543505b8d7.evidence\",\"v\":1,\"ts\":\"2026-11-17T00:01:24.258Z\"}\n{\"type\":\"run_end\",\"status\":\"passed\",\"summary\":\"You asked to click the “Permanent link” option.\\nClicked “Permanent link” in the page sidebar.\\nThe page opened the permanent revision of the Ada Lovelace article, and the article heading was present.\",\"one_liner\":\"opened a permanent link for Ada Lovelace on Wikipedia\",\"final_state\":{\"url\":\"https://en.wikipedia.org/w/index.php?title=Ada_Lovelace&oldid=1384127064\",\"landed_on\":\"Ada Lovelace\",\"main_heading_present\":\"true\"},\"reason\":\"Objective completed\",\"duration\":129,\"bifurcated\":false,\"total_runs\":1,\"context\":{\"memory\":{\"main_heading_present\":{\"extracted_value\":\"true\",\"operator\":\"equals\",\"transforms\":[],\"json_path\":null,\"reasoning\":\"value: 'true' -> 'true'; equals 'true' -> PASS\",\"analyzer_type\":\"textual_visual\",\"step\":5,\"query\":\"whether a main heading on the page you end on is present (in the page main content)\",\"condition\":\"The page you end on has a main heading.\",\"human_description\":\"Checking whether the page has a main heading\",\"expected_value\":\"true\",\"subject\":\"a main heading on the page you end on\",\"must_be\":\"present\",\"code_js\":\"el(69).tagName === 'H1' && el(69).textContent.trim().length > 0\",\"wrapped_js\":\"(els) => {\\n  const __m = {69: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (el(69).tagName === 'H1' && el(69).textContent.trim().length > 0);\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:role=heading[name=\\\"Ada Lovelace\\\"i]\"],\"needs_unit_conversion\":false}},\"variables\":{\"landed_on\":{\"syntax\":\"{{landed_on}}\",\"value\":\"https://en.wikipedia.org/w/index.php?title=Ada_Lovelace&oldid=1384127064\",\"type\":\"memory\",\"secret\":false,\"source\":\"runtime\"},\"main_heading_present\":{\"syntax\":\"{{main_heading_present}}\",\"value\":\"true\",\"type\":\"memory\",\"secret\":false}},\"pointer\":\"(passed) opened a permanent link for Ada Lovelace on Wikipedia\"},\"credits_consumed\":29.362070000000003,\"session_dir\":\"~/.testmuai/kaneai/sessions\\\\2c00f543-2b41-4ac6-a127-36cf87b1571f\",\"run_dir\":\"~/.testmuai/kaneai/sessions\\\\2c00f543-2b41-4ac6-a127-36cf87b1571f\\\\runs\\\\0\",\"result_code\":100,\"reason_code\":\"success.complete\",\"per_flow_metadata\":[{\"result_code\":\"100\",\"reason_code\":\"success.complete\",\"error_message\":null,\"summary\":\"You asked to click the “Permanent link” option.\\nClicked “Permanent link” in the page sidebar.\\nThe page opened the permanent revision of the Ada Lovelace article, and the article heading was present.\",\"one_liner\":\"opened a permanent link for Ada Lovelace on Wikipedia\",\"credits_consumed\":29.362070000000003}],\"run_id\":\"run-0\",\"test_url\":\"https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7KCRMW0KW1N5FTP3A1AA9ZC/dashboard/share/US_BGPX1YDW1XQ44V1LQ9KJZ3X2HR8S36LE9AYUQL6B8IPI6DDY0LD3C3VUWFR5MT0G?type=summary&agentView=true&fqdn=summary-page\",\"coverage\":{\"status\":\"skipped\"},\"v\":1,\"ts\":\"2026-11-17T00:01:24.258Z\"}\n"
+}

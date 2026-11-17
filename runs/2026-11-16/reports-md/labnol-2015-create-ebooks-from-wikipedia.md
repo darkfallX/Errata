@@ -4,18 +4,18 @@
 
 | | Step | Result |
 |---|---|---|
-| 🟢 | 1. Open any article and pick "Book Creator" from the toolbox menu in the right sidebar. | accurate |
-| 🔴 | 2. Click the "Add this page to your book" link. | broken |
+| 🟡 | 1. Alternatively, you can open any Wikipedia page and choose Book Creator from the toolbox menu in the right sidebar. | drifted · needs a human |
+| 🟢 | 2. Next browse to any Wikipedia page and click the “Add this page to your book” link to include that article into your ebook. | accurate |
 
-**1 of 2 checkable steps accurate** · 0 drifted (0 fixed and proven) · 1 broken · 93 Kane credits
+**1 of 2 checkable steps accurate** · 1 drifted (0 fixed and proven) · 0 broken · 151.9 Kane credits
 
 <details><summary>What changed</summary>
 
-**Step 2** 🔴
+**Step 1** 🟡
 
-- Docs say: Add this page to your book
-- Real path (found by Kane): Tools → Save
-- The goal can't be reached by any route Kane could find.
-- Evidence: [literal run](https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7JJ59880SYFB7DTPGVANA0T/dashboard/share/US_ND2LZZFIAXMHLME366ZFPTNSQ2FJZAH3J6OS8ZZY7CTIS4HNDBH8C55R2DXW1NQI?type=summary&agentView=true&fqdn=summary-page) · [goal run](https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7JJA9SXFBQF2REFC22MMDVF/dashboard/share/US_WEYSJ1B0NEP48ST5M15FTZMC1N8IB6WBFBVO0ZC03N7CK9KN431P6XIX2KUYMQHF?type=summary&agentView=true&fqdn=summary-page)
+- Docs say: Book Creator
+- Real path (found by Kane): Tools → Switch → Special:Book Book
+- The doc's words no longer work and no rewrite passed a literal run in 3 loops. Needs a human; evidence attached.
+- Evidence: [literal run](https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7KBA5ZAARXVR17Z6BSSANC2/dashboard/share/US_K1M7V23SEEJZN0RKSRVA37HX9XILG0GQHRRI0HAV5AQXTLNHYSCA1ZMIZGEMD0W8?type=summary&agentView=true&fqdn=summary-page) · [goal run](https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7KBEC7SX2VK6H63WMED4NT9/dashboard/share/US_X1OIZN4FSN8DWVP24W5DEBEXRD5LIUXNJ13IPIL8X2WI8W2JRD2XGQMU6FB58MH9?type=summary&agentView=true&fqdn=summary-page) · [proof run](https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7KBYD2CWCWKEG0N5F1JF5NK/dashboard/share/US_WZET0X67VJ4679KVI7ZXL8LK1G3C161A0LI05R23YPGA4H0Z5E2PK9WHLRSIAABR?type=summary&agentView=true&fqdn=summary-page)
 
 </details>

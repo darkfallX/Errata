@@ -1,0 +1,157 @@
+{
+  "key": "0c7600521c59483f",
+  "recorded_at": "2026-11-16T23:21:48.009Z",
+  "exit_code": 0,
+  "mode": "testing",
+  "url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "objective": "Goal: wikipedia's Book creator page is shown. Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\nHint: an old tutorial said \"To do this, click Create a book under Print/export on the left sidebar in Wikipedia.\", but those labels may have moved or been renamed.\nWhen the goal is met, verify it on screen. If the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+  "clicks": [
+    {
+      "label": "main menu",
+      "names": [
+        "Main menu"
+      ],
+      "x": 200,
+      "y": 17
+    },
+    {
+      "label": "Tools",
+      "x": 1402,
+      "y": 129
+    },
+    {
+      "label": "Search",
+      "names": [
+        "Search for pages containing Book creator",
+        "Search for pages containing"
+      ],
+      "x": 467,
+      "y": 262
+    },
+    {
+      "label": "Special:Book Book",
+      "names": [
+        "Special:Book Book search suggestion"
+      ],
+      "x": 467,
+      "y": 58
+    }
+  ],
+  "actions": [
+    {
+      "type": "navigate",
+      "status": "success",
+      "intent": "Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+      "instr": "Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace"
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=button[name=\"Main menu\"i]",
+      "intent": "PRIMARY: Main menu button; role=button; text=\"Main menu\" | HINTS: position=top-left; container=Wikipedia header",
+      "instr": "Clicking the main menu button",
+      "x": 200,
+      "y": 17
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=button[name=\"Tools\"i]",
+      "intent": "PRIMARY: Tools button; role=button; text=\"Tools\" | HINTS: position=near article tabs; container=Page tools",
+      "instr": "Clicking Tools button",
+      "x": 1402,
+      "y": 129
+    },
+    {
+      "type": "fill",
+      "status": "success",
+      "selector": "internal:role=searchbox[name=\"Search Wikipedia\"i]",
+      "intent": "PRIMARY: Search Wikipedia input; role=searchbox; text=\"Search Wikipedia\" | HINTS: position=top header; container=Wikipedia search",
+      "instr": "Typing Book in Wikipedia search box",
+      "x": 515,
+      "y": 22
+    },
+    {
+      "type": "fill",
+      "status": "success",
+      "selector": "internal:role=combobox[name=\"Search Wikipedia\"i]",
+      "intent": "PRIMARY: Search Wikipedia input; role=combobox; text=\"Search Wikipedia\" | HINTS: position=top header; container=Wikipedia search suggestions",
+      "instr": "Typing Book creator in Wikipedia search box",
+      "x": 515,
+      "y": 22
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Search for pages containing\"i]",
+      "intent": "PRIMARY: Search for pages containing Book creator link; role=link; text=\"Search for pages containing Book creator\" | HINTS: position=search suggestion list below header",
+      "instr": "Clicking Search for pages containing Book creator link",
+      "x": 467,
+      "y": 262
+    },
+    {
+      "type": "fill",
+      "status": "success",
+      "selector": "internal:role=searchbox[name=\"Search Wikipedia\"i]",
+      "intent": "PRIMARY: Search Wikipedia input; role=searchbox; text=\"Search Wikipedia\" | HINTS: position=top header; container=search results page",
+      "instr": "Typing Special:Book in Wikipedia search box",
+      "x": 515,
+      "y": 22
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Special:Book Book\"i]",
+      "intent": "PRIMARY: Special:Book search suggestion; role=link; text=\"Special:Book Book\" | HINTS: position=first item in header search suggestions",
+      "instr": "Clicking the Special:Book Book search suggestion",
+      "x": 467,
+      "y": 58
+    },
+    {
+      "type": "wait",
+      "status": "success",
+      "intent": "PRIMARY: wait for the Book creator page heading \"Manage your book\" to be visible",
+      "instr": "Waiting for the Manage your book heading to be visible"
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "wikipedia's Book creator page is shown on screen.",
+      "instr": "Reading the current Wikipedia page URL"
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "whether a main heading on the page you end on is present (in the main content area)",
+      "instr": "Checking whether the page has a main heading"
+    },
+    {
+      "type": "assert",
+      "status": "success",
+      "intent": "",
+      "instr": "Assertion check"
+    },
+    {
+      "type": "if_else",
+      "status": "success",
+      "instr": "If-else checkpoint cp_2: condition 'The page you end on has a main heading.' matched"
+    },
+    {
+      "type": "child_agent_start",
+      "status": "executing",
+      "instr": "store it as 'landed_on'"
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "it",
+      "instr": "Storing the literal landing value"
+    },
+    {
+      "type": "child_agent_end",
+      "status": "success",
+      "instr": "store it as 'landed_on'"
+    }
+  ],
+  "ndjson": "{\"type\":\"stream_start\",\"cli_version\":\"0.10.4\",\"surface\":\"run\",\"pid\":27292,\"v\":1,\"ts\":\"2026-11-16T23:17:42.725Z\"}\n{\"type\":\"recording_state\",\"enabled\":true,\"session_id\":\"5a1d1a60-51b6-4a46-ae7f-b642a7537a5b\",\"persist\":false,\"v\":1,\"ts\":\"2026-11-16T23:17:42.816Z\"}\n{\"type\":\"skill_update_available\",\"current\":null,\"latest\":\"0.1.4\",\"install_cmd\":\"kane-cli install skill\",\"v\":1,\"ts\":\"2026-11-16T23:17:49.273Z\"}\n{\"type\":\"bifurcation\",\"flows\":[\"Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace then Goal: wikipedia's Book creator page is shown.\\nReach it from the current page by clicking through the visible UI, by any route.\\nNever type a URL or use the address bar.\\nHint: an old tutorial said \\\"To do this, click Create a book under Print/export on the left sidebar in Wikipedia.\\\", but those labels may have moved or been renamed.\\nWhen the goal is met, verify it on screen.\\nIf the page you end on has a main heading, @v16:\\\"store it as 'landed_on'\\\"; a page without a heading is fine.\"],\"count\":1,\"v\":1,\"ts\":\"2026-11-16T23:18:16.659Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"v\":1,\"ts\":\"2026-11-16T23:18:30.952Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace\",\"v\":1,\"ts\":\"2026-11-16T23:18:30.981Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"v\":1,\"ts\":\"2026-11-16T23:18:35.626Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"click: Clicking the main menu button\",\"v\":1,\"ts\":\"2026-11-16T23:18:44.868Z\"}\n{\"step\":4,\"status\":\"running\",\"remark\":\"Step 3\",\"v\":1,\"ts\":\"2026-11-16T23:18:50.870Z\"}\n{\"step\":4,\"status\":\"done\",\"remark\":\"click: Clicking Tools button\",\"v\":1,\"ts\":\"2026-11-16T23:19:02.710Z\"}\n{\"step\":5,\"status\":\"running\",\"remark\":\"Step 4\",\"v\":1,\"ts\":\"2026-11-16T23:19:06.847Z\"}\n{\"step\":5,\"status\":\"done\",\"remark\":\"type: Typing Book in Wikipedia search box\",\"v\":1,\"ts\":\"2026-11-16T23:19:23.050Z\"}\n{\"step\":6,\"status\":\"running\",\"remark\":\"Step 5\",\"v\":1,\"ts\":\"2026-11-16T23:19:29.974Z\"}\n{\"step\":6,\"status\":\"done\",\"remark\":\"type: Typing Book creator in Wikipedia search box\",\"v\":1,\"ts\":\"2026-11-16T23:19:42.238Z\"}\n{\"step\":7,\"status\":\"running\",\"remark\":\"Step 6\",\"v\":1,\"ts\":\"2026-11-16T23:19:48.507Z\"}\n{\"step\":7,\"status\":\"done\",\"remark\":\"click: Clicking Search for pages containing Book creator link\",\"v\":1,\"ts\":\"2026-11-16T23:19:58.719Z\"}\n{\"step\":8,\"status\":\"running\",\"remark\":\"Step 7\",\"v\":1,\"ts\":\"2026-11-16T23:20:00.431Z\"}\n{\"step\":8,\"status\":\"done\",\"remark\":\"type: Typing Special:Book in Wikipedia search box\",\"v\":1,\"ts\":\"2026-11-16T23:20:15.384Z\"}\n{\"step\":9,\"status\":\"running\",\"remark\":\"Step 8\",\"v\":1,\"ts\":\"2026-11-16T23:20:16.887Z\"}\n{\"step\":9,\"status\":\"done\",\"remark\":\"click: Clicking the Special:Book Book search suggestion\",\"v\":1,\"ts\":\"2026-11-16T23:20:23.773Z\"}\n{\"step\":10,\"status\":\"running\",\"remark\":\"Step 9\",\"v\":1,\"ts\":\"2026-11-16T23:20:24.646Z\"}\n{\"step\":10,\"status\":\"done\",\"remark\":\"wait: PRIMARY: wait for the Book creator page heading \\\"Manage your book\\\" to be visible\",\"v\":1,\"ts\":\"2026-11-16T23:20:37.878Z\"}\n{\"step\":11,\"status\":\"running\",\"remark\":\"Step 10\",\"v\":1,\"ts\":\"2026-11-16T23:20:38.659Z\"}\n{\"step\":11,\"status\":\"done\",\"remark\":\"analyze: The page you end on has a main heading.\",\"v\":1,\"ts\":\"2026-11-16T23:20:54.850Z\"}\n{\"step\":12,\"status\":\"running\",\"remark\":\"Step 11\",\"v\":1,\"ts\":\"2026-11-16T23:20:55.922Z\"}\n{\"step\":12,\"status\":\"done\",\"remark\":\"assert: wikipedia's Book creator page is shown on screen.\",\"v\":1,\"ts\":\"2026-11-16T23:20:55.956Z\"}\n{\"step\":13,\"status\":\"running\",\"remark\":\"Step 12\",\"v\":1,\"ts\":\"2026-11-16T23:20:57.048Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"child_id\":\"da06e9e5\",\"v\":1,\"ts\":\"2026-11-16T23:20:57.754Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"analyze: the literal \\\"it\\\" is stored as {{landed_on}}\",\"child_id\":\"da06e9e5\",\"v\":1,\"ts\":\"2026-11-16T23:21:05.372Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"child_id\":\"da06e9e5\",\"v\":1,\"ts\":\"2026-11-16T23:21:06.129Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"wait: Waiting after checkpoint verification\",\"child_id\":\"da06e9e5\",\"v\":1,\"ts\":\"2026-11-16T23:21:09.339Z\"}\n{\"step\":14,\"status\":\"running\",\"remark\":\"Step 13\",\"v\":1,\"ts\":\"2026-11-16T23:21:14.178Z\"}\n{\"step\":14,\"status\":\"done\",\"remark\":\"wait: Waiting after verification of Wikipedia's Book creator page\",\"v\":1,\"ts\":\"2026-11-16T23:21:17.679Z\"}\n{\"type\":\"coverage\",\"status\":\"skipped\",\"reason\":\"not_assurance_project\",\"pack\":\"~\\\\.testmuai\\\\kaneai\\\\sessions\\\\5a1d1a60-51b6-4a46-ae7f-b642a7537a5b\\\\evidence\\\\448e85b6-7cfb-4e1f-a0b8-ed481069f321.evidence\",\"v\":1,\"ts\":\"2026-11-16T23:21:45.351Z\"}\n{\"type\":\"run_end\",\"status\":\"passed\",\"summary\":\"Opened Wikipedia’s Book creator page using the site’s visible navigation.\\nThe Book creator page loaded successfully and showed the “Manage your book” heading.\",\"one_liner\":\"reached the Book creator page on Wikipedia\",\"final_state\":{\"url\":\"https://en.wikipedia.org/wiki/Special:Book\",\"landed_on\":\"Manage your book\"},\"reason\":\"Objective completed\",\"duration\":190.6,\"bifurcated\":false,\"total_runs\":1,\"context\":{\"memory\":{\"book_creator_page_shown\":{\"extracted_value\":\"https://en.wikipedia.org/wiki/Special:Book\",\"operator\":\"contains\",\"transforms\":[],\"json_path\":null,\"reasoning\":\"value: 'https://en.wikipedia.org/wiki/Special:Book' -> 'https://en.wikipedia.org/wiki/Special:Book'; contains 'Special:Book' -> PASS\",\"analyzer_type\":\"url\",\"step\":10,\"query\":\"wikipedia's Book creator page is shown on screen.\",\"condition\":\"wikipedia's Book creator page is shown on screen.\",\"human_description\":\"Reading the current Wikipedia page URL\",\"expected_value\":\"Special:Book\"},\"main_heading_present\":{\"extracted_value\":\"true\",\"operator\":\"equals\",\"transforms\":[],\"json_path\":null,\"reasoning\":\"value: 'true' -> 'true'; equals 'true' -> PASS\",\"analyzer_type\":\"textual_visual\",\"step\":10,\"query\":\"whether a main heading on the page you end on is present (in the main content area)\",\"condition\":\"The page you end on has a main heading.\",\"human_description\":\"Checking whether the page has a main heading\",\"expected_value\":\"true\",\"subject\":\"a main heading on the page you end on\",\"must_be\":\"present\",\"code_js\":\"el(31).textContent.trim().length > 0\",\"wrapped_js\":\"(els) => {\\n  const __m = {31: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (el(31).textContent.trim().length > 0);\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:role=heading[name=\\\"Manage your book\\\"i]\"],\"needs_unit_conversion\":false}},\"variables\":{\"book_creator_page_shown\":{\"syntax\":\"{{book_creator_page_shown}}\",\"value\":\"https://en.wikipedia.org/wiki/Special:Book\",\"type\":\"memory\",\"secret\":false},\"main_heading_present\":{\"syntax\":\"{{main_heading_present}}\",\"value\":\"true\",\"type\":\"memory\",\"secret\":false},\"landed_on\":{\"syntax\":\"{{landed_on}}\",\"value\":\"it\",\"type\":\"memory\",\"secret\":false}},\"pointer\":\"(passed) reached the Book creator page on Wikipedia\"},\"credits_consumed\":44.55682749999999,\"session_dir\":\"~/.testmuai/kaneai/sessions\\\\5a1d1a60-51b6-4a46-ae7f-b642a7537a5b\",\"run_dir\":\"~/.testmuai/kaneai/sessions\\\\5a1d1a60-51b6-4a46-ae7f-b642a7537a5b\\\\runs\\\\0\",\"result_code\":100,\"reason_code\":\"success.complete\",\"per_flow_metadata\":[{\"result_code\":\"100\",\"reason_code\":\"success.complete\",\"error_message\":null,\"summary\":\"Opened Wikipedia’s Book creator page using the site’s visible navigation.\\nThe Book creator page loaded successfully and showed the “Manage your book” heading.\",\"one_liner\":\"reached the Book creator page on Wikipedia\",\"credits_consumed\":44.55682749999999}],\"run_id\":\"run-0\",\"test_url\":\"https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7KAE25MF23C42TJ6XKJ60JY/dashboard/share/US_YJYGPYTARSDJ93U950ZKGUJRI97M8PGMDN8KZ0PPKVWEK1X11ODORUBNE64KZ80A?type=summary&agentView=true&fqdn=summary-page\",\"coverage\":{\"status\":\"skipped\"},\"v\":1,\"ts\":\"2026-11-16T23:21:45.354Z\"}\n"
+}

@@ -1,0 +1,81 @@
+{
+  "key": "5e085456084a61df",
+  "recorded_at": "2026-11-16T23:17:40.090Z",
+  "exit_code": 1,
+  "mode": "action",
+  "url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"To do this, click Create a book under Print/export on the left sidebar in Wikipedia.\"\n1. Click the element whose visible label is exactly 'Create a book'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+  "clicks": [
+    {
+      "label": "Main menu",
+      "x": 200,
+      "y": 17
+    },
+    {
+      "label": "Main menu",
+      "x": 200,
+      "y": 17
+    },
+    {
+      "label": "Tools",
+      "x": 1402,
+      "y": 129
+    },
+    {
+      "label": "Tools",
+      "x": 1402,
+      "y": 129
+    }
+  ],
+  "actions": [
+    {
+      "type": "navigate",
+      "status": "success",
+      "intent": "Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+      "instr": "Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace"
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=button[name=\"Main menu\"i]",
+      "intent": "PRIMARY: Main menu button; role=button; text=\"Main menu\" | HINTS: position=top-left; container=Wikipedia header",
+      "instr": "Clicking Main menu button",
+      "x": 200,
+      "y": 17
+    },
+    {
+      "type": "press_key",
+      "status": "success",
+      "intent": "PRIMARY: activate the focused Main menu button",
+      "instr": "Pressing Space to activate the focused Main menu button"
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=button[name=\"Main menu\"i]",
+      "intent": "PRIMARY: Main menu button; role=button; text=\"Main menu\" | HINTS: position=top-left; container=Wikipedia header",
+      "instr": "Clicking Main menu button in the header",
+      "x": 200,
+      "y": 17
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=button[name=\"Tools\"s]",
+      "intent": "PRIMARY: Tools button; role=button; text=\"Tools\" | HINTS: container=Page tools navigation",
+      "instr": "Clicking the Tools button",
+      "x": 1402,
+      "y": 129
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=button[name=\"Tools\"i]",
+      "intent": "PRIMARY: Tools button; role=button; text=\"Tools\" | HINTS: container=Page tools navigation",
+      "instr": "Clicking the Tools button",
+      "x": 1402,
+      "y": 129
+    }
+  ],
+  "ndjson": "{\"type\":\"stream_start\",\"cli_version\":\"0.10.4\",\"surface\":\"run\",\"pid\":12408,\"v\":1,\"ts\":\"2026-11-16T23:10:10.480Z\"}\n{\"type\":\"recording_state\",\"enabled\":true,\"session_id\":\"a6548f06-a4b7-4bad-836b-3ff9ee6d166b\",\"persist\":false,\"v\":1,\"ts\":\"2026-11-16T23:10:10.628Z\"}\n{\"type\":\"skill_update_available\",\"current\":null,\"latest\":\"0.1.4\",\"install_cmd\":\"kane-cli install skill\",\"v\":1,\"ts\":\"2026-11-16T23:10:17.842Z\"}\n{\"type\":\"bifurcation\",\"flows\":[\"Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace then Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\\nWhere to find them, in the tutorial's own words: \\\"To do this, click Create a book under Print/export on the left sidebar in Wikipedia.\\\"\\nClick the element whose visible label is exactly 'Create a book'.\\nIf the page you end on has a main heading, @v16:\\\"Get the main heading and save as {{landed_on}}.\\\"; a page without a heading is fine.\"],\"count\":1,\"v\":1,\"ts\":\"2026-11-16T23:12:25.034Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"v\":1,\"ts\":\"2026-11-16T23:12:43.215Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace\",\"v\":1,\"ts\":\"2026-11-16T23:12:43.302Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"v\":1,\"ts\":\"2026-11-16T23:12:50.530Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"click: Clicking Main menu button\",\"v\":1,\"ts\":\"2026-11-16T23:13:07.477Z\"}\n{\"step\":4,\"status\":\"running\",\"remark\":\"Step 3\",\"v\":1,\"ts\":\"2026-11-16T23:13:12.555Z\"}\n{\"step\":4,\"status\":\"done\",\"remark\":\"press_key: PRIMARY: activate the focused Main menu button\",\"v\":1,\"ts\":\"2026-11-16T23:13:27.858Z\"}\n{\"step\":5,\"status\":\"running\",\"remark\":\"Step 4\",\"v\":1,\"ts\":\"2026-11-16T23:13:32.433Z\"}\n{\"step\":5,\"status\":\"done\",\"remark\":\"click: Clicking Main menu button in the header\",\"v\":1,\"ts\":\"2026-11-16T23:13:40.530Z\"}\n{\"step\":6,\"status\":\"running\",\"remark\":\"Step 5\",\"v\":1,\"ts\":\"2026-11-16T23:13:45.233Z\"}\n{\"step\":6,\"status\":\"done\",\"remark\":\"click: Clicking the Tools button\",\"v\":1,\"ts\":\"2026-11-16T23:13:55.818Z\"}\n{\"step\":7,\"status\":\"running\",\"remark\":\"Step 6\",\"v\":1,\"ts\":\"2026-11-16T23:14:01.595Z\"}\n{\"step\":7,\"status\":\"done\",\"remark\":\"click: Clicking the Tools button\",\"v\":1,\"ts\":\"2026-11-16T23:14:10.176Z\"}\n{\"step\":8,\"status\":\"running\",\"remark\":\"Step 7\",\"v\":1,\"ts\":\"2026-11-16T23:14:14.407Z\"}\n{\"step\":8,\"status\":\"failed\",\"remark\":\"wait: Waiting after confirming the requested Create a book link is absent\",\"v\":1,\"ts\":\"2026-11-16T23:14:22.760Z\"}\n{\"type\":\"coverage\",\"status\":\"skipped\",\"reason\":\"not_assurance_project\",\"pack\":\"~\\\\.testmuai\\\\kaneai\\\\sessions\\\\a6548f06-a4b7-4bad-836b-3ff9ee6d166b\\\\evidence\\\\366007a2-ab72-4a52-9826-9506fa918a82.evidence\",\"v\":1,\"ts\":\"2026-11-16T23:17:33.952Z\"}\n{\"type\":\"run_end\",\"status\":\"failed\",\"summary\":\"The expanded Print/export menu contains only Download as PDF and Printable version; no Create a book link exists.\",\"one_liner\":\"\",\"final_state\":{},\"reason\":\"The expanded Print/export menu contains only Download as PDF and Printable version; no Create a book link exists.\",\"duration\":281.5,\"bifurcated\":false,\"total_runs\":1,\"context\":{\"memory\":{},\"variables\":{\"landed_on\":{\"syntax\":\"{{landed_on}}\",\"value\":\"\",\"type\":\"text\",\"secret\":false,\"source\":\"runtime\"}},\"pointer\":\"(failed) The expanded Print/export menu contains only Download as PDF and Printable version; no Create a book link exists.\"},\"credits_consumed\":24.239825000000003,\"session_dir\":\"~/.testmuai/kaneai/sessions\\\\a6548f06-a4b7-4bad-836b-3ff9ee6d166b\",\"run_dir\":\"~/.testmuai/kaneai/sessions\\\\a6548f06-a4b7-4bad-836b-3ff9ee6d166b\\\\runs\\\\0\",\"result_code\":750,\"reason_code\":\"assertion_error.step_not_achievable\",\"per_flow_metadata\":[{\"result_code\":\"750\",\"reason_code\":\"assertion_error.step_not_achievable\",\"error_message\":\"The expanded Print/export menu contains only Download as PDF and Printable version; no Create a book link exists.\",\"summary\":null,\"one_liner\":null,\"credits_consumed\":24.239825000000003}],\"run_id\":\"run-0\",\"test_url\":\"https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7KA0796GDFKQ0MPJTD5ZWJV/dashboard/share/US_UOH6L9M022C071LJ44AN0PH1BHMTLCV0N4CGRQ133FFRH1CM1DIOS8X4XD2NJGJJ?type=summary&agentView=true&fqdn=summary-page\",\"coverage\":{\"status\":\"skipped\"},\"v\":1,\"ts\":\"2026-11-16T23:17:33.953Z\"}\n"
+}

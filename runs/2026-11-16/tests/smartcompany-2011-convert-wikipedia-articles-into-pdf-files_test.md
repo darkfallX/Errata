@@ -6,7 +6,12 @@ url: https://en.wikipedia.org/wiki/Ada_Lovelace
 
 # SmartCompany (2011): Convert Wikipedia articles into PDF files
 
-## Step 1: Open Tools and click Download as PDF
+## Step 1: Click Tools
 
-Open Tools and click Download as PDF.
+Click Tools.
+Verify that the article's print and export options are shown.
+
+## Step 2: Click this, and you’ll see some options – you’ll want to click on “Download as PDF”
+
+Click this, and you’ll see some options – you’ll want to click on “Download as PDF”.
 Verify that a page offering to download the article as a PDF is shown.

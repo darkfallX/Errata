@@ -8,8 +8,8 @@
   "steps": [
     {
       "n": 1,
-      "quote": "Open any article and pick \"**Book Creator**\" from the toolbox menu in the right sidebar.",
-      "text": "Open any article and pick \"Book Creator\" from the toolbox menu in the right sidebar.",
+      "quote": "Alternatively, you can open any Wikipedia page and choose **Book Creator** from the toolbox menu in the right sidebar.",
+      "text": "Alternatively, you can open any Wikipedia page and choose Book Creator from the toolbox menu in the right sidebar.",
       "goal": "Wikipedia's book creator is on for this article",
       "labels": [
         "Book Creator"
@@ -18,8 +18,8 @@
     },
     {
       "n": 2,
-      "quote": "Click the \"**Add this page to your book**\" link.",
-      "text": "Click the \"Add this page to your book\" link.",
+      "quote": "Next browse to any Wikipedia page and click the “**Add this page to your book**” link to include that article into your ebook.",
+      "text": "Next browse to any Wikipedia page and click the “Add this page to your book” link to include that article into your ebook.",
       "goal": "The current article is added to a book",
       "labels": [
         "Add this page to your book"

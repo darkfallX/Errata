@@ -3,14 +3,14 @@
   "tutorial": "Help:Page information",
   "source": "https://en.wikipedia.org/wiki/Help:Page_information",
   "start_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
-  "checked_at": "2026-11-16T00:24:08.744Z",
+  "checked_at": "2026-11-16T23:50:47.991Z",
   "agent": "Claude (Claude Code, /errata skill) · rewrite: rules (offline, deterministic)",
   "kane": "live",
   "steps": [
     {
       "n": 1,
-      "quote": "A link to \"**Page information**\" is in the **Tools** panel on the desktop site.",
-      "text": "A link to \"Page information\" is in the Tools panel on the desktop site.",
+      "quote": "A link to \"**Page information**\" is in the **Tools** panel on the desktop site, which is typically available from the three dots menu at the top right of an article (it can be a sidebar if you're enabled that option).",
+      "text": "A link to \"Page information\" is in the Tools panel on the desktop site, which is typically available from the three dots menu at the top right of an article (it can be a sidebar if you're enabled that option).",
       "goal": "The page information page for the article is shown",
       "labels": [
         "Tools",
@@ -21,45 +21,49 @@
       "literal": {
         "status": "passed",
         "exit_code": 0,
-        "summary": "You asked to open the page information for the Ada Lovelace article.\nOpened the Tools menu and selected Page information.\nThe page information screen opened successfully, with the heading Information for \"Ada Lovelace\".",
+        "summary": "You asked to open the page information for the Ada Lovelace article.\nOpened the Tools menu and selected “Page information.”\nThe Information for “Ada Lovelace” page opened successfully, with its main heading visible.",
         "one_liner": "opened page information for Ada Lovelace on Wikipedia",
         "reason_code": "success.complete",
         "reason": "Objective completed",
-        "evidence": "~\\.testmuai\\kaneai\\sessions\\61f7bb06-7dba-4452-8314-069db975bac9\\evidence\\2b2b38a5-56a0-4598-b55b-c000be63937e.evidence",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\9695bfa2-827d-4323-b87f-dd0fc06e7ebf\\evidence\\86797ab2-6ba5-452d-9cdb-64a49153013d.evidence",
         "final_state": {
           "url": "https://en.wikipedia.org/w/index.php?title=Ada_Lovelace&action=info",
-          "landed_on": "Information for \"Ada Lovelace\""
+          "main_heading_present": "true"
         },
         "end_url": "https://en.wikipedia.org/w/index.php?title=Ada_Lovelace&action=info",
         "clicks": [
           {
             "label": "Tools",
+            "x": 1402,
             "y": 129
           },
           {
             "label": "Page information",
+            "x": 1268,
             "y": 343
           }
         ],
-        "credits": 18.3,
-        "duration": 89,
-        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GVP5H01BMSRXYZ5ZBAR7PY/dashboard/share/US_SF3Z1RA8TJNWYUGDO7T8RWP8ABJ882O2P9UPI6AUK3C4QMSMW252OQ5IN3E8BB87?type=summary&agentView=true&fqdn=summary-page",
-        "run_dir": "~/.testmuai/kaneai/sessions\\61f7bb06-7dba-4452-8314-069db975bac9\\runs\\0",
-        "session_dir": "~/.testmuai/kaneai/sessions\\61f7bb06-7dba-4452-8314-069db975bac9",
+        "credits": 31.1,
+        "duration": 92.7,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7KC63G434GZG72GSAE436W0/dashboard/share/US_NCHWRB12IFUBGRSEY18INFQ1JGX2X9H9ZNY5P01FFQIFFQ3W6UG85D9Z35Z5GGTA?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\9695bfa2-827d-4323-b87f-dd0fc06e7ebf\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\9695bfa2-827d-4323-b87f-dd0fc06e7ebf",
         "trail": [
           "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
           "click: Clicking the Tools button",
-          "click: Clicking Page information link",
-          "analyze: ANALYZE(textual_visual, 'The main heading of the page you end on is saved as {{l",
-          "wait: Waiting after Page information opened and its heading was saved"
+          "click: Clicking Page information in the Tools panel",
+          "analyze: The page you end on has a main heading.",
+          "analyze: it is stored as 'landed_on'",
+          "wait: Waiting checkpoint verification is complete",
+          "wait: Waiting 1000 ms after reaching the Page information page"
         ],
-        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'Tools'.\n2. Click the element whose visible label is exactly 'Page information'.\nThen store the main heading of the page you end on as 'landed_on'.",
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"A link to 'Page information' is in the Tools panel on the desktop site, which is typically available from the three dots menu at the top right of an article (it can be a sidebar if you're enabled that option).\"\n1. Click the element whose visible label is exactly 'Tools'.\n2. Click the element whose visible label is exactly 'Page information'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
         "mode": "action",
         "source": "live"
       },
-      "landed_on": "Information for \"Ada Lovelace\"",
+      "landed_on": "true",
       "note": "Kane followed the doc's exact words and reached the goal.",
-      "credits": 18.3,
+      "credits": 31.1,
       "started_at": "https://en.wikipedia.org/wiki/Ada_Lovelace"
     }
   ],
@@ -72,7 +76,8 @@
     "broken": 0,
     "skipped": 0,
     "unchecked": 0,
-    "credits": 18.3,
-    "seconds": 160
-  }
+    "credits": 31.1,
+    "seconds": 148
+  },
+  "input": "corpus/tutorials/wp-page-information.tutorial.json"
 }

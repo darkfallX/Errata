@@ -8,14 +8,24 @@
   "steps": [
     {
       "n": 1,
-      "quote": "In the left sidebar, find the section labeled \"**Print/export**.\" Under that section, click \"**Download as PDF**\" from the list.",
-      "text": "In the left sidebar, find the section labeled \"Print/export.\" Under that section, click \"Download as PDF\" from the list.",
-      "goal": "A page offering to download the article as a PDF is shown",
+      "quote": "Locate the **Print/export** section in the left panel of the page.",
+      "text": "Locate the Print/export section in the left panel of the page.",
+      "goal": "The article's print and export options are shown",
       "labels": [
-        "Print/export",
-        "Download as PDF"
+        "Print/export"
       ],
       "checkable": true
+    },
+    {
+      "n": 2,
+      "quote": "Select **Download as PDF** from the list.",
+      "text": "Select Download as PDF from the list.",
+      "goal": "A page offering to download the article as a PDF is shown",
+      "labels": [
+        "Download as PDF"
+      ],
+      "checkable": true,
+      "continues": true
     }
   ]
 }

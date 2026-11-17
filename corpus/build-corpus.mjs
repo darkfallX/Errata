@@ -147,8 +147,8 @@ const T = [
     source: "https://en.wikipedia.org/wiki/Help:Page_history",
     start_url: "https://en.wikipedia.org/wiki/Ada_Lovelace",
     steps: [
-      step("To view the history of a page, use the tab labeled \"**View history**\" at the top of the page.", "The article's revision history list is visible", ["View history"]),
-      then("To compare a revision with the revision before it, click \"**prev**\" on that entry.", "A comparison of one revision with the revision before it is visible", ["prev"]),
+      step("You can view a page's history by clicking the \"**View history**\" tab at the top of the associated page (pictured).", "The article's revision history list is visible", ["View history"]),
+      then("To compare a revision with its predecessor, click \"**prev**\".", "A comparison of one revision with the revision before it is visible", ["prev"]),
     ],
   },
   {
@@ -164,8 +164,8 @@ const T = [
     source: "https://en.wikipedia.org/wiki/Help:Download_as_PDF",
     start_url: "https://en.wikipedia.org/wiki/Ada_Lovelace",
     steps: [
-      step("Open the **Tools** drop-down menu in the top navigation bar, below the page name.", "The Tools menu is open, showing page tools", ["Tools"]),
-      then("In the Print/export section, select \"**Download as PDF**\".", "A page offering to download the article as a PDF is shown", ["Download as PDF"]),
+      step("In the top navigation bar, under the Page name, select the **Tools** drop-down menu.", "The Tools menu is open, showing page tools", ["Tools"]),
+      then("In the **Print/export** section select **Download as PDF**.", "A page offering to download the article as a PDF is shown", ["Download as PDF"]),
     ],
   },
   {
@@ -173,21 +173,21 @@ const T = [
     title: "Help:What links here",
     source: "https://en.wikipedia.org/wiki/Help:What_links_here",
     start_url: "https://en.wikipedia.org/wiki/Ada_Lovelace",
-    steps: [step("Within the **Tools** section at the top-right of every page, click \"**What links here**\".", "A list of pages that link to the article is shown", ["Tools", "What links here"])],
+    steps: [step("Within the **Tools** section at the top-right of every page (in the standard view) is a link labeled \"**What links here**\".", "A list of pages that link to the article is shown", ["Tools", "What links here"])],
   },
   {
     id: "wp-permanent-link",
     title: "Help:Permanent link",
     source: "https://en.wikipedia.org/wiki/Help:Permanent_link",
     start_url: "https://en.wikipedia.org/wiki/Ada_Lovelace",
-    steps: [step("A permalink can be made by clicking \"**Permanent link**\" in the sidebar's toolbox.", "The page is shown at a permanent link to its current revision (the address includes oldid)", ["Permanent link"])],
+    steps: [step("A permalink can be made by clicking '**Permanent link**' in the sidebar's toolbox or by accessing a prior revision of a page from its page history tab.", "The page is shown at a permanent link to its current revision (the address includes oldid)", ["Permanent link"])],
   },
   {
     id: "wp-page-information",
     title: "Help:Page information",
     source: "https://en.wikipedia.org/wiki/Help:Page_information",
     start_url: "https://en.wikipedia.org/wiki/Ada_Lovelace",
-    steps: [step("A link to \"**Page information**\" is in the **Tools** panel on the desktop site.", "The page information page for the article is shown", ["Tools", "Page information"])],
+    steps: [step("A link to \"**Page information**\" is in the **Tools** panel on the desktop site, which is typically available from the three dots menu at the top right of an article (it can be a sidebar if you're enabled that option).", "The page information page for the article is shown", ["Tools", "Page information"])],
   },
   {
     id: "grafana-explore",
@@ -219,8 +219,8 @@ const T = [
     source: "https://www.howtogeek.com/27882/create-an-ebook-or-pdf-from-wikipedia-articles-for-offline-reading/",
     start_url: "https://en.wikipedia.org/wiki/Ada_Lovelace",
     steps: [
-      step("In the left sidebar, click \"**Print/export**.\"", "The article's print and export options are shown", ["Print/export"]),
-      then("Click \"**Download as PDF**.\"", "A page offering to download the article as a PDF is shown", ["Download as PDF"]),
+      step("To do this, click the **Print/export** link on the left sidebar in Wikipedia when you're on an article you want to save.", "The article's print and export options are shown", ["Print/export"]),
+      then("Click **Download as PDF** to have Wikipedia automatically generate a PDF copy of this article.", "A page offering to download the article as a PDF is shown", ["Download as PDF"]),
     ],
   },
   {
@@ -230,8 +230,8 @@ const T = [
     source: "https://www.howtogeek.com/27882/create-an-ebook-or-pdf-from-wikipedia-articles-for-offline-reading/",
     start_url: "https://en.wikipedia.org/wiki/Ada_Lovelace",
     steps: [
-      step("In the left sidebar, under \"**Print/export**,\" click \"**Create a book**.\"", "Wikipedia's Book creator page is shown", ["Print/export", "Create a book"]),
-      then("On the Book creator page, click \"**Start book creator**.\"", "The book creator is on, offering to add the current page to a book", ["Start book creator"]),
+      step("To do this, click **Create a book** under **Print/export** on the left sidebar in Wikipedia.", "Wikipedia's Book creator page is shown", ["Create a book"]),
+      then("This will open the Book creator page; click **Start book creator** to get started.", "The book creator is on, offering to add the current page to a book", ["Start book creator"]),
     ],
   },
   {
@@ -240,7 +240,10 @@ const T = [
     title: "Dignited (2019): Export a Wikipedia page as a PDF",
     source: "https://dignited.com/44778/how-to-export-a-wikipedia-page-as-a-pdf",
     start_url: "https://en.wikipedia.org/wiki/Ada_Lovelace",
-    steps: [step("In the left sidebar, find the section labeled \"**Print/export**.\" Under that section, click \"**Download as PDF**\" from the list.", "A page offering to download the article as a PDF is shown", ["Print/export", "Download as PDF"])],
+    steps: [
+      step("Locate the **Print/export** section in the left panel of the page.", "The article's print and export options are shown", ["Print/export"]),
+      then("Select **Download as PDF** from the list.", "A page offering to download the article as a PDF is shown", ["Download as PDF"]),
+    ],
   },
   {
     id: "hunt-smartcompany-wikipedia-pdf",
@@ -248,7 +251,10 @@ const T = [
     title: "SmartCompany (2011): Convert Wikipedia articles into PDF files",
     source: "https://www.smartcompany.com.au/startupsmart/convert-wikipedia-articles-into-pdf-files/",
     start_url: "https://en.wikipedia.org/wiki/Ada_Lovelace",
-    steps: [step("On the left hand side of the screen, you should see a link that says \"**Print/Export**\". Click it, then select \"**Download as PDF**\".", "A page offering to download the article as a PDF is shown", ["Print/Export", "Download as PDF"])],
+    steps: [
+      step("On the left hand side of the screen, you should see a link that says “**Print/Export**”.", "The article's print and export options are shown", ["Print/Export"]),
+      then("Click this, and you’ll see some options – you’ll want to click on “**Download as PDF**”.", "A page offering to download the article as a PDF is shown", ["Download as PDF"]),
+    ],
   },
   {
     id: "hunt-labnol-wikipedia-book",
@@ -257,8 +263,8 @@ const T = [
     source: "https://labnol.org/internet/create-wikipedia-ebooks/25491",
     start_url: "https://en.wikipedia.org/wiki/Ada_Lovelace",
     steps: [
-      step("Open any article and pick \"**Book Creator**\" from the toolbox menu in the right sidebar.", "Wikipedia's book creator is on for this article", ["Book Creator"]),
-      then("Click the \"**Add this page to your book**\" link.", "The current article is added to a book", ["Add this page to your book"]),
+      step("Alternatively, you can open any Wikipedia page and choose **Book Creator** from the toolbox menu in the right sidebar.", "Wikipedia's book creator is on for this article", ["Book Creator"]),
+      then("Next browse to any Wikipedia page and click the “**Add this page to your book**” link to include that article into your ebook.", "The current article is added to a book", ["Add this page to your book"]),
     ],
   },
   {

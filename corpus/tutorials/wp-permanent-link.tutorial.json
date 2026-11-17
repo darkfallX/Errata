@@ -8,8 +8,8 @@
   "steps": [
     {
       "n": 1,
-      "quote": "A permalink can be made by clicking \"**Permanent link**\" in the sidebar's toolbox.",
-      "text": "A permalink can be made by clicking \"Permanent link\" in the sidebar's toolbox.",
+      "quote": "A permalink can be made by clicking '**Permanent link**' in the sidebar's toolbox or by accessing a prior revision of a page from its page history tab.",
+      "text": "A permalink can be made by clicking 'Permanent link' in the sidebar's toolbox or by accessing a prior revision of a page from its page history tab.",
       "goal": "The page is shown at a permanent link to its current revision (the address includes oldid)",
       "labels": [
         "Permanent link"

@@ -1,0 +1,64 @@
+{
+  "key": "d8ba21688464e50f",
+  "recorded_at": "2026-11-16T23:30:47.231Z",
+  "exit_code": 1,
+  "mode": "action",
+  "url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Open main menu, then Tools, then Search, and click Special:Book Book.\"\n1. Click the element whose visible label is exactly 'main menu'.\n2. Click the element whose visible label is exactly 'Tools'.\n3. Click the element whose visible label is exactly 'Search'.\n4. Click the element whose visible label is exactly 'Special:Book Book'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+  "clicks": [
+    {
+      "label": "main",
+      "names": [
+        "Main menu"
+      ],
+      "x": 200,
+      "y": 17
+    },
+    {
+      "label": "Tools",
+      "x": 1402,
+      "y": 129
+    },
+    {
+      "label": "Search",
+      "x": 895,
+      "y": 19
+    }
+  ],
+  "actions": [
+    {
+      "type": "navigate",
+      "status": "success",
+      "intent": "Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+      "instr": "Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace"
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=button[name=\"Main menu\"i]",
+      "intent": "PRIMARY: Click the element whose visible label is exactly 'main menu'; role=button; text=\"Main menu\" | HINTS: container=site navigation",
+      "instr": "Clicking main menu",
+      "x": 200,
+      "y": 17
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=button[name=\"Tools\"i]",
+      "intent": "PRIMARY: Click the element whose visible label is exactly 'Tools'; role=button; text=\"Tools\" | HINTS: container=Page tools navigation",
+      "instr": "Clicking Tools button",
+      "x": 1402,
+      "y": 129
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=button[name=\"Search\"i]",
+      "intent": "PRIMARY: Click the element whose visible label is exactly 'Search'; role=button; text=\"Search\" | HINTS: container=header search form",
+      "instr": "Clicking the Search button in the header search form",
+      "x": 895,
+      "y": 19
+    }
+  ],
+  "ndjson": "{\"type\":\"stream_start\",\"cli_version\":\"0.10.4\",\"surface\":\"run\",\"pid\":27484,\"v\":1,\"ts\":\"2026-11-16T23:28:12.102Z\"}\n{\"type\":\"recording_state\",\"enabled\":true,\"session_id\":\"b66e0921-cf2e-4d33-af30-b224e6e6ec28\",\"persist\":false,\"v\":1,\"ts\":\"2026-11-16T23:28:12.224Z\"}\n{\"type\":\"skill_update_available\",\"current\":null,\"latest\":\"0.1.4\",\"install_cmd\":\"kane-cli install skill\",\"v\":1,\"ts\":\"2026-11-16T23:28:17.662Z\"}\n{\"type\":\"bifurcation\",\"flows\":[\"Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace then Follow these steps literally, one at a time, from the current page.\\nClick only what each step names.\\nNever type a URL, search, or take another route.\\nWhere to find them, in the tutorial's own words: \\\"Open main menu, then Tools, then Search, and click Special:Book Book.\\\"\\nClick the element whose visible label is exactly 'main menu'.\\nClick the element whose visible label is exactly 'Tools'.\\nClick the element whose visible label is exactly 'Search'.\\nClick the element whose visible label is exactly 'Special:Book Book'.\\nIf the page you end on has a main heading, @v16:\\\"Get the main heading and save as {{landed_on}}.\\\"; a page without a heading is fine.\"],\"count\":1,\"v\":1,\"ts\":\"2026-11-16T23:28:59.190Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"v\":1,\"ts\":\"2026-11-16T23:29:10.114Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace\",\"v\":1,\"ts\":\"2026-11-16T23:29:10.136Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"v\":1,\"ts\":\"2026-11-16T23:29:13.529Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"click: Clicking main menu\",\"v\":1,\"ts\":\"2026-11-16T23:29:22.634Z\"}\n{\"step\":4,\"status\":\"running\",\"remark\":\"Step 3\",\"v\":1,\"ts\":\"2026-11-16T23:29:25.278Z\"}\n{\"step\":4,\"status\":\"done\",\"remark\":\"click: Clicking Tools button\",\"v\":1,\"ts\":\"2026-11-16T23:29:35.628Z\"}\n{\"step\":5,\"status\":\"running\",\"remark\":\"Step 4\",\"v\":1,\"ts\":\"2026-11-16T23:29:39.207Z\"}\n{\"step\":5,\"status\":\"done\",\"remark\":\"click: Clicking the Search button in the header search form\",\"v\":1,\"ts\":\"2026-11-16T23:29:54.900Z\"}\n{\"step\":6,\"status\":\"running\",\"remark\":\"Step 5\",\"v\":1,\"ts\":\"2026-11-16T23:29:55.712Z\"}\n{\"step\":6,\"status\":\"failed\",\"remark\":\"wait: Waiting Click the element whose visible label is exactly 'Special:Book Book'\",\"v\":1,\"ts\":\"2026-11-16T23:30:09.203Z\"}\n{\"type\":\"coverage\",\"status\":\"skipped\",\"reason\":\"not_assurance_project\",\"pack\":\"~\\\\.testmuai\\\\kaneai\\\\sessions\\\\b66e0921-cf2e-4d33-af30-b224e6e6ec28\\\\evidence\\\\b6ad368e-07b7-493e-ae20-f3096ab77cdc.evidence\",\"v\":1,\"ts\":\"2026-11-16T23:30:44.690Z\"}\n{\"type\":\"run_end\",\"status\":\"failed\",\"summary\":\"After opening Tools, the agent clicked the separate Search button in the page header. That sent it to the ordinary search page, where the requested Special:Book Book link was not expected to appear.\\nUpdate the automation to target the Search option inside the Tools menu and distinguish it from the header Search button before asserting the next link.\",\"one_liner\":\"The run opened the site-wide search page instead of following the Search option required from the Tools menu.\",\"final_state\":{},\"reason\":\"The Search page contains no element labeled Special:Book Book.\",\"duration\":95,\"bifurcated\":false,\"total_runs\":1,\"context\":{\"memory\":{},\"variables\":{\"landed_on\":{\"syntax\":\"{{landed_on}}\",\"value\":\"\",\"type\":\"text\",\"secret\":false,\"source\":\"runtime\"}},\"pointer\":\"(failed) The run opened the site-wide search page instead of following the Search option required from the Tools menu.\"},\"credits_consumed\":18.901605,\"session_dir\":\"~/.testmuai/kaneai/sessions\\\\b66e0921-cf2e-4d33-af30-b224e6e6ec28\",\"run_dir\":\"~/.testmuai/kaneai/sessions\\\\b66e0921-cf2e-4d33-af30-b224e6e6ec28\\\\runs\\\\0\",\"result_code\":750,\"reason_code\":\"assertion_error.step_not_achievable\",\"per_flow_metadata\":[{\"result_code\":\"750\",\"reason_code\":\"assertion_error.step_not_achievable\",\"error_message\":\"The Search page contains no element labeled Special:Book Book.\",\"summary\":\"After opening Tools, the agent clicked the separate Search button in the page header. That sent it to the ordinary search page, where the requested Special:Book Book link was not expected to appear.\\nUpdate the automation to target the Search option inside the Tools menu and distinguish it from the header Search button before asserting the next link.\",\"one_liner\":\"The run opened the site-wide search page instead of following the Search option required from the Tools menu.\",\"credits_consumed\":18.901605}],\"run_id\":\"run-0\",\"verdict\":{\"confirmed\":false,\"status\":\"broken\",\"family\":\"automation_bug\",\"category\":\"agent_misstep\",\"category_proposal\":\"\",\"severity\":\"minor\",\"root_cause\":\"After opening Tools, the agent clicked the separate Search button in the page header. That sent it to the ordinary search page, where the requested Special:Book Book link was not expected to appear.\",\"agent_fault_assessment\":\"The agent caused the outcome by selecting the wrong same-named control: the recorded step explicitly says it clicked “the Search button in the header search form,” rather than the Search item reached through Tools. The page and network requests loaded normally, so there is no evidence that the product failed.\",\"bug_title\":\"Header Search clicked instead of Tools Search\",\"signals\":[],\"confidence\":0.99,\"suggestion\":\"Update the automation to target the Search option inside the Tools menu and distinguish it from the header Search button before asserting the next link.\",\"one_liner\":\"The run opened the site-wide search page instead of following the Search option required from the Tools menu.\",\"relevant_steps\":[2,3,4],\"culprit_step\":\"0-4\",\"credits_consumed\":3.1215,\"mode\":\"terminal\"},\"test_url\":\"https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7KB17VQY2EWA5CFBR41NQKR/dashboard/share/US_MZ8OTBHEKOH1UTQWTHSDINIFSUNKBUKESM8Q0Q7I0WXN90YUOWDY00QRTYGKR0F1?type=summary&agentView=true&fqdn=summary-page\",\"coverage\":{\"status\":\"skipped\"},\"v\":1,\"ts\":\"2026-11-16T23:30:44.691Z\"}\n"
+}

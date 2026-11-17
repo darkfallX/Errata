@@ -1,0 +1,84 @@
+{
+  "key": "4039aef144af8c30",
+  "recorded_at": "2026-11-17T00:06:11.960Z",
+  "exit_code": 0,
+  "mode": "testing",
+  "url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "objective": "Goal: the article's print and export options are shown. Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\nHint: an old tutorial said \"Locate the Print/export section in the left panel of the page.\", but those labels may have moved or been renamed.\nWhen the goal is met, verify it on screen. If the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+  "clicks": [
+    {
+      "label": "Tools",
+      "x": 1402,
+      "y": 129
+    }
+  ],
+  "actions": [
+    {
+      "type": "navigate",
+      "status": "success",
+      "intent": "Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+      "instr": "Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace"
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=button[name=\"Tools\"i]",
+      "intent": "PRIMARY: show the article's print and export options; role=button; text=\"Tools\" | HINTS: container=Page tools; position=article header",
+      "instr": "Clicking Tools to open print and export options",
+      "x": 1402,
+      "y": 129
+    },
+    {
+      "type": "wait",
+      "status": "success",
+      "intent": "PRIMARY: the article's print and export options are shown on screen",
+      "instr": "Waiting for the print and export options to appear on screen"
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "whether the article's print option is present (in the Print/export page tools)",
+      "instr": "Checking whether the article print option is present"
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "whether the article's export option is present (in the Print/export page tools)",
+      "instr": "Checking whether the article export option is present"
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "whether the page's main heading is present (in the main article header)",
+      "instr": "Checking whether the page main heading is present"
+    },
+    {
+      "type": "assert",
+      "status": "success",
+      "intent": "",
+      "instr": "Assertion check"
+    },
+    {
+      "type": "if_else",
+      "status": "success",
+      "instr": "If-else checkpoint cp_2: condition 'the page you end on has a main heading' matched"
+    },
+    {
+      "type": "child_agent_start",
+      "status": "executing",
+      "instr": "Get the main heading and save as {{landed_on}}."
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "the current page's main heading",
+      "instr": "Reading the current page main heading"
+    },
+    {
+      "type": "child_agent_end",
+      "status": "success",
+      "instr": "Get the main heading and save as {{landed_on}}."
+    }
+  ],
+  "ndjson": "{\"type\":\"stream_start\",\"cli_version\":\"0.10.4\",\"surface\":\"run\",\"pid\":24940,\"v\":1,\"ts\":\"2026-11-17T00:03:43.226Z\"}\n{\"type\":\"recording_state\",\"enabled\":true,\"session_id\":\"574c455f-4d39-436f-a46c-ccda5cc570e0\",\"persist\":false,\"v\":1,\"ts\":\"2026-11-17T00:03:43.263Z\"}\n{\"type\":\"skill_update_available\",\"current\":null,\"latest\":\"0.1.4\",\"install_cmd\":\"kane-cli install skill\",\"v\":1,\"ts\":\"2026-11-17T00:03:46.381Z\"}\n{\"type\":\"bifurcation\",\"flows\":[\"Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace then Goal: the article's print and export options are shown.\\nReach it from the current page by clicking through the visible UI, by any route.\\nNever type a URL or use the address bar.\\nHint: an old tutorial said \\\"Locate the Print/export section in the left panel of the page.\\\", but those labels may have moved or been renamed.\\nWhen the goal is met, verify it on screen.\\nIf the page you end on has a main heading, @v16:\\\"Get the main heading and save as {{landed_on}}.\\\" a page without a heading is fine.\"],\"count\":1,\"v\":1,\"ts\":\"2026-11-17T00:04:03.290Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"v\":1,\"ts\":\"2026-11-17T00:04:14.204Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace\",\"v\":1,\"ts\":\"2026-11-17T00:04:14.226Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"v\":1,\"ts\":\"2026-11-17T00:04:18.148Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"click: Clicking Tools to open print and export options\",\"v\":1,\"ts\":\"2026-11-17T00:04:26.085Z\"}\n{\"step\":4,\"status\":\"running\",\"remark\":\"Step 3\",\"v\":1,\"ts\":\"2026-11-17T00:04:28.710Z\"}\n{\"step\":4,\"status\":\"done\",\"remark\":\"wait: PRIMARY: the article's print and export options are shown on screen\",\"v\":1,\"ts\":\"2026-11-17T00:04:37.633Z\"}\n{\"step\":5,\"status\":\"running\",\"remark\":\"Step 4\",\"v\":1,\"ts\":\"2026-11-17T00:04:40.449Z\"}\n{\"step\":5,\"status\":\"done\",\"remark\":\"analyze: the page you end on has a main heading\",\"v\":1,\"ts\":\"2026-11-17T00:04:57.416Z\"}\n{\"step\":6,\"status\":\"running\",\"remark\":\"Step 5\",\"v\":1,\"ts\":\"2026-11-17T00:05:00.493Z\"}\n{\"step\":6,\"status\":\"done\",\"remark\":\"assert: the article's print and export options are shown on screen\",\"v\":1,\"ts\":\"2026-11-17T00:05:00.533Z\"}\n{\"step\":7,\"status\":\"running\",\"remark\":\"Step 6\",\"v\":1,\"ts\":\"2026-11-17T00:05:05.071Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"child_id\":\"a5bd8b11\",\"v\":1,\"ts\":\"2026-11-17T00:05:09.316Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"analyze: ANALYZE(textual_visual, \\\"The current page's main heading is saved as {{landed_on\",\"child_id\":\"a5bd8b11\",\"v\":1,\"ts\":\"2026-11-17T00:05:25.928Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"child_id\":\"a5bd8b11\",\"v\":1,\"ts\":\"2026-11-17T00:05:30.436Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"wait: Waiting complete verification after saving the current page's main heading\",\"child_id\":\"a5bd8b11\",\"v\":1,\"ts\":\"2026-11-17T00:05:34.146Z\"}\n{\"step\":8,\"status\":\"running\",\"remark\":\"Step 7\",\"v\":1,\"ts\":\"2026-11-17T00:05:43.498Z\"}\n{\"step\":8,\"status\":\"done\",\"remark\":\"wait: Waiting after all print and export option checkpoints have passed\",\"v\":1,\"ts\":\"2026-11-17T00:05:47.258Z\"}\n{\"type\":\"coverage\",\"status\":\"skipped\",\"reason\":\"not_assurance_project\",\"pack\":\"~\\\\.testmuai\\\\kaneai\\\\sessions\\\\574c455f-4d39-436f-a46c-ccda5cc570e0\\\\evidence\\\\b846685a-eb8f-47df-83b9-a57f2e086011.evidence\",\"v\":1,\"ts\":\"2026-11-17T00:06:09.594Z\"}\n{\"type\":\"run_end\",\"status\":\"passed\",\"summary\":\"The request was to show the Ada Lovelace article’s print and export options.\\nOpened the article’s page tools and displayed “Download as PDF” and “Printable version.”\\nThe page remained on the Ada Lovelace article, with its main heading visible.\",\"one_liner\":\"displayed print and export options on Wikipedia\",\"final_state\":{\"url\":\"https://en.wikipedia.org/wiki/Ada_Lovelace\",\"landed_on\":\"Ada Lovelace\",\"print_option\":\"Printable version\",\"export_option\":\"Download as PDF\"},\"reason\":\"Objective completed\",\"duration\":112.2,\"bifurcated\":false,\"total_runs\":1,\"context\":{\"memory\":{\"article_print_option_shown\":{\"extracted_value\":\"true\",\"operator\":\"equals\",\"transforms\":[],\"json_path\":null,\"reasoning\":\"value: 'true' -> 'true'; equals 'true' -> PASS\",\"analyzer_type\":\"textual_visual\",\"step\":4,\"query\":\"whether the article's print option is present (in the Print/export page tools)\",\"condition\":\"the article's print option is shown on screen\",\"human_description\":\"Checking whether the article print option is present\",\"expected_value\":\"true\",\"subject\":\"the article's print option\",\"must_be\":\"present\",\"code_js\":\"el(120).textContent.trim() === 'Printable version' && !!(el(120).offsetWidth || el(120).offsetHeight || el(120).getClientRects().length)\",\"wrapped_js\":\"(els) => {\\n  const __m = {120: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (el(120).textContent.trim() === 'Printable version' && !!(el(120).offsetWidth || el(120).offsetHeight || el(120).getClientRects().length));\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:role=link[name=\\\"Printable version\\\"i]\"],\"needs_unit_conversion\":false},\"article_export_option_shown\":{\"extracted_value\":\"true\",\"operator\":\"equals\",\"transforms\":[],\"json_path\":null,\"reasoning\":\"value: 'true' -> 'true'; equals 'true' -> PASS\",\"analyzer_type\":\"textual_visual\",\"step\":4,\"query\":\"whether the article's export option is present (in the Print/export page tools)\",\"condition\":\"the article's export option is shown on screen\",\"human_description\":\"Checking whether the article export option is present\",\"expected_value\":\"true\",\"subject\":\"the article's export option\",\"must_be\":\"present\",\"code_js\":\"el(118).textContent.trim() === 'Download as PDF' && !!(el(118).offsetWidth || el(118).offsetHeight || el(118).getClientRects().length)\",\"wrapped_js\":\"(els) => {\\n  const __m = {118: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (el(118).textContent.trim() === 'Download as PDF' && !!(el(118).offsetWidth || el(118).offsetHeight || el(118).getClientRects().length));\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:role=link[name=\\\"Download as PDF\\\"i]\"],\"needs_unit_conversion\":false},\"main_heading_present\":{\"extracted_value\":\"true\",\"operator\":\"equals\",\"transforms\":[],\"json_path\":null,\"reasoning\":\"value: 'true' -> 'true'; equals 'true' -> PASS\",\"analyzer_type\":\"textual_visual\",\"step\":4,\"query\":\"whether the page's main heading is present (in the main article header)\",\"condition\":\"the page you end on has a main heading\",\"human_description\":\"Checking whether the page main heading is present\",\"expected_value\":\"true\",\"subject\":\"the page's main heading\",\"must_be\":\"present\",\"code_js\":\"el(69).textContent.trim().length > 0 && !!(el(69).offsetWidth || el(69).offsetHeight || el(69).getClientRects().length)\",\"wrapped_js\":\"(els) => {\\n  const __m = {69: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (el(69).textContent.trim().length > 0 && !!(el(69).offsetWidth || el(69).offsetHeight || el(69).getClientRects().length));\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:role=heading[name=\\\"Ada Lovelace\\\"i]\"],\"needs_unit_conversion\":false}},\"variables\":{\"landed_on\":{\"syntax\":\"{{landed_on}}\",\"value\":\"Ada Lovelace\",\"type\":\"memory\",\"secret\":false,\"source\":\"runtime\"},\"article_print_option_shown\":{\"syntax\":\"{{article_print_option_shown}}\",\"value\":\"true\",\"type\":\"memory\",\"secret\":false},\"article_export_option_shown\":{\"syntax\":\"{{article_export_option_shown}}\",\"value\":\"true\",\"type\":\"memory\",\"secret\":false},\"main_heading_present\":{\"syntax\":\"{{main_heading_present}}\",\"value\":\"true\",\"type\":\"memory\",\"secret\":false}},\"pointer\":\"(passed) displayed print and export options on Wikipedia\"},\"credits_consumed\":31.707705,\"session_dir\":\"~/.testmuai/kaneai/sessions\\\\574c455f-4d39-436f-a46c-ccda5cc570e0\",\"run_dir\":\"~/.testmuai/kaneai/sessions\\\\574c455f-4d39-436f-a46c-ccda5cc570e0\\\\runs\\\\0\",\"result_code\":100,\"reason_code\":\"success.complete\",\"per_flow_metadata\":[{\"result_code\":\"100\",\"reason_code\":\"success.complete\",\"error_message\":null,\"summary\":\"The request was to show the Ada Lovelace article’s print and export options.\\nOpened the article’s page tools and displayed “Download as PDF” and “Printable version.”\\nThe page remained on the Ada Lovelace article, with its main heading visible.\",\"one_liner\":\"displayed print and export options on Wikipedia\",\"credits_consumed\":31.707705}],\"run_id\":\"run-0\",\"test_url\":\"https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7KD26RHB6AN268BKZ0BN32F/dashboard/share/US_ZHXQL2WYL9KR2CC2Y2QC7ROIZU9XH9314CQJ3AH9SP9E3W9DJQK8AC3XM6VD77Y0?type=summary&agentView=true&fqdn=summary-page\",\"coverage\":{\"status\":\"skipped\"},\"v\":1,\"ts\":\"2026-11-17T00:06:09.595Z\"}\n"
+}

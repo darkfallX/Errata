@@ -3,14 +3,14 @@
   "tutorial": "Help:Permanent link",
   "source": "https://en.wikipedia.org/wiki/Help:Permanent_link",
   "start_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
-  "checked_at": "2026-11-16T00:29:38.950Z",
+  "checked_at": "2026-11-17T00:01:26.601Z",
   "agent": "Claude (Claude Code, /errata skill) · rewrite: rules (offline, deterministic)",
   "kane": "live",
   "steps": [
     {
       "n": 1,
-      "quote": "A permalink can be made by clicking \"**Permanent link**\" in the sidebar's toolbox.",
-      "text": "A permalink can be made by clicking \"Permanent link\" in the sidebar's toolbox.",
+      "quote": "A permalink can be made by clicking '**Permanent link**' in the sidebar's toolbox or by accessing a prior revision of a page from its page history tab.",
+      "text": "A permalink can be made by clicking 'Permanent link' in the sidebar's toolbox or by accessing a prior revision of a page from its page history tab.",
       "goal": "The page is shown at a permanent link to its current revision (the address includes oldid)",
       "labels": [
         "Permanent link"
@@ -18,67 +18,23 @@
       "checkable": true,
       "status": "accurate",
       "literal": {
-        "status": "failed",
-        "exit_code": 1,
-        "summary": "The test expected the page tools to already be open, but the page was in its normal collapsed state. Because the instruction allowed clicking only the named link, the agent had no permitted way to open Tools first.\nUpdate the test flow to open Tools before locating “Permanent link,” and explicitly permit that prerequisite action.",
-        "one_liner": "The run looked for “Permanent link” while it was hidden inside the collapsed Tools menu.",
-        "reason_code": "assertion_error.step_not_achievable",
-        "reason": "The current page snapshot contains no element labeled 'Permanent link'; only a collapsed Tools button is available.",
-        "verdict": {
-          "confirmed": false,
-          "status": "broken",
-          "family": "automation_bug",
-          "category": "state_transition_bug",
-          "category_proposal": "",
-          "severity": "minor",
-          "root_cause": "The test expected the page tools to already be open, but the page was in its normal collapsed state. Because the instruction allowed clicking only the named link, the agent had no permitted way to open Tools first.",
-          "agent_fault_assessment": "The agent did not cause a product failure: it only navigated to the required article and then encountered a page state where the requested label was not visible. The failure comes from the automation assuming an expanded Tools menu while also forbidding the prerequisite click needed to expand it.",
-          "bug_title": "Permanent link target unavailable in expected page state",
-          "signals": [],
-          "confidence": 0.95,
-          "suggestion": "Update the test flow to open Tools before locating “Permanent link,” and explicitly permit that prerequisite action.",
-          "one_liner": "The run looked for “Permanent link” while it was hidden inside the collapsed Tools menu.",
-          "relevant_steps": [
-            0,
-            1
-          ],
-          "culprit_step": "1",
-          "credits_consumed": 1.76265,
-          "mode": "terminal"
-        },
-        "evidence": "~\\.testmuai\\kaneai\\sessions\\ce1769f8-0760-4339-b9d7-426973f003bc\\evidence\\3dd1c3b3-12bc-49f9-b5e4-755c2a180211.evidence",
-        "final_state": {},
-        "clicks": [],
-        "credits": 13.1,
-        "duration": 63.2,
-        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GVV2TJGMV9FAA6KTRYRAVH/dashboard/share/US_IJRXSORTO3RHTHUZGV77LYZ11NLDHDJCNWRWW2RPTXQS64S18GHC5CK0OGW81TNF?type=summary&agentView=true&fqdn=summary-page",
-        "run_dir": "~/.testmuai/kaneai/sessions\\ce1769f8-0760-4339-b9d7-426973f003bc\\runs\\0",
-        "session_dir": "~/.testmuai/kaneai/sessions\\ce1769f8-0760-4339-b9d7-426973f003bc",
-        "trail": [
-          "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
-          "wait: Waiting element whose visible label is exactly 'Permanent link'"
-        ],
-        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n1. Click the element whose visible label is exactly 'Permanent link'.\nThen store the main heading of the page you end on as 'landed_on'.",
-        "mode": "action",
-        "source": "live"
-      },
-      "goal_pass": {
         "status": "passed",
         "exit_code": 0,
-        "summary": "Opened Wikipedia’s Ada Lovelace article and used the page’s visible options to reach a permanent link for the current revision.\nThe article remained titled “Ada Lovelace.”\nFinished on the permanent revision URL, which includes oldid=1384127064.",
-        "one_liner": "opened a permanent revision link for Ada Lovelace on Wikipedia",
+        "summary": "You asked to click the “Permanent link” option.\nClicked “Permanent link” in the page sidebar.\nThe page opened the permanent revision of the Ada Lovelace article, and the article heading was present.",
+        "one_liner": "opened a permanent link for Ada Lovelace on Wikipedia",
         "reason_code": "success.complete",
         "reason": "Objective completed",
-        "evidence": "~\\.testmuai\\kaneai\\sessions\\8c36962d-f284-4b3b-8747-bef2c423753f\\evidence\\cf70f40f-5b2d-48a3-ae0b-55a869fed0e1.evidence",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\2c00f543-2b41-4ac6-a127-36cf87b1571f\\evidence\\7614381f-806d-47f7-bf9e-f1543505b8d7.evidence",
         "final_state": {
           "url": "https://en.wikipedia.org/w/index.php?title=Ada_Lovelace&oldid=1384127064",
-          "page_title": "Ada Lovelace",
-          "revision_id": "1384127064"
+          "landed_on": "Ada Lovelace",
+          "main_heading_present": "true"
         },
         "end_url": "https://en.wikipedia.org/w/index.php?title=Ada_Lovelace&oldid=1384127064",
         "clicks": [
           {
             "label": "Tools",
+            "x": 1402,
             "y": 129
           },
           {
@@ -86,30 +42,32 @@
             "names": [
               "Permanent link"
             ],
+            "x": 1268,
             "y": 313
           }
         ],
-        "credits": 21.4,
-        "duration": 119.1,
-        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7GVZE1CZ1JZZ3YCEVBVKBWG/dashboard/share/US_NIK1KX2HYEIV5K5M0UMHXNKT6HKSF7FNM2A25BAWOOGUZX25OOXLZDMZAPWVSDPK?type=summary&agentView=true&fqdn=summary-page",
-        "run_dir": "~/.testmuai/kaneai/sessions\\8c36962d-f284-4b3b-8747-bef2c423753f\\runs\\0",
-        "session_dir": "~/.testmuai/kaneai/sessions\\8c36962d-f284-4b3b-8747-bef2c423753f",
+        "credits": 29.4,
+        "duration": 129,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7KCRMW0KW1N5FTP3A1AA9ZC/dashboard/share/US_BGPX1YDW1XQ44V1LQ9KJZ3X2HR8S36LE9AYUQL6B8IPI6DDY0LD3C3VUWFR5MT0G?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\2c00f543-2b41-4ac6-a127-36cf87b1571f\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\2c00f543-2b41-4ac6-a127-36cf87b1571f",
         "trail": [
           "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
-          "click: Clicking Tools in the page tools menu",
-          "click: Clicking Permanent link in Page tools menu",
-          "wait: PRIMARY: wait for the permanent-link page heading to load",
-          "analyze: ANALYZE(textual_visual, 'the main heading of the page you end on is saved as {{l",
-          "assert: the page is shown at a permanent link to its current revision and the address in"
+          "click: Clicking Tools button",
+          "click: Clicking Permanent link",
+          "wait: PRIMARY: wait for the heading \"Ada Lovelace\" to be visible",
+          "analyze: The page you end on has a main heading.",
+          "analyze: it is stored as {{landed_on}}",
+          "wait: Waiting after storing the required page heading value",
+          "wait: Waiting after successful checkpoint verification"
         ],
-        "objective": "Goal: the page is shown at a permanent link to its current revision (the address includes oldid). Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\nHint: an old tutorial said \"A permalink can be made by clicking \"Permanent link\" in the sidebar's toolbox.\", but those labels may have moved or been renamed.\nWhen the goal is met, store the main heading of the page you end on as 'landed_on', then verify the goal on screen.",
-        "mode": "testing",
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"A permalink can be made by clicking 'Permanent link' in the sidebar's toolbox or by accessing a prior revision of a page from its page history tab.\"\n1. Click the element whose visible label is exactly 'Permanent link'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "action",
         "source": "live"
       },
-      "actual_path": "Tools → Permanent",
       "landed_on": "Ada Lovelace",
-      "note": "The literal pass failed once, but the route Kane found is the doc's own route. Treated as a flaky run, not drift.",
-      "credits": 34.5,
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 29.4,
       "started_at": "https://en.wikipedia.org/wiki/Ada_Lovelace"
     }
   ],
@@ -122,7 +80,8 @@
     "broken": 0,
     "skipped": 0,
     "unchecked": 0,
-    "credits": 34.5,
-    "seconds": 330
-  }
+    "credits": 29.4,
+    "seconds": 177
+  },
+  "input": "corpus/tutorials/wp-permanent-link.tutorial.json"
 }

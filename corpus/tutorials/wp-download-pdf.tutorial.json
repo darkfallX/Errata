@@ -8,8 +8,8 @@
   "steps": [
     {
       "n": 1,
-      "quote": "Open the **Tools** drop-down menu in the top navigation bar, below the page name.",
-      "text": "Open the Tools drop-down menu in the top navigation bar, below the page name.",
+      "quote": "In the top navigation bar, under the Page name, select the **Tools** drop-down menu.",
+      "text": "In the top navigation bar, under the Page name, select the Tools drop-down menu.",
       "goal": "The Tools menu is open, showing page tools",
       "labels": [
         "Tools"
@@ -18,8 +18,8 @@
     },
     {
       "n": 2,
-      "quote": "In the Print/export section, select \"**Download as PDF**\".",
-      "text": "In the Print/export section, select \"Download as PDF\".",
+      "quote": "In the **Print/export** section select **Download as PDF**.",
+      "text": "In the Print/export section select Download as PDF.",
       "goal": "A page offering to download the article as a PDF is shown",
       "labels": [
         "Download as PDF"

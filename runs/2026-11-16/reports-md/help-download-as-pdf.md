@@ -4,7 +4,7 @@
 
 | | Step | Result |
 |---|---|---|
-| 🟢 | 1. Open the Tools drop-down menu in the top navigation bar, below the page name. | accurate |
-| 🟢 | 2. In the Print/export section, select "Download as PDF". | accurate |
+| 🟢 | 1. In the top navigation bar, under the Page name, select the Tools drop-down menu. | accurate |
+| 🟢 | 2. In the Print/export section select Download as PDF. | accurate |
 
-**2 of 2 checkable steps accurate** · 0 drifted (0 fixed and proven) · 0 broken · 37 Kane credits
+**2 of 2 checkable steps accurate** · 0 drifted (0 fixed and proven) · 0 broken · 56.1 Kane credits

@@ -8,14 +8,24 @@
   "steps": [
     {
       "n": 1,
-      "quote": "On the left hand side of the screen, you should see a link that says \"**Print/Export**\". Click it, then select \"**Download as PDF**\".",
-      "text": "On the left hand side of the screen, you should see a link that says \"Print/Export\". Click it, then select \"Download as PDF\".",
-      "goal": "A page offering to download the article as a PDF is shown",
+      "quote": "On the left hand side of the screen, you should see a link that says “**Print/Export**”.",
+      "text": "On the left hand side of the screen, you should see a link that says “Print/Export”.",
+      "goal": "The article's print and export options are shown",
       "labels": [
-        "Print/Export",
-        "Download as PDF"
+        "Print/Export"
       ],
       "checkable": true
+    },
+    {
+      "n": 2,
+      "quote": "Click this, and you’ll see some options – you’ll want to click on “**Download as PDF**”.",
+      "text": "Click this, and you’ll see some options – you’ll want to click on “Download as PDF”.",
+      "goal": "A page offering to download the article as a PDF is shown",
+      "labels": [
+        "Download as PDF"
+      ],
+      "checkable": true,
+      "continues": true
     }
   ]
 }

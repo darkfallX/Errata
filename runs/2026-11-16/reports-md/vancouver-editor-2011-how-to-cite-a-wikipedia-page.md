@@ -6,4 +6,4 @@
 |---|---|---|
 | 🟢 | 1. Look for "Tools" on the left side of the page and click on "Cite this page." | accurate |
 
-**1 of 1 checkable steps accurate** · 0 drifted (0 fixed and proven) · 0 broken · 26 Kane credits
+**1 of 1 checkable steps accurate** · 0 drifted (0 fixed and proven) · 0 broken · 28.6 Kane credits

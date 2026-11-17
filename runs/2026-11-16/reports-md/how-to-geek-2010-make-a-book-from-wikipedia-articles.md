@@ -4,27 +4,18 @@
 
 | | Step | Result |
 |---|---|---|
-| 🟡 | 1. In the left sidebar, under "Print/export," click "Create a book." | drifted · fixed, proven in 1 loop(s) |
-| 🟡 | 2. On the Book creator page, click "Start book creator." | drifted · fixed, proven in 1 loop(s) |
+| 🟡 | 1. To do this, click Create a book under Print/export on the left sidebar in Wikipedia. | drifted · needs a human |
+| 🟢 | 2. This will open the Book creator page; click Start book creator to get started. | accurate |
 
-**0 of 2 checkable steps accurate** · 2 drifted (2 fixed and proven) · 0 broken · 165.2 Kane credits
+**1 of 2 checkable steps accurate** · 1 drifted (0 fixed and proven) · 0 broken · 162.5 Kane credits
 
 <details><summary>What changed</summary>
 
 **Step 1** 🟡
 
-- Docs say: Print/export → Create a book
-- Real path (found by Kane): Main menu → Search → Tools → Search → Main → Special pages → Book
-- Proven rewrite: Open **Search** → **Tools** → **Search** → **Main** → **Special pages** and click **Book**.
-- The doc's words no longer work. Kane found the real path; the rewrite passed a literal run in loop 1.
-- Evidence: [literal run](https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7JG2DFKK5NFYX9WKC4BQ4R7/dashboard/share/US_E1QHEN63IVDL972XDFT294VWPN9X1VAB852HSE2IYMVTS8G9LMU8J5EASNLC45GJ?type=summary&agentView=true&fqdn=summary-page) · [goal run](https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7JGASJA03SV2GWBHE8D8DZ7/dashboard/share/US_F57JMFRZIW04YRWBF299AX3II88W16LCS9X045KTP8KGWXV98M1EEO7MWJN64ELD?type=summary&agentView=true&fqdn=summary-page) · [proof run](https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7JGRGPDJ2SRQ4SC23Z1PTQY/dashboard/share/US_4C21HSNUNGVFZOE4TIOO251B0PM9FYQEOLC4X3ZAMR7A50DEETAJTGW0D9E6EDJA?type=summary&agentView=true&fqdn=summary-page)
-
-**Step 2** 🟡
-
-- Docs say: Start book creator
-- Real path (found by Kane): Suggest pages → Wikipedia The Free Encyclopedia
-- Proven rewrite: Open **Suggest pages** and click **Wikipedia The Free Encyclopedia**.
-- The doc's words no longer work. Kane found the real path; the rewrite passed a literal run in loop 1.
-- Evidence: [literal run](https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7JH1BV6JF5MPJYTGCTHED7Y/dashboard/share/US_5G309JWM29WIVRI7S5VSYZBZ27MGXAJSPPT9AP3TYU60S3KHDLHV71G9BVOP1JYH?type=summary&agentView=true&fqdn=summary-page) · [goal run](https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7JH5FZ55PN722PCHNTV8T6S/dashboard/share/US_QAFRP16MPCR5DPINKI7SNNYUI9Y52ZHTTX57M7GZJ4TW5V6AORSI9XIPA0B4LG4H?type=summary&agentView=true&fqdn=summary-page) · [proof run](https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7JHC07QVD809R6HPTETW2AY/dashboard/share/US_J8FPETCSQCXC4JSL1TAS4QFFT0UY6GKSILB30HTKEM6OARZBT0A62T7F6GCM2SW8?type=summary&agentView=true&fqdn=summary-page)
+- Docs say: Create a book
+- Real path (found by Kane): main menu → Tools → Search → Special:Book Book
+- The doc's words no longer work and no rewrite passed a literal run in 3 loops. Needs a human; evidence attached.
+- Evidence: [literal run](https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7KA0796GDFKQ0MPJTD5ZWJV/dashboard/share/US_UOH6L9M022C071LJ44AN0PH1BHMTLCV0N4CGRQ133FFRH1CM1DIOS8X4XD2NJGJJ?type=summary&agentView=true&fqdn=summary-page) · [goal run](https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7KAE25MF23C42TJ6XKJ60JY/dashboard/share/US_YJYGPYTARSDJ93U950ZKGUJRI97M8PGMDN8KZ0PPKVWEK1X11ODORUBNE64KZ80A?type=summary&agentView=true&fqdn=summary-page) · [proof run](https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7KB17VQY2EWA5CFBR41NQKR/dashboard/share/US_MZ8OTBHEKOH1UTQWTHSDINIFSUNKBUKESM8Q0Q7I0WXN90YUOWDY00QRTYGKR0F1?type=summary&agentView=true&fqdn=summary-page)
 
 </details>

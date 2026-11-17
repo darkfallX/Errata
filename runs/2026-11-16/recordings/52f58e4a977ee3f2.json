@@ -1,0 +1,63 @@
+{
+  "key": "52f58e4a977ee3f2",
+  "recorded_at": "2026-11-16T23:45:34.773Z",
+  "exit_code": 0,
+  "mode": "action",
+  "url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"In the top navigation bar, under the Page name, select the Tools drop-down menu.\"\n1. Click the element whose visible label is exactly 'Tools'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+  "clicks": [
+    {
+      "label": "Tools",
+      "names": [
+        "Tools navigation"
+      ],
+      "x": 1402,
+      "y": 129
+    }
+  ],
+  "actions": [
+    {
+      "type": "navigate",
+      "status": "success",
+      "intent": "Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+      "instr": "Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace"
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=button[name=\"Tools\"i]",
+      "intent": "PRIMARY: Click the element whose visible label is exactly 'Tools'.; role=button; text=\"Tools\" | HINTS: container=Page tools navigation under the page tabs",
+      "instr": "Clicking Tools navigation tab",
+      "x": 1402,
+      "y": 129
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "whether a main heading is present (in the page main content)",
+      "instr": "Checking whether the main heading is present"
+    },
+    {
+      "type": "if_else",
+      "status": "success",
+      "instr": "If-else checkpoint cp_1: condition 'the page you end on has a main heading' matched"
+    },
+    {
+      "type": "child_agent_start",
+      "status": "executing",
+      "instr": "\"store it as 'landed_on'\""
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "it is stored as {{landed_on}}",
+      "instr": "Recording the page URL"
+    },
+    {
+      "type": "child_agent_end",
+      "status": "success",
+      "instr": "\"store it as 'landed_on'\""
+    }
+  ],
+  "ndjson": "{\"type\":\"stream_start\",\"cli_version\":\"0.10.4\",\"surface\":\"run\",\"pid\":11304,\"v\":1,\"ts\":\"2026-11-16T23:43:13.699Z\"}\n{\"type\":\"recording_state\",\"enabled\":true,\"session_id\":\"1bbd26e4-f9af-41f5-b594-ac3b81a1f43c\",\"persist\":false,\"v\":1,\"ts\":\"2026-11-16T23:43:13.847Z\"}\n{\"type\":\"skill_update_available\",\"current\":null,\"latest\":\"0.1.4\",\"install_cmd\":\"kane-cli install skill\",\"v\":1,\"ts\":\"2026-11-16T23:43:17.945Z\"}\n{\"type\":\"bifurcation\",\"flows\":[\"Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace then Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\\nWhere to find them, in the tutorial's own words: \\\"In the top navigation bar, under the Page name, select the Tools drop-down menu.\\\"\\nClick the element whose visible label is exactly 'Tools'.\\nIf the page you end on has a main heading, @v16:\\\"store it as 'landed_on'\\\"; a page without a heading is fine.\"],\"count\":1,\"v\":1,\"ts\":\"2026-11-16T23:43:42.382Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"v\":1,\"ts\":\"2026-11-16T23:43:54.723Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace\",\"v\":1,\"ts\":\"2026-11-16T23:43:54.749Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"v\":1,\"ts\":\"2026-11-16T23:43:59.019Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"click: Clicking Tools navigation tab\",\"v\":1,\"ts\":\"2026-11-16T23:44:06.496Z\"}\n{\"step\":4,\"status\":\"running\",\"remark\":\"Step 3\",\"v\":1,\"ts\":\"2026-11-16T23:44:09.531Z\"}\n{\"step\":4,\"status\":\"done\",\"remark\":\"analyze: the page you end on has a main heading\",\"v\":1,\"ts\":\"2026-11-16T23:44:23.500Z\"}\n{\"step\":5,\"status\":\"running\",\"remark\":\"Step 4\",\"v\":1,\"ts\":\"2026-11-16T23:44:28.895Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"child_id\":\"8a645761\",\"v\":1,\"ts\":\"2026-11-16T23:44:34.464Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"analyze: it is stored as {{landed_on}}\",\"child_id\":\"8a645761\",\"v\":1,\"ts\":\"2026-11-16T23:44:44.682Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"child_id\":\"8a645761\",\"v\":1,\"ts\":\"2026-11-16T23:44:50.089Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"wait: Waiting after successful page heading extraction\",\"child_id\":\"8a645761\",\"v\":1,\"ts\":\"2026-11-16T23:44:54.161Z\"}\n{\"step\":6,\"status\":\"running\",\"remark\":\"Step 5\",\"v\":1,\"ts\":\"2026-11-16T23:45:03.129Z\"}\n{\"step\":6,\"status\":\"done\",\"remark\":\"wait: Waiting after opening the Tools drop-down menu\",\"v\":1,\"ts\":\"2026-11-16T23:45:09.974Z\"}\n{\"type\":\"coverage\",\"status\":\"skipped\",\"reason\":\"not_assurance_project\",\"pack\":\"~\\\\.testmuai\\\\kaneai\\\\sessions\\\\1bbd26e4-f9af-41f5-b594-ac3b81a1f43c\\\\evidence\\\\96bd19d0-f676-444e-bbea-1b64a7702842.evidence\",\"v\":1,\"ts\":\"2026-11-16T23:45:32.256Z\"}\n{\"type\":\"run_end\",\"status\":\"passed\",\"summary\":\"The requested action was to select the “Tools” menu in the top navigation bar.\\nThe “Tools” menu was selected on the Ada Lovelace Wikipedia page.\\nThe page remained on the Ada Lovelace article, where the main heading was present.\",\"one_liner\":\"selected the Tools menu on Wikipedia\",\"final_state\":{\"url\":\"https://en.wikipedia.org/wiki/Ada_Lovelace\",\"main_heading_present\":\"true\"},\"reason\":\"Objective completed\",\"duration\":98.2,\"bifurcated\":false,\"total_runs\":1,\"context\":{\"memory\":{\"main_heading_present\":{\"extracted_value\":\"true\",\"operator\":\"equals\",\"transforms\":[],\"json_path\":null,\"reasoning\":\"value: 'true' -> 'true'; equals 'true' -> PASS\",\"analyzer_type\":\"textual_visual\",\"step\":3,\"query\":\"whether a main heading is present (in the page main content)\",\"condition\":\"the page you end on has a main heading\",\"human_description\":\"Checking whether the main heading is present\",\"expected_value\":\"true\",\"subject\":\"a main heading\",\"must_be\":\"present\",\"code_js\":\"el(69).textContent.trim() === 'Ada Lovelace'\",\"wrapped_js\":\"(els) => {\\n  const __m = {69: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (el(69).textContent.trim() === 'Ada Lovelace');\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:role=heading[name=\\\"Ada Lovelace\\\"i]\"],\"needs_unit_conversion\":false}},\"variables\":{\"landed_on\":{\"syntax\":\"{{landed_on}}\",\"value\":\"https://en.wikipedia.org/wiki/Ada_Lovelace\",\"type\":\"memory\",\"secret\":false,\"source\":\"runtime\"},\"main_heading_present\":{\"syntax\":\"{{main_heading_present}}\",\"value\":\"true\",\"type\":\"memory\",\"secret\":false}},\"pointer\":\"(passed) selected the Tools menu on Wikipedia\"},\"credits_consumed\":23.1460575,\"session_dir\":\"~/.testmuai/kaneai/sessions\\\\1bbd26e4-f9af-41f5-b594-ac3b81a1f43c\",\"run_dir\":\"~/.testmuai/kaneai/sessions\\\\1bbd26e4-f9af-41f5-b594-ac3b81a1f43c\\\\runs\\\\0\",\"result_code\":100,\"reason_code\":\"success.complete\",\"per_flow_metadata\":[{\"result_code\":\"100\",\"reason_code\":\"success.complete\",\"error_message\":null,\"summary\":\"The requested action was to select the “Tools” menu in the top navigation bar.\\nThe “Tools” menu was selected on the Ada Lovelace Wikipedia page.\\nThe page remained on the Ada Lovelace article, where the main heading was present.\",\"one_liner\":\"selected the Tools menu on Wikipedia\",\"credits_consumed\":23.1460575}],\"run_id\":\"run-0\",\"test_url\":\"https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7KBWQ1BR3KRHYFQVNAHW0MA/dashboard/share/US_QSWSEHQKDVF6NZRI34WI7ZG0MX3EXC2GBZP36NAZNVY2AMSM7EMS2N8H43988R0K?type=summary&agentView=true&fqdn=summary-page\",\"coverage\":{\"status\":\"skipped\"},\"v\":1,\"ts\":\"2026-11-16T23:45:32.256Z\"}\n"
+}

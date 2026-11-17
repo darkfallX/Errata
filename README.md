@@ -80,21 +80,20 @@ So: well-kept docs from big projects stayed accurate, and we publish the false a
 
 ### The drift hunt: older third-party tutorials
 
-Then we went looking for drift on purpose. We picked **6 older third-party tutorials** (How-To Geek 2010, SmartCompany 2011, Vancouver Editor 2011, labnol 2015, Dignited 2019) whose Wikipedia instructions predate Wikipedia's 2022 redesign, and walked them the same way. *This sample is biased on purpose, so its numbers say nothing about docs in general.*
+Then we went looking for drift on purpose. We picked **6 older third-party tutorials** (How-To Geek 2010, SmartCompany 2011, Vancouver Editor 2011, labnol 2015, Dignited 2019) whose Wikipedia instructions predate Wikipedia's 2022 redesign, and walked them the same way, quoting each sentence exactly. *This sample is biased on purpose, so its numbers say nothing about docs in general.*
 
-| Tutorial · step | Errata | Review |
+| Tutorial · step (exact words) | Errata | Review |
 |---|---|---|
-| Dignited (2019): "In the left sidebar … **Print/export** … **Download as PDF**" | drifted → *"Open **Tools** and click **Download as PDF**."* proven by Kane | confirmed · fix good |
-| SmartCompany (2011): "a link that says **Print/Export** … **Download as PDF**" | drifted → same rewrite, proven | confirmed · fix good |
-| How-To Geek (2010): "In the left sidebar, click **Print/export**" | drifted → *"Click **Tools**."* proven | confirmed · fix good |
-| How-To Geek (2010): "under **Print/export**, click **Create a book**" | drifted, proven rewrite | confirmed (no Create a book in Tools any more) · **rewrite not usable**: Kane wandered via Search first and Errata did not trim it |
-| How-To Geek (2010): "On the Book creator page, click **Start book creator**" | drifted | **false alarm**: the button still exists on the Book creator page; Errata ran the step from the wrong page |
-| labnol (2015): "click **Add this page to your book**" | broken | **false alarm**: the link appears once the book creator is on; Errata starts each step in a fresh browser, so that state was lost. A re-run found it |
+| How-To Geek (2010): "click the **Print/export** link on the left sidebar in Wikipedia" | drifted → *"Click **Tools**."* proven by Kane; the next step (Download as PDF) then works as written | confirmed · fix good |
+| SmartCompany (2011): "you should see a link that says **Print/Export**" | drifted → *"Click **Tools**."* proven | confirmed · fix good |
+| Dignited (2019): "Locate the **Print/export** section in the left panel of the page." | drifted → *"Click **Tools**."* proven | confirmed · fix good |
+| How-To Geek (2010): "click **Create a book** under Print/export on the left sidebar" | drifted · no rewrite passed in 3 loops | confirmed · needs a human |
+| labnol (2015): "choose **Book Creator** from the toolbox menu in the right sidebar" | drifted · no rewrite passed in 3 loops | confirmed · needs a human |
 | Vancouver Editor (2011): "**Tools** … **Cite this page**" | accurate | still right |
 
-labnol's first step ("pick **Book Creator** from the toolbox") came back accurate: Kane reached the Book Creator link through Special pages, and Errata allows extra clicks. In the first run that match came from loose matching ("Book" for "Book Creator"); we tightened it (a click name must be most of the label, with a test). In the re-run the link carried its real name "Book Creator", so it still counts as accurate under Errata's stated rule, even though a reader looking in the toolbox won't find it.
+So the hunt found **5 real wrong steps**, with **3 Kane-proven fixes**, and it said "needs a human" for the 2 it could not fix cleanly. No false alarms in the hunt. Reviews: [`review.json`](runs/2026-11-16/review.json) (the drift-hunt verdicts are pending approval).
 
-So the hunt found **4 real wrong steps**, with **3 correct, Kane-proven fixes**. It also produced 1 unusable rewrite and 2 false alarms, all listed with reasons. My first review of this hunt called the two book-creator flags real; checking Wikipedia's pages directly showed I was wrong, and the review was corrected. Reviews: [`review.json`](runs/2026-11-16/review.json): reviewed against Kane's evidence and the live pages, approved by Darkfallx.
+**We caught ourselves, too.** The tool we used to read these pages had paraphrased 15 of the 54 tutorial sentences, and our first runs used those paraphrases. We now check every quote against the live page ([`corpus/verify-quotes.mjs`](corpus/verify-quotes.mjs), 56/56 verbatim), re-walked the 11 affected tutorials, and kept the first reports in [`runs/2026-11-16/superseded/`](runs/2026-11-16/superseded/). With exact quotes, two book-creator flags from the first runs disappeared.
 
 ## The insight
 
@@ -156,6 +155,7 @@ Then the closed loop: **the agent rewrites the step from Kane's real path → Ka
 9. **Kane's test.md format.** A `## heading` names a step and the text under it is the instruction. Our first export put the instruction in the heading, so Kane only checked the "Verify" line. The export now writes `## Step n: …`, then the instruction, then `Verify that …`. The fixed Driftwood tutorial then passed as one Kane test.
 10. **The same label, twice.** In the public run Kane clicked the repository's **Code** tab when the doc meant the file view's **Code** toggle, since we had only told it the label. Each literal objective now carries the doc's own sentence as context for *where* the label is (context, not a pass/fail rule).
 11. **Not every page has a heading.** We asked Kane to note the page heading after each step. A raw text file has none, so a correct click failed. It's optional now.
+12. **Check your quotes, not just your runs.** The web-reading tool we used to collect tutorials paraphrased some sentences, and we treated the paraphrase as a quote. Errata gives Kane the doc's own sentence as context, so the exact wording matters. `corpus/verify-quotes.mjs` now checks every quote against the live page before a run.
 
 ## Honesty rules (enforced in code)
 

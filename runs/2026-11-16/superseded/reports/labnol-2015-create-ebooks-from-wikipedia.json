@@ -1,0 +1,278 @@
+{
+  "errata": "1",
+  "tutorial": "labnol (2015): Create eBooks from Wikipedia",
+  "source": "https://labnol.org/internet/create-wikipedia-ebooks/25491",
+  "start_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "checked_at": "2026-11-16T16:20:11.576Z",
+  "agent": "Claude (Claude Code, /errata skill) · rewrite: rules (offline, deterministic)",
+  "kane": "live",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "Open any article and pick \"**Book Creator**\" from the toolbox menu in the right sidebar.",
+      "text": "Open any article and pick \"Book Creator\" from the toolbox menu in the right sidebar.",
+      "goal": "Wikipedia's book creator is on for this article",
+      "labels": [
+        "Book Creator"
+      ],
+      "checkable": true,
+      "status": "accurate",
+      "literal": {
+        "status": "failed",
+        "exit_code": 1,
+        "summary": "The task setup assumes this Wikipedia page has a Book Creator tool, but that option is not present in the available menu.\nUpdate the task to use a site and page where Book Creator is actually enabled, or change the expected menu item to one available on this Wikipedia interface.\nevidence: objective_contradiction: The opened Tools menu contains no element labeled Book Creator.",
+        "one_liner": "The test asked for a “Book Creator” option that is not available in the Tools menu on this Wikipedia page.",
+        "reason_code": "assertion_error.step_not_achievable",
+        "reason": "The opened Tools menu contains no element labeled Book Creator.",
+        "verdict": {
+          "confirmed": false,
+          "status": "broken",
+          "family": "automation_bug",
+          "category": "config_issue",
+          "category_proposal": "",
+          "severity": "minor",
+          "root_cause": "The task setup assumes this Wikipedia page has a Book Creator tool, but that option is not present in the available menu.",
+          "agent_fault_assessment": "The agent followed the supplied tutorial route: it opened the Ada Lovelace article and clicked Tools in the right-sidebar tools navigation. There is no evidence it selected a wrong control, navigated away, acted too early, or otherwise caused the option to be absent.",
+          "bug_title": "Task expects absent Book Creator tool",
+          "signals": [
+            {
+              "step": "0-2",
+              "kind": "objective_contradiction",
+              "excerpt": "The opened Tools menu contains no element labeled Book Creator."
+            }
+          ],
+          "confidence": 0.96,
+          "suggestion": "Update the task to use a site and page where Book Creator is actually enabled, or change the expected menu item to one available on this Wikipedia interface.",
+          "one_liner": "The test asked for a “Book Creator” option that is not available in the Tools menu on this Wikipedia page.",
+          "relevant_steps": [
+            0,
+            1,
+            2
+          ],
+          "culprit_step": "0-2",
+          "credits_consumed": 2.45745,
+          "mode": "terminal"
+        },
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\8751efa3-6c9d-4c33-bd18-516bc82c8dec\\evidence\\3f642d27-a222-4dbd-b0bc-a3c57f62ee9f.evidence",
+        "final_state": {},
+        "clicks": [
+          {
+            "label": "Tools",
+            "y": 129
+          }
+        ],
+        "credits": 19.7,
+        "duration": 94.3,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7JHK4CXPF51B76RPJG4TNVA/dashboard/share/US_O96ZZKY6XK3V7RZHL3UKPQALO9ODI6MMN92UJKUTPCQ6LQP098OV404FGH2HTJ8K?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\8751efa3-6c9d-4c33-bd18-516bc82c8dec\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\8751efa3-6c9d-4c33-bd18-516bc82c8dec",
+        "trail": [
+          "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+          "click: Clicking Tools in the right sidebar tools navigation",
+          "wait: Waiting after checking the opened toolbox menu"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Open any article and pick 'Book Creator' from the toolbox menu in the right sidebar.\"\n1. Click the element whose visible label is exactly 'Book Creator'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "action",
+        "source": "live"
+      },
+      "goal_pass": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to reach a Wikipedia article through the visible site controls and turn on Book Creator.\nNavigated through Wikipedia’s interface to the article “Mark Satin.”\nBook Creator was enabled for the article, and the page’s main heading was “Mark Satin.”",
+        "one_liner": "enabled Book Creator on the Mark Satin article on Wikipedia",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\54060aaf-9685-485e-99eb-345deb2d609e\\evidence\\77cce472-009d-4f44-951a-c47174458424.evidence",
+        "final_state": {
+          "url": "https://en.wikipedia.org/wiki/Mark_Satin",
+          "landed_on": "Mark Satin",
+          "book_creator_on": "true"
+        },
+        "end_url": "https://en.wikipedia.org/wiki/Mark_Satin",
+        "clicks": [
+          {
+            "label": "Tools",
+            "names": [
+              "Tools toolbox"
+            ],
+            "y": 129
+          },
+          {
+            "label": "main",
+            "names": [
+              "Main menu"
+            ],
+            "y": 17
+          },
+          {
+            "label": "Special pages",
+            "y": 470
+          },
+          {
+            "label": "Book",
+            "y": 532
+          },
+          {
+            "label": "Wikipedia The Free Encyclopedia",
+            "names": [
+              "Wikipedia main page",
+              "Wikipedia The Free"
+            ],
+            "y": 14
+          },
+          {
+            "label": "Mark Satin",
+            "y": 390
+          }
+        ],
+        "credits": 38.1,
+        "duration": 339.6,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7JHQXJQ6GA0Z1ZE9EH403YX/dashboard/share/US_TB9FSHATUSAIUW6T6BHK0LQK1PU52TUGYFYZTY4LQF7JDKR1TQS7L0DBADZYUL36?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\54060aaf-9685-485e-99eb-345deb2d609e\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\54060aaf-9685-485e-99eb-345deb2d609e",
+        "trail": [
+          "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+          "click: Clicking Tools toolbox menu in page tools navigation",
+          "type: Typing Boo in the search box for Book Creator",
+          "press_key: PRIMARY: dismiss the Wikipedia search suggestions with Escape",
+          "click: Clicking main menu in the top-left header",
+          "click: Clicking Special pages in the main menu",
+          "scroll: Scrolling into view the Book Creator link in Special pages tools",
+          "click: Clicking Book in the Special pages list",
+          "click: Clicking Wikipedia main page link",
+          "click: Clicking the Mark Satin link on the Wikipedia featured article page",
+          "analyze: The page you end on has a main heading.",
+          "assert: wikipedia's book creator is on for this article.",
+          "analyze: it is stored as {{landed_on}}",
+          "wait: Waiting after the required page-state extraction",
+          "wait: Waiting after successfully verifying the enabled Book Creator article state"
+        ],
+        "objective": "Goal: wikipedia's book creator is on for this article. Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\nHint: an old tutorial said \"Open any article and pick \"Book Creator\" from the toolbox menu in the right sidebar.\", but those labels may have moved or been renamed.\nWhen the goal is met, verify it on screen. If the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "testing",
+        "source": "live"
+      },
+      "actual_path": "Tools → main → Special pages → Book → Wikipedia The Free Encyclopedia → Mark Satin",
+      "landed_on": "Mark Satin",
+      "note": "The literal pass failed once, but the route Kane found is the doc's own route. Treated as a flaky run, not drift.",
+      "credits": 57.8,
+      "started_at": "https://en.wikipedia.org/wiki/Ada_Lovelace"
+    },
+    {
+      "n": 2,
+      "quote": "Click the \"**Add this page to your book**\" link.",
+      "text": "Click the \"Add this page to your book\" link.",
+      "goal": "The current article is added to a book",
+      "labels": [
+        "Add this page to your book"
+      ],
+      "checkable": true,
+      "continues": true,
+      "status": "broken",
+      "literal": {
+        "status": "failed",
+        "exit_code": 1,
+        "summary": "The test expected the exact link “Add this page to your book,” but the page was in a different interface state and only exposed a Tools button rather than that named link.\nUpdate the test preconditions for the required Wikipedia account and interface state, or revise the tutorial step to use the currently available control and explicitly allow opening Tools first.",
+        "one_liner": "The run expected a link that was not available on the loaded Wikipedia page.",
+        "reason_code": "assertion_error.step_not_achievable",
+        "reason": "The exact named link is absent from the current page; only an unopened Tools button is available.",
+        "verdict": {
+          "confirmed": false,
+          "status": "broken",
+          "family": "automation_bug",
+          "category": "state_transition_bug",
+          "category_proposal": "",
+          "severity": "minor",
+          "root_cause": "The test expected the exact link “Add this page to your book,” but the page was in a different interface state and only exposed a Tools button rather than that named link.",
+          "agent_fault_assessment": "The agent did not cause the outcome: it was instructed to click only the element whose visible label exactly matched “Add this page to your book.” That element was absent, so opening or using Tools would have violated the stated instructions. The failure came from the test assuming a page state that was not present.",
+          "bug_title": "Bookmark task assumes unavailable signed-in control",
+          "signals": [],
+          "confidence": 0.94,
+          "suggestion": "Update the test preconditions for the required Wikipedia account and interface state, or revise the tutorial step to use the currently available control and explicitly allow opening Tools first.",
+          "one_liner": "The run expected a link that was not available on the loaded Wikipedia page.",
+          "relevant_steps": [
+            0,
+            1
+          ],
+          "culprit_step": "0-1",
+          "credits_consumed": 1.7999,
+          "mode": "terminal"
+        },
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\a02448bd-52e9-4997-806b-a6ddf07b9e38\\evidence\\9129545f-3faf-41e2-8047-887aed56a982.evidence",
+        "final_state": {},
+        "clicks": [],
+        "credits": 14.6,
+        "duration": 89.3,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7JJ59880SYFB7DTPGVANA0T/dashboard/share/US_ND2LZZFIAXMHLME366ZFPTNSQ2FJZAH3J6OS8ZZY7CTIS4HNDBH8C55R2DXW1NQI?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\a02448bd-52e9-4997-806b-a6ddf07b9e38\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\a02448bd-52e9-4997-806b-a6ddf07b9e38",
+        "trail": [
+          "navigate: Navigate to https://en.wikipedia.org/wiki/Mark_Satin",
+          "wait: Waiting after checking for the 'Add this page to your book' link"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Click the 'Add this page to your book' link.\"\n1. Click the element whose visible label is exactly 'Add this page to your book'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "action",
+        "source": "live"
+      },
+      "goal_pass": {
+        "status": "failed",
+        "exit_code": 1,
+        "summary": "You asked to add the current Wikipedia article to a book using the visible page controls.\nThe run remained on the Mark Satin article and checked the available Page tools and Save menus.\nNo visible option to create a book or add this article to a book was available in those menus, so the article was not added to a book.",
+        "one_liner": "attempted to add the Mark Satin article to a book on Wikipedia",
+        "reason_code": "assertion_error.step_not_achievable",
+        "reason": "Checked Page tools and Save menus; no visible book-creation or add-to-book action exists.",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\e3b6f816-1b32-4b13-925d-75fff44b5607\\evidence\\7ef0ae69-3d68-4bc8-9534-625347c49f0f.evidence",
+        "final_state": {
+          "url": "https://en.wikipedia.org/wiki/Mark_Satin"
+        },
+        "end_url": "https://en.wikipedia.org/wiki/Mark_Satin",
+        "clicks": [
+          {
+            "label": "Tools",
+            "names": [
+              "Tools menu"
+            ],
+            "y": 129
+          },
+          {
+            "label": "Save",
+            "names": [
+              "Save menu"
+            ],
+            "y": 130
+          }
+        ],
+        "credits": 20.6,
+        "duration": 169.3,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M7JJA9SXFBQF2REFC22MMDVF/dashboard/share/US_WEYSJ1B0NEP48ST5M15FTZMC1N8IB6WBFBVO0ZC03N7CK9KN431P6XIX2KUYMQHF?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\e3b6f816-1b32-4b13-925d-75fff44b5607\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\e3b6f816-1b32-4b13-925d-75fff44b5607",
+        "trail": [
+          "navigate: Navigate to https://en.wikipedia.org/wiki/Mark_Satin",
+          "click: Clicking the Tools menu button",
+          "click: Clicking Save menu link",
+          "wait: Waiting after checking the visible article save and tools menus"
+        ],
+        "objective": "Goal: the current article is added to a book. Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\nHint: an old tutorial said \"Click the \"Add this page to your book\" link.\", but those labels may have moved or been renamed.\nWhen the goal is met, verify it on screen. If the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "testing",
+        "source": "live"
+      },
+      "actual_path": "Tools → Save",
+      "note": "The goal can't be reached by any route Kane could find.",
+      "credits": 35.2,
+      "started_at": "https://en.wikipedia.org/wiki/Mark_Satin"
+    }
+  ],
+  "totals": {
+    "steps": 2,
+    "checkable": 2,
+    "accurate": 1,
+    "drifted": 0,
+    "fixed": 0,
+    "broken": 1,
+    "skipped": 0,
+    "unchecked": 0,
+    "credits": 93,
+    "seconds": 1008
+  },
+  "input": "corpus/tutorials/hunt-labnol-wikipedia-book.tutorial.json"
+}

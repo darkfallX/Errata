@@ -8,8 +8,8 @@
   "steps": [
     {
       "n": 1,
-      "quote": "A link to \"**Page information**\" is in the **Tools** panel on the desktop site.",
-      "text": "A link to \"Page information\" is in the Tools panel on the desktop site.",
+      "quote": "A link to \"**Page information**\" is in the **Tools** panel on the desktop site, which is typically available from the three dots menu at the top right of an article (it can be a sidebar if you're enabled that option).",
+      "text": "A link to \"Page information\" is in the Tools panel on the desktop site, which is typically available from the three dots menu at the top right of an article (it can be a sidebar if you're enabled that option).",
       "goal": "The page information page for the article is shown",
       "labels": [
         "Tools",

@@ -89,7 +89,7 @@ const badFix = (r, s) => ["not usable", "wrong"].includes(review[reviewKey(r, s)
 function reviewNote(r, s) {
   const v = r === demo ? undefined : review[reviewKey(r, s)];
   if (!v?.verdict || v.verdict === "false_alarm") return "";
-  return `<div class="kv"><span>Review</span><span><b>Confirmed.</b> ${esc(v.why)} <span class="mute">· approved by ${esc(v.reviewer || "not named")}</span></span></div>`;
+  return `<div class="kv"><span>Review</span><span><b>Confirmed.</b> ${esc(v.why)} <span class="mute">· ${v.reviewer && v.reviewer !== "pending approval" ? `approved by ${esc(v.reviewer)}` : "pending approval"}</span></span></div>`;
 }
 const reviewKey = (r, s) => `${slugify(host(r.source))}/${slugify(r.tutorial)}#${s.n}`;
 /** A flag a reviewer marked as a false alarm is shown and counted as one, never as a docs finding. */
@@ -336,7 +336,7 @@ ${
 </div>
 
 <section class="sec">
-<div class="sec-head"><h2 class="h-sec">Precision</h2><span class="mute" style="font-size:13.5px">${reviewers.length ? `Approved by ${esc(reviewers.join(", "))}` : "Every flag gets reviewed"}</span></div>
+<div class="sec-head"><h2 class="h-sec">Precision</h2><span class="mute" style="font-size:13.5px">${reviewers.length ? [reviewers.filter((r) => r !== "pending approval").length ? `Approved by ${esc(reviewers.filter((r) => r !== "pending approval").join(", "))}` : "", reviewers.includes("pending approval") ? `${flagged.filter((f) => review[f.key]?.reviewer === "pending approval").length} pending approval` : ""].filter(Boolean).join(" · ") : "Every flag gets reviewed"}</span></div>
 ${
   flagged.length
     ? `<div class="list"><table class="table"><thead><tr><th>Flag</th><th>Count</th></tr></thead><tbody>
@@ -400,7 +400,7 @@ ${tried.length ? `<div class="kv"><span>Kane tried</span><span class="path mute"
         const v = review[reviewKey(r, s)];
         margin = `<div class="margin"><div class="kv"><span>Errata said</span><span>${esc(s.status)}${s.rewrite ? `, with a rewrite: “${esc(plain(s.rewrite))}”` : ""}</span></div>
 <div class="kv"><span>Review</span><span><b>False alarm.</b> ${esc(v.why)}</span></div>
-<div class="kv"><span>Approved by</span><span class="mute">${esc(v.reviewer || "not named")}</span></div></div>`;
+<div class="kv"><span>Approved by</span><span class="mute">${v.reviewer && v.reviewer !== "pending approval" ? esc(v.reviewer) : "pending approval"}</span></div></div>`;
       }
       const runs = [runBlock("Literal", s.literal), runBlock("Goal", s.goal_pass), ...(s.attempts ?? []).map((a) => runBlock(`Proof · loop ${a.loop}`, a.proof))].join("");
       return `<div class="erratum ${struck ? "struck open" : ""} ${s.status === "skipped" ? "skip" : ""}"><span class="n">${s.n}</span><span class="t">${struck ? `<s>${rich(s.text)}</s>` : rich(s.text)}</span><span class="st">${fa ? STATUS_PILL.false_alarm : STATUS_PILL[s.status]}</span>${margin}

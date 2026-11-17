@@ -4,7 +4,7 @@
 
 | | Step | Result |
 |---|---|---|
-| 🟢 | 1. To view the history of a page, use the tab labeled "View history" at the top of the page. | accurate |
-| 🟢 | 2. To compare a revision with the revision before it, click "prev" on that entry. | accurate |
+| 🟢 | 1. You can view a page's history by clicking the "View history" tab at the top of the associated page (pictured). | accurate |
+| 🟢 | 2. To compare a revision with its predecessor, click "prev". | accurate |
 
-**2 of 2 checkable steps accurate** · 0 drifted (0 fixed and proven) · 0 broken · 41.5 Kane credits
+**2 of 2 checkable steps accurate** · 0 drifted (0 fixed and proven) · 0 broken · 51.9 Kane credits

@@ -6,7 +6,7 @@ Real, public tutorials, walked word for word with Errata and Kane CLI.
 
 1. A published, click-by-click tutorial in a well-known product's own docs.
 2. Every step can be done on the public site **without signing in** and **without writing data**: no forms submitted, no accounts created, nothing bought.
-3. Steps are quoted **verbatim** from the doc page as it read on the extraction date. Icons are dropped from labels; nothing is reworded.
+3. Steps are quoted **verbatim** from the doc page; icons are dropped from labels, nothing is reworded. `node corpus/verify-quotes.mjs` checks every quote against the live page (56/56 on 17 Nov 2026). An earlier version of 15 quotes was paraphrased by our page-reading tool; see `runs/2026-11-16/superseded/`.
 4. A step like "navigate to the main page of the repository" is satisfied by the start URL and marked **not checkable** (with that reason), never counted as passed.
 5. A step that names no specific label ("click a label", "choose a time period") is marked **not checkable**: there are no words to follow literally.
 

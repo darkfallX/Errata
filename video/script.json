@@ -1,0 +1,54 @@
+{
+  "voice": "en-US-BrianMultilingualNeural",
+  "rate": "-4%",
+  "scenes": [
+    {
+      "id": "cold-open",
+      "say": "Okay, so, picture this. You find a tutorial, and it says, click the Print slash export link on the left sidebar. Easy. You open Wikipedia and... it's just not there. You look around. Nothing. The tutorial isn't lying to you, it's just old. The product moved on, and the doc didn't."
+    },
+    {
+      "id": "title",
+      "say": "So we built Errata. Every doc has errata. Find yours."
+    },
+    {
+      "id": "why",
+      "say": "And this matters, right? In one survey, seventy-three percent of developers said the first thing they do with a new tool is try a quickstart or a tutorial. So if step three is wrong, that's it, you've kind of lost them. And nobody on the team notices, because they already know the way, and the tests check the product. Not the words."
+    },
+    {
+      "id": "how",
+      "say": "So here's the idea. Errata uses Kane CLI to follow your tutorial in a real browser, word for word. That's the literal pass. Click exactly what the doc says, nothing else. If the words fail, Kane gets a second go, the goal pass. Reach the same result, any route. Now, the gap between those two, that's the bug. And the route Kane took, that's basically the fix. So the agent rewrites the step using only buttons Kane actually clicked, and then Kane runs the new step, literally, to prove it. If it fails, the reason goes back and it tries again. Up to three times."
+    },
+    {
+      "id": "hide",
+      "say": "Why two passes, though? Because a smart agent hides drift. Ask it to click API Keys when that menu has moved, and it'll just find another way and pass. Your test is green. Your doc is still wrong."
+    },
+    {
+      "id": "terminal",
+      "say": "So let's actually run it. One command. This is the demo app that ships with Errata, Driftwood. Its docs were written for the old version, and the new version moved two menus and removed a feature. Watch. Steps one and four, accurate. Step two, drifted. The docs say Settings, API Keys, but Kane found Developers, Tokens, New token. Errata rewrote the step, and Kane proved it in one loop. Same story with billing. Step six, Export CSV is just gone, so that one's broken, not drifted. And step three is editing a dot env file, which you can't check in a browser, so it just says that. It doesn't pretend."
+    },
+    {
+      "id": "patch",
+      "say": "And you get a real patch. Run errata fix, and the two proven rewrites go straight into your docs. Only the proven ones."
+    },
+    {
+      "id": "hunt",
+      "say": "Okay, but does it work on real docs? We walked thirty public tutorials. The current ones, GitHub Docs, Wikipedia help, Grafana, were all accurate, which, honestly, good for them. So then we went hunting. Older tutorials, like this one from twenty nineteen. In the left sidebar, find Print slash export, then click Download as PDF. Kane follows it literally, and here's Kane's own screenshot. The sidebar just says Contents now. On the goal pass, Kane opens Tools, clicks Download as PDF, done. So the rewrite is: open Tools and click Download as PDF. Proven. Four real wrong steps, three proven fixes."
+    },
+    {
+      "id": "honest",
+      "say": "And we publish our mistakes too. Errata raised four false alarms. Like a GitHub page with two buttons that are both called Code. Every one is listed, with the reason, and we fixed what caused them. I'd rather show you that than some perfect looking number."
+    },
+    {
+      "id": "site",
+      "say": "It's all on the site. The report, every tutorial, every step, exactly what Kane clicked, straight from its sealed evidence pack, even Kane's own screenshots. And the command to run it again yourself."
+    },
+    {
+      "id": "ships",
+      "say": "And it ships the way you'd actually use it. A CLI on npm. A GitHub Action that comments on your docs pull requests, and fails the check when a tutorial breaks. And a Claude Code skill, so when your coding agent renames a button, it checks the docs too."
+    },
+    {
+      "id": "outro",
+      "say": "So, yeah. Every doc has errata. Try it. N-P-X errata C-L-I demo, dash dash replay. Takes like twenty seconds, no sign-in. Go find yours."
+    }
+  ]
+}

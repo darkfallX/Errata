@@ -8,19 +8,18 @@
   "steps": [
     {
       "n": 1,
-      "quote": "In the left sidebar, under \"**Print/export**,\" click \"**Create a book**.\"",
-      "text": "In the left sidebar, under \"Print/export,\" click \"Create a book.\"",
+      "quote": "To do this, click **Create a book** under **Print/export** on the left sidebar in Wikipedia.",
+      "text": "To do this, click Create a book under Print/export on the left sidebar in Wikipedia.",
       "goal": "Wikipedia's Book creator page is shown",
       "labels": [
-        "Print/export",
         "Create a book"
       ],
       "checkable": true
     },
     {
       "n": 2,
-      "quote": "On the Book creator page, click \"**Start book creator**.\"",
-      "text": "On the Book creator page, click \"Start book creator.\"",
+      "quote": "This will open the Book creator page; click **Start book creator** to get started.",
+      "text": "This will open the Book creator page; click Start book creator to get started.",
       "goal": "The book creator is on, offering to add the current page to a book",
       "labels": [
         "Start book creator"

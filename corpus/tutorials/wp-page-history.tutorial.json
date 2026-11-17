@@ -8,8 +8,8 @@
   "steps": [
     {
       "n": 1,
-      "quote": "To view the history of a page, use the tab labeled \"**View history**\" at the top of the page.",
-      "text": "To view the history of a page, use the tab labeled \"View history\" at the top of the page.",
+      "quote": "You can view a page's history by clicking the \"**View history**\" tab at the top of the associated page (pictured).",
+      "text": "You can view a page's history by clicking the \"View history\" tab at the top of the associated page (pictured).",
       "goal": "The article's revision history list is visible",
       "labels": [
         "View history"
@@ -18,8 +18,8 @@
     },
     {
       "n": 2,
-      "quote": "To compare a revision with the revision before it, click \"**prev**\" on that entry.",
-      "text": "To compare a revision with the revision before it, click \"prev\" on that entry.",
+      "quote": "To compare a revision with its predecessor, click \"**prev**\".",
+      "text": "To compare a revision with its predecessor, click \"prev\".",
       "goal": "A comparison of one revision with the revision before it is visible",
       "labels": [
         "prev"
