@@ -20,7 +20,8 @@ const readJson = (p) => JSON.parse(readFileSync(p, "utf8"));
 const demo = existsSync(join(here, "data", "demo.json")) ? readJson(join(here, "data", "demo.json")) : null;
 
 const runsDir = join(root, "runs");
-const runDates = existsSync(runsDir) ? readdirSync(runsDir).filter((d) => /^\d{4}-\d{2}-\d{2}$/.test(d)).sort() : [];
+// The public run is the newest dated folder with a top-level reports/ (side runs such as runs/<date>/claude-code/ don't count).
+const runDates = existsSync(runsDir) ? readdirSync(runsDir).filter((d) => /^\d{4}-\d{2}-\d{2}$/.test(d) && existsSync(join(runsDir, d, "reports"))).sort() : [];
 const runDate = runDates.at(-1);
 const publicReports = [];
 let review = {};
@@ -307,7 +308,12 @@ ${
 <div style="--i:1"><span>Steps checked</span><b class="num">${n(T.checkable)}</b></div>
 <div style="--i:2"><span>Confirmed drifted · broken</span><b class="num"><span style="color:var(--amber)">${T.drifted}</span> · <span style="color:var(--red-ink)">${T.broken}</span></b></div>
 <div style="--i:3"><span>False alarms</span><b class="num">${T.false_alarms}</b></div>
-</div>`
+</div>${
+        hunt.length && T.drifted + T.broken === 0
+          ? `
+<p class="mute" style="margin:10px 0 0;font-size:14px">These current, well-kept docs had no wrong steps. The wrong steps are in <a href="#drift-hunt" style="text-decoration:underline;text-underline-offset:3px">the drift hunt</a>: ${H.drifted + H.broken} confirmed in older tutorials, ${H.fixed} fixed and proven by Kane.</p>`
+          : ""
+      }`
     : ""
 }
 <div class="filters">

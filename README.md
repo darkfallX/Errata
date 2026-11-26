@@ -35,7 +35,7 @@ She looks for ten minutes, gives up, and never comes back. Nobody on your team n
 
 That's not rare. In a survey of 202 developers at All Things Open 2025, **73% said their first move with a new tool is a quickstart or tutorial**, and **17% said bad docs make them abandon a tool** ([Catchy, Nov 2025](https://www.catchyagency.com/post/what-202-open-source-developers-taught-us-about-tool-adoption); an informal 90-second booth survey, so read it as directional).
 
-**Errata follows your tutorials word for word in a real browser with [Kane CLI](https://www.testmuai.com/kane-cli/).** When a step no longer matches the product, Kane finds the real path, the agent rewrites the step, and Kane proves the rewrite before anyone sees it.
+**Errata follows your tutorials word for word in a real browser with [Kane CLI](https://www.testmuai.com/kane-cli/).** When a step no longer matches the product, Kane finds the real path, the agent (Claude Code, or an offline rules agent) rewrites the step, and Kane proves the rewrite before anyone sees it. If Kane can't follow the rewrite, its reason goes back to the agent.
 
 What `npx errata-cli demo --replay` prints (recorded live Kane CLI runs, 16 Nov 2026):
 
@@ -73,8 +73,30 @@ The two proven rewrites then ran together as one Kane `_test.md`, and it **passe
 | **A** | `npx errata-cli demo`: the bundled Driftwood app, its v1 docs walked against its v2 UI. Accurate, drifted and broken steps, and fixes proven by Kane. | Kane CLI login (or add `--replay`: no sign-in, no credits) | ~9 min live · 20 s replay |
 | **B** | [The errata sheet](https://errata-nine.vercel.app/report/): real public tutorials walked word for word, each step with Kane's own trail, objective and run link. | None | 2 min |
 | **C** | [One proof sheet](https://errata-nine.vercel.app/t/driftwood/quickstart/): literal run → goal run → rewrite → proof → patch, for every step. | None | 1 min |
+| **D** | [The closed loop with Claude Code](#the-closed-loop-live-with-claude-code-26-nov-2026): what Kane told the agent and what the agent wrote back, three loops, unedited. | None | 1 min |
 
 `--replay` plays back **recorded real Kane runs** that ship in the package, and it is labelled as a replay everywhere it appears. Without `--replay`, every run is live.
+
+## The closed loop, live with Claude Code (26 Nov 2026)
+
+`--agent claude-code` puts your coding agent in the loop: every rewrite is a headless Claude Code call (`claude -p`, signed in with your own plan, no API key), and every Kane failure goes back to it in the next call. Each report keeps the whole conversation, word for word, in `agent_calls`.
+
+Here is one step, unedited ([report](runs/2026-11-26/claude-code/hunt/reports/how-to-geek-2010-make-a-book-from-wikipedia-articles.json)). How-To Geek (2010) says *"click **Create a book** under **Print/export** on the left sidebar"*. That link is gone. Kane reached the book page another way: **Search → Special:Book**.
+
+| Loop | Claude Code wrote | Kane's literal run said (sent back to Claude Code) |
+|---|---|---|
+| 1 | "type **Special:Book** into **Search**…" | failed: it looked for "Special:Book" on the article page, though the text must first be entered in the search box |
+| 2 | "click the **Search** box…, type Special:Book into it, and press Enter…" | failed: the instructions required a search term but prohibited entering it |
+| 3 | "click **Search**…, enter **Special:Book** as the search term, and click **Search** again…" | failed: typing is prohibited |
+
+No fix shipped, and that's the point: Errata publishes a rewrite only when Kane can follow it word for word. Kane's last two answers also told *us* something: Errata's literal runs forbid typing, so a step that needs a search box can't be proven yet. That limit is now listed [below](#limits-stated-plainly).
+
+| Run (live Kane, Claude Code as the agent) | Result | Kane credits |
+|---|---|---|
+| Driftwood demo | 2 drifted steps, both rewritten by Claude Code and proven by Kane on loop 1; 1 broken; 2 accurate | 270 |
+| 6 drift-hunt tutorials | the same 3 Wikipedia fixes the rules agent found, worded the way a writer would (*"open the **Tools** menu to see the print and export options"*), each proven on loop 1; 1 still needs a human (above); 1 false fix caught in review and rejected | 748 |
+
+Claude Code didn't find fixes the rules agent missed; it wrote clearer ones and used Kane's feedback the way the loop intends. The false fix: How-To Geek's book step 2 was checked after step 1 had already switched Wikipedia's book creator on, so a strange route got "proven". That's an Errata limit with steps that depend on state, not a docs error, and it's rejected in [`review.json`](runs/2026-11-26/claude-code/review.json). Everything is in [`runs/2026-11-26/`](runs/2026-11-26/claude-code/).
 
 ## The public run (16 Nov 2026)
 
@@ -105,7 +127,9 @@ Then we went looking for drift on purpose. We picked **6 older third-party tutor
 | labnol (2015): "choose **Book Creator** from the toolbox menu in the right sidebar" | drifted · no rewrite passed in 3 loops | confirmed · needs a human |
 | Vancouver Editor (2011): "**Tools** … **Cite this page**" | accurate | still right |
 
-So the hunt found **5 real wrong steps**, with **3 Kane-proven fixes**, and it said "needs a human" for the 2 it could not fix cleanly. No false alarms in the hunt. Reviews: [`review.json`](runs/2026-11-16/review.json) (the 3 proven fixes are approved by Darkfallx; the 2 "needs a human" verdicts are pending approval).
+So the hunt found **5 real wrong steps**, with **3 Kane-proven fixes**, and it said "needs a human" for the 2 it could not fix cleanly.
+
+**Against the usual way of testing:** on all 5 of those wrong steps, Kane's lenient goal run ("reach this page by any route", which is how an agent test is normally written) **passed**. A goal-only test would have called all 5 fine. Errata's word-for-word run caught all 5. It's a small sample, and every run is in [`runs/2026-11-16/reports/`](runs/2026-11-16/reports/) (`literal.status` against `goal_pass.status`). No false alarms in the hunt. Reviews: [`review.json`](runs/2026-11-16/review.json) (the 3 proven fixes are approved by Darkfallx; the 2 "needs a human" verdicts are pending approval).
 
 **We caught ourselves, too.** The tool we used to read these pages had paraphrased 15 of the 54 tutorial sentences, and our first runs used those paraphrases. We now check every quote against the live page ([`corpus/verify-quotes.mjs`](corpus/verify-quotes.mjs), 56/56 verbatim), re-walked the 11 affected tutorials, and kept the first reports in [`runs/2026-11-16/superseded/`](runs/2026-11-16/superseded/). With exact quotes, two book-creator flags from the first runs disappeared.
 
@@ -113,7 +137,7 @@ So the hunt found **5 real wrong steps**, with **3 Kane-proven fixes**, and it s
 
 > **A smart test agent hides docs drift. Errata makes Kane follow the words first, then the goal. The gap between them is the bug.**
 
-Ask an AI browser agent to "click API Keys" when the menu moved, and a good agent finds Tokens anyway and passes. Your test is green, your doc is wrong. So every step runs as two passes:
+Ask an AI browser agent to "click API Keys" when the menu moved, and a good agent finds Tokens anyway and passes. Your test is green, your doc is wrong. In the drift hunt, Kane's goal-only run passed **5 of 5** confirmed wrong steps; the literal run failed all 5. So every step runs as two passes:
 
 | Pass | Kane mode | What Errata asks | What it tells us |
 |---|---|---|---|
@@ -201,9 +225,13 @@ npx errata-cli demo [--replay]                                    # the judge pa
 
 Outputs go to `.errata/`: `reports/*.json`, `reports-md/*.md`, `patches/*.diff`, `tests/*_test.md`, `recordings/*.json`.
 
-**Agent.** With `ANTHROPIC_API_KEY` set, Claude (`claude-opus-5-5`, structured outputs) reads the docs and writes the rewrites. Without one, the deterministic rules agent handles numbered, bold-label docs like most quickstarts. `--agent claude|rules` forces one.
+**Agent.** Three choices, one honesty guard:
 
-**GitHub Action**: fail a docs PR when a tutorial breaks, and comment with the proven fixes.
+- `--agent claude-code`: your signed-in [Claude Code](https://claude.com/claude-code) CLI reads the docs and writes the rewrites, and gets Kane's failures back. No API key needed. (In the repo now; `npx errata-cli` still ships 0.1.1 without it, so run it from source: `node packages/cli/dist/cli.js`.)
+- `--agent claude`: the Claude API (`claude-opus-5-5`, structured outputs), used automatically when `ANTHROPIC_API_KEY` is set.
+- `--agent rules`: deterministic and offline, for numbered, bold-label docs like most quickstarts. The default without a key.
+
+**GitHub Action**: fail a docs PR when a tutorial breaks, and comment with the proven fixes. (Not yet run on a real pull request.)
 
 ```yaml
 - uses: darkfallX/Errata/packages/action@main
@@ -229,6 +257,7 @@ npx errata-cli skill                      # installs /errata into ~/.claude/skil
 - Each Kane run costs credits (about 20 on our runs); the goal pass and proofs only run on failures.
 - The rules agent needs numbered steps with **bold** or "quoted" UI labels. Prose-heavy docs need the Claude agent, or pre-extracted `*.tutorial.json`.
 - Icon-only buttons (no visible label) can't be followed literally, because there are no words to follow.
+- Steps that need typing (a search box, a form field) can't be proven yet: the literal run only clicks. Kane told us so on the How-To Geek book step.
 - Each step starts in a fresh browser at the right URL; state such as a switched-on mode or a cookie is not carried between steps. Steps that depend on that state can be flagged wrongly (see the drift hunt).
 - If Kane's route contains the doc's labels in order but needs an extra click the doc doesn't mention (say, opening a menu first), the step counts as **accurate**. Errata checks labels, not completeness.
 
@@ -240,7 +269,7 @@ packages/cli/            errata-cli (TypeScript)
   src/objectives.ts      the exact words given to Kane
   src/kane.ts            kane-cli runner (live, recorded, replay)
   src/evidence.ts        reads clicks from Kane's sealed evidence packs
-  src/agent.ts           Claude agent + rules agent, honesty guard
+  src/agent.ts           Claude Code, Claude API and rules agents, honesty guard
   prompts/               extraction and rewrite prompts
   demo/driftwood/        the deterministic demo app (v1/v2) and its docs
   demo/recordings/       recorded real Kane runs for --replay
@@ -252,7 +281,7 @@ site/                    the report site (static, built from report.json)
 ```
 
 ```bash
-npm install && npm run build && npm test     # 21 tests, no network or credits needed
+npm install && npm run build && npm test     # 24 tests, no network or credits needed
 node site/extract-shots.mjs                   # copies Kane's screenshots out of local evidence packs
 npm run site                                  # builds site/out from the reports
 ```
