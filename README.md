@@ -237,7 +237,7 @@ Outputs go to `.errata/`: `reports/*.json`, `reports-md/*.md`, `patches/*.diff`,
 
 **Agent.** Three choices, one honesty guard:
 
-- `--agent claude-code`: your signed-in [Claude Code](https://claude.com/claude-code) CLI reads the docs and writes the rewrites, and gets Kane's failures back. No API key needed. (In the repo now; `npx errata-cli` still ships 0.1.1 without it, so run it from source: `node packages/cli/dist/cli.js`.)
+- `--agent claude-code`: your signed-in [Claude Code](https://claude.com/claude-code) CLI reads the docs and writes the rewrites, and gets Kane's failures back. No API key needed. Since errata-cli 0.1.2: `npx errata-cli demo --agent claude-code`.
 - `--agent claude`: the Claude API (`claude-opus-5-5`, structured outputs), used automatically when `ANTHROPIC_API_KEY` is set.
 - `--agent rules`: deterministic and offline, for numbered, bold-label docs like most quickstarts. The default without a key.
 

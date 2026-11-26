@@ -1,6 +1,6 @@
 {
   "name": "errata-cli",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Every doc has errata. Find yours. Walks your tutorials word for word in a real browser with Kane CLI, rewrites drifted steps, and proves every fix.",
   "keywords": [
     "docs",
