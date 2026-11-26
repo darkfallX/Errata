@@ -112,6 +112,16 @@ We walked **24 published tutorials, 44 checkable steps**, from GitHub Docs (15),
 
 **Both flags were our bugs, not the docs'.** One: Errata asked Kane to note the page heading, and GitHub's raw file view has none, so a correct click on **Raw** failed. Two: GitHub's file view has a **Code** toggle *and* a **Code** repository tab; given only the label, Kane clicked the tab, and the next step started on the wrong page. Both are fixed: the heading is optional, and Kane now gets the doc's own sentence as context. A re-run of both tutorials came back fully accurate ([`runs/2026-11-16/rerun/`](runs/2026-11-16/rerun/)). The review is in [`review.json`](runs/2026-11-16/review.json): reviewed against Kane's evidence and the live pages, approved by Darkfallx.
 
+**Correction (26 Nov).** 3 of the 42 "accurate" steps above had failed the word-for-word run and were passed by a rule that treated a lookalike route as a flaky run. We removed that rule (a lookalike route now gets one more literal run, and only a pass counts) and re-walked those 3 steps live ([`runs/2026-11-26/recheck/`](runs/2026-11-26/recheck/)):
+
+| Step | Re-walk | Review |
+|---|---|---|
+| GitHub contributors graph, step 4: click **Period: All** | the button now reads **Period: Last 3 months**; a rewrite with that label passed | likely a real docs change, pending review |
+| GitHub branches, step 2: open the branch dropdown, click **View all branches** | flagged, because the dropdown has no label to follow | Errata's false alarm |
+| GitHub line-by-line history, step 4: click **Preview** | flagged, because the step began outside a Markdown file | Errata's false alarm |
+
+So the public run is really **39 proven accurate, 1 likely docs change and 4 false alarms**, all from Errata. The 2 Wikipedia steps the same rule had passed in the drift hunt were re-proven word for word on 26 Nov.
+
 So: well-kept docs from big projects stayed accurate, and we publish the false alarms rather than a flattering number. The Driftwood demo is where you can watch drift get caught, fixed and proven.
 
 ### The drift hunt: older third-party tutorials

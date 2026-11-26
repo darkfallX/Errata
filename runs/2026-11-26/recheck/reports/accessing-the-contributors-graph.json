@@ -1,0 +1,310 @@
+{
+  "errata": "1",
+  "tutorial": "Accessing the contributors graph",
+  "source": "https://docs.github.com/en/repositories/viewing-activity-and-data-for-your-repository/viewing-a-projects-contributors",
+  "start_url": "https://github.com/expressjs/express",
+  "checked_at": "2026-11-26T12:25:54.787Z",
+  "agent": "Claude (Claude Code, /errata skill) · rewrite: claude-code (Claude Code CLI)",
+  "kane": "live",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "On GitHub, navigate to the main page of the repository.",
+      "text": "On GitHub, navigate to the main page of the repository.",
+      "goal": "The repository's main page is open",
+      "labels": [],
+      "checkable": false,
+      "skip_reason": "Covered by the start URL (the repository's main page).",
+      "status": "skipped",
+      "note": "Covered by the start URL (the repository's main page).",
+      "credits": 0,
+      "started_at": "https://github.com/expressjs/express"
+    },
+    {
+      "n": 2,
+      "quote": "Under your repository name, click **Insights**.",
+      "text": "Under your repository name, click Insights.",
+      "goal": "The repository's Insights page is visible",
+      "labels": [
+        "Insights"
+      ],
+      "checkable": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "Opened the Insights section for the expressjs/express repository as requested.\nThe Insights page loaded successfully and displayed its main heading.",
+        "one_liner": "opened the Insights section on GitHub",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\99d2e06f-bba5-4fa3-a38d-f6755f313cab\\evidence\\a3279bc6-6850-46ce-b8ef-499cfb5e1f74.evidence",
+        "final_state": {
+          "url": "https://github.com/expressjs/express/insights",
+          "main_heading_present": "true"
+        },
+        "end_url": "https://github.com/expressjs/express/insights",
+        "clicks": [
+          {
+            "label": "Insights",
+            "x": 892,
+            "y": 134
+          }
+        ],
+        "credits": 29.7,
+        "duration": 127.4,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BWBBEJ518D5V4H09RKTQAB/dashboard/share/US_FOFQHQ4KLQMCD374RD0RS1B7VCD92E9CHL5HX61H2HO0RP6DOBOWZD5MH0Y7PH5L?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\99d2e06f-bba5-4fa3-a38d-f6755f313cab\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\99d2e06f-bba5-4fa3-a38d-f6755f313cab",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express",
+          "click: Clicking Insights link",
+          "wait: PRIMARY: wait for the Insights page to load",
+          "analyze: the page you end on has a main heading",
+          "analyze: it is stored as {{landed_on}}",
+          "wait: Waiting after checkpoint verification",
+          "wait: Waiting after confirming the Insights page heading"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Under your repository name, click Insights.\"\n1. Click the element whose visible label is exactly 'Insights'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "true",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 29.7,
+      "started_at": "https://github.com/expressjs/express"
+    },
+    {
+      "n": 3,
+      "quote": "In the left sidebar, click **Contributors**.",
+      "text": "In the left sidebar, click Contributors.",
+      "goal": "The contributors graph for the repository is visible",
+      "labels": [
+        "Contributors"
+      ],
+      "checkable": true,
+      "continues": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to open the Contributors section of the Express repository on GitHub.\nClicked “Contributors” in the left sidebar.\nThe Contributors page opened successfully and displayed its main heading.",
+        "one_liner": "opened the Contributors page on github.com",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\78cfc62d-de10-40d1-96b6-acd7d02498b1\\evidence\\00814206-2c86-4409-979b-e6056ee7b201.evidence",
+        "final_state": {
+          "url": "https://github.com/expressjs/express/graphs/contributors",
+          "main_heading_present": "true"
+        },
+        "end_url": "https://github.com/expressjs/express/graphs/contributors",
+        "clicks": [
+          {
+            "label": "Contributors",
+            "x": 361,
+            "y": 277
+          }
+        ],
+        "credits": 29.7,
+        "duration": 88.3,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BWHAEGZWA258P7G0YBZ05W/dashboard/share/US_T7LZVCQNVSRGOVHX7RF52JKTEL7RQZ3LP63RAKZ1SQP2ID9410NYW1KST2VPU3XU?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\78cfc62d-de10-40d1-96b6-acd7d02498b1\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\78cfc62d-de10-40d1-96b6-acd7d02498b1",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express/insights",
+          "click: Clicking Contributors in the Insights sidebar",
+          "wait: PRIMARY: wait for the heading 'Contributors' to be visible",
+          "analyze: the page you end on has a main heading",
+          "analyze: the value \"it\" is stored as {{landed_on}}",
+          "wait: Waiting after storing landed_on",
+          "wait: Waiting after completing the Contributors navigation and checkpoint verification"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"In the left sidebar, click Contributors.\"\n1. Click the element whose visible label is exactly 'Contributors'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "true",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 29.7,
+      "started_at": "https://github.com/expressjs/express/insights"
+    },
+    {
+      "n": 4,
+      "quote": "Optionally, to view contributors during a specific time period, to the right of \"Contributors,\" click **Period: All**.",
+      "text": "Optionally, to view contributors during a specific time period, to the right of \"Contributors,\" click Period: All.",
+      "goal": "A menu for choosing a time period is open",
+      "labels": [
+        "Period: All"
+      ],
+      "checkable": true,
+      "continues": true,
+      "status": "drifted",
+      "literal": {
+        "status": "failed",
+        "exit_code": 1,
+        "summary": "The test assumed the Contributors page would be in the All-period state, but it loaded in a different period state. As a result, the exact element required by the objective did not exist.\nUpdate the test to establish the required period before asserting its label, or revise the expected label and tutorial wording to match the current Contributors page.",
+        "one_liner": "The run expected a control labeled “Period: All,” but the page showed “Period: Last 3 months” instead.",
+        "reason_code": "assertion_error.step_not_achievable",
+        "reason": "The only period control is labeled “Period: Last 3 months,” so the named element is absent.",
+        "verdict": {
+          "confirmed": false,
+          "status": "broken",
+          "family": "automation_bug",
+          "category": "state_transition_bug",
+          "category_proposal": "",
+          "severity": "minor",
+          "root_cause": "The test assumed the Contributors page would be in the All-period state, but it loaded in a different period state. As a result, the exact element required by the objective did not exist.",
+          "agent_fault_assessment": "The agent did not click an incorrect control or take an unapproved route. It navigated to the required Contributors page and waited for the control; the test then required an exact label that was not present in the loaded page state.",
+          "bug_title": "Contributor-period label assumption does not match loaded state",
+          "signals": [],
+          "confidence": 0.96,
+          "suggestion": "Update the test to establish the required period before asserting its label, or revise the expected label and tutorial wording to match the current Contributors page.",
+          "one_liner": "The run expected a control labeled “Period: All,” but the page showed “Period: Last 3 months” instead.",
+          "relevant_steps": [
+            1,
+            2
+          ],
+          "culprit_step": "0-2",
+          "credits_consumed": 2.48175,
+          "mode": "terminal"
+        },
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\8f3591b2-9b9b-4bda-9b77-3933bcc8867e\\evidence\\c448aa70-21e8-4a63-bbc9-de329cf37b21.evidence",
+        "final_state": {},
+        "clicks": [],
+        "credits": 15.5,
+        "duration": 49.2,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BWNN4Y98QRAWSC7RNBSBRT/dashboard/share/US_YJKNLORZNS91P8PKA058S5NPSG68Y3BBDGBVW7MD64YCFLYZ78ET0QXH7R5OM6EB?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\8f3591b2-9b9b-4bda-9b77-3933bcc8867e\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\8f3591b2-9b9b-4bda-9b77-3933bcc8867e",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express/graphs/contributors",
+          "wait: PRIMARY: wait 1000 ms for the Contributors period control to finish loading",
+          "wait: Waiting after finding no element labeled exactly \"Period: All\""
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Optionally, to view contributors during a specific time period, to the right of 'Contributors,' click Period: All.\"\n1. Click the element whose visible label is exactly 'Period: All'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "action",
+        "source": "live"
+      },
+      "goal_pass": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "Opened the contributor time-period selection menu on the Express repository’s Contributors page.\nThe menu is open and offers time-period choices, with “Last 3 months” shown as the current period.\nThe page also displays the “Contributors” heading.",
+        "one_liner": "opened the contributor time-period menu on GitHub",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\ff1c9e17-44cf-4ee5-af94-f17ff0282bd3\\evidence\\7307c878-de78-436a-b93d-0c9659a34e95.evidence",
+        "final_state": {
+          "url": "https://github.com/expressjs/express/graphs/contributors?from=2026-08-21T23%3A00%3A00.000Z",
+          "main_heading_present": "true",
+          "time_period_menu_open": "true"
+        },
+        "end_url": "https://github.com/expressjs/express/graphs/contributors?from=2026-08-21T23%3A00%3A00.000Z",
+        "clicks": [
+          {
+            "label": "Period: Last 3 months",
+            "names": [
+              "Period Last 3 months filter"
+            ],
+            "x": 1185,
+            "y": 193
+          }
+        ],
+        "credits": 30.3,
+        "duration": 98.3,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BWS3Q3GHNS7SZRA7GCGWRC/dashboard/share/US_X3W3BSNVC8N2K4SVCKGSDJHOSGPMOCBVQ6AIZOT2UH80ROV3YSBBFSQNI46X4A96?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\ff1c9e17-44cf-4ee5-af94-f17ff0282bd3\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\ff1c9e17-44cf-4ee5-af94-f17ff0282bd3",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express/graphs/contributors",
+          "click: Clicking the Period Last 3 months filter menu",
+          "analyze: a menu for choosing a time period is open",
+          "assert: a menu for choosing a time period is open",
+          "analyze: the literal \"it\" is stored as {{landed_on}}",
+          "wait: Waiting after the required literal-memory store",
+          "wait: Waiting after opening the time period selection menu"
+        ],
+        "objective": "Goal: a menu for choosing a time period is open. Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\nHint: an old tutorial said \"Optionally, to view contributors during a specific time period, to the right of \"Contributors,\" click Period: All.\", but those labels may have moved or been renamed.\nWhen the goal is met, verify it on screen. If the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "testing",
+        "source": "live"
+      },
+      "actual_path": "Period: Last 3 months",
+      "landed_on": "true",
+      "rewrite": "Optionally, to view contributors during a specific time period, click **Period: Last 3 months**.",
+      "attempts": [
+        {
+          "loop": 2,
+          "rewrite": "Optionally, to view contributors during a specific time period, click **Period: Last 3 months**.",
+          "labels": [
+            "Period: Last 3 months"
+          ],
+          "proof": {
+            "status": "passed",
+            "exit_code": 0,
+            "summary": "You asked to open the contributor time-period selector labeled “Period: Last 3 months.”\nClicked “Period: Last 3 months” on the Express contributors page.\nThe contributors page remained open and displayed the “Contributors” heading.",
+            "one_liner": "opened the contributor time-period selector on GitHub",
+            "reason_code": "success.complete",
+            "reason": "Objective completed",
+            "evidence": "~\\.testmuai\\kaneai\\sessions\\0b04d725-cf3e-4d61-b127-42b274339135\\evidence\\fd9851df-7353-4753-95c1-8573894c8a08.evidence",
+            "final_state": {
+              "url": "https://github.com/expressjs/express/graphs/contributors?from=2026-08-21T23%3A00%3A00.000Z",
+              "main_heading": "Contributors"
+            },
+            "end_url": "https://github.com/expressjs/express/graphs/contributors?from=2026-08-21T23%3A00%3A00.000Z",
+            "clicks": [
+              {
+                "label": "Period: Last 3 months",
+                "x": 1185,
+                "y": 193
+              }
+            ],
+            "credits": 30,
+            "duration": 98.2,
+            "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BWYY32G53K1BSFQ9WCKDPR/dashboard/share/US_SKKD88A4WSOZ0PMY5OR4PL1K5YP67X1DHEDB4SB5NX0FZ40AMOQ6JZI3HV6BAFUW?type=summary&agentView=true&fqdn=summary-page",
+            "run_dir": "~/.testmuai/kaneai/sessions\\0b04d725-cf3e-4d61-b127-42b274339135\\runs\\0",
+            "session_dir": "~/.testmuai/kaneai/sessions\\0b04d725-cf3e-4d61-b127-42b274339135",
+            "trail": [
+              "navigate: Navigate to https://github.com/expressjs/express/graphs/contributors",
+              "click: Clicking Period: Last 3 months button",
+              "analyze: The page you end on has a main heading.",
+              "analyze: The main heading is saved as {{landed_on}}",
+              "wait: Waiting after successful main heading extraction",
+              "wait: Waiting after confirming the Contributors heading"
+            ],
+            "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Optionally, to view contributors during a specific time period, click Period: Last 3 months.\"\n1. Click the element whose visible label is exactly 'Period: Last 3 months'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+            "mode": "action",
+            "source": "live"
+          }
+        }
+      ],
+      "note": "The doc's words no longer work. Kane found the real path; the rewrite passed a literal run in loop 2.",
+      "credits": 75.8,
+      "started_at": "https://github.com/expressjs/express/graphs/contributors"
+    }
+  ],
+  "totals": {
+    "steps": 4,
+    "checkable": 3,
+    "accurate": 2,
+    "drifted": 1,
+    "fixed": 1,
+    "broken": 0,
+    "skipped": 1,
+    "unchecked": 0,
+    "credits": 135.2,
+    "seconds": 803
+  },
+  "agent_calls": [
+    {
+      "role": "rewrite",
+      "input": "Original doc sentence: Optionally, to view contributors during a specific time period, to the right of \"Contributors,\" click **Period: All**.\nGoal of the step: A menu for choosing a time period is open\nPath Kane actually clicked (goal pass): Period: Last 3 months\nHeading Kane landed on: true\n",
+      "output": "{\"text\": \"Optionally, to view contributors during a specific time period, to the right of \\\"Contributors,\\\" click **Period: Last 3 months**.\", \"labels\": [\"Period: Last 3 months\"]}",
+      "ms": 10582
+    },
+    {
+      "role": "rewrite",
+      "input": "Original doc sentence: Optionally, to view contributors during a specific time period, to the right of \"Contributors,\" click **Period: All**.\nGoal of the step: A menu for choosing a time period is open\nPath Kane actually clicked (goal pass): Period: Last 3 months\nHeading Kane landed on: true\nEarlier rewrites failed Kane's literal proof:\n- Rejected before Kane: used labels Kane never saw (Contributors,).",
+      "output": "{\"text\": \"Optionally, to view contributors during a specific time period, click **Period: Last 3 months**.\", \"labels\": [\"Period: Last 3 months\"]}",
+      "ms": 9286
+    }
+  ],
+  "input": "corpus/tutorials/gh-contributors.tutorial.json"
+}

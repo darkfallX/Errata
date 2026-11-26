@@ -1,0 +1,42 @@
+{
+  "key": "e80ef3e4a0be1d0a",
+  "recorded_at": "2026-11-26T12:56:41.326Z",
+  "exit_code": 0,
+  "mode": "testing",
+  "url": "https://github.com/expressjs/express",
+  "objective": "Goal: the Markdown file is shown with formatting applied. Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\nHint: an old tutorial said \"If you are viewing a Markdown file, above the file content, you can also click Preview to return to the view with Markdown formatting applied.\", but those labels may have moved or been renamed.\nWhen the goal is met, verify it on screen. If the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+  "clicks": [
+    {
+      "label": "Readme.md",
+      "names": [
+        "Readme.md, (File)"
+      ],
+      "x": 387,
+      "y": 824
+    }
+  ],
+  "actions": [
+    {
+      "type": "navigate",
+      "status": "success",
+      "intent": "Navigate to https://github.com/expressjs/express",
+      "instr": "Navigate to https://github.com/expressjs/express"
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Readme.md, (File)\"i]",
+      "intent": "PRIMARY: Markdown file; role=link; text=\"Readme.md\" | HINTS: container=Folders and files table",
+      "instr": "Clicking the Readme.md link",
+      "x": 387,
+      "y": 824
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "the main heading of the currently rendered Markdown file",
+      "instr": "Reading the rendered Markdown file heading"
+    }
+  ],
+  "ndjson": "{\"type\":\"stream_start\",\"cli_version\":\"0.10.4\",\"surface\":\"run\",\"pid\":34872,\"v\":1,\"ts\":\"2026-11-26T12:52:56.343Z\"}\n{\"type\":\"recording_state\",\"enabled\":true,\"session_id\":\"7fe57ebb-6207-4ab2-8d7e-6efdd289f1bb\",\"persist\":false,\"v\":1,\"ts\":\"2026-11-26T12:52:56.592Z\"}\n{\"type\":\"update_available\",\"current\":\"0.10.4\",\"latest\":\"0.10.9\",\"severity\":\"patch\",\"v\":1,\"ts\":\"2026-11-26T12:53:02.233Z\"}\n{\"type\":\"skill_update_available\",\"current\":null,\"latest\":\"0.1.4\",\"install_cmd\":\"kane-cli install skill\",\"v\":1,\"ts\":\"2026-11-26T12:53:02.245Z\"}\n{\"type\":\"bifurcation\",\"flows\":[\"Navigate to https://github.com/expressjs/express then Goal: the Markdown file is shown with formatting applied.\\nReach it from the current page by clicking through the visible UI, by any route.\\nNever type a URL or use the address bar.\\nHint: an old tutorial said \\\"If you are viewing a Markdown file, above the file content, you can also click Preview to return to the view with Markdown formatting applied.\\\", but those labels may have moved or been renamed.\\nWhen the goal is met, verify it on screen.\\nIf the page you end on has a main heading, @v16:\\\"store it as 'landed_on'\\\"; a page without a heading is fine.\"],\"count\":1,\"v\":1,\"ts\":\"2026-11-26T12:53:58.106Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"v\":1,\"ts\":\"2026-11-26T12:54:14.859Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"navigate: Navigate to https://github.com/expressjs/express\",\"v\":1,\"ts\":\"2026-11-26T12:54:14.886Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"v\":1,\"ts\":\"2026-11-26T12:54:45.485Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"click: Clicking the Readme.md link\",\"v\":1,\"ts\":\"2026-11-26T12:54:55.382Z\"}\n{\"step\":4,\"status\":\"running\",\"remark\":\"Step 3\",\"v\":1,\"ts\":\"2026-11-26T12:54:58.642Z\"}\n{\"step\":4,\"status\":\"done\",\"remark\":\"analyze: ANALYZE(textual_visual, 'PRIMARY: main heading of the currently rendered Markdow\",\"v\":1,\"ts\":\"2026-11-26T12:55:18.961Z\"}\n{\"step\":5,\"status\":\"running\",\"remark\":\"Step 4\",\"v\":1,\"ts\":\"2026-11-26T12:55:20.003Z\"}\n{\"step\":5,\"status\":\"done\",\"remark\":\"wait: Waiting confirm the Markdown file remains shown with formatting applied\",\"v\":1,\"ts\":\"2026-11-26T12:55:26.431Z\"}\n{\"type\":\"coverage\",\"status\":\"skipped\",\"reason\":\"not_assurance_project\",\"pack\":\"~\\\\.testmuai\\\\kaneai\\\\sessions\\\\7fe57ebb-6207-4ab2-8d7e-6efdd289f1bb\\\\evidence\\\\48c8632c-6456-4448-a863-138c7fa8c82e.evidence\",\"v\":1,\"ts\":\"2026-11-26T12:56:36.030Z\"}\n{\"type\":\"run_end\",\"status\":\"passed\",\"summary\":\"Opened the Express repository’s rendered Readme.md file on GitHub.\\nConfirmed that the displayed Markdown file heading was “Readme.md”.\\nThe requested navigation was completed successfully.\",\"one_liner\":\"opened the Express Readme.md file on GitHub\",\"final_state\":{\"url\":\"https://github.com/expressjs/express/blob/master/Readme.md\",\"rendered_file_heading\":\"Readme.md\"},\"reason\":\"Objective completed\",\"duration\":115,\"bifurcated\":false,\"total_runs\":1,\"context\":{\"memory\":{\"landed_on\":{\"extracted_value\":\"Readme.md\",\"operator\":\"equals\",\"transforms\":[\"strip\"],\"json_path\":null,\"reasoning\":\"value: 'Readme.md' (stored, no comparison)\",\"analyzer_type\":\"textual_visual\",\"step\":3,\"query\":\"the main heading of the currently rendered Markdown file\",\"condition\":\"PRIMARY: main heading of the currently rendered Markdown file; role=heading | HINTS: container=file content page\",\"human_description\":\"Reading the rendered Markdown file heading\",\"expected_value\":\"\",\"code_js\":\"el(110).innerText.trim()\",\"wrapped_js\":\"(els) => {\\n  const __m = {110: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (el(110).innerText.trim());\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:role=heading[name=\\\"Readme.md\\\"i]\"],\"needs_unit_conversion\":false}},\"variables\":{\"landed_on\":{\"syntax\":\"{{landed_on}}\",\"value\":\"Readme.md\",\"type\":\"memory\",\"secret\":false}},\"pointer\":\"(passed) opened the Express Readme.md file on GitHub\"},\"credits_consumed\":19.7209725,\"session_dir\":\"~/.testmuai/kaneai/sessions\\\\7fe57ebb-6207-4ab2-8d7e-6efdd289f1bb\",\"run_dir\":\"~/.testmuai/kaneai/sessions\\\\7fe57ebb-6207-4ab2-8d7e-6efdd289f1bb\\\\runs\\\\0\",\"result_code\":100,\"reason_code\":\"success.complete\",\"per_flow_metadata\":[{\"result_code\":\"100\",\"reason_code\":\"success.complete\",\"error_message\":null,\"summary\":\"Opened the Express repository’s rendered Readme.md file on GitHub.\\nConfirmed that the displayed Markdown file heading was “Readme.md”.\\nThe requested navigation was completed successfully.\",\"one_liner\":\"opened the Express Readme.md file on GitHub\",\"credits_consumed\":19.7209725}],\"run_id\":\"run-0\",\"test_url\":\"https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BYN85KDVC7MPA97AX0SZRW/dashboard/share/US_B409V3W23EIUKDN5PZA9CI2NRGM8G2ZQMBL59WQLTWYO7175YDM8K9J5I2AUYND2?type=summary&agentView=true&fqdn=summary-page\",\"coverage\":{\"status\":\"skipped\"},\"v\":1,\"ts\":\"2026-11-26T12:56:36.032Z\"}\n"
+}

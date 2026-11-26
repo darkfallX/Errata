@@ -1,0 +1,20 @@
+{
+  "docs-github-com/accessing-the-contributors-graph#4": {
+    "verdict": "likely_real",
+    "fix": "plausible",
+    "why": "The doc says click Period: All; on expressjs/express the control now reads Period: Last 3 months. Kane's rewrite with the visible label passed a literal run in loop 2. Kane's triage called it a state problem, and the default period may differ by repository, so this needs a human look before it counts.",
+    "reviewer": "pending approval"
+  },
+  "docs-github-com/viewing-branches-in-your-repository#2": {
+    "verdict": "false_alarm",
+    "fix": "rejected",
+    "why": "Errata limit, not a docs error. The sentence says to open the branch dropdown, which has no visible label, so the literal run looked for View all branches before opening it (Kane: agent_misstep). The 'proven' rewrite (click 23 Branches) is a different route that only fits this repository.",
+    "reviewer": "Claude (pending approval)"
+  },
+  "docs-github-com/viewing-the-line-by-line-revision-history-for-a-file#4": {
+    "verdict": "false_alarm",
+    "fix": "rejected",
+    "why": "Errata state problem, not a docs error. The step started on the repository page instead of inside a Markdown file, so Preview was not there (Kane: state_transition_bug). The rewrite is not a fix.",
+    "reviewer": "Claude (pending approval)"
+  }
+}
