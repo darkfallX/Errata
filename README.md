@@ -116,11 +116,11 @@ We walked **24 published tutorials, 44 checkable steps**, from GitHub Docs (15),
 
 | Step | Re-walk | Review |
 |---|---|---|
-| GitHub contributors graph, step 4: click **Period: All** | the button now reads **Period: Last 3 months**; a rewrite with that label passed | likely a real docs change, pending review |
+| GitHub contributors graph, step 4: click **Period: All** | the button now reads **Period: Last 3 months** (on expressjs/express and on a small repository, 26 Nov); a rewrite with that label passed | a real docs change; the GitHub Docs source still says **Period: All** |
 | GitHub branches, step 2: open the branch dropdown, click **View all branches** | flagged, because the dropdown has no label to follow | Errata's false alarm |
-| GitHub line-by-line history, step 4: click **Preview** | flagged, because the step began outside a Markdown file | Errata's false alarm |
+| GitHub line-by-line history, step 2: click **Blame** | passed word for word | accurate, now proven |
 
-So the public run is really **39 proven accurate, 1 likely docs change and 4 false alarms**, all from Errata. The 2 Wikipedia steps the same rule had passed in the drift hunt were re-proven word for word on 26 Nov.
+So the public run is really **40 proven accurate, 1 real docs change and 3 false alarms**, all 3 from Errata. (Line-by-line step 4, already one of the 2 published false alarms, was flagged again in the re-walk: it starts outside a Markdown file, so **Preview** isn't there.) The 2 Wikipedia steps the same rule had passed in the drift hunt were re-proven word for word on 26 Nov.
 
 So: well-kept docs from big projects stayed accurate, and we publish the false alarms rather than a flattering number. The Driftwood demo is where you can watch drift get caught, fixed and proven.
 
