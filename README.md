@@ -15,6 +15,17 @@
 
 <p align="center"><img src="docs/img/home-dark.png" alt="Errata: a tutorial step struck through, with the real path Kane found and the proven rewrite" width="860"></p>
 
+## In one minute
+
+**Errata reads your tutorial, makes Kane CLI follow it word for word in a real browser, and tells you which step is wrong, with a fix Kane has already proven.**
+
+- 🐙 **It caught a stale step in GitHub's own documentation.** GitHub's contributors guide says click **Period: All**. That button now reads **Period: Last 3 months** on both repositories we checked. Kane proved the corrected tutorial end to end in a fresh browser, and we sent the fix to GitHub: **[github/docs#47081](https://github.com/github/docs/pull/47081)** (open, awaiting review).
+- 🟢 **Normal agent tests can't see this.** On 5 of 5 wrong tutorial steps, a goal-only Kane run ("get there any way you can") passed. Errata's word-for-word run caught all 5. [The numbers](#goal-only-kane-against-errata-on-both-samples)
+- 🔁 **Kane and the agent talk until the fix works.** Claude Code rewrites the step; if Kane can't follow it, Kane's reason goes back to Claude Code. [A real exchange](#the-closed-loop-live-with-claude-code-26-nov-2026): *"the heading can't be clicked"* → a better sentence → proven.
+- 🧾 **We publish when we're wrong.** On 44 steps of current public docs: 40 accurate, 1 real error (GitHub's), 3 false alarms, all ours, all [published](#the-public-run-16-nov-2026).
+
+Try it in 20 seconds, no sign-in: `npx errata-cli demo --replay`
+
 ## Links
 
 | | |

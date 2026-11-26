@@ -199,6 +199,7 @@ function home() {
   <div>
     <h1 class="h-hero">Every doc has errata.<span class="o">Find <i>yours</i>.</span></h1>
     <p class="lede">Errata follows your tutorials word for word in a real browser. When a step no longer matches the product, it finds the real path, rewrites the step, and proves the fix before anyone reads it.</p>
+    <p class="mute" style="margin:14px 0 0;font-size:15px;max-width:34em">It caught a stale step in <b>GitHub's own docs</b> ("Period: All" is gone) and we sent the fix: <a href="https://github.com/github/docs/pull/47081" style="text-decoration:underline;text-underline-offset:3px">github/docs#47081</a>.</p>
     <div class="ctas"><a class="x-btn lg" href="/report/">See the report</a><a class="x-btn ghost lg" href="#install">Try it on your docs</a></div>
     <div class="cmd"><span>$</span> npx errata-cli demo --replay <button class="copy" data-copy="npx errata-cli demo --replay" aria-label="Copy command">${ICON.copy}</button></div>
   </div>
