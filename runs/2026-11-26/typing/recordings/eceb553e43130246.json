@@ -1,0 +1,45 @@
+{
+  "key": "eceb553e43130246",
+  "recorded_at": "2026-11-26T15:40:37.459Z",
+  "exit_code": 1,
+  "mode": "action",
+  "url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names, and type only the exact text it quotes. Never type a URL, use the address bar, or take another route.\nWhere to find them, in the tutorial's own words: \"To do this, type Special:Book into Search in Wikipedia to open the Manage your book page.\"\n1. Type exactly 'Special:Book' into the field the tutorial names, then submit it or choose the matching suggestion.\n2. Click the element whose visible label is exactly 'Search'.\n3. Click the element whose visible label is exactly 'Manage your book'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+  "clicks": [
+    {
+      "label": "Search",
+      "names": [
+        "element whose visible label is exactly 'Search"
+      ],
+      "x": 895,
+      "y": 19
+    }
+  ],
+  "actions": [
+    {
+      "type": "navigate",
+      "status": "success",
+      "intent": "Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+      "instr": "Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace"
+    },
+    {
+      "type": "fill",
+      "status": "success",
+      "selector": "internal:role=searchbox[name=\"Search Wikipedia\"i]",
+      "intent": "PRIMARY: Search in Wikipedia; role=searchbox; text=\"Search Wikipedia\" | HINTS: container=site header",
+      "instr": "Typing Special:Book",
+      "x": 513,
+      "y": 22
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=button[name=\"Search\"i]",
+      "intent": "PRIMARY: element whose visible label is exactly 'Search'; role=button; text=\"Search\" | HINTS: container=site header beside the expanded search suggestions",
+      "instr": "Clicking element whose visible label is exactly 'Search'",
+      "x": 895,
+      "y": 19
+    }
+  ],
+  "ndjson": "{\"type\":\"stream_start\",\"cli_version\":\"0.10.4\",\"surface\":\"run\",\"pid\":41932,\"v\":1,\"ts\":\"2026-11-26T15:33:49.277Z\"}\n{\"type\":\"recording_state\",\"enabled\":true,\"session_id\":\"c4239e14-2712-4ee3-91fb-4831a2f852e7\",\"persist\":false,\"v\":1,\"ts\":\"2026-11-26T15:33:49.326Z\"}\n{\"type\":\"update_available\",\"current\":\"0.10.4\",\"latest\":\"0.10.9\",\"severity\":\"patch\",\"v\":1,\"ts\":\"2026-11-26T15:33:56.263Z\"}\n{\"type\":\"skill_update_available\",\"current\":null,\"latest\":\"0.1.4\",\"install_cmd\":\"kane-cli install skill\",\"v\":1,\"ts\":\"2026-11-26T15:33:56.273Z\"}\n{\"type\":\"bifurcation\",\"flows\":[\"Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace then Follow these steps literally, one at a time, from the current page. Click only what each step names, and type only the exact text it quotes. Never type a URL, use the address bar, or take another route.\\nWhere to find them, in the tutorial's own words: \\\"To do this, type Special:Book into Search in Wikipedia to open the Manage your book page.\\\"\\nType exactly 'Special:Book' into the field the tutorial names, then submit it or choose the matching suggestion.\\nClick the element whose visible label is exactly 'Search'.\\nClick the element whose visible label is exactly 'Manage your book'.\\nIf the page you end on has a main heading, @v16:\\\"store it as 'landed_on'\\\"; a page without a heading is fine.\"],\"count\":1,\"v\":1,\"ts\":\"2026-11-26T15:35:02.841Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"v\":1,\"ts\":\"2026-11-26T15:35:39.331Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace\",\"v\":1,\"ts\":\"2026-11-26T15:35:39.397Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"v\":1,\"ts\":\"2026-11-26T15:35:47.148Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"type: Typing Special:Book\",\"v\":1,\"ts\":\"2026-11-26T15:36:13.639Z\"}\n{\"step\":4,\"status\":\"running\",\"remark\":\"Step 3\",\"v\":1,\"ts\":\"2026-11-26T15:36:21.157Z\"}\n{\"step\":4,\"status\":\"done\",\"remark\":\"click: Clicking element whose visible label is exactly 'Search'\",\"v\":1,\"ts\":\"2026-11-26T15:36:41.756Z\"}\n{\"step\":5,\"status\":\"running\",\"remark\":\"Step 4\",\"v\":1,\"ts\":\"2026-11-26T15:36:47.468Z\"}\n{\"step\":6,\"status\":\"running\",\"remark\":\"Step 5\",\"v\":1,\"ts\":\"2026-11-26T15:37:19.289Z\"}\n{\"step\":6,\"status\":\"done\",\"remark\":\"click: Clicking element whose visible label is exactly 'Search'\",\"v\":1,\"ts\":\"2026-11-26T15:37:51.014Z\"}\n{\"step\":7,\"status\":\"running\",\"remark\":\"Step 6\",\"v\":1,\"ts\":\"2026-11-26T15:38:00.907Z\"}\n{\"step\":7,\"status\":\"failed\",\"remark\":\"wait: Waiting element whose visible label is exactly 'Manage your book'\",\"v\":1,\"ts\":\"2026-11-26T15:38:17.048Z\"}\n{\"type\":\"coverage\",\"status\":\"skipped\",\"reason\":\"not_assurance_project\",\"pack\":\"~\\\\.testmuai\\\\kaneai\\\\sessions\\\\c4239e14-2712-4ee3-91fb-4831a2f852e7\\\\evidence\\\\7eb1d1b9-1095-4218-83fb-5f4025e59587.evidence\",\"v\":1,\"ts\":\"2026-11-26T15:40:34.526Z\"}\n{\"type\":\"run_end\",\"status\":\"failed\",\"summary\":\"The test treats the destination page heading, “Manage your book,” as a button or link. On the loaded page it is only a heading, so there is nothing to click.\\nUpdate the test to treat arrival at the Manage your book page as the successful outcome, then store its heading as landed_on instead of clicking it.\",\"one_liner\":\"The search reached the Manage your book page, but the next scripted action tried to click its plain heading.\",\"final_state\":{},\"reason\":\"The exact label is a non-interactive H1 with no clickable ancestor, so it cannot be clicked.\",\"duration\":302.2,\"bifurcated\":false,\"total_runs\":1,\"context\":{\"memory\":{},\"variables\":{\"landed_on\":{\"syntax\":\"{{landed_on}}\",\"value\":\"\",\"type\":\"text\",\"secret\":false,\"source\":\"runtime\"}},\"pointer\":\"(failed) The search reached the Manage your book page, but the next scripted action tried to click its plain heading.\"},\"credits_consumed\":16.72371,\"session_dir\":\"~/.testmuai/kaneai/sessions\\\\c4239e14-2712-4ee3-91fb-4831a2f852e7\",\"run_dir\":\"~/.testmuai/kaneai/sessions\\\\c4239e14-2712-4ee3-91fb-4831a2f852e7\\\\runs\\\\0\",\"result_code\":750,\"reason_code\":\"assertion_error.step_not_achievable\",\"per_flow_metadata\":[{\"result_code\":\"750\",\"reason_code\":\"assertion_error.step_not_achievable\",\"error_message\":\"The exact label is a non-interactive H1 with no clickable ancestor, so it cannot be clicked.\",\"summary\":\"The test treats the destination page heading, “Manage your book,” as a button or link. On the loaded page it is only a heading, so there is nothing to click.\\nUpdate the test to treat arrival at the Manage your book page as the successful outcome, then store its heading as landed_on instead of clicking it.\",\"one_liner\":\"The search reached the Manage your book page, but the next scripted action tried to click its plain heading.\",\"credits_consumed\":16.72371}],\"run_id\":\"run-0\",\"verdict\":{\"confirmed\":false,\"status\":\"broken\",\"family\":\"automation_bug\",\"category\":\"state_transition_bug\",\"category_proposal\":\"\",\"severity\":\"minor\",\"root_cause\":\"The test treats the destination page heading, “Manage your book,” as a button or link. On the loaded page it is only a heading, so there is nothing to click.\",\"agent_fault_assessment\":\"The agent correctly entered the requested text and used the visible Search control. It reached Special:Book successfully; the failure was caused by the test then requiring a click on the page title, which is not an interactive control.\",\"bug_title\":\"Test attempts to click non-interactive Manage your book heading\",\"signals\":[],\"confidence\":0.98,\"suggestion\":\"Update the test to treat arrival at the Manage your book page as the successful outcome, then store its heading as landed_on instead of clicking it.\",\"one_liner\":\"The search reached the Manage your book page, but the next scripted action tried to click its plain heading.\",\"relevant_steps\":[5],\"culprit_step\":\"step 0-6\",\"credits_consumed\":3.2486999999999995,\"mode\":\"terminal\"},\"test_url\":\"https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8C7VVTC973G4QR86BFCG0MC/dashboard/share/US_7J45QMDZGN3U6HAXJ1KRGA0JZUM3E48ZND3GWIQ82AP5AMLDUBR7CB3CGPYFUC33?type=summary&agentView=true&fqdn=summary-page\",\"coverage\":{\"status\":\"skipped\"},\"v\":1,\"ts\":\"2026-11-26T15:40:34.529Z\"}\n"
+}

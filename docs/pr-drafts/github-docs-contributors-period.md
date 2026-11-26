@@ -21,7 +21,7 @@ A reader looking for "Period: All" won't find it. The button is still in the sam
 
 ### How we found it
 
-A browser agent (Kane CLI) followed the sentence word for word and stopped: *"The run expected a control labeled 'Period: All,' but the page showed 'Period: Last 3 months' instead."* A second run, allowed to reach the goal by any route, clicked **Period: Last 3 months**, and a word-for-word run of that wording passed. Found with [Errata](https://github.com/darkfallX/Errata), which walks tutorials this way.
+A browser agent (Kane CLI) followed the sentence word for word and stopped: *"The run expected a control labeled 'Period: All,' but the page showed 'Period: Last 3 months' instead."* A second run, allowed to reach the goal by any route, clicked **Period: Last 3 months**. With the wording in this PR, the whole tutorial (Insights → Contributors → Period) then passed word for word in a fresh browser. Found with [Errata](https://github.com/darkfallX/Errata), which walks tutorials this way.
 
 ### The wording
 

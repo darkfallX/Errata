@@ -1,0 +1,86 @@
+{
+  "key": "03141391350e2c06",
+  "recorded_at": "2026-11-26T15:45:58.934Z",
+  "exit_code": 0,
+  "mode": "action",
+  "url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names, and type only the exact text it quotes. Never type a URL, use the address bar, or take another route.\nWhere to find them, in the tutorial's own words: \"To do this, type Special:Book into Search in Wikipedia and press Enter to open the Book creator.\"\n1. Type exactly 'Special:Book' into the field the tutorial names, then submit it or choose the matching suggestion.\n2. Click the element whose visible label is exactly 'Search'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+  "clicks": [
+    {
+      "label": "Special:Book Book",
+      "names": [
+        "matching Special:Book Book suggestion"
+      ],
+      "x": 455,
+      "y": 50
+    },
+    {
+      "label": "Search",
+      "x": 903,
+      "y": 19
+    }
+  ],
+  "actions": [
+    {
+      "type": "navigate",
+      "status": "success",
+      "intent": "Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+      "instr": "Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace"
+    },
+    {
+      "type": "fill",
+      "status": "success",
+      "selector": "internal:role=searchbox[name=\"Search Wikipedia\"i]",
+      "intent": "PRIMARY: the field the tutorial names; role=searchbox; text=\"Search Wikipedia\" | HINTS: position=top header; container=Wikipedia search form",
+      "instr": "Typing Special:Book into the Search Wikipedia box",
+      "x": 513,
+      "y": 22
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=option[name=\"Special:Book Book\"i]",
+      "intent": "PRIMARY: choose the matching suggestion; role=option; text=\"Special:Book Book\" | HINTS: position=first item; container=Search results listbox",
+      "instr": "Clicking the matching Special:Book Book suggestion",
+      "x": 455,
+      "y": 50
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=button[name=\"Search\"i]",
+      "intent": "PRIMARY: Click the element whose visible label is exactly 'Search'; role=button; text=\"Search\" | HINTS: position=top header; container=Wikipedia search form",
+      "instr": "Clicking Search button",
+      "x": 903,
+      "y": 19
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "whether a main heading on the page you end on is present (at the top of the page)",
+      "instr": "Checking whether the page has a main heading"
+    },
+    {
+      "type": "if_else",
+      "status": "success",
+      "instr": "If-else checkpoint cp_1: condition 'The page you end on has a main heading.' matched"
+    },
+    {
+      "type": "child_agent_start",
+      "status": "executing",
+      "instr": "\"store it as 'landed_on'\""
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "it is stored as {{landed_on}}",
+      "instr": "Storing the landing page URL"
+    },
+    {
+      "type": "child_agent_end",
+      "status": "success",
+      "instr": "\"store it as 'landed_on'\""
+    }
+  ],
+  "ndjson": "{\"type\":\"stream_start\",\"cli_version\":\"0.10.4\",\"surface\":\"run\",\"pid\":19140,\"v\":1,\"ts\":\"2026-11-26T15:40:50.717Z\"}\n{\"type\":\"recording_state\",\"enabled\":true,\"session_id\":\"855324d0-b042-4e5c-a981-8ccc1b0e3205\",\"persist\":false,\"v\":1,\"ts\":\"2026-11-26T15:40:50.807Z\"}\n{\"type\":\"update_available\",\"current\":\"0.10.4\",\"latest\":\"0.10.9\",\"severity\":\"patch\",\"v\":1,\"ts\":\"2026-11-26T15:40:55.478Z\"}\n{\"type\":\"skill_update_available\",\"current\":null,\"latest\":\"0.1.4\",\"install_cmd\":\"kane-cli install skill\",\"v\":1,\"ts\":\"2026-11-26T15:40:55.486Z\"}\n{\"type\":\"bifurcation\",\"flows\":[\"Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace then Follow these steps literally, one at a time, from the current page. Click only what each step names, and type only the exact text it quotes. Never type a URL, use the address bar, or take another route.\\nWhere to find them, in the tutorial's own words: \\\"To do this, type Special:Book into Search in Wikipedia and press Enter to open the Book creator.\\\"\\nType exactly 'Special:Book' into the field the tutorial names, then submit it or choose the matching suggestion.\\nClick the element whose visible label is exactly 'Search'.\\nIf the page you end on has a main heading, @v16:\\\"store it as 'landed_on'\\\"; a page without a heading is fine.\"],\"count\":1,\"v\":1,\"ts\":\"2026-11-26T15:41:33.248Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"v\":1,\"ts\":\"2026-11-26T15:41:57.197Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace\",\"v\":1,\"ts\":\"2026-11-26T15:41:57.269Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"v\":1,\"ts\":\"2026-11-26T15:42:04.005Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"type: Typing Special:Book into the Search Wikipedia box\",\"v\":1,\"ts\":\"2026-11-26T15:42:22.522Z\"}\n{\"step\":4,\"status\":\"running\",\"remark\":\"Step 3\",\"v\":1,\"ts\":\"2026-11-26T15:42:28.208Z\"}\n{\"step\":4,\"status\":\"done\",\"remark\":\"click: Clicking Submit 'Special:Book'\",\"v\":1,\"ts\":\"2026-11-26T15:42:53.487Z\"}\n{\"step\":5,\"status\":\"running\",\"remark\":\"Step 4\",\"v\":1,\"ts\":\"2026-11-26T15:42:59.472Z\"}\n{\"step\":5,\"status\":\"done\",\"remark\":\"click: Clicking the matching Special:Book Book suggestion\",\"v\":1,\"ts\":\"2026-11-26T15:43:33.165Z\"}\n{\"step\":6,\"status\":\"running\",\"remark\":\"Step 5\",\"v\":1,\"ts\":\"2026-11-26T15:43:34.142Z\"}\n{\"step\":6,\"status\":\"done\",\"remark\":\"click: Clicking Search button\",\"v\":1,\"ts\":\"2026-11-26T15:43:56.640Z\"}\n{\"step\":7,\"status\":\"running\",\"remark\":\"Step 6\",\"v\":1,\"ts\":\"2026-11-26T15:44:00.382Z\"}\n{\"step\":7,\"status\":\"done\",\"remark\":\"analyze: The page you end on has a main heading.\",\"v\":1,\"ts\":\"2026-11-26T15:44:19.780Z\"}\n{\"step\":8,\"status\":\"running\",\"remark\":\"Step 7\",\"v\":1,\"ts\":\"2026-11-26T15:44:21.032Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"child_id\":\"31976e60\",\"v\":1,\"ts\":\"2026-11-26T15:44:22.614Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"analyze: it is stored as {{landed_on}}\",\"child_id\":\"31976e60\",\"v\":1,\"ts\":\"2026-11-26T15:44:46.898Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"child_id\":\"31976e60\",\"v\":1,\"ts\":\"2026-11-26T15:44:48.294Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"wait: Waiting after all required page checks have passed\",\"child_id\":\"31976e60\",\"v\":1,\"ts\":\"2026-11-26T15:44:51.047Z\"}\n{\"step\":9,\"status\":\"running\",\"remark\":\"Step 8\",\"v\":1,\"ts\":\"2026-11-26T15:44:58.972Z\"}\n{\"step\":9,\"status\":\"done\",\"remark\":\"wait: Waiting after completed task and passed heading checkpoint\",\"v\":1,\"ts\":\"2026-11-26T15:45:04.271Z\"}\n{\"type\":\"coverage\",\"status\":\"skipped\",\"reason\":\"not_assurance_project\",\"pack\":\"~\\\\.testmuai\\\\kaneai\\\\sessions\\\\855324d0-b042-4e5c-a981-8ccc1b0e3205\\\\evidence\\\\62abab44-4ffd-4af2-800e-0b06c5faba9b.evidence\",\"v\":1,\"ts\":\"2026-11-26T15:45:55.290Z\"}\n{\"type\":\"run_end\",\"status\":\"passed\",\"summary\":\"The requested action was to enter “Special:Book,” submit it or select its matching suggestion, and then click “Search.”\\nThe run ended on Wikipedia’s Search page after the Search action.\\nThe final page displayed the main heading “Search.”\",\"one_liner\":\"completed the requested Search action on Wikipedia\",\"final_state\":{\"url\":\"https://en.wikipedia.org/w/index.php?search=&title=Special%3ASearch\",\"main_heading_present\":\"true\"},\"reason\":\"Objective completed\",\"duration\":227.5,\"bifurcated\":false,\"total_runs\":1,\"context\":{\"memory\":{\"main_heading_present\":{\"extracted_value\":\"true\",\"operator\":\"equals\",\"transforms\":[],\"json_path\":null,\"reasoning\":\"value: 'true' -> 'true'; equals 'true' -> PASS\",\"analyzer_type\":\"textual_visual\",\"step\":6,\"query\":\"whether a main heading on the page you end on is present (at the top of the page)\",\"condition\":\"The page you end on has a main heading.\",\"human_description\":\"Checking whether the page has a main heading\",\"expected_value\":\"true\",\"subject\":\"a main heading on the page you end on\",\"must_be\":\"present\",\"code_js\":\"el(25).textContent.trim().length > 0\",\"wrapped_js\":\"(els) => {\\n  const __m = {25: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (el(25).textContent.trim().length > 0);\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:role=heading[name=\\\"Search\\\"i]\"],\"needs_unit_conversion\":false}},\"variables\":{\"landed_on\":{\"syntax\":\"{{landed_on}}\",\"value\":\"https://en.wikipedia.org/w/index.php?search=&title=Special%3ASearch\",\"type\":\"memory\",\"secret\":false,\"source\":\"runtime\"},\"main_heading_present\":{\"syntax\":\"{{main_heading_present}}\",\"value\":\"true\",\"type\":\"memory\",\"secret\":false}},\"pointer\":\"(passed) completed the requested Search action on Wikipedia\"},\"credits_consumed\":30.066325000000006,\"session_dir\":\"~/.testmuai/kaneai/sessions\\\\855324d0-b042-4e5c-a981-8ccc1b0e3205\",\"run_dir\":\"~/.testmuai/kaneai/sessions\\\\855324d0-b042-4e5c-a981-8ccc1b0e3205\\\\runs\\\\0\",\"result_code\":100,\"reason_code\":\"success.complete\",\"per_flow_metadata\":[{\"result_code\":\"100\",\"reason_code\":\"success.complete\",\"error_message\":null,\"summary\":\"The requested action was to enter “Special:Book,” submit it or select its matching suggestion, and then click “Search.”\\nThe run ended on Wikipedia’s Search page after the Search action.\\nThe final page displayed the main heading “Search.”\",\"one_liner\":\"completed the requested Search action on Wikipedia\",\"credits_consumed\":30.066325000000006}],\"run_id\":\"run-0\",\"test_url\":\"https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8C88N1M8R5RC5RYNGEYASFH/dashboard/share/US_EW8YPE6LAW6JT7RYFOPA5FEORJVKJT5JM0ESZ8VO3KLAKO1PGT4Q4RCLE364SH1D?type=summary&agentView=true&fqdn=summary-page\",\"coverage\":{\"status\":\"skipped\"},\"v\":1,\"ts\":\"2026-11-26T15:45:55.292Z\"}\n"
+}

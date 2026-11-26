@@ -1,0 +1,200 @@
+{
+  "errata": "1",
+  "tutorial": "Accessing the contributors graph (corrected step 4, proposed to github/docs)",
+  "source": "https://docs.github.com/en/repositories/viewing-activity-and-data-for-your-repository/viewing-a-projects-contributors",
+  "start_url": "https://github.com/expressjs/express",
+  "checked_at": "2026-11-26T15:39:48.583Z",
+  "agent": "corrected by hand from Errata's finding · rewrite: rules (offline, deterministic)",
+  "kane": "live",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "On GitHub, navigate to the main page of the repository.",
+      "text": "On GitHub, navigate to the main page of the repository.",
+      "goal": "The repository's main page is open",
+      "labels": [],
+      "checkable": false,
+      "skip_reason": "Covered by the start URL (the repository's main page).",
+      "status": "skipped",
+      "note": "Covered by the start URL (the repository's main page).",
+      "credits": 0,
+      "started_at": "https://github.com/expressjs/express"
+    },
+    {
+      "n": 2,
+      "quote": "Under your repository name, click **Insights**.",
+      "text": "Under your repository name, click Insights.",
+      "goal": "The repository's Insights page is visible",
+      "labels": [
+        "Insights"
+      ],
+      "checkable": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to open the repository’s Insights section.\nClicked the visible “Insights” link under the expressjs/express repository name.\nThe Insights page opened successfully and displayed its main heading.",
+        "one_liner": "opened the Insights section on github.com",
+        "reason_code": "success.complete",
+        "reason": "AP(text) failed: ",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\dc01d6fd-c908-4aef-b48f-e890f1811cac\\evidence\\3cbd7a5b-6bd2-419d-a79d-43b810760791.evidence",
+        "final_state": {
+          "url": "https://github.com/expressjs/express/insights",
+          "main_heading_present": "true"
+        },
+        "end_url": "https://github.com/expressjs/express/insights",
+        "clicks": [
+          {
+            "label": "Insights",
+            "x": 892,
+            "y": 134
+          }
+        ],
+        "credits": 31.5,
+        "duration": 287.8,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8C75F0BBEJ30W1E31JD3P6Q/dashboard/share/US_2CZ03BNF69S88QHATDPOVF7RKOZ2VZMMOWHMNPFYXKY5NOBOUVGIHQWZQ7XRSB8Z?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\dc01d6fd-c908-4aef-b48f-e890f1811cac\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\dc01d6fd-c908-4aef-b48f-e890f1811cac",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express",
+          "click: Clicking Insights link in repository navigation",
+          "wait: PRIMARY: wait 1000 ms for the Insights page to load",
+          "analyze: the page you end on has a main heading",
+          "analyze: it is stored as {{landed_on}}",
+          "wait: Waiting after storing the landed-on page URL",
+          "wait: Waiting after confirming the Insights page heading"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Under your repository name, click Insights.\"\n1. Click the element whose visible label is exactly 'Insights'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "true",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 31.5,
+      "started_at": "https://github.com/expressjs/express"
+    },
+    {
+      "n": 3,
+      "quote": "In the left sidebar, click **Contributors**.",
+      "text": "In the left sidebar, click Contributors.",
+      "goal": "The contributors graph for the repository is visible",
+      "labels": [
+        "Contributors"
+      ],
+      "checkable": true,
+      "continues": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to open the Contributors section from the repository sidebar.\nClicked the sidebar item labeled “Contributors.”\nThe Contributors page opened successfully and displayed the “Contributors” heading.",
+        "one_liner": "opened the Contributors page on GitHub",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\cfb59849-75d9-49ca-8392-9fc390a16e56\\evidence\\efe5ca94-bb36-4e7a-af00-734b5d1717f7.evidence",
+        "final_state": {
+          "url": "https://github.com/expressjs/express/graphs/contributors?from=2026-08-21T23%3A00%3A00.000Z",
+          "main_heading": "Contributors"
+        },
+        "end_url": "https://github.com/expressjs/express/graphs/contributors?from=2026-08-21T23%3A00%3A00.000Z",
+        "clicks": [
+          {
+            "label": "Contributors",
+            "x": 361,
+            "y": 277
+          }
+        ],
+        "credits": 29.9,
+        "duration": 197.8,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8C7HPNKM74QEDW75X7SJKJ5/dashboard/share/US_U7DYGOEMUONJJXAW2ZN1WGO4XIN6FKUVB7IX5KICZZ13DS5XROSGR0GUF2GFARUR?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\cfb59849-75d9-49ca-8392-9fc390a16e56\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\cfb59849-75d9-49ca-8392-9fc390a16e56",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express/insights",
+          "click: Clicking Contributors in the left sidebar",
+          "wait: PRIMARY: wait for the Contributors page to load",
+          "analyze: the page you end on has a main heading",
+          "analyze: The main heading is saved as {{landed_on}}.",
+          "wait: Waiting verification complete",
+          "wait: Waiting after verifying the Contributors destination"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"In the left sidebar, click Contributors.\"\n1. Click the element whose visible label is exactly 'Contributors'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "Contributors",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 29.9,
+      "started_at": "https://github.com/expressjs/express/insights"
+    },
+    {
+      "n": 4,
+      "quote": "Optionally, to view contributors during a specific time period, to the right of \"Contributors,\" click the **Period** button (for example, **Period: Last 3 months**). Then select a time period.",
+      "text": "Optionally, to view contributors during a specific time period, to the right of \"Contributors,\" click the Period button (for example, Period: Last 3 months). Then select a time period.",
+      "goal": "A menu for choosing a time period is open",
+      "labels": [
+        "Period"
+      ],
+      "checkable": true,
+      "continues": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "The requested Period control was clicked on the Express contributors page.\nThe contributors page remained open and its main heading was present after the action.",
+        "one_liner": "clicked the Period control on github.com",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\7381788f-9509-4242-beb8-f7ed94273fc0\\evidence\\28ec9658-a133-4edc-9489-a3ecc6636e0b.evidence",
+        "final_state": {
+          "url": "https://github.com/expressjs/express/graphs/contributors?from=2026-08-21T23%3A00%3A00.000Z",
+          "main_heading_present": "true"
+        },
+        "end_url": "https://github.com/expressjs/express/graphs/contributors?from=2026-08-21T23%3A00%3A00.000Z",
+        "clicks": [
+          {
+            "label": "Period: Last 3 months",
+            "names": [
+              "Period filter"
+            ],
+            "x": 1185,
+            "y": 193
+          }
+        ],
+        "credits": 29.5,
+        "duration": 248,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8C7VFA04J0B5YNB70FG0G3Y/dashboard/share/US_CGAW6KEFWQ3I3ZSFBKZ4MCDFO14993C14I7R1IFNFB5CR6ZB3D1F8IFCNV7YY2NG?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\7381788f-9509-4242-beb8-f7ed94273fc0\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\7381788f-9509-4242-beb8-f7ed94273fc0",
+        "trail": [
+          "navigate: Navigate to https://github.com/expressjs/express/graphs/contributors?from=2026-0",
+          "click: Clicking Period filter for Last 3 months",
+          "analyze: The page you end on has a main heading.",
+          "analyze: the value \"it\" is stored as {{landed_on}}",
+          "wait: Waiting after storing landed_on",
+          "wait: Waiting 1000 ms after opening the Period menu"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Optionally, to view contributors during a specific time period, to the right of 'Contributors,' click the Period button (for example, Period: Last 3 months). Then select a time period.\"\n1. Click the element whose visible label is exactly 'Period'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "true",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 29.5,
+      "started_at": "https://github.com/expressjs/express/graphs/contributors?from=2026-08-21T23%3A00%3A00.000Z"
+    }
+  ],
+  "totals": {
+    "steps": 4,
+    "checkable": 3,
+    "accurate": 3,
+    "drifted": 0,
+    "fixed": 0,
+    "broken": 0,
+    "skipped": 1,
+    "unchecked": 0,
+    "credits": 90.9,
+    "seconds": 1108
+  },
+  "input": "runs/2026-11-26/pr-proof/gh-contributors-corrected.tutorial.json"
+}

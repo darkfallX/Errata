@@ -24,12 +24,76 @@ const lower = (s: string) => (/^[A-Z][A-Z]/.test(s) ? s : s.charAt(0).toLowerCas
 //  5. "Store the main heading" failed a run on a raw text file, which has no heading. It is optional now.
 const HEADING = `If the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.`;
 
-export function literalObjective(step: Pick<Step, "text" | "labels">): string {
-  const clicks = step.labels.length ? step.labels.map((l, i) => `${i + 1}. Click the element whose visible label is exactly '${l}'.`) : [`1. ${step.text}`];
+// Learned on 26 Nov (How-To Geek's book step): Kane's only route needed typing into Search, and a click-only literal
+// run can never prove that. So a step may name exact text to type (`type **Special:Book** into **Search**`). The literal
+// run types only that text, exactly, into the field the sentence names. It is still the doc's words, nothing else.
+
+/** Text a sentence tells the reader to type: `type **X**`, `enter "X"`, `search for X`, `type X into`. */
+export function typedTexts(sentence: string): string[] {
+  const out: string[] = [];
+  const re = /\b(?:type|enter|search for)\s+(?:\*\*([^*]+)\*\*|["“]([^"”]+)["”]|`([^`]+)`|([A-Za-z0-9:_./-]{2,})(?=\s+(?:into|in|as)\b))/gi;
+  for (const m of sentence.matchAll(re)) {
+    const t = (m[1] ?? m[2] ?? m[3] ?? m[4] ?? "").trim();
+    if (t && !out.includes(t)) out.push(t);
+  }
+  return out;
+}
+
+/** The field each typed text goes into ("type X into **Search**" → Search), when the sentence names one. */
+export function typingFields(sentence: string, typed: string[]): Map<string, string> {
+  const plain = sentence.replace(/\*\*/g, "");
+  const esc = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const out = new Map<string, string>();
+  for (const t of typed) {
+    const m = plain.match(new RegExp(`${esc(t)}["\u201d'\`]?\\s+(?:into|in)\\s+(?:the\\s+)?([A-Z][\\w:/-]*(?:\\s+[A-Z][\\w:/-]*)*)`));
+    if (m) out.set(t, m[1]);
+  }
+  return out;
+}
+
+/** The labels a reader clicks: every label except text they type and the field they type it into. */
+export const clickLabels = (labels: string[], typed: string[], sentence = "") => {
+  const fields = [...typingFields(sentence, typed).values()].map(norm);
+  const drop = new Set<string>();
+  return labels.filter((l) => {
+    if (typed.some((t) => norm(t) === norm(l))) return false;
+    if (fields.includes(norm(l)) && !drop.has(norm(l))) return !drop.add(norm(l));
+    return true;
+  });
+};
+
+// Learned from Kane on 26 Nov: "type X into **Search**" first became "type X", then "click Search", so Kane typed,
+// reached the page, then clicked Search and left it, and the run still passed. The field now comes first, in the
+// same instruction, and is not clicked again afterwards.
+export function literalObjective(step: Pick<Step, "text" | "labels">, typed: string[] = []): string {
+  const fields = typingFields(step.text, typed);
+  const type = (t: string) =>
+    fields.get(t)
+      ? `Click the '${fields.get(t)}' field, type exactly '${t}', then submit it or choose the matching suggestion.`
+      : `Type exactly '${t}' into the field the tutorial names, then submit it or choose the matching suggestion.`;
+  const items: string[] = [];
+  const pending = typed.filter((t) => !step.labels.some((l) => norm(l) === norm(t)));
+  const at = (x: string) => step.text.toLowerCase().indexOf(x.toLowerCase());
+  const fieldUsed = new Set<string>();
+  for (const l of step.labels) {
+    while (pending.length && at(pending[0]) >= 0 && at(pending[0]) < at(l)) items.push(type(pending.shift()!));
+    // The field a text is typed into is clicked as part of the typing instruction, not again on its own.
+    const isField = [...fields.values()].some((f) => norm(f) === norm(l)) && !fieldUsed.has(norm(l));
+    if (isField) {
+      fieldUsed.add(norm(l));
+      continue;
+    }
+    items.push(typed.some((t) => norm(t) === norm(l)) ? type(l) : `Click the element whose visible label is exactly '${l}'.`);
+  }
+  items.push(...pending.map(type));
+  const rule = typed.length
+    ? `Follow these steps literally, one at a time, from the current page. Click only what each step names, and type only the exact text it quotes. Never type a URL, use the address bar, or take another route.\n`
+    : `Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n`;
+  const lines = items.length ? items.map((x, i) => `${i + 1}. ${x}`) : [`1. ${step.text}`];
   return (
-    `Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\n` +
-    (step.labels.length ? `Where to find them, in the tutorial's own words: "${step.text.replace(/"/g, "'")}"\n` : "") +
-    clicks.join("\n") +
+    rule +
+    (step.labels.length || typed.length ? `Where to find them, in the tutorial's own words: "${step.text.replace(/"/g, "'")}"\n` : "") +
+    lines.join("\n") +
     `\n${HEADING}`
   );
 }

@@ -1,0 +1,14 @@
+{
+  "howtogeek-com/how-to-geek-2010-make-a-book-from-wikipedia-articles#1": {
+    "verdict": "confirmed",
+    "fix": "not_proven",
+    "why": "Real drift (Create a book is gone from Print/export). With typing allowed, Claude Code's loop 1 named the page heading as a click and Kane explained it can't be clicked; loop 2 dropped it and Kane passed. But Kane's own summary shows loop 2 ended on Wikipedia's empty Search page: Errata had put the click on Search after the typing, so the pass doesn't prove a reader reaches the Book creator. The order is fixed (the field is clicked inside the typing instruction); the sentence was re-run in runs/2026-11-26/typing-proof.",
+    "reviewer": "Claude (pending approval)"
+  },
+  "howtogeek-com/how-to-geek-2010-make-a-book-from-wikipedia-articles#2": {
+    "verdict": "false_alarm",
+    "fix": "rejected",
+    "why": "Same as the morning run: step 1's goal run left the book creator on, so Start book creator wasn't shown, and a strange route (Tools → Main menu → Special pages → Book → Wikipedia The Free Encyclopedia) got 'proven'. Errata's state limit, not a docs error.",
+    "reviewer": "Claude (pending approval)"
+  }
+}

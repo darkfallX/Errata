@@ -319,3 +319,29 @@ test("claude-code agent: reads the JSON out of a chatty reply, and Kane's failed
   const u = rewriteUser({ step: { n: 1, quote: "Click **Print/export**.", text: "", goal: "PDF page", labels: ["Print/export"], checkable: true }, actual_path: "Tools → Download as PDF", failures: ['"Click **Tools**." → failed: Download as PDF is inside the Tools menu'] });
   assert.match(u, /Earlier rewrites failed Kane's literal proof:\n- "Click \*\*Tools\*\*\." → failed: Download as PDF is inside the Tools menu/);
 });
+
+test("typing: a step may name exact text to type, and only that text is typed", async () => {
+  const { typedTexts, clickLabels, literalObjective } = await import("../objectives.js");
+  assert.deepEqual(typedTexts("To do this, type **Special:Book** into **Search** in Wikipedia."), ["Special:Book"]);
+  assert.deepEqual(typedTexts('Click the Search box, type Special:Book into it, and press Enter.'), ["Special:Book"]);
+  assert.deepEqual(typedTexts('Enter "octocat" as the owner.'), ["octocat"]);
+  assert.deepEqual(typedTexts("Click **Tools**, then **Download as PDF**."), []);
+  assert.deepEqual(clickLabels(["Search", "Special:Book", "Manage your book"], ["Special:Book"]), ["Search", "Manage your book"]);
+  const o = literalObjective({ text: "Click Search, type Special:Book into it, then click Manage your book.", labels: ["Search", "Manage your book"] }, ["Special:Book"]);
+  assert.match(o, /1\. Click the element whose visible label is exactly 'Search'\.\n2\. Type exactly 'Special:Book' into the field/);
+  assert.match(o, /3\. Click the element whose visible label is exactly 'Manage your book'/);
+  assert.match(o, /type only the exact text it quotes/);
+  // Without typing, the old rule stands: no typing at all.
+  assert.match(literalObjective({ text: "Click Tools.", labels: ["Tools"] }), /Never type a URL, search, or take another route/);
+});
+
+test("typing: 'type X into Field' clicks the field first, inside the typing step, and never again after", async () => {
+  const { typedTexts, clickLabels, literalObjective, typingFields } = await import("../objectives.js");
+  const s = "To do this, type **Special:Book** into **Search** in Wikipedia and press Enter to open the Book creator.";
+  const typed = typedTexts(s);
+  assert.deepEqual([...typingFields(s, typed)], [["Special:Book", "Search"]]);
+  assert.deepEqual(clickLabels(["Special:Book", "Search"], typed, s), []);
+  const o = literalObjective({ text: s.replace(/\*\*/g, ""), labels: ["Special:Book", "Search"] }, typed);
+  assert.match(o, /1\. Click the 'Search' field, type exactly 'Special:Book', then submit it/);
+  assert.doesNotMatch(o, /2\. Click the element whose visible label is exactly 'Search'/);
+});

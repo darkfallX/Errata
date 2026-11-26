@@ -13,7 +13,7 @@
 // the previous step's real end URL; independent steps start at the tutorial's start URL and run in parallel.
 import { guardRewrite, type Agent } from "./agent.js";
 import { namesOf, pathOf, trimExploration } from "./evidence.js";
-import { extraClicks, goalObjective, labelsMatch, literalObjective } from "./objectives.js";
+import { clickLabels, extraClicks, goalObjective, labelsMatch, literalObjective, typedTexts } from "./objectives.js";
 import { isInfraFailure, type KaneRunner, type KaneRunOptions } from "./kane.js";
 import type { Attempt, KaneResult, Step, StepReport, Tutorial, TutorialReport } from "./types.js";
 
@@ -102,16 +102,18 @@ export async function checkTutorial(tutorial: Tutorial, opts: EngineOptions): Pr
 
     // 1. Literal pass
     emit({ type: "phase", step, phase: "literal" });
-    const literal = await run(step, url, { objective: literalObjective(step), mode: "action" });
+    const typed = typedTexts(step.quote ?? step.text);
+    const clicksWanted = clickLabels(step.labels, typed, step.quote ?? step.text);
+    const literal = await run(step, url, { objective: literalObjective(step, typed), mode: "action" });
     emit({ type: "result", step, phase: "literal", result: literal });
 
     if (literal.status === "error" || literal.status === "timeout")
       return done({ ...step, status: "unchecked", literal, note: `Kane could not run this step (${literal.status}): ${literal.reason ?? "no reason given"}. Not counted as a docs finding.`, credits: cred(literal) });
 
-    const followed = labelsMatch(step.labels, literal.clicks.map(namesOf));
+    const followed = labelsMatch(clicksWanted, literal.clicks.map(namesOf));
     const lenient = literal.status === "passed" && !followed && literal.clicks.length > 0;
     if (literal.status === "passed" && !lenient) {
-      const extra = extraClicks(step.labels, literal.clicks.map(namesOf));
+      const extra = extraClicks(clicksWanted, literal.clicks.map(namesOf));
       return done({ ...step, status: "accurate", literal, landed_on: heading(literal), extra_clicks: extra.length ? extra : undefined, note: accurateNote("Kane followed the doc's exact words and reached the goal.", extra), credits: cred(literal) }, literal.end_url ?? url);
     }
 
@@ -143,15 +145,15 @@ export async function checkTutorial(tutorial: Tutorial, opts: EngineOptions): Pr
     // If the route Kane found looks like the doc's route, the literal failure may be a flake. A lookalike route is
     // not proof: the doc's words get one more literal run, and only a pass makes the step accurate.
     let retry: KaneResult | undefined;
-    if (!lenient && labelsMatch(step.labels, trimmed.map(namesOf))) {
+    if (!lenient && labelsMatch(clicksWanted, trimmed.map(namesOf))) {
       emit({ type: "phase", step, phase: "literal" });
-      retry = await run(step, url, { objective: literalObjective(step), mode: "action" });
+      retry = await run(step, url, { objective: literalObjective(step, typed), mode: "action" });
       emit({ type: "result", step, phase: "literal", result: retry });
       if (retry.status === "error" || retry.status === "timeout")
         return done({ ...step, status: "unchecked", literal, goal_pass: goal, actual_path, landed_on, note: `The literal pass failed once and Kane could not run the retry (${retry.status}). Not counted as a docs finding.`, credits: cred(literal, goal, retry) }, end);
-      if (retry.status === "passed" && (retry.clicks.length === 0 || labelsMatch(step.labels, retry.clicks.map(namesOf))))
+      if (retry.status === "passed" && (retry.clicks.length === 0 || labelsMatch(clicksWanted, retry.clicks.map(namesOf))))
       {
-        const extra = extraClicks(step.labels, retry.clicks.map(namesOf));
+        const extra = extraClicks(clicksWanted, retry.clicks.map(namesOf));
         return done({ ...step, status: "accurate", literal: retry, goal_pass: goal, actual_path, landed_on, extra_clicks: extra.length ? extra : undefined, note: accurateNote("The literal pass failed once, then passed on a retry with the doc's exact words. A flaky run, not drift.", extra), credits: cred(literal, goal, retry) }, retry.end_url ?? end);
       }
     }
@@ -180,11 +182,12 @@ export async function checkTutorial(tutorial: Tutorial, opts: EngineOptions): Pr
         continue;
       }
       emit({ type: "phase", step, phase: "proof", loop });
-      const proof = await run(step, url, { objective: literalObjective({ text: out.text.replace(/\*\*/g, ""), labels: out.labels }), mode: "action" });
+      const typedOut = typedTexts(out.text);
+      const proof = await run(step, url, { objective: literalObjective({ text: out.text.replace(/\*\*/g, ""), labels: out.labels }, typedOut), mode: "action" });
       emit({ type: "result", step, phase: "proof", result: proof });
       const attempt: Attempt = { loop, rewrite: out.text, labels: out.labels, proof };
       attempts.push(attempt);
-      const ok = proof.status === "passed" && (proof.clicks.length === 0 || labelsMatch(out.labels, proof.clicks.map(namesOf)));
+      const ok = proof.status === "passed" && (proof.clicks.length === 0 || labelsMatch(clickLabels(out.labels, typedOut, out.text), proof.clicks.map(namesOf)));
       if (ok) proven = attempt;
       else failures.push(`"${out.text}" → ${proof.status}: ${proof.one_liner ?? proof.reason ?? "no reason given"}`);
     }
