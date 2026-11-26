@@ -1,0 +1,198 @@
+[
+  {
+    "id": "S1",
+    "tutorial": "Accessing the contributors graph",
+    "source": "https://docs.github.com/en/repositories/viewing-activity-and-data-for-your-repository/viewing-a-projects-contributors",
+    "start_url": "https://github.com/expressjs/express",
+    "step": 4,
+    "doc_sentence": "Optionally, to view contributors during a specific time period, to the right of \"Contributors,\" click **Period: All**.",
+    "labels": [
+      "Period: All"
+    ],
+    "word_for_word_run": {
+      "status": "failed",
+      "kane_summary": "The run expected a control labeled “Period: All,” but the page showed “Period: Last 3 months” instead.",
+      "kane_reason": "The only period control is labeled “Period: Last 3 months,” so the named element is absent."
+    },
+    "goal_only_run": {
+      "status": "passed",
+      "route_kane_clicked": "Period: Last 3 months",
+      "page_heading": "true",
+      "end_url": "https://github.com/expressjs/express/graphs/contributors?from=2026-08-21T23%3A00%3A00.000Z"
+    }
+  },
+  {
+    "id": "S2",
+    "tutorial": "Viewing branches in your repository",
+    "source": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/viewing-branches-in-your-repository",
+    "start_url": "https://github.com/expressjs/express",
+    "step": 2,
+    "doc_sentence": "From the file tree view on the left, select the branch dropdown menu, then click **View all branches**.",
+    "labels": [
+      "View all branches"
+    ],
+    "word_for_word_run": {
+      "status": "failed",
+      "kane_summary": "The run looked for “View all branches” before completing the required step of opening the branch dropdown.",
+      "kane_reason": "Checked page text, screenshot, and interactive elements; only “23 Branches” exists, not the required exact label."
+    },
+    "goal_only_run": {
+      "status": "passed",
+      "route_kane_clicked": "23 Branches",
+      "page_heading": "true",
+      "end_url": "https://github.com/expressjs/express/branches"
+    }
+  },
+  {
+    "id": "S3",
+    "tutorial": "Viewing the line-by-line revision history for a file",
+    "source": "https://docs.github.com/en/repositories/working-with-files/using-files/viewing-and-understanding-files",
+    "start_url": "https://github.com/expressjs/express/blob/master/Readme.md",
+    "step": 4,
+    "doc_sentence": "If you are viewing a Markdown file, above the file content, you can also click **Preview** to return to the view with Markdown formatting applied.",
+    "labels": [
+      "Preview"
+    ],
+    "word_for_word_run": {
+      "status": "failed",
+      "kane_summary": "The test looked for Preview before navigating into a Markdown file.",
+      "kane_reason": "The repository page contains no element labeled exactly Preview; only a Readme.md file link is present."
+    },
+    "goal_only_run": {
+      "status": "passed",
+      "route_kane_clicked": "Readme.md",
+      "page_heading": "Readme.md",
+      "end_url": "https://github.com/expressjs/express/blob/master/Readme.md"
+    }
+  },
+  {
+    "id": "S4",
+    "tutorial": "Viewing or copying the raw file content",
+    "source": "https://docs.github.com/en/repositories/working-with-files/using-files/viewing-and-understanding-files",
+    "start_url": "https://github.com/expressjs/express/blob/master/index.js",
+    "step": 2,
+    "doc_sentence": "In the upper-right corner of the file view, click **Raw**.",
+    "labels": [
+      "Raw"
+    ],
+    "word_for_word_run": {
+      "status": "failed",
+      "kane_summary": "The run correctly opened the raw source file, but the test then expected that plain-text response to have a main heading.",
+      "kane_reason": "The Raw response has no main heading to save as landed_on."
+    },
+    "goal_only_run": {
+      "status": "failed",
+      "route_kane_clicked": "Raw"
+    }
+  },
+  {
+    "id": "S5",
+    "tutorial": "Dignited (2019): Export a Wikipedia page as a PDF",
+    "source": "https://dignited.com/44778/how-to-export-a-wikipedia-page-as-a-pdf",
+    "start_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+    "step": 1,
+    "doc_sentence": "Locate the **Print/export** section in the left panel of the page.",
+    "labels": [
+      "Print/export"
+    ],
+    "word_for_word_run": {
+      "status": "failed",
+      "kane_summary": "The run could not reach Print/export because it was hidden inside the unopened Main menu, while the instructions allowed clicking only Print/export itself.",
+      "kane_reason": "The visible page snapshot contains no Print/export element; only an unopened Main menu could reveal it, which is not named."
+    },
+    "goal_only_run": {
+      "status": "passed",
+      "route_kane_clicked": "Tools",
+      "page_heading": "Ada Lovelace",
+      "end_url": "https://en.wikipedia.org/wiki/Ada_Lovelace"
+    }
+  },
+  {
+    "id": "S6",
+    "tutorial": "How-To Geek (2010): Make a book from Wikipedia articles",
+    "source": "https://www.howtogeek.com/27882/create-an-ebook-or-pdf-from-wikipedia-articles-for-offline-reading/",
+    "start_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+    "step": 1,
+    "doc_sentence": "To do this, click **Create a book** under **Print/export** on the left sidebar in Wikipedia.",
+    "labels": [
+      "Create a book"
+    ],
+    "word_for_word_run": {
+      "status": "failed",
+      "kane_summary": "",
+      "kane_reason": "The expanded Print/export menu contains only Download as PDF and Printable version; no Create a book link exists."
+    },
+    "goal_only_run": {
+      "status": "passed",
+      "route_kane_clicked": "main menu → Tools → Search → Special:Book Book",
+      "page_heading": "Manage your book",
+      "end_url": "https://en.wikipedia.org/wiki/Special:Book"
+    }
+  },
+  {
+    "id": "S7",
+    "tutorial": "How-To Geek (2010): Wikipedia article to PDF",
+    "source": "https://www.howtogeek.com/27882/create-an-ebook-or-pdf-from-wikipedia-articles-for-offline-reading/",
+    "start_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+    "step": 1,
+    "doc_sentence": "To do this, click the **Print/export** link on the left sidebar in Wikipedia when you're on an article you want to save.",
+    "labels": [
+      "Print/export"
+    ],
+    "word_for_word_run": {
+      "status": "failed",
+      "kane_summary": "The run expected Print/export to be visible on the article page, but this Wikipedia layout keeps it inside a closed navigation control that the instructions prohibited opening.",
+      "kane_reason": "The Print/export link is absent; only unopened Main menu and Tools controls are present, which constraints forbid clicking."
+    },
+    "goal_only_run": {
+      "status": "passed",
+      "route_kane_clicked": "Tools",
+      "page_heading": "Ada Lovelace",
+      "end_url": "https://en.wikipedia.org/wiki/Ada_Lovelace"
+    }
+  },
+  {
+    "id": "S8",
+    "tutorial": "labnol (2015): Create eBooks from Wikipedia",
+    "source": "https://labnol.org/internet/create-wikipedia-ebooks/25491",
+    "start_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+    "step": 1,
+    "doc_sentence": "Alternatively, you can open any Wikipedia page and choose **Book Creator** from the toolbox menu in the right sidebar.",
+    "labels": [
+      "Book Creator"
+    ],
+    "word_for_word_run": {
+      "status": "failed",
+      "kane_summary": "The run looked in the wrong menu, so the required Book Creator link was never available.",
+      "kane_reason": "The expanded right-sidebar toolbox has no element labeled exactly “Book Creator”."
+    },
+    "goal_only_run": {
+      "status": "passed",
+      "route_kane_clicked": "Tools → Switch → Special:Book Book",
+      "page_heading": "Manage your book",
+      "end_url": "https://en.wikipedia.org/wiki/Special:Book"
+    }
+  },
+  {
+    "id": "S9",
+    "tutorial": "SmartCompany (2011): Convert Wikipedia articles into PDF files",
+    "source": "https://www.smartcompany.com.au/startupsmart/convert-wikipedia-articles-into-pdf-files/",
+    "start_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+    "step": 1,
+    "doc_sentence": "On the left hand side of the screen, you should see a link that says “**Print/Export**”.",
+    "labels": [
+      "Print/Export"
+    ],
+    "word_for_word_run": {
+      "status": "failed",
+      "kane_summary": "The run expected a visible “Print/Export” link, but the loaded Wikipedia page uses a layout where that exact link is not present in the page snapshot.",
+      "kane_reason": "The page snapshot contains no link labeled exactly “Print/Export,” only unrelated citation URLs."
+    },
+    "goal_only_run": {
+      "status": "passed",
+      "route_kane_clicked": "Tools",
+      "page_heading": "Ada Lovelace",
+      "end_url": "https://en.wikipedia.org/wiki/Ada_Lovelace"
+    }
+  }
+]

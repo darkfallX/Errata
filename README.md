@@ -143,6 +143,25 @@ So the hunt found **5 real wrong steps**, with **3 Kane-proven fixes**, and it s
 
 **We caught ourselves, too.** The tool we used to read these pages had paraphrased 15 of the 54 tutorial sentences, and our first runs used those paraphrases. We now check every quote against the live page ([`corpus/verify-quotes.mjs`](corpus/verify-quotes.mjs), 56/56 verbatim), re-walked the 11 affected tutorials, and kept the first reports in [`runs/2026-11-16/superseded/`](runs/2026-11-16/superseded/). With exact quotes, two book-creator flags from the first runs disappeared.
 
+### Try it yourself (30 seconds)
+
+Open [Ada Lovelace on Wikipedia](https://en.wikipedia.org/wiki/Ada_Lovelace) and follow SmartCompany's sentence: *"On the left hand side of the screen, you should see a link that says **Print/Export**."* It isn't there. Now ask any browser agent to "download this article as a PDF": it opens **Tools**, finds **Download as PDF**, and passes. Green test, stuck reader. That gap is what Errata reports.
+
+### Goal-only Kane against Errata, on both samples
+
+What a docs maintainer wants to know: *what does this catch that my tests miss, and how often does it bother me about correct steps?*
+
+| | Public run: 24 current tutorials, 44 steps, picked before testing ([rule](corpus/)) | Drift hunt: 6 old tutorials, 11 steps, picked to find drift |
+|---|---|---|
+| Real errors, **goal-only Kane** | 0 | 0 of 5 |
+| Real errors, **Errata** | 1 (GitHub's **Period: All**) | 5 of 5 (3 fixed and proven) |
+| False alarms, **Errata** | 3 (all Errata's: a required page heading, an unlabelled dropdown, a wrong starting page) | 0 |
+| Kane credits | 889, about 37 per tutorial | about 125 per tutorial (26 Nov run): each wrong step adds a goal run, a rewrite and a proof |
+
+The goal-only row is partly inferred: we run the goal pass only where the word-for-word run fails, and assume a goal-only run passes wherever the exact words work. Every disagreement (9 steps) went to a [blind reviewer](runs/2026-11-26/blind-review/), a separate AI agent that never saw our verdicts. It agreed on 8 and couldn't check the 9th (GitHub's buttons need JavaScript), which we checked in a browser.
+
+**Getting fixes to maintainers:** GitHub Docs' "Period: All" is the one finding in actively maintained docs, and the [github/docs](https://github.com/github/docs) source still says **Period: All**; a one-line correction is [drafted](docs/pr-drafts/github-docs-contributors-period.md). The 5 drift-hunt errors are in blog posts from 2010 to 2019, which take no pull requests. No maintainer has confirmed a fix yet.
+
 ## The insight
 
 > **A smart test agent hides docs drift. Errata makes Kane follow the words first, then the goal. The gap between them is the bug.**
