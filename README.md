@@ -89,7 +89,16 @@ Here is one step, unedited ([report](runs/2026-11-26/claude-code/hunt/reports/ho
 | 2 | "click the **Search** box…, type Special:Book into it, and press Enter…" | failed: the instructions required a search term but prohibited entering it |
 | 3 | "click **Search**…, enter **Special:Book** as the search term, and click **Search** again…" | failed: typing is prohibited |
 
-No fix shipped, and that's the point: Errata publishes a rewrite only when Kane can follow it word for word. Kane's last two answers also told *us* something: Errata's literal runs forbid typing, so a step that needs a search box can't be proven yet. That limit is now listed [below](#limits-stated-plainly).
+No fix shipped, and that's the point: Errata publishes a rewrite only when Kane can follow it word for word. Kane's last two answers also told *us* something: Errata's literal runs forbid typing, so a step that needs a search box could never be proven.
+
+**So we taught the literal run to type, and the loop recovered (same afternoon).** A step may now name exact text to type (*type **Special:Book** into **Search***). Kane types only that text, exactly, into the named field. Re-run live ([report](runs/2026-11-26/typing/reports/how-to-geek-2010-make-a-book-from-wikipedia-articles.json)):
+
+| Loop | Claude Code wrote | Kane said |
+|---|---|---|
+| 1 | "type **Special:Book** into **Search**… to open the **Manage your book** page." | failed: *"The exact label is a non-interactive H1 with no clickable ancestor, so it cannot be clicked."* |
+| 2 | "type **Special:Book** into **Search** in Wikipedia and press Enter to open the Book creator." | passed |
+
+Kane's reason in loop 1 is the reason loop 2 dropped the heading. But Kane's summary of loop 2 showed it ended on an empty **Search** page: our new code had put the click on **Search** *after* the typing, so Kane typed, reached the book page, then clicked Search and left it. We fixed the order and re-ran the loop-2 sentence in a fresh browser: it ended on **Manage your book** (`/wiki/Special:Book`), 31 credits ([proof](runs/2026-11-26/typing-proof/)). Step 2 of that tutorial again got a state-caused "fix", rejected in [`review.json`](runs/2026-11-26/typing/review.json).
 
 | Run (live Kane, Claude Code as the agent) | Result | Kane credits |
 |---|---|---|
@@ -286,9 +295,10 @@ npx errata-cli skill                      # installs /errata into ~/.claude/skil
 - Each Kane run costs credits (about 20 on our runs); the goal pass and proofs only run on failures.
 - The rules agent needs numbered steps with **bold** or "quoted" UI labels. Prose-heavy docs need the Claude agent, or pre-extracted `*.tutorial.json`.
 - Icon-only buttons (no visible label) can't be followed literally, because there are no words to follow.
-- Steps that need typing (a search box, a form field) can't be proven yet: the literal run only clicks. Kane told us so on the How-To Geek book step.
+- Typing is new (26 Nov): only text the sentence quotes is typed, into the field it names. Forms with several fields are untested.
+- A proof checks that Kane followed the words, not that it ended on the step's goal page. We read the end page in Kane's summary by hand; Errata doesn't check it yet (it's how we caught the typing-order bug).
 - Each step starts in a fresh browser at the right URL; state such as a switched-on mode or a cookie is not carried between steps. Steps that depend on that state can be flagged wrongly (see the drift hunt).
-- If Kane's route contains the doc's labels in order but needs an extra click the doc doesn't mention (say, opening a menu first), the step counts as **accurate**. Errata checks labels, not completeness.
+- If Kane's route contains the doc's labels in order but needs an extra click the doc doesn't mention (say, opening a menu first), the step counts as **accurate**, and the report names the extra click (`extra_clicks`, e.g. *"Kane also clicked "Tools", which the step doesn't name"* on the Wikipedia PDF steps). It isn't a flag yet.
 
 ## Repository
 
@@ -310,7 +320,7 @@ site/                    the report site (static, built from report.json)
 ```
 
 ```bash
-npm install && npm run build && npm test     # 24 tests, no network or credits needed
+npm install && npm run build && npm test     # 26 tests, no network or credits needed
 node site/extract-shots.mjs                   # copies Kane's screenshots out of local evidence packs
 npm run site                                  # builds site/out from the reports
 ```

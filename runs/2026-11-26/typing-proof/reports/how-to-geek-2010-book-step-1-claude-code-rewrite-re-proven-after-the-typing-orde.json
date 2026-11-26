@@ -1,0 +1,74 @@
+{
+  "errata": "1",
+  "tutorial": "How-To Geek (2010) book, step 1: Claude Code rewrite, re-proven after the typing-order fix",
+  "source": "https://www.howtogeek.com/27882/create-an-ebook-or-pdf-from-wikipedia-articles-for-offline-reading/",
+  "start_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "checked_at": "2026-11-26T16:10:06.967Z",
+  "agent": "Claude Code rewrite (loop 2, runs/2026-11-26/typing) · rewrite: rules (offline, deterministic)",
+  "kane": "live",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "To do this, type **Special:Book** into **Search** in Wikipedia and press Enter to open the Book creator.",
+      "text": "To do this, type Special:Book into Search in Wikipedia and press Enter to open the Book creator.",
+      "goal": "Wikipedia's Book creator page (Manage your book) is shown",
+      "labels": [
+        "Special:Book",
+        "Search"
+      ],
+      "checkable": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "Searched Wikipedia for “Special:Book” as requested.\nOpened the Book creator page, which displayed the heading “Manage your book”.",
+        "one_liner": "opened the Book creator on Wikipedia",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\3f9dfef4-3180-4462-bb58-c6eb13040659\\evidence\\59600668-b0e6-49f7-a9cb-6db5b0b921bd.evidence",
+        "final_state": {
+          "url": "https://en.wikipedia.org/wiki/Special:Book",
+          "landed_on": "Manage your book",
+          "main_heading_present": "true"
+        },
+        "end_url": "https://en.wikipedia.org/wiki/Special:Book",
+        "clicks": [],
+        "credits": 30.9,
+        "duration": 145.3,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8C9QKG5P2G9H1QZC8BXGZH1/dashboard/share/US_OT64TV9WIG8CM1JZDY0K8WK0V7RGYBEYB4EJW7T2852BWI7CYGMH4ZNV5YK3BS1L?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\3f9dfef4-3180-4462-bb58-c6eb13040659\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\3f9dfef4-3180-4462-bb58-c6eb13040659",
+        "trail": [
+          "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+          "type: Typing Special:Book into Search field",
+          "press_key: PRIMARY: submit it; role=searchbox; text=\"Search Wikipedia\" | HINTS: container=t",
+          "wait: PRIMARY: wait for the Book creator page to finish loading",
+          "analyze: The page you end on has a main heading.",
+          "analyze: the value \"it\" is stored as {{landed_on}}",
+          "wait: Waiting after checkpoint verification",
+          "wait: Waiting after confirming the Book creator main heading"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names, and type only the exact text it quotes. Never type a URL, use the address bar, or take another route.\nWhere to find them, in the tutorial's own words: \"To do this, type Special:Book into Search in Wikipedia and press Enter to open the Book creator.\"\n1. Click the 'Search' field, type exactly 'Special:Book', then submit it or choose the matching suggestion.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "Manage your book",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 30.9,
+      "started_at": "https://en.wikipedia.org/wiki/Ada_Lovelace"
+    }
+  ],
+  "totals": {
+    "steps": 1,
+    "checkable": 1,
+    "accurate": 1,
+    "drifted": 0,
+    "fixed": 0,
+    "broken": 0,
+    "skipped": 0,
+    "unchecked": 0,
+    "credits": 30.9,
+    "seconds": 222
+  },
+  "input": "runs/2026-11-26/typing-proof/htg-book-step1-rewrite.tutorial.json"
+}

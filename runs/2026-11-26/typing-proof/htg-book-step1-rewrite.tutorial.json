@@ -1,0 +1,20 @@
+{
+  "title": "How-To Geek (2010) book, step 1: Claude Code rewrite, re-proven after the typing-order fix",
+  "source": "https://www.howtogeek.com/27882/create-an-ebook-or-pdf-from-wikipedia-articles-for-offline-reading/",
+  "start_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "extracted_by": "Claude Code rewrite (loop 2, runs/2026-11-26/typing)",
+  "extracted_at": "2026-11-26",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "To do this, type **Special:Book** into **Search** in Wikipedia and press Enter to open the Book creator.",
+      "text": "To do this, type Special:Book into Search in Wikipedia and press Enter to open the Book creator.",
+      "goal": "Wikipedia's Book creator page (Manage your book) is shown",
+      "labels": [
+        "Special:Book",
+        "Search"
+      ],
+      "checkable": true
+    }
+  ]
+}
