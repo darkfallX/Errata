@@ -84,6 +84,8 @@ export interface Attempt {
   rewrite: string;
   labels: string[];
   proof: KaneResult;
+  /** Why a proof that passed still didn't count (e.g. it ended somewhere other than the goal page). */
+  note?: string;
 }
 
 export interface StepReport extends Step {

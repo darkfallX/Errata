@@ -345,3 +345,12 @@ test("typing: 'type X into Field' clicks the field first, inside the typing step
   assert.match(o, /1\. Click the 'Search' field, type exactly 'Special:Book', then submit it/);
   assert.doesNotMatch(o, /2\. Click the element whose visible label is exactly 'Search'/);
 });
+
+test("a proof must end where the goal run ended (the empty-search pass from 26 Nov is rejected)", async () => {
+  const { endsWhereGoalDid } = await import("../engine.js");
+  const r = (url?: string, landed?: string) => ({ status: "passed", exit_code: 0, clicks: [], final_state: landed ? { landed_on: landed } : {}, end_url: url }) as any;
+  assert.equal(endsWhereGoalDid(r("https://en.wikipedia.org/w/index.php?search=&title=Special%3ASearch", "Search"), r("https://en.wikipedia.org/wiki/Special:Book", "Manage your book")).ok, false);
+  assert.equal(endsWhereGoalDid(r("https://github.com/x/y/graphs/contributors?from=1"), r("https://github.com/x/y/graphs/contributors?from=2")).ok, true);
+  assert.equal(endsWhereGoalDid(r(undefined, "Manage your book"), r(undefined, "manage your book")).ok, true);
+  assert.equal(endsWhereGoalDid(r(), r()).ok, true);
+});

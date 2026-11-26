@@ -44,6 +44,27 @@ const cred = (...rs: (KaneResult | undefined)[]) => Math.round(rs.reduce((a, r) 
 /** An accurate verdict never hides clicks the doc doesn't name: a reader would have to make them too. */
 export const accurateNote = (base: string, extra: string[]) =>
   extra.length ? `${base} Kane also clicked ${extra.map((e) => `"${e}"`).join(", ")}, which the step doesn't name.` : base;
+/**
+ * A proof must end where the goal run ended: the same page (path, ignoring the query) or the same heading.
+ * Learned on 26 Nov: a typing proof "passed" after Kane typed, reached the book page, then clicked Search and left it.
+ * If neither run reports an end page, there's nothing to compare and the proof stands.
+ */
+export function endsWhereGoalDid(proof: KaneResult, goal: KaneResult): { ok: boolean; why?: string } {
+  const page = (r: KaneResult) => {
+    const u = r.end_url ?? (typeof r.final_state?.url === "string" ? r.final_state.url : undefined);
+    try {
+      const x = new URL(String(u));
+      return x.origin + x.pathname.replace(/\/$/, "");
+    } catch {
+      return undefined;
+    }
+  };
+  const same = (a?: string, b?: string) => !!a && !!b && a.toLowerCase().replace(/\s+/g, " ").trim() === b.toLowerCase().replace(/\s+/g, " ").trim();
+  const p = page(proof), g = page(goal), hp = heading(proof), hg = heading(goal);
+  if ((p && g && p === g) || same(hp, hg)) return { ok: true };
+  if ((!p || !g) && (!hp || !hg)) return { ok: true };
+  return { ok: false, why: `Kane followed the words but ended on ${p ?? hp}, not where the goal run ended (${g ?? hg}).` };
+}
 const heading = (r?: KaneResult) => str(r?.final_state.landed_on) ?? str(Object.entries(r?.final_state ?? {}).find(([k]) => /heading|landed|title/i.test(k))?.[1]);
 
 /** Group steps into chains: a step that `continues` joins the chain of the checkable step before it. */
@@ -187,9 +208,13 @@ export async function checkTutorial(tutorial: Tutorial, opts: EngineOptions): Pr
       emit({ type: "result", step, phase: "proof", result: proof });
       const attempt: Attempt = { loop, rewrite: out.text, labels: out.labels, proof };
       attempts.push(attempt);
-      const ok = proof.status === "passed" && (proof.clicks.length === 0 || labelsMatch(clickLabels(out.labels, typedOut, out.text), proof.clicks.map(namesOf)));
-      if (ok) proven = attempt;
-      else failures.push(`"${out.text}" → ${proof.status}: ${proof.one_liner ?? proof.reason ?? "no reason given"}`);
+      const followed = proof.status === "passed" && (proof.clicks.length === 0 || labelsMatch(clickLabels(out.labels, typedOut, out.text), proof.clicks.map(namesOf)));
+      const dest = followed ? endsWhereGoalDid(proof, goal) : { ok: true };
+      if (followed && dest.ok) proven = attempt;
+      else if (followed) {
+        attempt.note = dest.why;
+        failures.push(`"${out.text}" → passed, but ${dest.why}`);
+      } else failures.push(`"${out.text}" → ${proof.status}: ${proof.one_liner ?? proof.reason ?? "no reason given"}`);
     }
 
     return done(
