@@ -17,14 +17,40 @@
 
 ## In one minute
 
-**Errata reads your tutorial, makes Kane CLI follow it word for word in a real browser, and tells you which step is wrong, with a fix Kane has already proven.**
+Errata reads a tutorial, has Kane CLI follow it word for word in a real browser, and tells you which step is wrong. When it finds one, it doesn't just complain: it finds the real path, rewrites the sentence, and Kane checks that the new sentence actually works before you ever see it.
 
-- 🐙 **It caught a stale step in GitHub's own documentation.** GitHub's contributors guide says click **Period: All**. That button now reads **Period: Last 3 months** on both repositories we checked. Kane proved the corrected tutorial end to end in a fresh browser, and we sent the fix to GitHub: **[github/docs#47081](https://github.com/github/docs/pull/47081)** (open, awaiting review).
-- 🟢 **Normal agent tests can't see this.** On 5 of 5 wrong tutorial steps, a goal-only Kane run ("get there any way you can") passed. Errata's word-for-word run caught all 5. [The numbers](#goal-only-kane-against-errata-on-both-samples)
-- 🔁 **Kane and the agent talk until the fix works.** Claude Code rewrites the step; if Kane can't follow it, Kane's reason goes back to Claude Code. [A real exchange](#the-closed-loop-live-with-claude-code-26-nov-2026): *"the heading can't be clicked"* → a better sentence → proven.
-- 🧾 **We publish when we're wrong.** On 44 steps of current public docs: 40 accurate, 1 real error (GitHub's), 3 false alarms, all ours, all [published](#the-public-run-16-nov-2026).
+**It even caught GitHub.** GitHub's own guide to the contributors graph says to click **Period: All**. That button doesn't say that anymore; it says **Period: Last 3 months**. Kane got stuck on that exact line, found the real button, and then walked the corrected tutorial start to finish in a fresh browser. We sent the one-line fix to GitHub: **[github/docs#47081](https://github.com/github/docs/pull/47081)** (it's open and waiting for their review).
 
-Try it in 20 seconds, no sign-in: `npx errata-cli demo --replay`
+<p align="center"><img src="docs/img/catches/github-period-fixed.jpg" alt="Kane's screenshot of GitHub's contributors graph: the button reads 'Period: Last 3 months', not 'Period: All'" width="760"><br><sub>Kane's own screenshot from the run. The guide says "Period: All". The button says "Period: Last 3 months".</sub></p>
+
+A few more things worth knowing:
+
+- **Normal agent tests miss this.** If you tell a browser agent "get to the PDF download", it'll find a way and pass, even when the tutorial's directions are wrong. We saw it 5 times out of 5. Following the words exactly is what exposes the problem. [The numbers](#goal-only-kane-against-errata-on-both-samples)
+- **Kane and the agent go back and forth until the fix is right.** Claude Code writes the new sentence. If Kane can't follow it, Kane says why, and Claude Code tries again. One real example: Kane said *"the heading can't be clicked"*, Claude Code dropped it, and the next try worked. [See it](#the-closed-loop-live-with-claude-code-26-nov-2026)
+- **We're upfront about our own mistakes.** On 44 steps from current public docs: 40 were fine, 1 was really wrong (GitHub's), and 3 were false alarms. All 3 were Errata's fault, and they're all [written up](#the-public-run-16-nov-2026).
+
+Try it in about 20 seconds, no sign-in needed: `npx errata-cli demo --replay`
+
+```mermaid
+flowchart LR
+    A["📄 Tutorial step"] --> B{"Kane follows<br/>the exact words"}
+    B -- works --> C["🟢 Accurate"]
+    B -- stuck --> D{"Kane reaches the goal<br/>any way it can"}
+    D -- can't --> E["🔴 Broken<br/>needs a human"]
+    D -- found a way --> F["🟡 Drifted<br/>that route is the fix"]
+    F --> G["Claude Code rewrites<br/>the sentence"]
+    G --> H{"Kane follows the<br/>new words, lands<br/>on the right page?"}
+    H -- yes --> I["✅ Proven fix<br/>+ patch"]
+    H -- "no: here's why" --> G
+```
+
+## What it caught (Kane's own screenshots)
+
+| | |
+|---|---|
+| <img src="docs/img/catches/wikipedia-tools-fixed.jpg" alt="Wikipedia's Tools menu, with Print/export inside it" width="420"> | **Old tutorials, new Wikipedia.** How-To Geek, SmartCompany and Dignited all tell you to find **Print/export** in the left sidebar. It moved into the **Tools** menu (top right). Errata caught all three and Kane proved the fix: *"open the **Tools** menu to see the print and export options."* |
+| <img src="docs/img/catches/wikipedia-book-bad-pass.jpg" alt="An empty Wikipedia search page" width="420"> | **A "pass" that wasn't.** One of our rewrites passed Kane's check, but Kane's screenshot showed it had ended up here, on an empty search page, instead of the Book creator. That was our bug, not Wikipedia's. We fixed it, and Errata now checks that a fix lands on the right page before it counts. |
+| <img src="docs/img/catches/wikipedia-book-proof.jpg" alt="Wikipedia's Manage your book page" width="420"> | **The same fix, done right.** After the fix, the rewritten step (*"type **Special:Book** into **Search**"*) lands on **Manage your book**, which is where How-To Geek's 2010 tutorial was trying to send you. |
 
 ## Links
 
