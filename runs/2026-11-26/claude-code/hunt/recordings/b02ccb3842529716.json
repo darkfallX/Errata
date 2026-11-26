@@ -1,0 +1,61 @@
+{
+  "key": "b02ccb3842529716",
+  "recorded_at": "2026-11-26T11:16:32.936Z",
+  "exit_code": 1,
+  "mode": "action",
+  "url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Alternatively, open Tools and click Search, then type the exact text Wikipedia:Books into the search box and only then click the Search button. In the results, open Wikipedia:Books, choose Book Creator and click Start book creator.\"\n1. Click the element whose visible label is exactly 'Tools'.\n2. Click the element whose visible label is exactly 'Search'.\n3. Click the element whose visible label is exactly 'Search'.\n4. Click the element whose visible label is exactly 'Wikipedia:Books'.\n5. Click the element whose visible label is exactly 'Book Creator'.\n6. Click the element whose visible label is exactly 'Start book creator'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+  "clicks": [
+    {
+      "label": "Tools",
+      "x": 1402,
+      "y": 238
+    },
+    {
+      "label": "Search",
+      "x": 895,
+      "y": 19
+    },
+    {
+      "label": "Search",
+      "x": 854,
+      "y": 184
+    }
+  ],
+  "actions": [
+    {
+      "type": "navigate",
+      "status": "success",
+      "intent": "Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+      "instr": "Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace"
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=button[name=\"Tools\"i]",
+      "intent": "PRIMARY: Click the element whose visible label is exactly 'Tools'; role=button; text=\"Tools\" | HINTS: container=Page tools navigation",
+      "instr": "Clicking Tools in the page navigation",
+      "x": 1402,
+      "y": 238
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=button[name=\"Search\"i]",
+      "intent": "PRIMARY: Click the element whose visible label is exactly 'Search'; role=button; text=\"Search\" | HINTS: container=top page search form",
+      "instr": "Clicking Search button",
+      "x": 895,
+      "y": 19
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:label=\"Search\"s >> internal:role=button[name=\"Search\"s]",
+      "intent": "PRIMARY: Click the element whose visible label is exactly 'Search'; role=button; text=\"Search\" | HINTS: container=main Search page form",
+      "instr": "Clicking Search button in the main page form",
+      "x": 854,
+      "y": 184
+    }
+  ],
+  "ndjson": "{\"type\":\"stream_start\",\"cli_version\":\"0.10.4\",\"surface\":\"run\",\"pid\":26056,\"v\":1,\"ts\":\"2026-11-26T11:13:16.617Z\"}\n{\"type\":\"recording_state\",\"enabled\":true,\"session_id\":\"769059c8-fc23-4209-9ac5-6f13132b4813\",\"persist\":false,\"v\":1,\"ts\":\"2026-11-26T11:13:16.664Z\"}\n{\"type\":\"update_available\",\"current\":\"0.10.4\",\"latest\":\"0.10.9\",\"severity\":\"patch\",\"v\":1,\"ts\":\"2026-11-26T11:13:24.145Z\"}\n{\"type\":\"skill_update_available\",\"current\":null,\"latest\":\"0.1.4\",\"install_cmd\":\"kane-cli install skill\",\"v\":1,\"ts\":\"2026-11-26T11:13:24.152Z\"}\n{\"type\":\"bifurcation\",\"flows\":[\"Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace then Follow these steps literally, one at a time, from the current page.\\nClick only what each step names.\\nNever type a URL, search, or take another route.\\nWhere to find them, in the tutorial's own words: \\\"Alternatively, open Tools and click Search, then type the exact text Wikipedia:Books into the search box and only then click the Search button. In the results, open Wikipedia:Books, choose Book Creator and click Start book creator.\\\"\\nClick the element whose visible label is exactly 'Tools'.\\nClick the element whose visible label is exactly 'Search'.\\nClick the element whose visible label is exactly 'Search'.\\nClick the element whose visible label is exactly 'Wikipedia:Books'.\\nClick the element whose visible label is exactly 'Book Creator'.\\nClick the element whose visible label is exactly 'Start book creator'.\\nIf the page you end on has a main heading, @v16:\\\"Get the main heading and save as {{landed_on}}.\\\"; a page without a heading is fine.\"],\"count\":1,\"v\":1,\"ts\":\"2026-11-26T11:13:52.293Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"v\":1,\"ts\":\"2026-11-26T11:14:07.845Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace\",\"v\":1,\"ts\":\"2026-11-26T11:14:07.880Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"v\":1,\"ts\":\"2026-11-26T11:14:24.440Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"click: Clicking Tools in the page navigation\",\"v\":1,\"ts\":\"2026-11-26T11:14:32.175Z\"}\n{\"step\":4,\"status\":\"running\",\"remark\":\"Step 3\",\"v\":1,\"ts\":\"2026-11-26T11:14:42.119Z\"}\n{\"step\":4,\"status\":\"done\",\"remark\":\"click: Clicking Search button\",\"v\":1,\"ts\":\"2026-11-26T11:14:58.204Z\"}\n{\"step\":5,\"status\":\"running\",\"remark\":\"Step 4\",\"v\":1,\"ts\":\"2026-11-26T11:15:00.772Z\"}\n{\"step\":5,\"status\":\"done\",\"remark\":\"click: Clicking Search button in the main page form\",\"v\":1,\"ts\":\"2026-11-26T11:15:20.952Z\"}\n{\"step\":6,\"status\":\"running\",\"remark\":\"Step 5\",\"v\":1,\"ts\":\"2026-11-26T11:15:21.779Z\"}\n{\"step\":6,\"status\":\"failed\",\"remark\":\"wait: Waiting after checking for the element whose visible label is exactly 'Wikipedia:Books'\",\"v\":1,\"ts\":\"2026-11-26T11:15:32.425Z\"}\n{\"type\":\"coverage\",\"status\":\"skipped\",\"reason\":\"not_assurance_project\",\"pack\":\"~\\\\.testmuai\\\\kaneai\\\\sessions\\\\769059c8-fc23-4209-9ac5-6f13132b4813\\\\evidence\\\\ae0e4267-7e18-4d02-99a2-74631a9c57ce.evidence\",\"v\":1,\"ts\":\"2026-11-26T11:16:27.817Z\"}\n{\"type\":\"run_end\",\"status\":\"failed\",\"summary\":\"The agent clicked the search button on an empty search form instead of first typing the exact required text, Wikipedia:Books.\\nRetry from the search page: enter exactly “Wikipedia:Books” in the search box, then click Search and continue with the result.\\nevidence: objective_contradiction: GET https://en.wikipedia.org/w/index.php?search=&title=Special%3ASearch&profile=advanced&fulltext=1&ns0=1 -> 200\",\"one_liner\":\"The run submitted the search form without entering “Wikipedia:Books,” so no matching result could appear.\",\"final_state\":{},\"reason\":\"The current search page contains no element labeled exactly Wikipedia:Books.\",\"duration\":132.5,\"bifurcated\":false,\"total_runs\":1,\"context\":{\"memory\":{},\"variables\":{\"landed_on\":{\"syntax\":\"{{landed_on}}\",\"value\":\"\",\"type\":\"text\",\"secret\":false,\"source\":\"runtime\"}},\"pointer\":\"(failed) The run submitted the search form without entering “Wikipedia:Books,” so no matching result could appear.\"},\"credits_consumed\":20.935327500000007,\"session_dir\":\"~/.testmuai/kaneai/sessions\\\\769059c8-fc23-4209-9ac5-6f13132b4813\",\"run_dir\":\"~/.testmuai/kaneai/sessions\\\\769059c8-fc23-4209-9ac5-6f13132b4813\\\\runs\\\\0\",\"result_code\":750,\"reason_code\":\"assertion_error.step_not_achievable\",\"per_flow_metadata\":[{\"result_code\":\"750\",\"reason_code\":\"assertion_error.step_not_achievable\",\"error_message\":\"The current search page contains no element labeled exactly Wikipedia:Books.\",\"summary\":\"The agent clicked the search button on an empty search form instead of first typing the exact required text, Wikipedia:Books.\\nRetry from the search page: enter exactly “Wikipedia:Books” in the search box, then click Search and continue with the result.\\nevidence: objective_contradiction: GET https://en.wikipedia.org/w/index.php?search=&title=Special%3ASearch&profile=advanced&fulltext=1&ns0=1 -> 200\",\"one_liner\":\"The run submitted the search form without entering “Wikipedia:Books,” so no matching result could appear.\",\"credits_consumed\":20.935327500000007}],\"run_id\":\"run-0\",\"verdict\":{\"confirmed\":false,\"status\":\"broken\",\"family\":\"automation_bug\",\"category\":\"agent_misstep\",\"category_proposal\":\"\",\"severity\":\"minor\",\"root_cause\":\"The agent clicked the search button on an empty search form instead of first typing the exact required text, Wikipedia:Books.\",\"agent_fault_assessment\":\"The agent caused the outcome: it correctly opened Tools and Search, but then clicked the main search button with an empty query. The instructions explicitly describe typing “Wikipedia:Books” into the search box before clicking Search, and the recorded request confirms that no search text was sent.\",\"bug_title\":\"Blank search submitted before Wikipedia:Books lookup\",\"signals\":[{\"step\":\"0-4\",\"kind\":\"objective_contradiction\",\"excerpt\":\"GET https://en.wikipedia.org/w/index.php?search=&title=Special%3ASearch&profile=advanced&fulltext=1&ns0=1 -> 200\"}],\"confidence\":0.98,\"suggestion\":\"Retry from the search page: enter exactly “Wikipedia:Books” in the search box, then click Search and continue with the result.\",\"one_liner\":\"The run submitted the search form without entering “Wikipedia:Books,” so no matching result could appear.\",\"relevant_steps\":[2,3,4],\"culprit_step\":\"0-4\",\"credits_consumed\":4.2483,\"mode\":\"terminal\"},\"test_url\":\"https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BRYT5CT4HK5TGDVFD8YYAJ/dashboard/share/US_5IUD6YFQ3K67I8Z0FLBRSUSAYUJ9DWGZL4RCQTG6CU9TA8T49TBSN5XJ6SKZMK66?type=summary&agentView=true&fqdn=summary-page\",\"coverage\":{\"status\":\"skipped\"},\"v\":1,\"ts\":\"2026-11-26T11:16:27.818Z\"}\n"
+}

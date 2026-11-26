@@ -1,0 +1,241 @@
+{
+  "errata": "1",
+  "tutorial": "Dignited (2019): Export a Wikipedia page as a PDF",
+  "source": "https://dignited.com/44778/how-to-export-a-wikipedia-page-as-a-pdf",
+  "start_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "checked_at": "2026-11-26T10:00:02.636Z",
+  "agent": "Claude (Claude Code, /errata skill) · rewrite: claude-code (Claude Code CLI)",
+  "kane": "live",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "Locate the **Print/export** section in the left panel of the page.",
+      "text": "Locate the Print/export section in the left panel of the page.",
+      "goal": "The article's print and export options are shown",
+      "labels": [
+        "Print/export"
+      ],
+      "checkable": true,
+      "status": "drifted",
+      "literal": {
+        "status": "failed",
+        "exit_code": 1,
+        "summary": "The recorded test instruction no longer matches the page layout. Print/export is not visible as its own item on the initial page, so the required exact-label click cannot be performed.\nUpdate the test flow to explicitly open Tools first, then select Print/export, or revise the expected page layout and locator.",
+        "one_liner": "The test expected a visible Print/export item, but this healthy Wikipedia layout places page tools behind a collapsed Tools control.",
+        "reason_code": "assertion_error.step_not_achievable",
+        "reason": "The page contains no Print/export element; only a collapsed Tools button appears in the page tools area.",
+        "verdict": {
+          "confirmed": false,
+          "status": "broken",
+          "family": "automation_bug",
+          "category": "locator_rot",
+          "category_proposal": "",
+          "severity": "minor",
+          "root_cause": "The recorded test instruction no longer matches the page layout. Print/export is not visible as its own item on the initial page, so the required exact-label click cannot be performed.",
+          "agent_fault_assessment": "The agent did not cause the outcome. It followed the literal instruction to click only an element visibly labeled “Print/export”; the loaded page instead showed a collapsed “Tools” control, which the agent was not authorized to open under the stated steps.",
+          "bug_title": "Print/export locator no longer matches Wikipedia layout",
+          "signals": [],
+          "confidence": 0.96,
+          "suggestion": "Update the test flow to explicitly open Tools first, then select Print/export, or revise the expected page layout and locator.",
+          "one_liner": "The test expected a visible Print/export item, but this healthy Wikipedia layout places page tools behind a collapsed Tools control.",
+          "relevant_steps": [
+            0,
+            1
+          ],
+          "culprit_step": "0-1",
+          "credits_consumed": 1.85745,
+          "mode": "terminal"
+        },
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\3b2fcd52-9a94-441f-81af-f733f4f05dce\\evidence\\ad13cf7e-1039-481d-8b9d-50ce62851c32.evidence",
+        "final_state": {},
+        "clicks": [],
+        "credits": 9.9,
+        "duration": 148.5,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BKCV1J1ZSYSWX6HKN0RD3G/dashboard/share/US_YEYHS7RA1CDC46H6LRGS04DI3E2C236KHKXEI2495G7YA862M0Z9TE7VKPAPMQMZ?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\3b2fcd52-9a94-441f-81af-f733f4f05dce\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\3b2fcd52-9a94-441f-81af-f733f4f05dce",
+        "trail": [
+          "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+          "wait: Waiting locate the element whose visible label is exactly 'Print/export'"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Locate the Print/export section in the left panel of the page.\"\n1. Click the element whose visible label is exactly 'Print/export'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "action",
+        "source": "live"
+      },
+      "goal_pass": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "Opened the Ada Lovelace article on Wikipedia and navigated through the visible page controls to display its print and export options.\nThe Print/export section is visible, including “Download as PDF” and “Printable version.”\nThe article’s main heading, “Ada Lovelace,” is present on the final page.",
+        "one_liner": "displayed print and export options on Wikipedia",
+        "reason_code": "success.complete",
+        "reason": "AP(text) failed: ",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\221a7807-7a48-4836-8381-1823f107665d\\evidence\\6681cc26-6a7e-48af-9ecb-c61992dafc51.evidence",
+        "final_state": {
+          "url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+          "article_heading": "Ada Lovelace",
+          "print_export_options_shown": "true"
+        },
+        "end_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+        "clicks": [
+          {
+            "label": "Tools",
+            "x": 1402,
+            "y": 238
+          }
+        ],
+        "credits": 32.4,
+        "duration": 348,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BKK9QMEFSNYB1HHPTBBYFX/dashboard/share/US_4JJK4QQTXN6G98HBWZ9NPH10R9EYIRRUA5LPWNU6MG4YMOKD92B2CLH8S2MTOEY7?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\221a7807-7a48-4836-8381-1823f107665d\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\221a7807-7a48-4836-8381-1823f107665d",
+        "trail": [
+          "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+          "click: Clicking Tools in the page header tools navigation",
+          "wait: PRIMARY: Print/export section; role=text; text=\"Print/export\" | HINTS: container",
+          "analyze: the page you end on has a main heading",
+          "assert: the article's print and export options are shown on screen",
+          "analyze: it is stored as {{landed_on}}",
+          "wait: Waiting after storing the current page heading value",
+          "wait: Waiting after confirming the Print/export section remains visible"
+        ],
+        "objective": "Goal: the article's print and export options are shown. Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\nHint: an old tutorial said \"Locate the Print/export section in the left panel of the page.\", but those labels may have moved or been renamed.\nWhen the goal is met, verify it on screen. If the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "testing",
+        "source": "live"
+      },
+      "actual_path": "Tools",
+      "landed_on": "Ada Lovelace",
+      "rewrite": "Open the **Tools** menu at the top of the page to find the print and export options.",
+      "attempts": [
+        {
+          "loop": 1,
+          "rewrite": "Open the **Tools** menu at the top of the page to find the print and export options.",
+          "labels": [
+            "Tools"
+          ],
+          "proof": {
+            "status": "passed",
+            "exit_code": 0,
+            "summary": "AP(text) failed: ",
+            "one_liner": "",
+            "reason_code": "success.complete",
+            "reason": "AP(text) failed: ",
+            "evidence": "~\\.testmuai\\kaneai\\sessions\\434fc1f0-aeb2-4944-9efd-b577aa3e1ab6\\evidence\\1dc6d949-872a-490e-800e-346b2f1ba7ca.evidence",
+            "final_state": {},
+            "clicks": [
+              {
+                "label": "Tools",
+                "x": 1402,
+                "y": 238
+              }
+            ],
+            "credits": 28,
+            "duration": 316.6,
+            "run_dir": "~/.testmuai/kaneai/sessions\\434fc1f0-aeb2-4944-9efd-b577aa3e1ab6\\runs\\0",
+            "session_dir": "~/.testmuai/kaneai/sessions\\434fc1f0-aeb2-4944-9efd-b577aa3e1ab6",
+            "trail": [
+              "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+              "click: Clicking Tools in the page navigation",
+              "analyze: The page you end on has a main heading.",
+              "analyze: ANALYZE(textual_visual, 'The main heading from the page is saved as {{landed_on}",
+              "wait: Waiting after successful main heading extraction",
+              "wait: Waiting 1000 ms after completing the Tools menu action and checkpoint verification"
+            ],
+            "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Open the Tools menu at the top of the page to find the print and export options.\"\n1. Click the element whose visible label is exactly 'Tools'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+            "mode": "action",
+            "source": "live"
+          }
+        }
+      ],
+      "note": "The doc's words no longer work. Kane found the real path; the rewrite passed a literal run in loop 1.",
+      "credits": 70.3,
+      "started_at": "https://en.wikipedia.org/wiki/Ada_Lovelace"
+    },
+    {
+      "n": 2,
+      "quote": "Select **Download as PDF** from the list.",
+      "text": "Select Download as PDF from the list.",
+      "goal": "A page offering to download the article as a PDF is shown",
+      "labels": [
+        "Download as PDF"
+      ],
+      "checkable": true,
+      "continues": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "Selected “Download as PDF” from the available list, as requested.\nReached Wikipedia’s “Download as PDF” page for the Ada Lovelace article.",
+        "one_liner": "opened the Download as PDF page for Ada Lovelace on Wikipedia",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\37b01b69-ff39-4d0d-9979-f78fc9e257fc\\evidence\\bf2e92bc-55ec-4367-bdb8-fe1f92218bca.evidence",
+        "final_state": {
+          "url": "https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&page=Ada_Lovelace&action=show-download-screen",
+          "main_heading": "Download as PDF"
+        },
+        "end_url": "https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&page=Ada_Lovelace&action=show-download-screen",
+        "clicks": [
+          {
+            "label": "Tools",
+            "x": 1402,
+            "y": 238
+          },
+          {
+            "label": "Download as PDF",
+            "names": [
+              "Click the element whose visible label is exactly 'Download as PDF'."
+            ],
+            "x": 1268,
+            "y": 668
+          }
+        ],
+        "credits": 33.9,
+        "duration": 160.9,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BMHK5NBCVAERES1NAJTAKG/dashboard/share/US_Q5RTGTKWFEBSO6M7A6CJ4KW2O2IXJZTNAV2RQBTNF0OB2G9OBJD1BM88J2GH5UCJ?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\37b01b69-ff39-4d0d-9979-f78fc9e257fc\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\37b01b69-ff39-4d0d-9979-f78fc9e257fc",
+        "trail": [
+          "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+          "click: Clicking the Tools button",
+          "click: Clicking Click the element whose visible label is exactly 'Download as PDF'.",
+          "wait: PRIMARY: wait for the Download as PDF page heading to be visible",
+          "analyze: The page you end on has a main heading.",
+          "analyze: The main heading is saved as {{landed_on}}.",
+          "wait: Waiting after saving the main heading",
+          "wait: Waiting after confirming the Download as PDF destination page"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Select Download as PDF from the list.\"\n1. Click the element whose visible label is exactly 'Download as PDF'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "Download as PDF",
+      "extra_clicks": [
+        "Tools"
+      ],
+      "note": "Kane followed the doc's exact words and reached the goal. Kane also clicked \"Tools\", which the step doesn't name.",
+      "credits": 33.9,
+      "started_at": "https://en.wikipedia.org/wiki/Ada_Lovelace"
+    }
+  ],
+  "totals": {
+    "steps": 2,
+    "checkable": 2,
+    "accurate": 1,
+    "drifted": 1,
+    "fixed": 1,
+    "broken": 0,
+    "skipped": 0,
+    "unchecked": 0,
+    "credits": 104.2,
+    "seconds": 1437
+  },
+  "agent_calls": [
+    {
+      "role": "rewrite",
+      "input": "Original doc sentence: Locate the **Print/export** section in the left panel of the page.\nGoal of the step: The article's print and export options are shown\nPath Kane actually clicked (goal pass): Tools\nHeading Kane landed on: Ada Lovelace\n",
+      "output": "{\"text\": \"Open the **Tools** menu at the top of the page to find the print and export options.\", \"labels\": [\"Tools\"]}",
+      "ms": 13636
+    }
+  ],
+  "input": "corpus/tutorials/hunt-dignited-wikipedia-pdf.tutorial.json"
+}

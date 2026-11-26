@@ -1,0 +1,255 @@
+{
+  "errata": "1",
+  "tutorial": "How-To Geek (2010): Wikipedia article to PDF",
+  "source": "https://www.howtogeek.com/27882/create-an-ebook-or-pdf-from-wikipedia-articles-for-offline-reading/",
+  "start_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "checked_at": "2026-11-26T10:56:06.751Z",
+  "agent": "Claude (Claude Code, /errata skill) · rewrite: claude-code (Claude Code CLI)",
+  "kane": "live",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "To do this, click the **Print/export** link on the left sidebar in Wikipedia when you're on an article you want to save.",
+      "text": "To do this, click the Print/export link on the left sidebar in Wikipedia when you're on an article you want to save.",
+      "goal": "The article's print and export options are shown",
+      "labels": [
+        "Print/export"
+      ],
+      "checkable": true,
+      "status": "drifted",
+      "literal": {
+        "status": "failed",
+        "exit_code": 1,
+        "summary": "The test instruction expects an older sidebar layout. On the loaded article, “Print/export” is not shown as its own clickable label, so the required action cannot be performed literally.\nUpdate the test to use the current Wikipedia navigation pattern, or explicitly permit opening “Tools” before selecting “Print/export.”",
+        "one_liner": "The run required an exact “Print/export” link, but this Wikipedia layout shows a separate “Tools” control instead.",
+        "reason_code": "assertion_error.step_not_achievable",
+        "reason": "No exact Print/export element exists; only a separate Tools button is present, which the step does not permit clicking.",
+        "verdict": {
+          "confirmed": false,
+          "status": "broken",
+          "family": "automation_bug",
+          "category": "locator_rot",
+          "category_proposal": "",
+          "severity": "minor",
+          "root_cause": "The test instruction expects an older sidebar layout. On the loaded article, “Print/export” is not shown as its own clickable label, so the required action cannot be performed literally.",
+          "agent_fault_assessment": "The agent did not cause the outcome. It correctly avoided clicking “Tools,” because the objective expressly allowed only an element labeled exactly “Print/export.” The failure came from a stale locator/instruction that no longer matches the healthy page layout.",
+          "bug_title": "Print/export locator no longer matches Wikipedia article layout",
+          "signals": [],
+          "confidence": 0.98,
+          "suggestion": "Update the test to use the current Wikipedia navigation pattern, or explicitly permit opening “Tools” before selecting “Print/export.”",
+          "one_liner": "The run required an exact “Print/export” link, but this Wikipedia layout shows a separate “Tools” control instead.",
+          "relevant_steps": [
+            0,
+            1
+          ],
+          "culprit_step": "0-1",
+          "credits_consumed": 1.7946499999999999,
+          "mode": "terminal"
+        },
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\231e9f37-0407-4b41-b3e4-9fb543cf85c3\\evidence\\dfceddaa-b56f-4c38-8e99-82ec74d457d7.evidence",
+        "final_state": {},
+        "clicks": [],
+        "credits": 15.2,
+        "duration": 97.5,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BPWJNYMG77MKNEC8QWG90A/dashboard/share/US_E819ATUUEJ30IC6QW3AT4FGE95ZALE324OL2JPFBKB1MYWV5VGCYDHNIDBA4FLQZ?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\231e9f37-0407-4b41-b3e4-9fb543cf85c3\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\231e9f37-0407-4b41-b3e4-9fb543cf85c3",
+        "trail": [
+          "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+          "wait: Waiting the element whose visible label is exactly 'Print/export'"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"To do this, click the Print/export link on the left sidebar in Wikipedia when you're on an article you want to save.\"\n1. Click the element whose visible label is exactly 'Print/export'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "action",
+        "source": "live"
+      },
+      "goal_pass": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "The request was to display the print and export options for the current Wikipedia article.\nNavigated through Wikipedia’s visible page tools to open the Print/export section.\nThe Ada Lovelace article remained open, with “Printable version” and “Download as PDF” shown.",
+        "one_liner": "opened print and export options on Wikipedia",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\f457e259-27aa-471c-8dfa-a6f2d98010d9\\evidence\\5998c87c-104f-4f9c-813a-da1ff7503321.evidence",
+        "final_state": {
+          "url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+          "page_heading": "Ada Lovelace",
+          "print_option": "Printable version",
+          "export_option": "Download as PDF"
+        },
+        "end_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+        "clicks": [
+          {
+            "label": "Main",
+            "names": [
+              "Main menu"
+            ],
+            "x": 200,
+            "y": 17
+          },
+          {
+            "label": "Tools",
+            "x": 1402,
+            "y": 238
+          }
+        ],
+        "credits": 34.9,
+        "duration": 226.8,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BQ1ZPPFZV463TPW49Q9J2F/dashboard/share/US_NBRP70UU30PH716HISBF1WOXQX8ZQ0PW2114ZTNSVTR9IOL9OI2MIDMR0J20RSLX?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\f457e259-27aa-471c-8dfa-a6f2d98010d9\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\f457e259-27aa-471c-8dfa-a6f2d98010d9",
+        "trail": [
+          "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+          "click: Clicking the Main menu to open print and export options",
+          "click: Clicking Tools in the article toolbar",
+          "analyze: the page you end on has a main heading",
+          "assert: the article's print and export options are shown on screen",
+          "analyze: it is stored as {{landed_on}}",
+          "wait: Waiting verification complete after storing the current article heading URL",
+          "wait: Waiting task complete after verifying the article's print and export options"
+        ],
+        "objective": "Goal: the article's print and export options are shown. Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\nHint: an old tutorial said \"To do this, click the Print/export link on the left sidebar in Wikipedia when you're on an article you want to save.\", but those labels may have moved or been renamed.\nWhen the goal is met, verify it on screen. If the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "testing",
+        "source": "live"
+      },
+      "actual_path": "Main → Tools",
+      "landed_on": "Ada Lovelace",
+      "rewrite": "To do this, open the **Tools** menu at the top of the article in Wikipedia when you're on an article you want to save.",
+      "attempts": [
+        {
+          "loop": 1,
+          "rewrite": "To do this, open the **Tools** menu at the top of the article in Wikipedia when you're on an article you want to save.",
+          "labels": [
+            "Tools"
+          ],
+          "proof": {
+            "status": "passed",
+            "exit_code": 0,
+            "summary": "Opened the Tools menu at the top of the Ada Lovelace article on Wikipedia, as requested.\nThe page remained on the Ada Lovelace article and displayed a main heading.",
+            "one_liner": "opened the Tools menu on Wikipedia",
+            "reason_code": "success.complete",
+            "reason": "Objective completed",
+            "evidence": "~\\.testmuai\\kaneai\\sessions\\74d11ca9-c19a-4afc-975c-c48cbae0e076\\evidence\\42423b81-c3c4-4149-91cf-17353fdae9f8.evidence",
+            "final_state": {
+              "url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+              "main_heading_present": "true"
+            },
+            "end_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+            "clicks": [
+              {
+                "label": "Tools",
+                "x": 1402,
+                "y": 238
+              }
+            ],
+            "credits": 29.3,
+            "duration": 232.9,
+            "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BQD1CA3DCFQWYN7QS8PVA1/dashboard/share/US_GLC457R0F6D91OD440L9NZ7SVNCOT3EWQ2WSL12M0TF816U892RY3CHDBXQ3R4GD?type=summary&agentView=true&fqdn=summary-page",
+            "run_dir": "~/.testmuai/kaneai/sessions\\74d11ca9-c19a-4afc-975c-c48cbae0e076\\runs\\0",
+            "session_dir": "~/.testmuai/kaneai/sessions\\74d11ca9-c19a-4afc-975c-c48cbae0e076",
+            "trail": [
+              "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+              "click: Clicking the Tools button",
+              "analyze: the page you end on has a main heading",
+              "analyze: the main heading is saved as {{landed_on}}",
+              "wait: Waiting after the main heading extraction completes",
+              "wait: Waiting 1000 ms"
+            ],
+            "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"To do this, open the Tools menu at the top of the article in Wikipedia when you're on an article you want to save.\"\n1. Click the element whose visible label is exactly 'Tools'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+            "mode": "action",
+            "source": "live"
+          }
+        }
+      ],
+      "note": "The doc's words no longer work. Kane found the real path; the rewrite passed a literal run in loop 1.",
+      "credits": 79.4,
+      "started_at": "https://en.wikipedia.org/wiki/Ada_Lovelace"
+    },
+    {
+      "n": 2,
+      "quote": "Click **Download as PDF** to have Wikipedia automatically generate a PDF copy of this article.",
+      "text": "Click Download as PDF to have Wikipedia automatically generate a PDF copy of this article.",
+      "goal": "A page offering to download the article as a PDF is shown",
+      "labels": [
+        "Download as PDF"
+      ],
+      "checkable": true,
+      "continues": true,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "Requested a PDF version of the Ada Lovelace Wikipedia article.\nClicked “Download as PDF.”\nWikipedia opened the PDF download page, which displayed a main heading.",
+        "one_liner": "opened the PDF download page for the Ada Lovelace article on Wikipedia",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\aed9cc12-a1a0-4950-9a6a-572072134358\\evidence\\1ec1e80b-2afc-4f4a-8290-a1dc967e5827.evidence",
+        "final_state": {
+          "url": "https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&page=Ada_Lovelace&action=show-download-screen",
+          "main_heading_present": "true"
+        },
+        "end_url": "https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&page=Ada_Lovelace&action=show-download-screen",
+        "clicks": [
+          {
+            "label": "Tools",
+            "names": [
+              "Tools menu"
+            ],
+            "x": 1402,
+            "y": 238
+          },
+          {
+            "label": "Download as PDF",
+            "x": 1268,
+            "y": 668
+          }
+        ],
+        "credits": 30.3,
+        "duration": 161,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BQQH30204KD8NFWPWP60BJ/dashboard/share/US_ABZ4SHZPG047LQBT63IIAQPH5PV1LVXJYBT4YIPEHLE4AUPA9SPLTRT723Z95X3B?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\aed9cc12-a1a0-4950-9a6a-572072134358\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\aed9cc12-a1a0-4950-9a6a-572072134358",
+        "trail": [
+          "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+          "click: Clicking the Tools menu button",
+          "click: Clicking Download as PDF",
+          "wait: PRIMARY: wait for the Download as PDF page heading to be visible",
+          "analyze: The page you end on has a main heading.",
+          "analyze: it is stored as {{landed_on}}",
+          "wait: Waiting after recording the requested landing value",
+          "wait: Waiting after completing the Download as PDF action and checkpoint verification"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Click Download as PDF to have Wikipedia automatically generate a PDF copy of this article.\"\n1. Click the element whose visible label is exactly 'Download as PDF'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "true",
+      "extra_clicks": [
+        "Tools"
+      ],
+      "note": "Kane followed the doc's exact words and reached the goal. Kane also clicked \"Tools\", which the step doesn't name.",
+      "credits": 30.3,
+      "started_at": "https://en.wikipedia.org/wiki/Ada_Lovelace"
+    }
+  ],
+  "totals": {
+    "steps": 2,
+    "checkable": 2,
+    "accurate": 1,
+    "drifted": 1,
+    "fixed": 1,
+    "broken": 0,
+    "skipped": 0,
+    "unchecked": 0,
+    "credits": 109.7,
+    "seconds": 1145
+  },
+  "agent_calls": [
+    {
+      "role": "rewrite",
+      "input": "Original doc sentence: To do this, click the **Print/export** link on the left sidebar in Wikipedia when you're on an article you want to save.\nGoal of the step: The article's print and export options are shown\nPath Kane actually clicked (goal pass): Main → Tools\nHeading Kane landed on: Ada Lovelace\n",
+      "output": "{\"text\": \"To do this, open the **Tools** menu at the top of the article in Wikipedia when you're on an article you want to save.\", \"labels\": [\"Tools\"]}",
+      "ms": 16617
+    }
+  ],
+  "input": "corpus/tutorials/hunt-htg-wikipedia-pdf.tutorial.json"
+}

@@ -1,0 +1,60 @@
+{
+  "key": "5a02f7163d29ce23",
+  "recorded_at": "2026-11-26T09:55:52.851Z",
+  "exit_code": 0,
+  "mode": "action",
+  "url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Open the Tools menu at the top of the page to find the print and export options.\"\n1. Click the element whose visible label is exactly 'Tools'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+  "clicks": [
+    {
+      "label": "Tools",
+      "x": 1402,
+      "y": 238
+    }
+  ],
+  "actions": [
+    {
+      "type": "navigate",
+      "status": "error",
+      "intent": "Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+      "instr": "Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace"
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=button[name=\"Tools\"i]",
+      "intent": "PRIMARY: Click the element whose visible label is exactly 'Tools'.; role=button; text=\"Tools\" | HINTS: container=Page tools navigation at the top of the article",
+      "instr": "Clicking Tools in the page navigation",
+      "x": 1402,
+      "y": 238
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "whether the page's main heading is present (in the main content)",
+      "instr": "Checking whether the page main heading is present"
+    },
+    {
+      "type": "if_else",
+      "status": "success",
+      "instr": "If-else checkpoint cp_1: condition 'The page you end on has a main heading.' matched"
+    },
+    {
+      "type": "child_agent_start",
+      "status": "executing",
+      "instr": "Get the main heading from the page and save it as {{landed_on}}."
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "the main page heading",
+      "instr": "Reading the main page heading"
+    },
+    {
+      "type": "child_agent_end",
+      "status": "success",
+      "instr": "Get the main heading from the page and save it as {{landed_on}}."
+    }
+  ],
+  "ndjson": "{\"type\":\"stream_start\",\"cli_version\":\"0.10.4\",\"surface\":\"run\",\"pid\":20152,\"v\":1,\"ts\":\"2026-11-26T09:47:10.245Z\"}\n{\"type\":\"recording_state\",\"enabled\":true,\"session_id\":\"434fc1f0-aeb2-4944-9efd-b577aa3e1ab6\",\"persist\":false,\"v\":1,\"ts\":\"2026-11-26T09:47:10.397Z\"}\n{\"type\":\"update_available\",\"current\":\"0.10.4\",\"latest\":\"0.10.9\",\"severity\":\"patch\",\"v\":1,\"ts\":\"2026-11-26T09:47:48.726Z\"}\n{\"type\":\"skill_update_available\",\"current\":null,\"latest\":\"0.1.4\",\"install_cmd\":\"kane-cli install skill\",\"v\":1,\"ts\":\"2026-11-26T09:47:48.746Z\"}\n{\"type\":\"bifurcation\",\"flows\":[\"Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace then Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\\nWhere to find them, in the tutorial's own words: \\\"Open the Tools menu at the top of the page to find the print and export options.\\\"\\nClick the element whose visible label is exactly 'Tools'.\\nIf the page you end on has a main heading, @v16:\\\"Get the main heading from the page and save it as {{landed_on}}.\\\"; a page without a heading is fine.\"],\"count\":1,\"v\":1,\"ts\":\"2026-11-26T09:49:35.262Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"v\":1,\"ts\":\"2026-11-26T09:50:20.784Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace\",\"v\":1,\"ts\":\"2026-11-26T09:50:20.814Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"v\":1,\"ts\":\"2026-11-26T09:50:24.766Z\"}\n{\"step\":4,\"status\":\"running\",\"remark\":\"Step 3\",\"v\":1,\"ts\":\"2026-11-26T09:50:53.928Z\"}\n{\"step\":4,\"status\":\"done\",\"remark\":\"click: Clicking Tools in the page navigation\",\"v\":1,\"ts\":\"2026-11-26T09:51:19.282Z\"}\n{\"step\":5,\"status\":\"running\",\"remark\":\"Step 4\",\"v\":1,\"ts\":\"2026-11-26T09:51:23.545Z\"}\n{\"step\":5,\"status\":\"done\",\"remark\":\"analyze: The page you end on has a main heading.\",\"v\":1,\"ts\":\"2026-11-26T09:52:27.966Z\"}\n{\"step\":6,\"status\":\"running\",\"remark\":\"Step 5\",\"v\":1,\"ts\":\"2026-11-26T09:52:33.551Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"child_id\":\"82768f10\",\"v\":1,\"ts\":\"2026-11-26T09:52:38.796Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"analyze: ANALYZE(textual_visual, 'The main heading from the page is saved as {{landed_on}\",\"child_id\":\"82768f10\",\"v\":1,\"ts\":\"2026-11-26T09:53:30.240Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"child_id\":\"82768f10\",\"v\":1,\"ts\":\"2026-11-26T09:53:34.343Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"wait: Waiting after successful main heading extraction\",\"child_id\":\"82768f10\",\"v\":1,\"ts\":\"2026-11-26T09:53:54.694Z\"}\n{\"step\":7,\"status\":\"running\",\"remark\":\"Step 6\",\"v\":1,\"ts\":\"2026-11-26T09:54:02.097Z\"}\n{\"step\":7,\"status\":\"done\",\"remark\":\"wait: Waiting 1000 ms after completing the Tools menu action and checkpoint verification\",\"v\":1,\"ts\":\"2026-11-26T09:54:25.185Z\"}\n{\"type\":\"coverage\",\"status\":\"skipped\",\"reason\":\"not_assurance_project\",\"pack\":\"~\\\\.testmuai\\\\kaneai\\\\sessions\\\\434fc1f0-aeb2-4944-9efd-b577aa3e1ab6\\\\evidence\\\\1dc6d949-872a-490e-800e-346b2f1ba7ca.evidence\",\"v\":1,\"ts\":\"2026-11-26T09:55:28.982Z\"}\n{\"type\":\"run_end\",\"status\":\"passed\",\"summary\":\"AP(text) failed: \",\"one_liner\":\"\",\"final_state\":{},\"reason\":\"AP(text) failed: \",\"duration\":316.6,\"bifurcated\":false,\"total_runs\":1,\"context\":{\"memory\":{\"main_heading_present\":{\"extracted_value\":\"true\",\"operator\":\"equals\",\"transforms\":[],\"json_path\":null,\"reasoning\":\"value: 'true' -> 'true'; equals 'true' -> PASS\",\"analyzer_type\":\"textual_visual\",\"step\":4,\"query\":\"whether the page's main heading is present (in the main content)\",\"condition\":\"The page you end on has a main heading.\",\"human_description\":\"Checking whether the page main heading is present\",\"expected_value\":\"true\",\"subject\":\"the page's main heading\",\"must_be\":\"present\",\"code_js\":\"el(77).textContent.trim() === 'Ada Lovelace'\",\"wrapped_js\":\"(els) => {\\n  const __m = {77: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (el(77).textContent.trim() === 'Ada Lovelace');\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:role=heading[name=\\\"Ada Lovelace\\\"i]\"],\"needs_unit_conversion\":false}},\"variables\":{\"landed_on\":{\"syntax\":\"{{landed_on}}\",\"value\":\"Ada Lovelace\",\"type\":\"memory\",\"secret\":false,\"source\":\"runtime\"},\"main_heading_present\":{\"syntax\":\"{{main_heading_present}}\",\"value\":\"true\",\"type\":\"memory\",\"secret\":false}},\"pointer\":\"(passed) AP(text) failed: \"},\"credits_consumed\":28.02544,\"session_dir\":\"~/.testmuai/kaneai/sessions\\\\434fc1f0-aeb2-4944-9efd-b577aa3e1ab6\",\"run_dir\":\"~/.testmuai/kaneai/sessions\\\\434fc1f0-aeb2-4944-9efd-b577aa3e1ab6\\\\runs\\\\0\",\"result_code\":100,\"reason_code\":\"success.complete\",\"per_flow_metadata\":[{\"result_code\":\"100\",\"reason_code\":\"success.complete\",\"error_message\":null,\"summary\":null,\"one_liner\":null,\"credits_consumed\":28.02544}],\"run_id\":\"run-0\",\"coverage\":{\"status\":\"skipped\"},\"v\":1,\"ts\":\"2026-11-26T09:55:28.983Z\"}\n"
+}

@@ -13,7 +13,7 @@
 // the previous step's real end URL; independent steps start at the tutorial's start URL and run in parallel.
 import { guardRewrite, type Agent } from "./agent.js";
 import { namesOf, pathOf, trimExploration } from "./evidence.js";
-import { goalObjective, labelsMatch, literalObjective } from "./objectives.js";
+import { extraClicks, goalObjective, labelsMatch, literalObjective } from "./objectives.js";
 import { isInfraFailure, type KaneRunner, type KaneRunOptions } from "./kane.js";
 import type { Attempt, KaneResult, Step, StepReport, Tutorial, TutorialReport } from "./types.js";
 
@@ -41,6 +41,9 @@ export interface EngineOptions {
 
 const str = (v: unknown) => (typeof v === "string" && v.trim() ? v.trim() : undefined);
 const cred = (...rs: (KaneResult | undefined)[]) => Math.round(rs.reduce((a, r) => a + (r?.credits ?? 0), 0) * 10) / 10;
+/** An accurate verdict never hides clicks the doc doesn't name: a reader would have to make them too. */
+export const accurateNote = (base: string, extra: string[]) =>
+  extra.length ? `${base} Kane also clicked ${extra.map((e) => `"${e}"`).join(", ")}, which the step doesn't name.` : base;
 const heading = (r?: KaneResult) => str(r?.final_state.landed_on) ?? str(Object.entries(r?.final_state ?? {}).find(([k]) => /heading|landed|title/i.test(k))?.[1]);
 
 /** Group steps into chains: a step that `continues` joins the chain of the checkable step before it. */
@@ -107,8 +110,10 @@ export async function checkTutorial(tutorial: Tutorial, opts: EngineOptions): Pr
 
     const followed = labelsMatch(step.labels, literal.clicks.map(namesOf));
     const lenient = literal.status === "passed" && !followed && literal.clicks.length > 0;
-    if (literal.status === "passed" && !lenient)
-      return done({ ...step, status: "accurate", literal, landed_on: heading(literal), note: "Kane followed the doc's exact words and reached the goal.", credits: cred(literal) }, literal.end_url ?? url);
+    if (literal.status === "passed" && !lenient) {
+      const extra = extraClicks(step.labels, literal.clicks.map(namesOf));
+      return done({ ...step, status: "accurate", literal, landed_on: heading(literal), extra_clicks: extra.length ? extra : undefined, note: accurateNote("Kane followed the doc's exact words and reached the goal.", extra), credits: cred(literal) }, literal.end_url ?? url);
+    }
 
     // 2. Goal pass
     emit({ type: "phase", step, phase: "goal" });
@@ -135,9 +140,21 @@ export async function checkTutorial(tutorial: Tutorial, opts: EngineOptions): Pr
       });
     }
 
-    // The literal failure was a flake if the route Kane found IS the doc's route.
-    if (!lenient && labelsMatch(step.labels, trimmed.map(namesOf)))
-      return done({ ...step, status: "accurate", literal, goal_pass: goal, actual_path, landed_on, note: "The literal pass failed once, but the route Kane found is the doc's own route. Treated as a flaky run, not drift.", credits: cred(literal, goal) }, end);
+    // If the route Kane found looks like the doc's route, the literal failure may be a flake. A lookalike route is
+    // not proof: the doc's words get one more literal run, and only a pass makes the step accurate.
+    let retry: KaneResult | undefined;
+    if (!lenient && labelsMatch(step.labels, trimmed.map(namesOf))) {
+      emit({ type: "phase", step, phase: "literal" });
+      retry = await run(step, url, { objective: literalObjective(step), mode: "action" });
+      emit({ type: "result", step, phase: "literal", result: retry });
+      if (retry.status === "error" || retry.status === "timeout")
+        return done({ ...step, status: "unchecked", literal, goal_pass: goal, actual_path, landed_on, note: `The literal pass failed once and Kane could not run the retry (${retry.status}). Not counted as a docs finding.`, credits: cred(literal, goal, retry) }, end);
+      if (retry.status === "passed" && (retry.clicks.length === 0 || labelsMatch(step.labels, retry.clicks.map(namesOf))))
+      {
+        const extra = extraClicks(step.labels, retry.clicks.map(namesOf));
+        return done({ ...step, status: "accurate", literal: retry, goal_pass: goal, actual_path, landed_on, extra_clicks: extra.length ? extra : undefined, note: accurateNote("The literal pass failed once, then passed on a retry with the doc's exact words. A flaky run, not drift.", extra), credits: cred(literal, goal, retry) }, retry.end_url ?? end);
+      }
+    }
 
     if (!actual_path)
       return done({ ...step, status: "drifted", literal, goal_pass: goal, landed_on, note: "The goal is reachable, but Kane's evidence shows no clicks to rewrite from. Needs a human.", credits: cred(literal, goal) }, end);
@@ -186,7 +203,7 @@ export async function checkTutorial(tutorial: Tutorial, opts: EngineOptions): Pr
         note: proven
           ? `The doc's words no longer work${lenient ? " (Kane improvised past them; Errata caught it from the clicks in the evidence pack)" : ""}. Kane found the real path; the rewrite passed a literal run in loop ${proven.loop}.`
           : `The doc's words no longer work and no rewrite passed a literal run in ${maxLoops} loops. Needs a human; evidence attached.`,
-        credits: cred(literal, goal, ...attempts.map((a) => a.proof)),
+        credits: cred(literal, goal, ...(retry ? [retry] : []), ...attempts.map((a) => a.proof)),
       },
       proven?.proof.end_url ?? end,
     );

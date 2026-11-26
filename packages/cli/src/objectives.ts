@@ -63,3 +63,14 @@ export function labelsMatch(docLabels: string[], clicked: (string | string[])[] 
   }
   return true;
 }
+
+/** Clicks that match none of the doc's labels: the steps Kane took that the doc doesn't name. */
+export function extraClicks(docLabels: string[], clicked: (string | string[])[]): string[] {
+  const wants = docLabels.map(norm).filter(Boolean);
+  const hit = (names: string[], want: string) => names.some((c) => c === want || c.includes(want) || (want.includes(c) && c.length >= want.length * 0.6));
+  return clicked
+    .map((c) => (Array.isArray(c) ? c : [c]))
+    .filter((names) => !wants.some((w) => hit(names.map(norm).filter(Boolean), w)))
+    .map((names) => names.find((n) => n && n.trim()) ?? "")
+    .filter(Boolean);
+}

@@ -1,0 +1,60 @@
+{
+  "key": "076a6c4a311f5b61",
+  "recorded_at": "2026-11-26T10:51:43.588Z",
+  "exit_code": 0,
+  "mode": "action",
+  "url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"To do this, open the Tools menu at the top of the article in Wikipedia when you're on an article you want to save.\"\n1. Click the element whose visible label is exactly 'Tools'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+  "clicks": [
+    {
+      "label": "Tools",
+      "x": 1402,
+      "y": 238
+    }
+  ],
+  "actions": [
+    {
+      "type": "navigate",
+      "status": "success",
+      "intent": "Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+      "instr": "Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace"
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=button[name=\"Tools\"i]",
+      "intent": "PRIMARY: Click the element whose visible label is exactly 'Tools'; role=button; text=\"Tools\" | HINTS: container=Page tools",
+      "instr": "Clicking the Tools button",
+      "x": 1402,
+      "y": 238
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "whether a main heading on the page you end on is present (in the page main content)",
+      "instr": "Checking whether the page has a main heading"
+    },
+    {
+      "type": "if_else",
+      "status": "success",
+      "instr": "If-else checkpoint cp_1: condition 'the page you end on has a main heading' matched"
+    },
+    {
+      "type": "child_agent_start",
+      "status": "executing",
+      "instr": "Get the main heading and save as {{landed_on}}."
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "the main heading text in the article header",
+      "instr": "Extracting the main heading from the article header"
+    },
+    {
+      "type": "child_agent_end",
+      "status": "success",
+      "instr": "Get the main heading and save as {{landed_on}}."
+    }
+  ],
+  "ndjson": "{\"type\":\"stream_start\",\"cli_version\":\"0.10.4\",\"surface\":\"run\",\"pid\":23040,\"v\":1,\"ts\":\"2026-11-26T10:46:03.452Z\"}\n{\"type\":\"recording_state\",\"enabled\":true,\"session_id\":\"74d11ca9-c19a-4afc-975c-c48cbae0e076\",\"persist\":false,\"v\":1,\"ts\":\"2026-11-26T10:46:03.717Z\"}\n{\"type\":\"update_available\",\"current\":\"0.10.4\",\"latest\":\"0.10.9\",\"severity\":\"patch\",\"v\":1,\"ts\":\"2026-11-26T10:46:13.309Z\"}\n{\"type\":\"skill_update_available\",\"current\":null,\"latest\":\"0.1.4\",\"install_cmd\":\"kane-cli install skill\",\"v\":1,\"ts\":\"2026-11-26T10:46:13.322Z\"}\n{\"type\":\"bifurcation\",\"flows\":[\"Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace then Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\\nWhere to find them, in the tutorial's own words: \\\"To do this, open the Tools menu at the top of the article in Wikipedia when you're on an article you want to save.\\\"\\nClick the element whose visible label is exactly 'Tools'.\\nIf the page you end on has a main heading, @v16:\\\"Get the main heading and save as {{landed_on}}.\\\"; a page without a heading is fine.\"],\"count\":1,\"v\":1,\"ts\":\"2026-11-26T10:47:14.888Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"v\":1,\"ts\":\"2026-11-26T10:48:05.397Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace\",\"v\":1,\"ts\":\"2026-11-26T10:48:05.619Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"v\":1,\"ts\":\"2026-11-26T10:48:17.021Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"click: Clicking the Tools button\",\"v\":1,\"ts\":\"2026-11-26T10:48:40.599Z\"}\n{\"step\":4,\"status\":\"running\",\"remark\":\"Step 3\",\"v\":1,\"ts\":\"2026-11-26T10:48:51.663Z\"}\n{\"step\":4,\"status\":\"done\",\"remark\":\"analyze: the page you end on has a main heading\",\"v\":1,\"ts\":\"2026-11-26T10:49:19.037Z\"}\n{\"step\":5,\"status\":\"running\",\"remark\":\"Step 4\",\"v\":1,\"ts\":\"2026-11-26T10:49:31.537Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"child_id\":\"1fb0e3f7\",\"v\":1,\"ts\":\"2026-11-26T10:49:43.907Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"analyze: the main heading is saved as {{landed_on}}\",\"child_id\":\"1fb0e3f7\",\"v\":1,\"ts\":\"2026-11-26T10:50:14.212Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"child_id\":\"1fb0e3f7\",\"v\":1,\"ts\":\"2026-11-26T10:50:26.340Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"wait: Waiting after the main heading extraction completes\",\"child_id\":\"1fb0e3f7\",\"v\":1,\"ts\":\"2026-11-26T10:50:30.996Z\"}\n{\"step\":6,\"status\":\"running\",\"remark\":\"Step 5\",\"v\":1,\"ts\":\"2026-11-26T10:50:46.684Z\"}\n{\"step\":6,\"status\":\"done\",\"remark\":\"wait: Waiting 1000 ms\",\"v\":1,\"ts\":\"2026-11-26T10:50:51.917Z\"}\n{\"type\":\"coverage\",\"status\":\"skipped\",\"reason\":\"not_assurance_project\",\"pack\":\"~\\\\.testmuai\\\\kaneai\\\\sessions\\\\74d11ca9-c19a-4afc-975c-c48cbae0e076\\\\evidence\\\\42423b81-c3c4-4149-91cf-17353fdae9f8.evidence\",\"v\":1,\"ts\":\"2026-11-26T10:51:36.587Z\"}\n{\"type\":\"run_end\",\"status\":\"passed\",\"summary\":\"Opened the Tools menu at the top of the Ada Lovelace article on Wikipedia, as requested.\\nThe page remained on the Ada Lovelace article and displayed a main heading.\",\"one_liner\":\"opened the Tools menu on Wikipedia\",\"final_state\":{\"url\":\"https://en.wikipedia.org/wiki/Ada_Lovelace\",\"main_heading_present\":\"true\"},\"reason\":\"Objective completed\",\"duration\":232.9,\"bifurcated\":false,\"total_runs\":1,\"context\":{\"memory\":{\"main_heading_present\":{\"extracted_value\":\"true\",\"operator\":\"equals\",\"transforms\":[],\"json_path\":null,\"reasoning\":\"value: 'true' -> 'true'; equals 'true' -> PASS\",\"analyzer_type\":\"textual_visual\",\"step\":3,\"query\":\"whether a main heading on the page you end on is present (in the page main content)\",\"condition\":\"the page you end on has a main heading\",\"human_description\":\"Checking whether the page has a main heading\",\"expected_value\":\"true\",\"subject\":\"a main heading on the page you end on\",\"must_be\":\"present\",\"code_js\":\"el(75).querySelector('h1') !== null && el(75).querySelector('h1').innerText.trim() !== ''\",\"wrapped_js\":\"(els) => {\\n  const __m = {75: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (el(75).querySelector('h1') !== null && el(75).querySelector('h1').innerText.trim() !== '');\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"#content\"],\"needs_unit_conversion\":false}},\"variables\":{\"landed_on\":{\"syntax\":\"{{landed_on}}\",\"value\":\"Ada Lovelace\",\"type\":\"memory\",\"secret\":false,\"source\":\"runtime\"},\"main_heading_present\":{\"syntax\":\"{{main_heading_present}}\",\"value\":\"true\",\"type\":\"memory\",\"secret\":false}},\"pointer\":\"(passed) opened the Tools menu on Wikipedia\"},\"credits_consumed\":29.3296125,\"session_dir\":\"~/.testmuai/kaneai/sessions\\\\74d11ca9-c19a-4afc-975c-c48cbae0e076\",\"run_dir\":\"~/.testmuai/kaneai/sessions\\\\74d11ca9-c19a-4afc-975c-c48cbae0e076\\\\runs\\\\0\",\"result_code\":100,\"reason_code\":\"success.complete\",\"per_flow_metadata\":[{\"result_code\":\"100\",\"reason_code\":\"success.complete\",\"error_message\":null,\"summary\":\"Opened the Tools menu at the top of the Ada Lovelace article on Wikipedia, as requested.\\nThe page remained on the Ada Lovelace article and displayed a main heading.\",\"one_liner\":\"opened the Tools menu on Wikipedia\",\"credits_consumed\":29.3296125}],\"run_id\":\"run-0\",\"test_url\":\"https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BQD1CA3DCFQWYN7QS8PVA1/dashboard/share/US_GLC457R0F6D91OD440L9NZ7SVNCOT3EWQ2WSL12M0TF816U892RY3CHDBXQ3R4GD?type=summary&agentView=true&fqdn=summary-page\",\"coverage\":{\"status\":\"skipped\"},\"v\":1,\"ts\":\"2026-11-26T10:51:36.588Z\"}\n"
+}

@@ -1,0 +1,14 @@
+===================================================================
+--- a/runs/2026-11-26/claude-code/demo/demo/quickstart.md	
++++ b/runs/2026-11-26/claude-code/demo/demo/quickstart.md	
+@@ -6,8 +6,8 @@
+ 
+ 1. Open the Driftwood dashboard and click **Projects**. <!-- goal: The Projects list is visible -->
+-2. Click **Settings** → **API Keys** and press **Create key**. <!-- goal: A form to create a new API key or token is visible -->
++2. Click **Developers** → **Tokens** and press **New token**. <!-- goal: A form to create a new API key or token is visible -->
+ 3. Copy the key into your `.env` file as `DRIFTWOOD_KEY`.
+ 4. Open **Team** and click **Invite member**. <!-- goal: A form to invite a new member by email is visible -->
+-5. Go to **Settings** → **Billing** and open **Invoices**. <!-- goal: A list of past invoices with dates and amounts is visible -->
++5. Go to **Account** → **Billing history**. <!-- goal: A list of past invoices with dates and amounts is visible -->
+ 6. Open **Reports** and click **Export CSV**. <!-- goal: A CSV export of the reports is ready to download -->
+ 

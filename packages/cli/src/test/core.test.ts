@@ -291,3 +291,31 @@ test("evidence: one element, three names (real GitHub activity filter); any name
   assert.ok(c.names?.includes("Filter by activity type: All"));
   assert.equal(labelsMatch(["All activity"], [[c.label, ...(c.names ?? [])]]), true);
 });
+
+test("engine: an accurate step never hides clicks the doc doesn't name (real How-To Geek re-run: Tools reopened)", async () => {
+  const kane = new FakeKane((o) => (o.mode === "action" ? { clicks: [{ label: "Tools" }, { label: "Projects" }] } : {}));
+  const t = tut();
+  t.steps = [t.steps[0]];
+  const r = await checkTutorial(t, { kane, agent: new RulesAgent() });
+  assert.equal(r.steps[0].status, "accurate");
+  assert.deepEqual(r.steps[0].extra_clicks, ["Tools"]);
+  assert.match(r.steps[0].note, /also clicked "Tools", which the step doesn't name/);
+});
+
+test("engine: a Kane sub-agent stall (agent_error.child_failed) is never a docs finding", async () => {
+  const kane = new FakeKane((o) => (o.mode === "testing" ? { status: "failed", exit_code: 1, reason_code: "agent_error.child_failed", clicks: [] } : { status: "failed", exit_code: 1, clicks: [] }));
+  const t = tut();
+  t.steps = [t.steps[0]];
+  const r = await checkTutorial(t, { kane, agent: new RulesAgent() });
+  assert.equal(r.steps[0].status, "unchecked", "not broken");
+  assert.equal(r.totals.broken, 0);
+});
+
+test("claude-code agent: reads the JSON out of a chatty reply, and Kane's failed proofs go back to it", async () => {
+  const { firstJson, rewriteUser } = await import("../agent.js");
+  assert.deepEqual(firstJson('Here you go:\n```json\n{"text": "Click **Tools**.", "labels": ["Tools"]}\n```'), { text: "Click **Tools**.", labels: ["Tools"] });
+  assert.deepEqual(firstJson('{"text": "Say \\"hi\\" {not a brace}", "labels": []} trailing'), { text: 'Say "hi" {not a brace}', labels: [] });
+  assert.throws(() => firstJson("no json here"));
+  const u = rewriteUser({ step: { n: 1, quote: "Click **Print/export**.", text: "", goal: "PDF page", labels: ["Print/export"], checkable: true }, actual_path: "Tools → Download as PDF", failures: ['"Click **Tools**." → failed: Download as PDF is inside the Tools menu'] });
+  assert.match(u, /Earlier rewrites failed Kane's literal proof:\n- "Click \*\*Tools\*\*\." → failed: Download as PDF is inside the Tools menu/);
+});

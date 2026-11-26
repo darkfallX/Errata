@@ -45,7 +45,8 @@ ${bold("Usage")}
   errata check <url|file.md|x.tutorial.json>...  Check tutorials
       --app <url>                      Where the app runs (for docs-as-code); fills {{app}}
       --crawl <n>                      With a URL: also check the first n tutorial pages it links to
-      --agent <auto|claude|rules>      Who reads and rewrites (default auto: Claude if a key is set)
+      --agent <auto|claude|claude-code|rules>  Who reads and rewrites (default auto: Claude API if a key
+                                         is set; claude-code: your signed-in Claude Code CLI)
       --loops <n>                      Max rewrite→prove loops per drifted step (default 3)
       --fail-on <broken|drifted|none>  Exit 1 when found (CI). Default: broken
       --out <dir>                      Output folder (default .errata)
@@ -119,6 +120,10 @@ async function runCheck(sources: string[], flags: Flags, extra: { normalise?: Re
       onEvent: ui.handle,
     });
     report.agent = agentName;
+    if ("transcript" in agent && Array.isArray((agent as any).transcript)) {
+      const calls = (agent as any).transcript.splice(0);
+      if (calls.length) report.agent_calls = calls;
+    }
     report.input = isUrl(src) ? src : relative(process.cwd(), resolve(src)).split("\\").join("/");
     const p = await buildPatch(report, sourceFile);
     if (p.patch) {
@@ -154,7 +159,12 @@ async function demo(flags: Flags) {
   let replay = Boolean(flags.replay);
   if (!replay) {
     const k = kaneAvailable();
-    if (!k.loggedIn) {
+    // Only a clear "not installed" or "not signed in" turns a live demo into a replay. A whoami that merely
+    // failed (slow network, update check) stays live: a real sign-in problem then fails loudly in the run.
+    if (k.installed && !k.loggedIn && k.detail === "whoami failed") {
+      console.log(amber(`
+  Kane CLI: whoami failed; running live anyway (pass --replay for the recordings).`));
+    } else if (!k.loggedIn) {
       console.log(amber(`\n  Kane CLI: ${k.detail}.`));
       console.log(dim(`  Playing back the bundled recordings of real Kane runs instead. Sign in to run it live.\n`));
       replay = true;
@@ -230,7 +240,7 @@ async function doctor() {
   console.log();
   row(k.installed, "Kane CLI", k.installed ? "installed" : k.detail);
   row(k.loggedIn, "Sign-in", k.detail);
-  row(true, "Agent", agent.name + (agent.name.startsWith("rules") ? " · set ANTHROPIC_API_KEY for Claude" : ""));
+  row(true, "Agent", agent.name + (agent.name.startsWith("rules") ? " · set ANTHROPIC_API_KEY, or use --agent claude-code" : ""));
   row(Number(process.versions.node.split(".")[0]) >= 18, "Node", process.version);
   console.log();
 }

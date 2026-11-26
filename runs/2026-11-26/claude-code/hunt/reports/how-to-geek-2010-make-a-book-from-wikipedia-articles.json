@@ -1,0 +1,540 @@
+{
+  "errata": "1",
+  "tutorial": "How-To Geek (2010): Make a book from Wikipedia articles",
+  "source": "https://www.howtogeek.com/27882/create-an-ebook-or-pdf-from-wikipedia-articles-for-offline-reading/",
+  "start_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "checked_at": "2026-11-26T10:37:01.874Z",
+  "agent": "Claude (Claude Code, /errata skill) · rewrite: claude-code (Claude Code CLI)",
+  "kane": "live",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "To do this, click **Create a book** under **Print/export** on the left sidebar in Wikipedia.",
+      "text": "To do this, click Create a book under Print/export on the left sidebar in Wikipedia.",
+      "goal": "Wikipedia's Book creator page is shown",
+      "labels": [
+        "Create a book"
+      ],
+      "checkable": true,
+      "status": "drifted",
+      "literal": {
+        "status": "failed",
+        "exit_code": 1,
+        "summary": "The test instructions rely on an older Wikipedia menu layout or feature. After the agent opened the named main menu, the expected Print/export section and Create a book option were unavailable.\nUpdate the tutorial and automation to a currently available Wikipedia action, or retire this scenario if Create a book is no longer offered from the sidebar.",
+        "one_liner": "The run expected a Wikipedia sidebar option that is not present on the loaded article page.",
+        "reason_code": "assertion_error.step_not_achievable",
+        "reason": "I opened the left menu and searched the full page, but no element labeled “Create a book” or Print/export exists.",
+        "verdict": {
+          "confirmed": false,
+          "status": "broken",
+          "family": "automation_bug",
+          "category": "locator_rot",
+          "category_proposal": "",
+          "severity": "major",
+          "root_cause": "The test instructions rely on an older Wikipedia menu layout or feature. After the agent opened the named main menu, the expected Print/export section and Create a book option were unavailable.",
+          "agent_fault_assessment": "The agent did not take an unauthorized route or click the wrong named control: it navigated to the specified article and clicked the main menu button. The failure came from asserting that an obsolete or unavailable menu item had to exist, so the automation/test expectation—not a demonstrated product defect—caused the terminal outcome.",
+          "bug_title": "Obsolete Create a book workflow expectation",
+          "signals": [],
+          "confidence": 0.9,
+          "suggestion": "Update the tutorial and automation to a currently available Wikipedia action, or retire this scenario if Create a book is no longer offered from the sidebar.",
+          "one_liner": "The run expected a Wikipedia sidebar option that is not present on the loaded article page.",
+          "relevant_steps": [
+            1,
+            2
+          ],
+          "culprit_step": "0-2",
+          "credits_consumed": 3.1066,
+          "mode": "terminal"
+        },
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\8378aa99-80a9-41ea-a1c6-3354129fbb97\\evidence\\4005f62f-a688-48c7-b8fa-0f3b944f428e.evidence",
+        "final_state": {},
+        "clicks": [
+          {
+            "label": "main menu",
+            "names": [
+              "Main menu"
+            ],
+            "x": 200,
+            "y": 17
+          }
+        ],
+        "credits": 23.6,
+        "duration": 166.6,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BMSVK7J6S3ZDMW6MSFZQKK/dashboard/share/US_8HCFDPDP34OMOR83BAWXRQ2IFPCORTG0BGPKBX8YQ6UTH9P0YQD7QSLW0G87YZYG?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\8378aa99-80a9-41ea-a1c6-3354129fbb97\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\8378aa99-80a9-41ea-a1c6-3354129fbb97",
+        "trail": [
+          "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+          "click: Clicking the main menu button in the header",
+          "wait: Waiting after checking the Wikipedia sidebar for the requested link"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"To do this, click Create a book under Print/export on the left sidebar in Wikipedia.\"\n1. Click the element whose visible label is exactly 'Create a book'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "action",
+        "source": "live",
+        "retried": true
+      },
+      "goal_pass": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to reach Wikipedia’s Book creator page using only the visible site controls.\nNavigated through Wikipedia’s interface to open the Book creator page.\nThe Book creator page was displayed successfully, with the main heading “Manage your book.”",
+        "one_liner": "reached the Book creator page on Wikipedia",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\394d84c9-06e6-4248-adee-6f4a5f977b40\\evidence\\8f1c812e-0183-4efd-aac8-fc28f2526b69.evidence",
+        "final_state": {
+          "url": "https://en.wikipedia.org/wiki/Special:Book",
+          "book_creator_page_shown": "true",
+          "main_heading_present": "true",
+          "landed_on": "Manage your book"
+        },
+        "end_url": "https://en.wikipedia.org/wiki/Special:Book",
+        "clicks": [
+          {
+            "label": "Search",
+            "x": 895,
+            "y": 19
+          },
+          {
+            "label": "Search",
+            "x": 846,
+            "y": 184
+          },
+          {
+            "label": "Special:Book",
+            "names": [
+              "through"
+            ],
+            "x": 375,
+            "y": 370
+          }
+        ],
+        "credits": 70,
+        "duration": 204.2,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BNF1DGG52N1PF0K8HFNA83/dashboard/share/US_Y8DHBHYP8BSJZCA2KOVH0YRNMYHW5223OEDEJUAVKKG3ELHDTT7MZ4Q4QE0YN0SK?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\394d84c9-06e6-4248-adee-6f4a5f977b40\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\394d84c9-06e6-4248-adee-6f4a5f977b40",
+        "trail": [
+          "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+          "type: Typing Book creator in Wikipedia search box",
+          "click: Clicking Search button",
+          "type: Typing Special:Book",
+          "type: Typing Special:Book in Wikipedia search",
+          "click: Clicking Search button",
+          "click: Clicking through to the Special:Book page from the search results",
+          "wait: PRIMARY: wait for the Wikipedia Book creator page to finish loading",
+          "analyze: Wikipedia's Book creator page is shown on screen.",
+          "assert: Wikipedia's Book creator page is shown on screen.",
+          "analyze: the value of it is stored as {{landed_on}}",
+          "wait: Waiting after storing the landing page value",
+          "wait: Waiting Wikipedia Book creator page remains displayed"
+        ],
+        "objective": "Goal: wikipedia's Book creator page is shown. Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\nHint: an old tutorial said \"To do this, click Create a book under Print/export on the left sidebar in Wikipedia.\", but those labels may have moved or been renamed.\nWhen the goal is met, verify it on screen. If the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "testing",
+        "source": "live",
+        "retried": true
+      },
+      "actual_path": "Search → Search → Special:Book",
+      "trimmed_path": "Search → Special:Book",
+      "landed_on": "Manage your book",
+      "attempts": [
+        {
+          "loop": 1,
+          "rewrite": "To do this, type **Special:Book** into **Search** in Wikipedia to open the **Manage your book** page.",
+          "labels": [
+            "Special:Book",
+            "Search",
+            "Manage your book"
+          ],
+          "proof": {
+            "status": "failed",
+            "exit_code": 1,
+            "summary": "The test assumed that “Special:Book” would already be a clickable item on the Ada Lovelace page. The page instead provides a search field and a Search button; “Special:Book” is the value that should be typed into that field before a result can exist.\nRevise the flow to enter “Special:Book” into the Search field, click Search, then click “Manage your book” on the resulting page.",
+            "one_liner": "The run stopped because it looked for “Special:Book” on the initial article page, even though the tutorial says that text must first be entered in the search box.",
+            "reason_code": "assertion_error.step_not_achievable",
+            "reason": "The full page snapshot contains no element labeled exactly \"Special:Book\".",
+            "verdict": {
+              "confirmed": false,
+              "status": "broken",
+              "family": "automation_bug",
+              "category": "state_transition_bug",
+              "category_proposal": "",
+              "severity": "minor",
+              "root_cause": "The test assumed that “Special:Book” would already be a clickable item on the Ada Lovelace page. The page instead provides a search field and a Search button; “Special:Book” is the value that should be typed into that field before a result can exist.",
+              "agent_fault_assessment": "The agent only navigated to the required starting page and did not take an incorrect click or navigation. The failure was caused by the test's impossible first click requirement and an invalid assumed page state, not by the agent or the website.",
+              "bug_title": "Test expects a Special:Book element before searching",
+              "signals": [],
+              "confidence": 0.98,
+              "suggestion": "Revise the flow to enter “Special:Book” into the Search field, click Search, then click “Manage your book” on the resulting page.",
+              "one_liner": "The run stopped because it looked for “Special:Book” on the initial article page, even though the tutorial says that text must first be entered in the search box.",
+              "relevant_steps": [
+                0,
+                1
+              ],
+              "culprit_step": "step 0-1",
+              "credits_consumed": 1.8185,
+              "mode": "terminal"
+            },
+            "evidence": "~\\.testmuai\\kaneai\\sessions\\b7e135db-8946-409a-bbad-35254b17b910\\evidence\\b3f0bd17-32a0-46c9-b8ed-b19b325a90ca.evidence",
+            "final_state": {},
+            "clicks": [],
+            "credits": 13.4,
+            "duration": 54.6,
+            "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BNQT3YBNEEJ202GCNGFZP4/dashboard/share/US_AABLWFY5DNXENUW0F71W5GJOOZ5Z11WE7LEEAFU3GWY9PI7MIETQK7S1IQEGAQ69?type=summary&agentView=true&fqdn=summary-page",
+            "run_dir": "~/.testmuai/kaneai/sessions\\b7e135db-8946-409a-bbad-35254b17b910\\runs\\0",
+            "session_dir": "~/.testmuai/kaneai/sessions\\b7e135db-8946-409a-bbad-35254b17b910",
+            "trail": [
+              "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+              "wait: Waiting after checking for the exact label \"Special:Book\""
+            ],
+            "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"To do this, type Special:Book into Search in Wikipedia to open the Manage your book page.\"\n1. Click the element whose visible label is exactly 'Special:Book'.\n2. Click the element whose visible label is exactly 'Search'.\n3. Click the element whose visible label is exactly 'Manage your book'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+            "mode": "action",
+            "source": "live"
+          }
+        },
+        {
+          "loop": 2,
+          "rewrite": "To do this, click the **Search** box at the top of any Wikipedia page, type Special:Book into it, and press Enter (or click **Search**) to open the **Manage your book** page.",
+          "labels": [
+            "Search",
+            "Search",
+            "Manage your book"
+          ],
+          "proof": {
+            "status": "failed",
+            "exit_code": 1,
+            "summary": "The tutorial says to type “Special:Book” in the search box, but the required action list permits only clicks. The two allowed Search clicks submitted an empty search instead, so there was no “Manage your book” result to click.\nRevise the scenario to include an explicit step to type “Special:Book” into the Search box before submitting the search, then retain the click on “Manage your book”.",
+            "one_liner": "The run could not reach “Manage your book” because the instructions required a search term but prohibited entering it.",
+            "reason_code": "assertion_error.step_not_achievable",
+            "reason": "Neither page text nor screenshot contains Manage your book, and constraints prohibit the tutorial’s required search entry.",
+            "verdict": {
+              "confirmed": false,
+              "status": "broken",
+              "family": "automation_bug",
+              "category": "config_issue",
+              "category_proposal": "",
+              "severity": "major",
+              "root_cause": "The tutorial says to type “Special:Book” in the search box, but the required action list permits only clicks. The two allowed Search clicks submitted an empty search instead, so there was no “Manage your book” result to click.",
+              "agent_fault_assessment": "The agent followed the listed click-only actions: it clicked Search on the article and then clicked Search again on the empty search page. It did not cause a product failure; entering the necessary search text would have violated the stated constraints. The automation task definition is incomplete and internally conflicting.",
+              "bug_title": "Task constraints omit the required Special:Book search entry",
+              "signals": [],
+              "confidence": 0.99,
+              "suggestion": "Revise the scenario to include an explicit step to type “Special:Book” into the Search box before submitting the search, then retain the click on “Manage your book”.",
+              "one_liner": "The run could not reach “Manage your book” because the instructions required a search term but prohibited entering it.",
+              "relevant_steps": [
+                2,
+                3
+              ],
+              "culprit_step": "0-3",
+              "credits_consumed": 3.3936,
+              "mode": "terminal"
+            },
+            "evidence": "~\\.testmuai\\kaneai\\sessions\\bb2d7c50-4f46-41a9-8089-45596dac2209\\evidence\\6db07927-daf6-4183-a060-fdc87187a02f.evidence",
+            "final_state": {},
+            "clicks": [
+              {
+                "label": "Search",
+                "x": 895,
+                "y": 19
+              },
+              {
+                "label": "Search",
+                "x": 854,
+                "y": 184
+              }
+            ],
+            "credits": 18.7,
+            "duration": 98.8,
+            "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BNW1TP0JGM52R3MH9CF380/dashboard/share/US_JU92O7TAI34QKJ6QEOZXASXJR1S238EYJEDTXVVJ3GW1GG4H34IBXEC2M8KNMG2B?type=summary&agentView=true&fqdn=summary-page",
+            "run_dir": "~/.testmuai/kaneai/sessions\\bb2d7c50-4f46-41a9-8089-45596dac2209\\runs\\0",
+            "session_dir": "~/.testmuai/kaneai/sessions\\bb2d7c50-4f46-41a9-8089-45596dac2209",
+            "trail": [
+              "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+              "click: Clicking the Search button",
+              "click: Clicking the Search button",
+              "wait: Waiting after confirming the requested Manage your book element is unavailable"
+            ],
+            "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"To do this, click the Search box at the top of any Wikipedia page, type Special:Book into it, and press Enter (or click Search) to open the Manage your book page.\"\n1. Click the element whose visible label is exactly 'Search'.\n2. Click the element whose visible label is exactly 'Search'.\n3. Click the element whose visible label is exactly 'Manage your book'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+            "mode": "action",
+            "source": "live"
+          }
+        },
+        {
+          "loop": 3,
+          "rewrite": "To do this, click **Search** at the top of any Wikipedia page, enter **Special:Book** as the search term, and click **Search** again to open the **Manage your book** page.",
+          "labels": [
+            "Search",
+            "Special:Book",
+            "Search",
+            "Manage your book"
+          ],
+          "proof": {
+            "status": "failed",
+            "exit_code": 1,
+            "summary": "The instructions conflict: they prohibit typing but require clicking the text that the tutorial says must be typed as a search term. Because that text was never entered, no matching clickable element appeared.\nFix the test steps to allow entering “Special:Book” into the search field, then click Search and select “Manage your book.”",
+            "one_liner": "The run reached Wikipedia’s Search page, but the test then expected “Special:Book” to be a clickable item even though it had never been entered into the search box.",
+            "reason_code": "assertion_error.step_not_achievable",
+            "reason": "The current Search page contains no element labeled exactly 'Special:Book'; typing is prohibited.",
+            "verdict": {
+              "confirmed": false,
+              "status": "broken",
+              "family": "automation_bug",
+              "category": "state_transition_bug",
+              "category_proposal": "",
+              "severity": "major",
+              "root_cause": "The instructions conflict: they prohibit typing but require clicking the text that the tutorial says must be typed as a search term. Because that text was never entered, no matching clickable element appeared.",
+              "agent_fault_assessment": "The agent did not cause the outcome. It correctly clicked the exact “Search” control required by the first instruction, and the resulting Search page loaded successfully. The next required target could only exist after entering “Special:Book”, but typing was expressly prohibited; therefore the test assumed a page state that its allowed actions could not create.",
+              "bug_title": "Test expects a search term as a clickable element",
+              "signals": [],
+              "confidence": 0.98,
+              "suggestion": "Fix the test steps to allow entering “Special:Book” into the search field, then click Search and select “Manage your book.”",
+              "one_liner": "The run reached Wikipedia’s Search page, but the test then expected “Special:Book” to be a clickable item even though it had never been entered into the search box.",
+              "relevant_steps": [
+                2
+              ],
+              "culprit_step": "0-2",
+              "credits_consumed": 2.6865,
+              "mode": "terminal"
+            },
+            "evidence": "~\\.testmuai\\kaneai\\sessions\\864d427e-5a4c-4ee0-a313-9d0037bca742\\evidence\\be7df2db-3929-450a-badd-cecf0b5dc36a.evidence",
+            "final_state": {},
+            "clicks": [
+              {
+                "label": "Search",
+                "names": [
+                  "Click the element whose visible label is exactly 'Search"
+                ],
+                "x": 895,
+                "y": 19
+              }
+            ],
+            "credits": 14.1,
+            "duration": 92.9,
+            "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BP1RVN00JT01SS46WQ0VAN/dashboard/share/US_D9AH8VTRCMC7M18IF20HNVWGRBE0LLOX5OWTVS75VU4BSAWE1WMK8A3QPLN014NY?type=summary&agentView=true&fqdn=summary-page",
+            "run_dir": "~/.testmuai/kaneai/sessions\\864d427e-5a4c-4ee0-a313-9d0037bca742\\runs\\0",
+            "session_dir": "~/.testmuai/kaneai/sessions\\864d427e-5a4c-4ee0-a313-9d0037bca742",
+            "trail": [
+              "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+              "click: Clicking Click the element whose visible label is exactly 'Search'",
+              "wait: Waiting after checking for the required 'Special:Book' element"
+            ],
+            "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"To do this, click Search at the top of any Wikipedia page, enter Special:Book as the search term, and click Search again to open the Manage your book page.\"\n1. Click the element whose visible label is exactly 'Search'.\n2. Click the element whose visible label is exactly 'Special:Book'.\n3. Click the element whose visible label is exactly 'Search'.\n4. Click the element whose visible label is exactly 'Manage your book'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+            "mode": "action",
+            "source": "live"
+          }
+        }
+      ],
+      "note": "The doc's words no longer work and no rewrite passed a literal run in 3 loops. Needs a human; evidence attached.",
+      "credits": 139.8,
+      "started_at": "https://en.wikipedia.org/wiki/Ada_Lovelace"
+    },
+    {
+      "n": 2,
+      "quote": "This will open the Book creator page; click **Start book creator** to get started.",
+      "text": "This will open the Book creator page; click Start book creator to get started.",
+      "goal": "The book creator is on, offering to add the current page to a book",
+      "labels": [
+        "Start book creator"
+      ],
+      "checkable": true,
+      "continues": true,
+      "status": "drifted",
+      "literal": {
+        "status": "failed",
+        "exit_code": 1,
+        "summary": "The test expected the initial Book creator setup screen, but the page had already moved to the Manage your book screen.\nUpdate the test to recognize the already-enabled Manage your book state, or reset Book creator before running the step.",
+        "one_liner": "The run opened a page where Book creator was already enabled, so the required Start book creator label was not available.",
+        "reason_code": "assertion_error.step_not_achievable",
+        "reason": "The exact label is absent; the current page already shows Manage your book with book creator enabled.",
+        "verdict": {
+          "confirmed": false,
+          "status": "broken",
+          "family": "automation_bug",
+          "category": "state_transition_bug",
+          "category_proposal": "",
+          "severity": "minor",
+          "root_cause": "The test expected the initial Book creator setup screen, but the page had already moved to the Manage your book screen.",
+          "agent_fault_assessment": "The agent only navigated to the required Book creator page and did not click an incorrect element. The failure was caused by the test starting in an already enabled Book creator state while still requiring the setup-only “Start book creator” control.",
+          "bug_title": "Start book creator step assumes disabled Book creator state",
+          "signals": [],
+          "confidence": 0.98,
+          "suggestion": "Update the test to recognize the already-enabled Manage your book state, or reset Book creator before running the step.",
+          "one_liner": "The run opened a page where Book creator was already enabled, so the required Start book creator label was not available.",
+          "relevant_steps": [
+            0,
+            1
+          ],
+          "culprit_step": "0-1",
+          "credits_consumed": 1.68455,
+          "mode": "terminal"
+        },
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\e2403e36-aa03-40b0-bfc1-cf093e7fab75\\evidence\\c57eaf98-2bd4-4fff-9a6d-31154f6da61f.evidence",
+        "final_state": {},
+        "clicks": [],
+        "credits": 11.9,
+        "duration": 71.5,
+        "run_dir": "~/.testmuai/kaneai/sessions\\e2403e36-aa03-40b0-bfc1-cf093e7fab75\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\e2403e36-aa03-40b0-bfc1-cf093e7fab75",
+        "trail": [
+          "navigate: Navigate to https://en.wikipedia.org/wiki/Special:Book",
+          "wait: Waiting after checking for the exact Start book creator label"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"This will open the Book creator page; click Start book creator to get started.\"\n1. Click the element whose visible label is exactly 'Start book creator'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "action",
+        "source": "live"
+      },
+      "goal_pass": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to open Wikipedia’s book creator through the visible page controls and have it ready to add the current page.\nThe book creator was enabled and displayed the option to add the current page to a book.\nThe run ended on Wikipedia’s Main Page, whose main heading was “Welcome to Wikipedia.”",
+        "one_liner": "opened the book creator on Wikipedia",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\632a79c0-0b15-4fd8-80e3-4c9aeda30431\\evidence\\8a4680be-4529-48c1-8856-22fd09cf6102.evidence",
+        "final_state": {
+          "url": "https://en.wikipedia.org/wiki/Main_Page",
+          "book_creator_on": "true",
+          "book_creator_add_current_page_offer": "true",
+          "main_heading": "Welcome to Wikipedia"
+        },
+        "end_url": "https://en.wikipedia.org/wiki/Main_Page",
+        "clicks": [
+          {
+            "label": "Suggest pages",
+            "x": 657,
+            "y": 115
+          },
+          {
+            "label": "Wikipedia The Free Encyclopedia",
+            "names": [
+              "Wikipedia home",
+              "Wikipedia The Free"
+            ],
+            "x": 254,
+            "y": 14
+          }
+        ],
+        "credits": 35.5,
+        "duration": 211.4,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BPB2J4B7PV4JBE6DSBWFQ8/dashboard/share/US_MAX652VXKIUL5R9KZTJWALWVL7WR1PSZMPJ547OGFGXHY6FETG0MUOK0EXYB93DK?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\632a79c0-0b15-4fd8-80e3-4c9aeda30431\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\632a79c0-0b15-4fd8-80e3-4c9aeda30431",
+        "trail": [
+          "navigate: Navigate to https://en.wikipedia.org/wiki/Special:Book",
+          "click: Clicking Suggest pages link",
+          "click: Clicking Wikipedia home link",
+          "analyze: the page you end on has a main heading",
+          "assert: the book creator is on, offering to add the current page to a book",
+          "analyze: Get the main heading on the page and save as {{landed_on}}.",
+          "analyze: ANALYZE(textual_visual, 'Get the main heading on the page and save as {{landed_o",
+          "wait: Waiting after completing the required heading extraction",
+          "wait: Waiting after confirming Book creator remains on and the current-page add offer is visible"
+        ],
+        "objective": "Goal: the book creator is on, offering to add the current page to a book. Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\nHint: an old tutorial said \"This will open the Book creator page; click Start book creator to get started.\", but those labels may have moved or been renamed.\nWhen the goal is met, verify it on screen. If the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "testing",
+        "source": "live"
+      },
+      "actual_path": "Suggest pages → Wikipedia The Free Encyclopedia",
+      "landed_on": "Welcome to Wikipedia",
+      "rewrite": "This will open the Book creator page; click **Suggest pages**, then **Wikipedia The Free Encyclopedia** to get started.",
+      "attempts": [
+        {
+          "loop": 1,
+          "rewrite": "This will open the Book creator page; click **Suggest pages**, then **Wikipedia The Free Encyclopedia** to get started.",
+          "labels": [
+            "Suggest pages",
+            "Wikipedia The Free Encyclopedia"
+          ],
+          "proof": {
+            "status": "passed",
+            "exit_code": 0,
+            "summary": "Opened the Book creator suggestions and selected “Wikipedia The Free Encyclopedia” as requested.\nReached Wikipedia’s Main Page, where the main page heading is present.",
+            "one_liner": "opened Wikipedia’s Main Page on Wikipedia",
+            "reason_code": "success.complete",
+            "reason": "Objective completed",
+            "evidence": "~\\.testmuai\\kaneai\\sessions\\e2753f0d-3af3-4718-87d4-cf692d5b62c8\\evidence\\89734041-f13a-447a-8ce9-1e0833197be3.evidence",
+            "final_state": {
+              "url": "https://en.wikipedia.org/wiki/Main_Page",
+              "main_heading_present": "true"
+            },
+            "end_url": "https://en.wikipedia.org/wiki/Main_Page",
+            "clicks": [
+              {
+                "label": "Suggest pages",
+                "x": 657,
+                "y": 115
+              },
+              {
+                "label": "Wikipedia The Free Encyclopedia",
+                "names": [
+                  "Wikipedia The Free"
+                ],
+                "x": 254,
+                "y": 14
+              }
+            ],
+            "credits": 30.2,
+            "duration": 151.2,
+            "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BPMCATG5K4Z9X9PYJB9R6C/dashboard/share/US_YRR94QHP7RWQSYSHJXHKUZT91CV1NIDK0XBE8TF6SRLKB3X075L7PD2HH6EEZDUF?type=summary&agentView=true&fqdn=summary-page",
+            "run_dir": "~/.testmuai/kaneai/sessions\\e2753f0d-3af3-4718-87d4-cf692d5b62c8\\runs\\0",
+            "session_dir": "~/.testmuai/kaneai/sessions\\e2753f0d-3af3-4718-87d4-cf692d5b62c8",
+            "trail": [
+              "navigate: Navigate to https://en.wikipedia.org/wiki/Special:Book",
+              "click: Clicking Suggest pages",
+              "click: Clicking the Wikipedia The Free Encyclopedia link in the site header",
+              "wait: PRIMARY: wait for the Wikipedia main page heading to be visible",
+              "analyze: the page you end on has a main heading",
+              "analyze: it is stored as {{landed_on}}",
+              "wait: Waiting after storing landed_on",
+              "wait: Waiting after confirming the completed Wikipedia main page destination"
+            ],
+            "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"This will open the Book creator page; click Suggest pages, then Wikipedia The Free Encyclopedia to get started.\"\n1. Click the element whose visible label is exactly 'Suggest pages'.\n2. Click the element whose visible label is exactly 'Wikipedia The Free Encyclopedia'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+            "mode": "action",
+            "source": "live"
+          }
+        }
+      ],
+      "note": "The doc's words no longer work. Kane found the real path; the rewrite passed a literal run in loop 1.",
+      "credits": 77.6,
+      "started_at": "https://en.wikipedia.org/wiki/Special:Book"
+    }
+  ],
+  "totals": {
+    "steps": 2,
+    "checkable": 2,
+    "accurate": 0,
+    "drifted": 2,
+    "fixed": 1,
+    "broken": 0,
+    "skipped": 0,
+    "unchecked": 0,
+    "credits": 217.4,
+    "seconds": 2219
+  },
+  "agent_calls": [
+    {
+      "role": "rewrite",
+      "input": "Original doc sentence: To do this, click **Create a book** under **Print/export** on the left sidebar in Wikipedia.\nGoal of the step: Wikipedia's Book creator page is shown\nPath Kane actually clicked (goal pass): Search → Special:Book\nHeading Kane landed on: Manage your book\n",
+      "output": "{\"text\": \"To do this, type **Special:Book** into **Search** in Wikipedia to open the **Manage your book** page.\", \"labels\": [\"Special:Book\", \"Search\", \"Manage your book\"]}",
+      "ms": 11171
+    },
+    {
+      "role": "rewrite",
+      "input": "Original doc sentence: To do this, click **Create a book** under **Print/export** on the left sidebar in Wikipedia.\nGoal of the step: Wikipedia's Book creator page is shown\nPath Kane actually clicked (goal pass): Search → Search → Special:Book\nHeading Kane landed on: Manage your book\nEarlier rewrites failed Kane's literal proof:\n- \"To do this, type **Special:Book** into **Search** in Wikipedia to open the **Manage your book** page.\" → failed: The run stopped because it looked for “Special:Book” on the initial article page, even though the tutorial says that text must first be entered in the search box.",
+      "output": "{\"text\": \"To do this, click the **Search** box at the top of any Wikipedia page, type Special:Book into it, and press Enter (or click **Search**) to open the **Manage your book** page.\", \"labels\": [\"Search\", \"Search\", \"Manage your book\"]}",
+      "ms": 13225
+    },
+    {
+      "role": "rewrite",
+      "input": "Original doc sentence: To do this, click **Create a book** under **Print/export** on the left sidebar in Wikipedia.\nGoal of the step: Wikipedia's Book creator page is shown\nPath Kane actually clicked (goal pass): Search → Search → Special:Book\nHeading Kane landed on: Manage your book\nEarlier rewrites failed Kane's literal proof:\n- \"To do this, type **Special:Book** into **Search** in Wikipedia to open the **Manage your book** page.\" → failed: The run stopped because it looked for “Special:Book” on the initial article page, even though the tutorial says that text must first be entered in the search box.\n- \"To do this, click the **Search** box at the top of any Wikipedia page, type Special:Book into it, and press Enter (or click **Search**) to open the **Manage your book** page.\" → failed: The run could not reach “Manage your book” because the instructions required a search term but prohibited entering it.",
+      "output": "{\"text\": \"To do this, click **Search** at the top of any Wikipedia page, enter **Special:Book** as the search term, and click **Search** again to open the **Manage your book** page.\", \"labels\": [\"Search\", \"Special:Book\", \"Search\", \"Manage your book\"]}",
+      "ms": 18013
+    },
+    {
+      "role": "rewrite",
+      "input": "Original doc sentence: This will open the Book creator page; click **Start book creator** to get started.\nGoal of the step: The book creator is on, offering to add the current page to a book\nPath Kane actually clicked (goal pass): Suggest pages → Wikipedia The Free Encyclopedia\nHeading Kane landed on: Welcome to Wikipedia\n",
+      "output": "{\"text\": \"This will open the Book creator page; click **Suggest pages**, then **Wikipedia The Free Encyclopedia** to get started.\", \"labels\": [\"Suggest pages\", \"Wikipedia The Free Encyclopedia\"]}",
+      "ms": 19098
+    }
+  ],
+  "input": "corpus/tutorials/hunt-htg-wikipedia-book.tutorial.json"
+}

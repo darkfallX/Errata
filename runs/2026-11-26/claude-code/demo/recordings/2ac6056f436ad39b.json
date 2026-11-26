@@ -1,0 +1,66 @@
+{
+  "key": "2ac6056f436ad39b",
+  "recorded_at": "2026-11-26T09:29:06.312Z",
+  "exit_code": 0,
+  "mode": "action",
+  "url": "http://localhost:4177",
+  "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Open the Driftwood dashboard and click Projects.\"\n1. Click the element whose visible label is exactly 'Projects'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+  "clicks": [
+    {
+      "label": "Projects",
+      "x": 242,
+      "y": 16
+    }
+  ],
+  "actions": [
+    {
+      "type": "navigate",
+      "status": "success",
+      "intent": "Navigate to http://localhost:4177",
+      "instr": "Navigate to http://localhost:4177"
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Projects\"i]",
+      "intent": "PRIMARY: Click the element whose visible label is exactly 'Projects'.; role=link; text=\"Projects\" | HINTS: container=drift navigation",
+      "instr": "Clicking Projects link",
+      "x": 242,
+      "y": 16
+    },
+    {
+      "type": "wait",
+      "status": "success",
+      "intent": "PRIMARY: wait for the heading 'Projects' to be visible",
+      "instr": "Waiting for the Projects heading to become visible"
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "whether a main heading is present (in the main content panel)",
+      "instr": "Checking whether the main heading is present"
+    },
+    {
+      "type": "if_else",
+      "status": "success",
+      "instr": "If-else checkpoint cp_1: condition 'The page you end on has a main heading.' matched"
+    },
+    {
+      "type": "child_agent_start",
+      "status": "executing",
+      "instr": "Get the main heading and save as {{landed_on}}."
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "the main heading text on the Projects page",
+      "instr": "Reading the main page heading"
+    },
+    {
+      "type": "child_agent_end",
+      "status": "success",
+      "instr": "Get the main heading and save as {{landed_on}}."
+    }
+  ],
+  "ndjson": "{\"type\":\"stream_start\",\"cli_version\":\"0.10.4\",\"surface\":\"run\",\"pid\":14188,\"v\":1,\"ts\":\"2026-11-26T09:23:28.168Z\"}\n{\"type\":\"recording_state\",\"enabled\":true,\"session_id\":\"110086bc-37d9-4721-ac75-2210ea8d7b0f\",\"persist\":false,\"v\":1,\"ts\":\"2026-11-26T09:23:28.218Z\"}\n{\"type\":\"update_available\",\"current\":\"0.10.4\",\"latest\":\"0.10.9\",\"severity\":\"patch\",\"v\":1,\"ts\":\"2026-11-26T09:23:33.126Z\"}\n{\"type\":\"skill_update_available\",\"current\":null,\"latest\":\"0.1.4\",\"install_cmd\":\"kane-cli install skill\",\"v\":1,\"ts\":\"2026-11-26T09:23:33.157Z\"}\n{\"type\":\"bifurcation\",\"flows\":[\"Navigate to http://localhost:4177 then Follow these steps literally, one at a time, from the current page.\\nClick only what each step names.\\nNever type a URL, search, or take another route.\\nWhere to find them, in the tutorial's own words: \\\"Open the Driftwood dashboard and click Projects.\\\"\\nClick the element whose visible label is exactly 'Projects'.\\nIf the page you end on has a main heading, @v16:\\\"Get the main heading and save as {{landed_on}}.\\\"; a page without a heading is fine.\"],\"count\":1,\"v\":1,\"ts\":\"2026-11-26T09:24:24.301Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"v\":1,\"ts\":\"2026-11-26T09:24:27.680Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"navigate: Navigate to http://localhost:4177\",\"v\":1,\"ts\":\"2026-11-26T09:24:27.701Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"v\":1,\"ts\":\"2026-11-26T09:24:33.661Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"click: Clicking Projects link\",\"v\":1,\"ts\":\"2026-11-26T09:24:42.467Z\"}\n{\"step\":4,\"status\":\"running\",\"remark\":\"Step 3\",\"v\":1,\"ts\":\"2026-11-26T09:24:43.420Z\"}\n{\"step\":4,\"status\":\"done\",\"remark\":\"wait: PRIMARY: wait for the heading 'Projects' to be visible\",\"v\":1,\"ts\":\"2026-11-26T09:25:02.482Z\"}\n{\"step\":5,\"status\":\"running\",\"remark\":\"Step 4\",\"v\":1,\"ts\":\"2026-11-26T09:25:03.448Z\"}\n{\"step\":6,\"status\":\"running\",\"remark\":\"Step 5\",\"v\":1,\"ts\":\"2026-11-26T09:27:05.506Z\"}\n{\"step\":6,\"status\":\"done\",\"remark\":\"analyze: The page you end on has a main heading.\",\"v\":1,\"ts\":\"2026-11-26T09:27:29.274Z\"}\n{\"step\":7,\"status\":\"running\",\"remark\":\"Step 6\",\"v\":1,\"ts\":\"2026-11-26T09:27:30.263Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"child_id\":\"32f433c7\",\"v\":1,\"ts\":\"2026-11-26T09:27:30.646Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"analyze: The main heading is saved as {{landed_on}}.\",\"child_id\":\"32f433c7\",\"v\":1,\"ts\":\"2026-11-26T09:27:52.465Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"child_id\":\"32f433c7\",\"v\":1,\"ts\":\"2026-11-26T09:27:53.544Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"wait: Waiting after main heading extraction\",\"child_id\":\"32f433c7\",\"v\":1,\"ts\":\"2026-11-26T09:27:56.314Z\"}\n{\"step\":8,\"status\":\"running\",\"remark\":\"Step 7\",\"v\":1,\"ts\":\"2026-11-26T09:28:02.779Z\"}\n{\"step\":8,\"status\":\"done\",\"remark\":\"wait: Waiting after confirming the Projects page heading\",\"v\":1,\"ts\":\"2026-11-26T09:28:07.692Z\"}\n{\"type\":\"coverage\",\"status\":\"skipped\",\"reason\":\"not_assurance_project\",\"pack\":\"~\\\\.testmuai\\\\kaneai\\\\sessions\\\\110086bc-37d9-4721-ac75-2210ea8d7b0f\\\\evidence\\\\cab36271-30e0-4390-9aa0-be521b67e103.evidence\",\"v\":1,\"ts\":\"2026-11-26T09:28:52.247Z\"}\n{\"type\":\"run_end\",\"status\":\"passed\",\"summary\":\"The requested action was to open Projects from the Driftwood dashboard.\\nThe run reached the Projects page, where a main heading was present.\",\"one_liner\":\"opened Projects on the Driftwood dashboard\",\"final_state\":{\"url\":\"http://localhost:4177/projects\",\"main_heading_present\":\"true\"},\"reason\":\"AP(text) failed: \",\"duration\":240.5,\"bifurcated\":false,\"total_runs\":1,\"context\":{\"memory\":{\"main_heading_present\":{\"extracted_value\":\"true\",\"operator\":\"equals\",\"transforms\":[],\"json_path\":null,\"reasoning\":\"value: 'true' -> 'true'; equals 'true' -> PASS\",\"analyzer_type\":\"visual\",\"step\":5,\"query\":\"whether a main heading is present (in the main content panel)\",\"condition\":\"The page you end on has a main heading.\",\"human_description\":\"Checking whether the main heading is present\",\"expected_value\":\"true\",\"subject\":\"a main heading\",\"must_be\":\"present\"}},\"variables\":{\"landed_on\":{\"syntax\":\"{{landed_on}}\",\"value\":\"Projects\",\"type\":\"memory\",\"secret\":false,\"source\":\"runtime\"},\"main_heading_present\":{\"syntax\":\"{{main_heading_present}}\",\"value\":\"true\",\"type\":\"memory\",\"secret\":false}},\"pointer\":\"(passed) opened Projects on the Driftwood dashboard\"},\"credits_consumed\":29.841429999999995,\"session_dir\":\"~/.testmuai/kaneai/sessions\\\\110086bc-37d9-4721-ac75-2210ea8d7b0f\",\"run_dir\":\"~/.testmuai/kaneai/sessions\\\\110086bc-37d9-4721-ac75-2210ea8d7b0f\\\\runs\\\\0\",\"result_code\":100,\"reason_code\":\"success.complete\",\"per_flow_metadata\":[{\"result_code\":\"100\",\"reason_code\":\"success.complete\",\"error_message\":null,\"summary\":\"The requested action was to open Projects from the Driftwood dashboard.\\nThe run reached the Projects page, where a main heading was present.\",\"one_liner\":\"opened Projects on the Driftwood dashboard\",\"credits_consumed\":29.841429999999995}],\"run_id\":\"run-0\",\"test_url\":\"https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BJNNFZARS7XFK3FZS91HHZ/dashboard/share/US_A3J9XGCA5RJGJRFBBO7SWVXCYE1DPTHDCT5SCKBZXUV668M1U65O6TWFFLJEGRQP?type=summary&agentView=true&fqdn=summary-page\",\"coverage\":{\"status\":\"skipped\"},\"v\":1,\"ts\":\"2026-11-26T09:28:52.250Z\"}\n"
+}

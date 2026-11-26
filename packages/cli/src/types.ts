@@ -98,6 +98,8 @@ export interface StepReport extends Step {
   attempts?: Attempt[];
   /** Where this step was started (the tutorial start, or where the previous step ended). */
   started_at?: string;
+  /** Clicks in a passing literal run that the step doesn't name (e.g. reopening a menu). Shown, never hidden. */
+  extra_clicks?: string[];
   /** Plain-language explanation of the verdict. */
   note: string;
   credits: number;
@@ -112,6 +114,8 @@ export interface TutorialReport {
   /** What was passed to `errata check` (file path relative to cwd, or URL), so anyone can re-run it. */
   input?: string;
   agent: string;
+  /** Every agent call in this run, word for word: what it was told (incl. Kane's failures) and what it answered. */
+  agent_calls?: { role: "rewrite" | "extract"; input: string; output: string; ms: number }[];
   kane: "live" | "replay";
   steps: StepReport[];
   totals: {

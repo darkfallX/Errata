@@ -26,12 +26,13 @@ export interface KaneRunOptions {
 /**
  * Kane failed for reasons outside the product: the browser crashed, the machine ran out of memory,
  * the network dropped. Kane says so in reason_code ("infra_error.*") and its triage ("environment_issue").
+ * Kane's own sub-agent can also stall or crash ("agent_error.*", e.g. child_failed); that says nothing about the doc.
  * These are never docs findings.
  */
 export function isInfraFailure(r: KaneResult): boolean {
   if (r.status === "error" || r.status === "timeout") return true;
   if (r.status !== "failed") return false;
-  return /^infra_error/.test(r.reason_code ?? "") || r.verdict?.family === "environment_issue" || /target crashed|browser has disconnected|net::err_/i.test(r.reason ?? "");
+  return /^(infra_error|agent_error)/.test(r.reason_code ?? "") || r.verdict?.family === "environment_issue" || /target crashed|browser has disconnected|net::err_/i.test(r.reason ?? "");
 }
 
 export interface KaneRunner {

@@ -1,0 +1,88 @@
+{
+  "key": "953a528ad1ae7d6e",
+  "recorded_at": "2026-11-26T09:33:25.685Z",
+  "exit_code": 0,
+  "mode": "action",
+  "url": "http://localhost:4177",
+  "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Click Developers → Tokens and press New token.\"\n1. Click the element whose visible label is exactly 'Developers'.\n2. Click the element whose visible label is exactly 'Tokens'.\n3. Click the element whose visible label is exactly 'New token'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+  "clicks": [
+    {
+      "label": "Developers",
+      "x": 552,
+      "y": 16
+    },
+    {
+      "label": "Tokens",
+      "x": 456,
+      "y": 92
+    },
+    {
+      "label": "New token",
+      "x": 703,
+      "y": 206
+    }
+  ],
+  "actions": [
+    {
+      "type": "navigate",
+      "status": "success",
+      "intent": "Navigate to http://localhost:4177",
+      "instr": "Navigate to http://localhost:4177"
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Developers\"i]",
+      "intent": "PRIMARY: Click the element whose visible label is exactly 'Developers'.; role=link; text=\"Developers\" | HINTS: container=top navigation",
+      "instr": "Clicking Developers in the top navigation",
+      "x": 552,
+      "y": 16
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Tokens\"i]",
+      "intent": "PRIMARY: Click the element whose visible label is exactly 'Tokens'.; role=link; text=\"Tokens\" | HINTS: container=Developers navigation",
+      "instr": "Clicking Tokens link in Developers navigation",
+      "x": 456,
+      "y": 92
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"New token\"i]",
+      "intent": "PRIMARY: Click the element whose visible label is exactly 'New token'.; role=link; text=\"New token\" | HINTS: container=Tokens page",
+      "instr": "Clicking New token link",
+      "x": 703,
+      "y": 206
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "whether the page you end on main heading is present (in the main content area)",
+      "instr": "Checking whether the main page heading is present"
+    },
+    {
+      "type": "if_else",
+      "status": "success",
+      "instr": "If-else checkpoint cp_1: condition 'the page you end on has a main heading' matched"
+    },
+    {
+      "type": "child_agent_start",
+      "status": "executing",
+      "instr": "Get the main heading on the page you end on and save as {{landed_on}}."
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "the main heading text on the current page",
+      "instr": "Reading the main page heading"
+    },
+    {
+      "type": "child_agent_end",
+      "status": "success",
+      "instr": "Get the main heading on the page you end on and save as {{landed_on}}."
+    }
+  ],
+  "ndjson": "{\"type\":\"stream_start\",\"cli_version\":\"0.10.4\",\"surface\":\"run\",\"pid\":41192,\"v\":1,\"ts\":\"2026-11-26T09:30:26.944Z\"}\n{\"type\":\"recording_state\",\"enabled\":true,\"session_id\":\"840cd0c0-bd2d-43a1-a0a6-a7f7bba715fa\",\"persist\":false,\"v\":1,\"ts\":\"2026-11-26T09:30:27.168Z\"}\n{\"type\":\"update_available\",\"current\":\"0.10.4\",\"latest\":\"0.10.9\",\"severity\":\"patch\",\"v\":1,\"ts\":\"2026-11-26T09:30:31.814Z\"}\n{\"type\":\"skill_update_available\",\"current\":null,\"latest\":\"0.1.4\",\"install_cmd\":\"kane-cli install skill\",\"v\":1,\"ts\":\"2026-11-26T09:30:31.845Z\"}\n{\"type\":\"bifurcation\",\"flows\":[\"Navigate to http://localhost:4177 then Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\\nWhere to find them, in the tutorial's own words: \\\"Click Developers → Tokens and press New token.\\\"\\nClick the element whose visible label is exactly 'Developers'.\\nClick the element whose visible label is exactly 'Tokens'.\\nClick the element whose visible label is exactly 'New token'.\\nIf the page you end on has a main heading, @v16:\\\"Get the main heading on the page you end on and save as {{landed_on}}.\\\"; a page without a heading is fine.\"],\"count\":1,\"v\":1,\"ts\":\"2026-11-26T09:31:00.901Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"v\":1,\"ts\":\"2026-11-26T09:31:04.098Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"navigate: Navigate to http://localhost:4177\",\"v\":1,\"ts\":\"2026-11-26T09:31:04.118Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"v\":1,\"ts\":\"2026-11-26T09:31:10.933Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"click: Clicking Developers in the top navigation\",\"v\":1,\"ts\":\"2026-11-26T09:31:20.495Z\"}\n{\"step\":4,\"status\":\"running\",\"remark\":\"Step 3\",\"v\":1,\"ts\":\"2026-11-26T09:31:21.226Z\"}\n{\"step\":4,\"status\":\"done\",\"remark\":\"click: Clicking Tokens link in Developers navigation\",\"v\":1,\"ts\":\"2026-11-26T09:31:28.377Z\"}\n{\"step\":5,\"status\":\"running\",\"remark\":\"Step 4\",\"v\":1,\"ts\":\"2026-11-26T09:31:29.210Z\"}\n{\"step\":5,\"status\":\"done\",\"remark\":\"click: Clicking New token link\",\"v\":1,\"ts\":\"2026-11-26T09:31:35.799Z\"}\n{\"step\":6,\"status\":\"running\",\"remark\":\"Step 5\",\"v\":1,\"ts\":\"2026-11-26T09:31:36.638Z\"}\n{\"step\":6,\"status\":\"done\",\"remark\":\"analyze: the page you end on has a main heading\",\"v\":1,\"ts\":\"2026-11-26T09:31:47.707Z\"}\n{\"step\":7,\"status\":\"running\",\"remark\":\"Step 6\",\"v\":1,\"ts\":\"2026-11-26T09:31:48.495Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"child_id\":\"36285d3f\",\"v\":1,\"ts\":\"2026-11-26T09:31:48.917Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"analyze: ANALYZE(textual_visual, 'The main heading on the page you end on is saved as {{l\",\"child_id\":\"36285d3f\",\"v\":1,\"ts\":\"2026-11-26T09:32:03.415Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"child_id\":\"36285d3f\",\"v\":1,\"ts\":\"2026-11-26T09:32:04.219Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"wait: Waiting after saving the main heading\",\"child_id\":\"36285d3f\",\"v\":1,\"ts\":\"2026-11-26T09:32:36.615Z\"}\n{\"step\":8,\"status\":\"running\",\"remark\":\"Step 7\",\"v\":1,\"ts\":\"2026-11-26T09:32:40.594Z\"}\n{\"step\":8,\"status\":\"done\",\"remark\":\"wait: Waiting 1000 ms after confirming the Create a new API token page heading\",\"v\":1,\"ts\":\"2026-11-26T09:32:45.476Z\"}\n{\"type\":\"coverage\",\"status\":\"skipped\",\"reason\":\"not_assurance_project\",\"pack\":\"~\\\\.testmuai\\\\kaneai\\\\sessions\\\\840cd0c0-bd2d-43a1-a0a6-a7f7bba715fa\\\\evidence\\\\0cf267d3-8542-4953-866e-260e9d18d6e1.evidence\",\"v\":1,\"ts\":\"2026-11-26T09:33:20.547Z\"}\n{\"type\":\"run_end\",\"status\":\"passed\",\"summary\":\"Opened the Developers section, then selected Tokens as requested.\\nPressed New token and reached the page for creating a new API token.\\nThe final page displayed a main heading, confirming the new-token page loaded.\",\"one_liner\":\"opened the new API token page on localhost\",\"final_state\":{\"url\":\"http://localhost:4177/developers/tokens/new\",\"main_heading_present\":\"true\"},\"reason\":\"Objective completed\",\"duration\":112.7,\"bifurcated\":false,\"total_runs\":1,\"context\":{\"memory\":{\"main_heading_present\":{\"extracted_value\":\"true\",\"operator\":\"equals\",\"transforms\":[],\"json_path\":null,\"reasoning\":\"value: 'true' -> 'true'; equals 'true' -> PASS\",\"analyzer_type\":\"textual_visual\",\"step\":5,\"query\":\"whether the page you end on main heading is present (in the main content area)\",\"condition\":\"the page you end on has a main heading\",\"human_description\":\"Checking whether the main page heading is present\",\"expected_value\":\"true\",\"subject\":\"the page you end on main heading\",\"must_be\":\"present\",\"code_js\":\"el(15).tagName === 'H1' && el(15).innerText.trim().length > 0\",\"wrapped_js\":\"(els) => {\\n  const __m = {15: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (el(15).tagName === 'H1' && el(15).innerText.trim().length > 0);\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:role=heading[name=\\\"Create a new API token\\\"i]\"],\"needs_unit_conversion\":false}},\"variables\":{\"landed_on\":{\"syntax\":\"{{landed_on}}\",\"value\":\"Create a new API token\",\"type\":\"memory\",\"secret\":false,\"source\":\"runtime\"},\"main_heading_present\":{\"syntax\":\"{{main_heading_present}}\",\"value\":\"true\",\"type\":\"memory\",\"secret\":false}},\"pointer\":\"(passed) opened the new API token page on localhost\"},\"credits_consumed\":30.253350000000005,\"session_dir\":\"~/.testmuai/kaneai/sessions\\\\840cd0c0-bd2d-43a1-a0a6-a7f7bba715fa\",\"run_dir\":\"~/.testmuai/kaneai/sessions\\\\840cd0c0-bd2d-43a1-a0a6-a7f7bba715fa\\\\runs\\\\0\",\"result_code\":100,\"reason_code\":\"success.complete\",\"per_flow_metadata\":[{\"result_code\":\"100\",\"reason_code\":\"success.complete\",\"error_message\":null,\"summary\":\"Opened the Developers section, then selected Tokens as requested.\\nPressed New token and reached the page for creating a new API token.\\nThe final page displayed a main heading, confirming the new-token page loaded.\",\"one_liner\":\"opened the new API token page on localhost\",\"credits_consumed\":30.253350000000005}],\"run_id\":\"run-0\",\"test_url\":\"https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BK2EB3VSF2QBMXAJXJ2SA3/dashboard/share/US_NCHT1QTQ36F90AZUL2M5BJ6S1RO3OLSF4N12ZAELFY5Z07FC231STUBMI0X2BTAX?type=summary&agentView=true&fqdn=summary-page\",\"coverage\":{\"status\":\"skipped\"},\"v\":1,\"ts\":\"2026-11-26T09:33:20.548Z\"}\n"
+}

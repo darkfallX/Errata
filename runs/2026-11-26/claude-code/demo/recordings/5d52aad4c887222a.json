@@ -1,0 +1,246 @@
+{
+  "key": "5d52aad4c887222a",
+  "recorded_at": "2026-11-26T09:35:46.090Z",
+  "exit_code": 1,
+  "mode": "testing",
+  "url": "http://localhost:4177",
+  "objective": "Goal: a CSV export of the reports is ready to download. Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\nHint: an old tutorial said \"Open Reports and click Export CSV.\", but those labels may have moved or been renamed.\nWhen the goal is met, verify it on screen. If the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+  "clicks": [
+    {
+      "label": "Reports",
+      "x": 388,
+      "y": 16
+    },
+    {
+      "label": "Account",
+      "x": 1795,
+      "y": 16
+    },
+    {
+      "label": "Settings",
+      "x": 468,
+      "y": 16
+    },
+    {
+      "label": "Developers",
+      "x": 552,
+      "y": 16
+    },
+    {
+      "label": "Projects",
+      "x": 240,
+      "y": 16
+    },
+    {
+      "label": "Team",
+      "x": 324,
+      "y": 16
+    },
+    {
+      "label": "Dashboard",
+      "x": 138,
+      "y": 16
+    },
+    {
+      "label": "Account",
+      "x": 1795,
+      "y": 16
+    },
+    {
+      "label": "billing history",
+      "names": [
+        "Billing history"
+      ],
+      "x": 1701,
+      "y": 104
+    },
+    {
+      "label": "Account",
+      "x": 1795,
+      "y": 16
+    },
+    {
+      "label": "Profile",
+      "x": 1701,
+      "y": 66
+    },
+    {
+      "label": "Developers",
+      "x": 549,
+      "y": 16
+    },
+    {
+      "label": "Tokens",
+      "x": 456,
+      "y": 92
+    },
+    {
+      "label": "Webhooks",
+      "x": 456,
+      "y": 134
+    },
+    {
+      "label": "Settings",
+      "x": 466,
+      "y": 16
+    },
+    {
+      "label": "Appearance",
+      "x": 456,
+      "y": 134
+    }
+  ],
+  "actions": [
+    {
+      "type": "navigate",
+      "status": "success",
+      "intent": "Navigate to http://localhost:4177",
+      "instr": "Navigate to http://localhost:4177"
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Reports\"i]",
+      "intent": "PRIMARY: Reports; role=link; text=\"Reports\" | HINTS: container=top navigation",
+      "instr": "Clicking Reports in the top navigation",
+      "x": 388,
+      "y": 16
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:text=\"Account\"i",
+      "intent": "PRIMARY: Account menu; role=disclosuretriangle; text=\"Account\" | HINTS: container=top-right header",
+      "instr": "Clicking the Account menu",
+      "x": 1795,
+      "y": 16
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Settings\"i]",
+      "intent": "PRIMARY: Settings; role=link; text=\"Settings\" | HINTS: container=top navigation",
+      "instr": "Clicking Settings in the top navigation",
+      "x": 468,
+      "y": 16
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Developers\"i]",
+      "intent": "PRIMARY: Developers; role=link; text=\"Developers\" | HINTS: container=top navigation",
+      "instr": "Clicking Developers",
+      "x": 552,
+      "y": 16
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Projects\"i]",
+      "intent": "PRIMARY: Projects; role=link; text=\"Projects\" | HINTS: container=top navigation",
+      "instr": "Clicking Projects in the top navigation",
+      "x": 240,
+      "y": 16
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Team\"i]",
+      "intent": "PRIMARY: Team; role=link; text=\"Team\" | HINTS: container=top navigation",
+      "instr": "Clicking Team in the top navigation",
+      "x": 324,
+      "y": 16
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Dashboard\"i]",
+      "intent": "PRIMARY: Dashboard; role=link; text=\"Dashboard\" | HINTS: container=top navigation",
+      "instr": "Clicking Dashboard link in the top navigation",
+      "x": 138,
+      "y": 16
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:text=\"Account\"i",
+      "intent": "PRIMARY: Account menu; role=disclosuretriangle; text=\"Account\" | HINTS: container=top-right header",
+      "instr": "Clicking the Account menu in the top-right header",
+      "x": 1795,
+      "y": 16
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Billing history\"i]",
+      "intent": "PRIMARY: Billing history; role=link; text=\"Billing history\" | HINTS: container=Account menu at top-right",
+      "instr": "Clicking billing history link",
+      "x": 1701,
+      "y": 104
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:text=\"Account\"i",
+      "intent": "PRIMARY: Account menu; role=disclosuretriangle; text=\"Account\" | HINTS: container=top-right header",
+      "instr": "Clicking Account menu in the top-right corner",
+      "x": 1795,
+      "y": 16
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Profile\"i]",
+      "intent": "PRIMARY: Profile; role=link; text=\"Profile\" | HINTS: container=Account menu at top-right",
+      "instr": "Clicking Profile link in the top-right account menu",
+      "x": 1701,
+      "y": 66
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Developers\"i]",
+      "intent": "PRIMARY: Developers; role=link; text=\"Developers\" | HINTS: container=top navigation",
+      "instr": "Clicking Developers in the top navigation",
+      "x": 549,
+      "y": 16
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Tokens\"i]",
+      "intent": "PRIMARY: Tokens; role=link; text=\"Tokens\" | HINTS: container=Developers sidebar",
+      "instr": "Clicking Tokens in the Developers sidebar",
+      "x": 456,
+      "y": 92
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Webhooks\"i]",
+      "intent": "PRIMARY: Webhooks; role=link; text=\"Webhooks\" | HINTS: container=Developers sidebar",
+      "instr": "Clicking Webhooks in Developers sidebar",
+      "x": 456,
+      "y": 134
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Settings\"i]",
+      "intent": "PRIMARY: Settings; role=link; text=\"Settings\" | HINTS: container=top navigation",
+      "instr": "Clicking Settings in the top navigation",
+      "x": 466,
+      "y": 16
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Appearance\"i]",
+      "intent": "PRIMARY: Appearance; role=link; text=\"Appearance\" | HINTS: container=Settings sidebar",
+      "instr": "Clicking Appearance in settings sidebar",
+      "x": 456,
+      "y": 134
+    }
+  ],
+  "ndjson": "{\"type\":\"stream_start\",\"cli_version\":\"0.10.4\",\"surface\":\"run\",\"pid\":9748,\"v\":1,\"ts\":\"2026-11-26T09:31:13.881Z\"}\n{\"type\":\"recording_state\",\"enabled\":true,\"session_id\":\"77590c83-477d-4e76-abef-1004b9198532\",\"persist\":false,\"v\":1,\"ts\":\"2026-11-26T09:31:13.960Z\"}\n{\"type\":\"update_available\",\"current\":\"0.10.4\",\"latest\":\"0.10.9\",\"severity\":\"patch\",\"v\":1,\"ts\":\"2026-11-26T09:31:26.009Z\"}\n{\"type\":\"skill_update_available\",\"current\":null,\"latest\":\"0.1.4\",\"install_cmd\":\"kane-cli install skill\",\"v\":1,\"ts\":\"2026-11-26T09:31:26.018Z\"}\n{\"type\":\"bifurcation\",\"flows\":[\"Navigate to http://localhost:4177 then Goal: a CSV export of the reports is ready to download.\\nReach it from the current page by clicking through the visible UI, by any route.\\nNever type a URL or use the address bar.\\nHint: an old tutorial said \\\"Open Reports and click Export CSV.\\\", but those labels may have moved or been renamed.\\nWhen the goal is met, verify it on screen.\\nIf the page you end on has a main heading, @v16:\\\"store it as 'landed_on'\\\"; a page without a heading is fine.\"],\"count\":1,\"v\":1,\"ts\":\"2026-11-26T09:31:55.218Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"v\":1,\"ts\":\"2026-11-26T09:31:59.682Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"navigate: Navigate to http://localhost:4177\",\"v\":1,\"ts\":\"2026-11-26T09:31:59.712Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"v\":1,\"ts\":\"2026-11-26T09:32:15.823Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"click: Clicking Reports in the top navigation\",\"v\":1,\"ts\":\"2026-11-26T09:32:33.390Z\"}\n{\"step\":4,\"status\":\"running\",\"remark\":\"Step 3\",\"v\":1,\"ts\":\"2026-11-26T09:32:34.095Z\"}\n{\"step\":4,\"status\":\"done\",\"remark\":\"click: Clicking the Account menu\",\"v\":1,\"ts\":\"2026-11-26T09:32:45.584Z\"}\n{\"step\":5,\"status\":\"running\",\"remark\":\"Step 4\",\"v\":1,\"ts\":\"2026-11-26T09:32:46.417Z\"}\n{\"step\":5,\"status\":\"done\",\"remark\":\"click: Clicking Settings in the top navigation\",\"v\":1,\"ts\":\"2026-11-26T09:32:51.848Z\"}\n{\"step\":6,\"status\":\"running\",\"remark\":\"Step 5\",\"v\":1,\"ts\":\"2026-11-26T09:32:52.686Z\"}\n{\"step\":6,\"status\":\"done\",\"remark\":\"click: Clicking Developers\",\"v\":1,\"ts\":\"2026-11-26T09:32:56.805Z\"}\n{\"step\":7,\"status\":\"running\",\"remark\":\"Step 6\",\"v\":1,\"ts\":\"2026-11-26T09:32:57.669Z\"}\n{\"step\":7,\"status\":\"done\",\"remark\":\"click: Clicking Projects in the top navigation\",\"v\":1,\"ts\":\"2026-11-26T09:33:03.463Z\"}\n{\"step\":8,\"status\":\"running\",\"remark\":\"Step 7\",\"v\":1,\"ts\":\"2026-11-26T09:33:04.203Z\"}\n{\"step\":8,\"status\":\"done\",\"remark\":\"click: Clicking Team in the top navigation\",\"v\":1,\"ts\":\"2026-11-26T09:33:16.932Z\"}\n{\"step\":9,\"status\":\"running\",\"remark\":\"Step 8\",\"v\":1,\"ts\":\"2026-11-26T09:33:17.731Z\"}\n{\"step\":9,\"status\":\"done\",\"remark\":\"click: Clicking Dashboard link in the top navigation\",\"v\":1,\"ts\":\"2026-11-26T09:33:24.311Z\"}\n{\"step\":10,\"status\":\"running\",\"remark\":\"Step 9\",\"v\":1,\"ts\":\"2026-11-26T09:33:25.109Z\"}\n{\"step\":10,\"status\":\"done\",\"remark\":\"click: Clicking the Account menu in the top-right header\",\"v\":1,\"ts\":\"2026-11-26T09:33:34.693Z\"}\n{\"step\":11,\"status\":\"running\",\"remark\":\"Step 10\",\"v\":1,\"ts\":\"2026-11-26T09:33:35.497Z\"}\n{\"step\":11,\"status\":\"done\",\"remark\":\"click: Clicking billing history link\",\"v\":1,\"ts\":\"2026-11-26T09:33:40.871Z\"}\n{\"step\":12,\"status\":\"running\",\"remark\":\"Step 11\",\"v\":1,\"ts\":\"2026-11-26T09:33:41.645Z\"}\n{\"step\":12,\"status\":\"done\",\"remark\":\"click: Clicking Account menu in the top-right corner\",\"v\":1,\"ts\":\"2026-11-26T09:33:54.770Z\"}\n{\"step\":13,\"status\":\"running\",\"remark\":\"Step 12\",\"v\":1,\"ts\":\"2026-11-26T09:33:55.506Z\"}\n{\"step\":13,\"status\":\"done\",\"remark\":\"click: Clicking Profile link in the top-right account menu\",\"v\":1,\"ts\":\"2026-11-26T09:34:02.642Z\"}\n{\"step\":14,\"status\":\"running\",\"remark\":\"Step 13\",\"v\":1,\"ts\":\"2026-11-26T09:34:03.428Z\"}\n{\"step\":14,\"status\":\"done\",\"remark\":\"click: Clicking Developers in the top navigation\",\"v\":1,\"ts\":\"2026-11-26T09:34:14.147Z\"}\n{\"step\":15,\"status\":\"running\",\"remark\":\"Step 14\",\"v\":1,\"ts\":\"2026-11-26T09:34:15.045Z\"}\n{\"step\":15,\"status\":\"done\",\"remark\":\"click: Clicking Tokens in the Developers sidebar\",\"v\":1,\"ts\":\"2026-11-26T09:34:21.104Z\"}\n{\"step\":16,\"status\":\"running\",\"remark\":\"Step 15\",\"v\":1,\"ts\":\"2026-11-26T09:34:22.047Z\"}\n{\"step\":16,\"status\":\"done\",\"remark\":\"click: Clicking Webhooks in Developers sidebar\",\"v\":1,\"ts\":\"2026-11-26T09:34:28.599Z\"}\n{\"step\":17,\"status\":\"running\",\"remark\":\"Step 16\",\"v\":1,\"ts\":\"2026-11-26T09:34:29.504Z\"}\n{\"step\":17,\"status\":\"done\",\"remark\":\"click: Clicking Settings in the top navigation\",\"v\":1,\"ts\":\"2026-11-26T09:34:38.955Z\"}\n{\"step\":18,\"status\":\"running\",\"remark\":\"Step 17\",\"v\":1,\"ts\":\"2026-11-26T09:34:39.906Z\"}\n{\"step\":18,\"status\":\"done\",\"remark\":\"click: Clicking Appearance in settings sidebar\",\"v\":1,\"ts\":\"2026-11-26T09:34:44.836Z\"}\n{\"step\":19,\"status\":\"running\",\"remark\":\"Step 18\",\"v\":1,\"ts\":\"2026-11-26T09:34:45.752Z\"}\n{\"step\":19,\"status\":\"failed\",\"remark\":\"wait: Waiting after checking all visible navigation routes for a reports CSV export\",\"v\":1,\"ts\":\"2026-11-26T09:34:58.382Z\"}\n{\"type\":\"coverage\",\"status\":\"skipped\",\"reason\":\"not_assurance_project\",\"pack\":\"~\\\\.testmuai\\\\kaneai\\\\sessions\\\\77590c83-477d-4e76-abef-1004b9198532\\\\evidence\\\\add459f0-af7c-48c9-9bf2-9109b247222b.evidence\",\"v\":1,\"ts\":\"2026-11-26T09:35:38.397Z\"}\n{\"type\":\"run_end\",\"status\":\"failed\",\"summary\":\"The test objective expects a CSV export feature that is not included in the version under test. Reports states that exports are being rebuilt and are not available, and no alternate visible route provided an export control.\\nUpdate the test objective or run it against a version where report CSV exports are enabled. If exports are required for this release, restore the feature and then add a visible export control to Reports.\",\"one_liner\":\"The run could not prepare a report CSV because this version of Reports explicitly says exports are unavailable.\",\"final_state\":{},\"reason\":\"Reports explicitly says exports are unavailable; all visible primary, account, settings, and developer routes lack CSV export controls.\",\"duration\":204.1,\"bifurcated\":false,\"total_runs\":1,\"context\":{\"memory\":{},\"variables\":{\"landed_on\":{\"syntax\":\"{{landed_on}}\",\"value\":\"\",\"type\":\"text\",\"secret\":false,\"source\":\"runtime\"}},\"pointer\":\"(failed) The run could not prepare a report CSV because this version of Reports explicitly says exports are unavailable.\"},\"credits_consumed\":41.06482,\"session_dir\":\"~/.testmuai/kaneai/sessions\\\\77590c83-477d-4e76-abef-1004b9198532\",\"run_dir\":\"~/.testmuai/kaneai/sessions\\\\77590c83-477d-4e76-abef-1004b9198532\\\\runs\\\\0\",\"result_code\":750,\"reason_code\":\"assertion_error.step_not_achievable\",\"per_flow_metadata\":[{\"result_code\":\"750\",\"reason_code\":\"assertion_error.step_not_achievable\",\"error_message\":\"Reports explicitly says exports are unavailable; all visible primary, account, settings, and developer routes lack CSV export controls.\",\"summary\":\"The test objective expects a CSV export feature that is not included in the version under test. Reports states that exports are being rebuilt and are not available, and no alternate visible route provided an export control.\\nUpdate the test objective or run it against a version where report CSV exports are enabled. If exports are required for this release, restore the feature and then add a visible export control to Reports.\",\"one_liner\":\"The run could not prepare a report CSV because this version of Reports explicitly says exports are unavailable.\",\"credits_consumed\":41.06482}],\"run_id\":\"run-0\",\"verdict\":{\"confirmed\":false,\"status\":\"broken\",\"family\":\"automation_bug\",\"category\":\"config_issue\",\"category_proposal\":\"\",\"severity\":\"major\",\"root_cause\":\"The test objective expects a CSV export feature that is not included in the version under test. Reports states that exports are being rebuilt and are not available, and no alternate visible route provided an export control.\",\"agent_fault_assessment\":\"The agent first used the appropriate Reports navigation, then checked visible account, settings, and developer-related routes after finding no export action. Those actions did not cause the outcome; the run was configured with an objective that cannot be completed in this product version.\",\"bug_title\":\"CSV export objective targets a version where exports are unavailable\",\"signals\":[],\"confidence\":0.97,\"suggestion\":\"Update the test objective or run it against a version where report CSV exports are enabled. If exports are required for this release, restore the feature and then add a visible export control to Reports.\",\"one_liner\":\"The run could not prepare a report CSV because this version of Reports explicitly says exports are unavailable.\",\"relevant_steps\":[2,3,10,17],\"culprit_step\":\"0-2\",\"credits_consumed\":4.4523,\"mode\":\"terminal\"},\"test_url\":\"https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BK435H0SFBETH1HM291PZ2/dashboard/share/US_S3DBO4BIP72TUQY739STRP90GHCNYCMUN15KJCK79PQU8EJFKZL83A5I29JJX8ZM?type=summary&agentView=true&fqdn=summary-page\",\"coverage\":{\"status\":\"skipped\"},\"v\":1,\"ts\":\"2026-11-26T09:35:38.399Z\"}\n"
+}

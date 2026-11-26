@@ -1,0 +1,543 @@
+{
+  "errata": "1",
+  "tutorial": "labnol (2015): Create eBooks from Wikipedia",
+  "source": "https://labnol.org/internet/create-wikipedia-ebooks/25491",
+  "start_url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+  "checked_at": "2026-11-26T11:21:07.769Z",
+  "agent": "Claude (Claude Code, /errata skill) · rewrite: claude-code (Claude Code CLI)",
+  "kane": "live",
+  "steps": [
+    {
+      "n": 1,
+      "quote": "Alternatively, you can open any Wikipedia page and choose **Book Creator** from the toolbox menu in the right sidebar.",
+      "text": "Alternatively, you can open any Wikipedia page and choose Book Creator from the toolbox menu in the right sidebar.",
+      "goal": "Wikipedia's book creator is on for this article",
+      "labels": [
+        "Book Creator"
+      ],
+      "checkable": true,
+      "status": "drifted",
+      "literal": {
+        "status": "failed",
+        "exit_code": 1,
+        "summary": "After the agent clicked Tools, the available evidence does not show an expanded Page tools menu. The test then asserted that an item existed in a menu state that had not been confirmed.\nUpdate the automation to wait for and verify that the Page tools menu is visibly open before looking for Book Creator. If Book Creator is no longer offered after the menu is confirmed open, update the stale tutorial/test expectation.",
+        "one_liner": "The run expected the Page tools menu to be open and contain Book Creator, but that state was not established.",
+        "reason_code": "assertion_error.step_not_achievable",
+        "reason": "The expanded Page tools menu has no visible element labeled exactly “Book Creator”.",
+        "verdict": {
+          "confirmed": false,
+          "status": "broken",
+          "family": "automation_bug",
+          "category": "state_transition_bug",
+          "category_proposal": "",
+          "severity": "minor",
+          "root_cause": "After the agent clicked Tools, the available evidence does not show an expanded Page tools menu. The test then asserted that an item existed in a menu state that had not been confirmed.",
+          "agent_fault_assessment": "The agent used the instructed Tools control, so there is no evidence that it clicked an unrelated element. However, the automation proceeded as though the Page tools menu had expanded even though the post-click screenshot still shows only the collapsed three-dot control and no menu. The failure was caused by that unverified state assumption, not proven product behavior.",
+          "bug_title": "Toolbox menu state was assumed without confirmation",
+          "signals": [],
+          "confidence": 0.88,
+          "suggestion": "Update the automation to wait for and verify that the Page tools menu is visibly open before looking for Book Creator. If Book Creator is no longer offered after the menu is confirmed open, update the stale tutorial/test expectation.",
+          "one_liner": "The run expected the Page tools menu to be open and contain Book Creator, but that state was not established.",
+          "relevant_steps": [
+            1,
+            2
+          ],
+          "culprit_step": "0-2",
+          "credits_consumed": 2.7623499999999996,
+          "mode": "terminal"
+        },
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\d72b3160-0e7d-41a6-bf54-ececd2b888ac\\evidence\\e90f3344-2325-448d-be60-178fc650135b.evidence",
+        "final_state": {},
+        "clicks": [
+          {
+            "label": "Tools",
+            "x": 1402,
+            "y": 238
+          }
+        ],
+        "credits": 20.5,
+        "duration": 98.1,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BQZE2R25G19YFN8HMG6G7T/dashboard/share/US_KO0P73800WPA5Q62T6Q7G92YFT6XRDZMCUNZGPV17KFC6GJFJA1OTG9K3IIGGPBB?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\d72b3160-0e7d-41a6-bf54-ececd2b888ac\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\d72b3160-0e7d-41a6-bf54-ececd2b888ac",
+        "trail": [
+          "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+          "click: Clicking Tools in the toolbox menu",
+          "wait: Waiting after checking the expanded Tools menu"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Alternatively, you can open any Wikipedia page and choose Book Creator from the toolbox menu in the right sidebar.\"\n1. Click the element whose visible label is exactly 'Book Creator'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "action",
+        "source": "live"
+      },
+      "goal_pass": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "Turned on Wikipedia’s Book Creator using the visible page controls.\nBook Creator was enabled for the current article.\nEnded on Wikipedia’s Main Page, which displays the “Welcome to Wikipedia” heading.",
+        "one_liner": "enabled Book Creator on Wikipedia",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\c0703f1e-589e-4005-ae37-9b1e988b81f0\\evidence\\1311607f-bed4-4811-8549-8e07c9e69203.evidence",
+        "final_state": {
+          "url": "https://en.wikipedia.org/wiki/Main_Page",
+          "book_creator_enabled": "true",
+          "main_heading": "Welcome to Wikipedia"
+        },
+        "end_url": "https://en.wikipedia.org/wiki/Main_Page",
+        "clicks": [
+          {
+            "label": "Tools",
+            "x": 1402,
+            "y": 238
+          },
+          {
+            "label": "Search",
+            "x": 895,
+            "y": 19
+          },
+          {
+            "label": "Search",
+            "x": 846,
+            "y": 184
+          },
+          {
+            "label": "Wikipedia:Books",
+            "x": 206,
+            "y": 417
+          },
+          {
+            "label": "Book Creator",
+            "names": [
+              "book creator"
+            ],
+            "x": 851,
+            "y": 955
+          },
+          {
+            "label": "Start book creator",
+            "x": 219,
+            "y": 343
+          }
+        ],
+        "credits": 41.3,
+        "duration": 202.7,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BR4K7PAXBSD5CAPHFJHWZ6/dashboard/share/US_ITS2UJWP9Z3QDIKFC58BDZT3WS8RNT9JU6EPQ6T8D9XCMOG13I6N0K6J5GQKC9QS?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\c0703f1e-589e-4005-ae37-9b1e988b81f0\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\c0703f1e-589e-4005-ae37-9b1e988b81f0",
+        "trail": [
+          "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+          "click: Clicking Tools in the article header",
+          "type: Typing Book Creator in Wikipedia search box",
+          "click: Clicking the Search button",
+          "type: Typing Wikipedia search term Wikipedia:Books",
+          "click: Clicking Search button",
+          "click: Clicking Wikipedia:Books link to turn on Book Creator",
+          "click: Clicking Book Creator in the Wikipedia alternatives section",
+          "click: Clicking Start book creator in the Book creator page",
+          "analyze: the page you end on has a main heading",
+          "assert: wikipedia's book creator is on for this article.",
+          "analyze: it is stored as {{landed_on}}",
+          "wait: Waiting verification is complete",
+          "wait: Waiting after verifying Wikipedia Book Creator is enabled"
+        ],
+        "objective": "Goal: wikipedia's book creator is on for this article. Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\nHint: an old tutorial said \"Alternatively, you can open any Wikipedia page and choose Book Creator from the toolbox menu in the right sidebar.\", but those labels may have moved or been renamed.\nWhen the goal is met, verify it on screen. If the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "testing",
+        "source": "live"
+      },
+      "actual_path": "Tools → Search → Search → Wikipedia:Books → Book Creator → Start book creator",
+      "trimmed_path": "Tools → Search → Wikipedia:Books → Book Creator → Start book creator",
+      "landed_on": "Welcome to Wikipedia",
+      "attempts": [
+        {
+          "loop": 1,
+          "rewrite": "Alternatively, you can open **Tools**, then **Search** for **Wikipedia:Books**, choose **Book Creator** and click **Start book creator**.",
+          "labels": [
+            "Tools",
+            "Search",
+            "Wikipedia:Books",
+            "Book Creator",
+            "Start book creator"
+          ],
+          "proof": {
+            "status": "failed",
+            "exit_code": 1,
+            "summary": "The test treated the blank Search page as if it already contained a search result for Wikipedia:Books. Its own instructions prohibited entering that search, so the next required click could not be made.\nRevise the scenario so it explicitly permits entering “Wikipedia:Books” and submitting the search before selecting that result, or begin on a page where that exact result link is already present.",
+            "one_liner": "The run reached the normal empty Search page, but the test then expected a result link that only appears after performing a search, which the rules forbade.",
+            "reason_code": "assertion_error.step_not_achievable",
+            "reason": "The Search page has no element labeled Wikipedia:Books, and constraints prohibit searching or alternate routes.",
+            "verdict": {
+              "confirmed": false,
+              "status": "broken",
+              "family": "automation_bug",
+              "category": "state_transition_bug",
+              "category_proposal": "",
+              "severity": "major",
+              "root_cause": "The test treated the blank Search page as if it already contained a search result for Wikipedia:Books. Its own instructions prohibited entering that search, so the next required click could not be made.",
+              "agent_fault_assessment": "The agent did not cause the outcome. It clicked Tools and then the visible Search control exactly as required, and the site successfully opened Special:Search. The failure came from the test's impossible next-state expectation, not an incorrect agent action.",
+              "bug_title": "Test expects Wikipedia:Books on an empty Search page",
+              "signals": [],
+              "confidence": 0.98,
+              "suggestion": "Revise the scenario so it explicitly permits entering “Wikipedia:Books” and submitting the search before selecting that result, or begin on a page where that exact result link is already present.",
+              "one_liner": "The run reached the normal empty Search page, but the test then expected a result link that only appears after performing a search, which the rules forbade.",
+              "relevant_steps": [
+                2,
+                3
+              ],
+              "culprit_step": "0-3",
+              "credits_consumed": 3.27505,
+              "mode": "terminal"
+            },
+            "evidence": "~\\.testmuai\\kaneai\\sessions\\4e7c2b83-b86e-4f43-8b5e-ef73b15fe2a0\\evidence\\6d07ace7-994e-4711-b799-4e37f31d26a0.evidence",
+            "final_state": {},
+            "clicks": [
+              {
+                "label": "Tools",
+                "x": 1402,
+                "y": 238
+              },
+              {
+                "label": "Search",
+                "x": 895,
+                "y": 19
+              }
+            ],
+            "credits": 19.8,
+            "duration": 100.2,
+            "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BRK5KVNPM9PXX8SPKMP3PK/dashboard/share/US_7WG4WHCPA2XIY9F70Z6TG9SMKJMNPTA8DWMREUFXWQ6SPQHA4DKTMRIK7D91YDGE?type=summary&agentView=true&fqdn=summary-page",
+            "run_dir": "~/.testmuai/kaneai/sessions\\4e7c2b83-b86e-4f43-8b5e-ef73b15fe2a0\\runs\\0",
+            "session_dir": "~/.testmuai/kaneai/sessions\\4e7c2b83-b86e-4f43-8b5e-ef73b15fe2a0",
+            "trail": [
+              "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+              "click: Clicking Tools in the page navigation",
+              "click: Clicking Search button",
+              "wait: Waiting after attempting to locate the element whose visible label is exactly 'Wikipedia:Books'"
+            ],
+            "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Alternatively, you can open Tools, then Search for Wikipedia:Books, choose Book Creator and click Start book creator.\"\n1. Click the element whose visible label is exactly 'Tools'.\n2. Click the element whose visible label is exactly 'Search'.\n3. Click the element whose visible label is exactly 'Wikipedia:Books'.\n4. Click the element whose visible label is exactly 'Book Creator'.\n5. Click the element whose visible label is exactly 'Start book creator'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+            "mode": "action",
+            "source": "live"
+          }
+        },
+        {
+          "loop": 2,
+          "rewrite": "Alternatively, you can open **Tools** and click **Search**, type Wikipedia:Books into the search box and click the **Search** button, then open the **Wikipedia:Books** result, choose **Book Creator** and click **Start book creator**.",
+          "labels": [
+            "Tools",
+            "Search",
+            "Search",
+            "Wikipedia:Books",
+            "Book Creator",
+            "Start book creator"
+          ],
+          "proof": {
+            "status": "failed",
+            "exit_code": 1,
+            "summary": "The instructions required entering “Wikipedia:Books” in the search box before pressing Search, but the agent pressed Search while the search field was empty.\nUpdate the action sequence to enter “Wikipedia:Books” into the search box before clicking Search, and verify that the query is present before looking for the result.",
+            "one_liner": "The run searched with an empty query, so no Wikipedia:Books result was available to click.",
+            "reason_code": "assertion_error.step_not_achievable",
+            "reason": "The current Search page contains no element labeled exactly Wikipedia:Books.",
+            "verdict": {
+              "confirmed": false,
+              "status": "broken",
+              "family": "automation_bug",
+              "category": "agent_misstep",
+              "category_proposal": "",
+              "severity": "minor",
+              "root_cause": "The instructions required entering “Wikipedia:Books” in the search box before pressing Search, but the agent pressed Search while the search field was empty.",
+              "agent_fault_assessment": "The agent caused the outcome. It correctly opened Tools and navigated to the Search page, but then clicked the Search button without typing the required query. The resulting URL contains `search=` with no value, and the screenshot shows a blank search field. This produced an empty-results state rather than a product failure.",
+              "bug_title": "Empty search submitted instead of Wikipedia:Books query",
+              "signals": [],
+              "confidence": 0.99,
+              "suggestion": "Update the action sequence to enter “Wikipedia:Books” into the search box before clicking Search, and verify that the query is present before looking for the result.",
+              "one_liner": "The run searched with an empty query, so no Wikipedia:Books result was available to click.",
+              "relevant_steps": [
+                2,
+                3,
+                4
+              ],
+              "culprit_step": "0-4",
+              "credits_consumed": 4.0779,
+              "mode": "terminal"
+            },
+            "evidence": "~\\.testmuai\\kaneai\\sessions\\dc682491-c1b8-4c1d-9078-088724a92c3d\\evidence\\424efcc3-8369-45d3-a2df-1bc6b8b7a40c.evidence",
+            "final_state": {},
+            "clicks": [
+              {
+                "label": "Tools",
+                "x": 1402,
+                "y": 238
+              },
+              {
+                "label": "Search",
+                "x": 895,
+                "y": 19
+              },
+              {
+                "label": "Search",
+                "x": 854,
+                "y": 184
+              }
+            ],
+            "credits": 20.1,
+            "duration": 125.4,
+            "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BRRPMC7MTDYP2F8BZP721B/dashboard/share/US_NMIB3G27NX7D8ZV8CUEVOHGCGX25AYU7JUVDOH722F4WI9KZX6IPRIFPT938AYGQ?type=summary&agentView=true&fqdn=summary-page",
+            "run_dir": "~/.testmuai/kaneai/sessions\\dc682491-c1b8-4c1d-9078-088724a92c3d\\runs\\0",
+            "session_dir": "~/.testmuai/kaneai/sessions\\dc682491-c1b8-4c1d-9078-088724a92c3d",
+            "trail": [
+              "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+              "click: Clicking Tools button",
+              "click: Clicking Search button in site search form",
+              "click: Clicking Search button",
+              "wait: Waiting after checking for the element whose visible label is exactly 'Wikipedia:Books'"
+            ],
+            "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Alternatively, you can open Tools and click Search, type Wikipedia:Books into the search box and click the Search button, then open the Wikipedia:Books result, choose Book Creator and click Start book creator.\"\n1. Click the element whose visible label is exactly 'Tools'.\n2. Click the element whose visible label is exactly 'Search'.\n3. Click the element whose visible label is exactly 'Search'.\n4. Click the element whose visible label is exactly 'Wikipedia:Books'.\n5. Click the element whose visible label is exactly 'Book Creator'.\n6. Click the element whose visible label is exactly 'Start book creator'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+            "mode": "action",
+            "source": "live"
+          }
+        },
+        {
+          "loop": 3,
+          "rewrite": "Alternatively, open **Tools** and click **Search**, then type the exact text Wikipedia:Books into the search box and only then click the **Search** button. In the results, open **Wikipedia:Books**, choose **Book Creator** and click **Start book creator**.",
+          "labels": [
+            "Tools",
+            "Search",
+            "Search",
+            "Wikipedia:Books",
+            "Book Creator",
+            "Start book creator"
+          ],
+          "proof": {
+            "status": "failed",
+            "exit_code": 1,
+            "summary": "The agent clicked the search button on an empty search form instead of first typing the exact required text, Wikipedia:Books.\nRetry from the search page: enter exactly “Wikipedia:Books” in the search box, then click Search and continue with the result.\nevidence: objective_contradiction: GET https://en.wikipedia.org/w/index.php?search=&title=Special%3ASearch&profile=advanced&fulltext=1&ns0=1 -> 200",
+            "one_liner": "The run submitted the search form without entering “Wikipedia:Books,” so no matching result could appear.",
+            "reason_code": "assertion_error.step_not_achievable",
+            "reason": "The current search page contains no element labeled exactly Wikipedia:Books.",
+            "verdict": {
+              "confirmed": false,
+              "status": "broken",
+              "family": "automation_bug",
+              "category": "agent_misstep",
+              "category_proposal": "",
+              "severity": "minor",
+              "root_cause": "The agent clicked the search button on an empty search form instead of first typing the exact required text, Wikipedia:Books.",
+              "agent_fault_assessment": "The agent caused the outcome: it correctly opened Tools and Search, but then clicked the main search button with an empty query. The instructions explicitly describe typing “Wikipedia:Books” into the search box before clicking Search, and the recorded request confirms that no search text was sent.",
+              "bug_title": "Blank search submitted before Wikipedia:Books lookup",
+              "signals": [
+                {
+                  "step": "0-4",
+                  "kind": "objective_contradiction",
+                  "excerpt": "GET https://en.wikipedia.org/w/index.php?search=&title=Special%3ASearch&profile=advanced&fulltext=1&ns0=1 -> 200"
+                }
+              ],
+              "confidence": 0.98,
+              "suggestion": "Retry from the search page: enter exactly “Wikipedia:Books” in the search box, then click Search and continue with the result.",
+              "one_liner": "The run submitted the search form without entering “Wikipedia:Books,” so no matching result could appear.",
+              "relevant_steps": [
+                2,
+                3,
+                4
+              ],
+              "culprit_step": "0-4",
+              "credits_consumed": 4.2483,
+              "mode": "terminal"
+            },
+            "evidence": "~\\.testmuai\\kaneai\\sessions\\769059c8-fc23-4209-9ac5-6f13132b4813\\evidence\\ae0e4267-7e18-4d02-99a2-74631a9c57ce.evidence",
+            "final_state": {},
+            "clicks": [
+              {
+                "label": "Tools",
+                "x": 1402,
+                "y": 238
+              },
+              {
+                "label": "Search",
+                "x": 895,
+                "y": 19
+              },
+              {
+                "label": "Search",
+                "x": 854,
+                "y": 184
+              }
+            ],
+            "credits": 20.9,
+            "duration": 132.5,
+            "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BRYT5CT4HK5TGDVFD8YYAJ/dashboard/share/US_5IUD6YFQ3K67I8Z0FLBRSUSAYUJ9DWGZL4RCQTG6CU9TA8T49TBSN5XJ6SKZMK66?type=summary&agentView=true&fqdn=summary-page",
+            "run_dir": "~/.testmuai/kaneai/sessions\\769059c8-fc23-4209-9ac5-6f13132b4813\\runs\\0",
+            "session_dir": "~/.testmuai/kaneai/sessions\\769059c8-fc23-4209-9ac5-6f13132b4813",
+            "trail": [
+              "navigate: Navigate to https://en.wikipedia.org/wiki/Ada_Lovelace",
+              "click: Clicking Tools in the page navigation",
+              "click: Clicking Search button",
+              "click: Clicking Search button in the main page form",
+              "wait: Waiting after checking for the element whose visible label is exactly 'Wikipedia:Books'"
+            ],
+            "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Alternatively, open Tools and click Search, then type the exact text Wikipedia:Books into the search box and only then click the Search button. In the results, open Wikipedia:Books, choose Book Creator and click Start book creator.\"\n1. Click the element whose visible label is exactly 'Tools'.\n2. Click the element whose visible label is exactly 'Search'.\n3. Click the element whose visible label is exactly 'Search'.\n4. Click the element whose visible label is exactly 'Wikipedia:Books'.\n5. Click the element whose visible label is exactly 'Book Creator'.\n6. Click the element whose visible label is exactly 'Start book creator'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+            "mode": "action",
+            "source": "live"
+          }
+        }
+      ],
+      "note": "The doc's words no longer work and no rewrite passed a literal run in 3 loops. Needs a human; evidence attached.",
+      "credits": 137.7,
+      "started_at": "https://en.wikipedia.org/wiki/Ada_Lovelace"
+    },
+    {
+      "n": 2,
+      "quote": "Next browse to any Wikipedia page and click the “**Add this page to your book**” link to include that article into your ebook.",
+      "text": "Next browse to any Wikipedia page and click the “Add this page to your book” link to include that article into your ebook.",
+      "goal": "The current article is added to a book",
+      "labels": [
+        "Add this page to your book"
+      ],
+      "checkable": true,
+      "continues": true,
+      "status": "broken",
+      "literal": {
+        "status": "failed",
+        "exit_code": 1,
+        "summary": "The test treated the starting page as if it were already an article page with the tutorial's book option. The required exact label was not visible there.\nUpdate the run to open a normal Wikipedia article through the page interface, wait for that page to finish loading, and only then look for the exact “Add this page to your book” label.",
+        "one_liner": "The run looked for the book link on the Main Page instead of first opening a Wikipedia article.",
+        "reason_code": "assertion_error.step_not_achievable",
+        "reason": "The exact label is absent from the page text and visible interface.",
+        "verdict": {
+          "confirmed": false,
+          "status": "broken",
+          "family": "automation_bug",
+          "category": "state_transition_bug",
+          "category_proposal": "",
+          "severity": "minor",
+          "root_cause": "The test treated the starting page as if it were already an article page with the tutorial's book option. The required exact label was not visible there.",
+          "agent_fault_assessment": "The agent stopped on Wikipedia's Main Page and asserted the target label before reaching a page state where the tutorial's book control was available. It did not complete the instructed browsing step to an article page, so its own premature state assumption caused the outcome.",
+          "bug_title": "Book-link assertion runs before an article page is reached",
+          "signals": [],
+          "confidence": 0.94,
+          "suggestion": "Update the run to open a normal Wikipedia article through the page interface, wait for that page to finish loading, and only then look for the exact “Add this page to your book” label.",
+          "one_liner": "The run looked for the book link on the Main Page instead of first opening a Wikipedia article.",
+          "relevant_steps": [
+            0,
+            1
+          ],
+          "culprit_step": "0-1",
+          "credits_consumed": 1.8228,
+          "mode": "terminal"
+        },
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\0dd1c4e4-a502-462b-ab4e-09aa7c5157f4\\evidence\\0fba448c-5977-4f92-99c2-6eb51b5d1eba.evidence",
+        "final_state": {},
+        "clicks": [],
+        "credits": 14.6,
+        "duration": 53.7,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BS4SSTZTV113ZQGMZ4HZ6X/dashboard/share/US_V1DVMCMNOB00A3P3W7HTLY87WWOIRQEK7VDUC4MAVU38OTENXD2FAGX7VA49KH6I?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\0dd1c4e4-a502-462b-ab4e-09aa7c5157f4\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\0dd1c4e4-a502-462b-ab4e-09aa7c5157f4",
+        "trail": [
+          "navigate: Navigate to https://en.wikipedia.org/wiki/Main_Page",
+          "wait: Waiting after confirming the exact requested link is absent"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Next browse to any Wikipedia page and click the “Add this page to your book” link to include that article into your ebook.\"\n1. Click the element whose visible label is exactly 'Add this page to your book'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "action",
+        "source": "live"
+      },
+      "goal_pass": {
+        "status": "failed",
+        "exit_code": 1,
+        "summary": "The test started without a logged-in account or other setup required to save articles. The visible page offered only “Create account” and “Log in,” not a confirmation that the article was added.\nRun this task with a prepared signed-in test account, then verify a visible saved-list or book confirmation after selecting Save.",
+        "one_liner": "The run tried to save the Main Page while signed out, so Wikipedia asked for an account instead of adding it to a saved list.",
+        "reason_code": "assertion_error.checkpoint_failed",
+        "reason": "Checkpoint assertion failed: \"the current article is added to a book on screen\"",
+        "verdict": {
+          "confirmed": false,
+          "status": "broken",
+          "family": "automation_bug",
+          "category": "test_data_issue",
+          "category_proposal": "",
+          "severity": "minor",
+          "root_cause": "The test started without a logged-in account or other setup required to save articles. The visible page offered only “Create account” and “Log in,” not a confirmation that the article was added.",
+          "agent_fault_assessment": "The agent used the visible save control, but it did not establish the required signed-in state and then treated the attempted save as if it had completed. The product correctly blocked saving for the anonymous session, so this is not evidence of a product defect.",
+          "bug_title": "Unauthenticated session cannot save the article",
+          "signals": [],
+          "confidence": 0.97,
+          "suggestion": "Run this task with a prepared signed-in test account, then verify a visible saved-list or book confirmation after selecting Save.",
+          "one_liner": "The run tried to save the Main Page while signed out, so Wikipedia asked for an account instead of adding it to a saved list.",
+          "relevant_steps": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "culprit_step": "0-3",
+          "credits_consumed": 3.85345,
+          "mode": "terminal"
+        },
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\3bacb9de-82fe-4117-a28e-d3c7efd6c050\\evidence\\3575f64b-da04-4f07-95d3-44e8832fa7e3.evidence",
+        "final_state": {},
+        "clicks": [
+          {
+            "label": "Tools",
+            "names": [
+              "Tools menu"
+            ],
+            "x": 1402,
+            "y": 198
+          },
+          {
+            "label": "Save",
+            "x": 1371,
+            "y": 199
+          }
+        ],
+        "credits": 25.7,
+        "duration": 99,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BS8B1RTTN6WS83HZWZT2DN/dashboard/share/US_YPM0CUBTOFQB306189RJD1CCYBOYO4CN9YCZA3DAKNZ2RMSR363FGKTS76U7SPX7?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\3bacb9de-82fe-4117-a28e-d3c7efd6c050\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\3bacb9de-82fe-4117-a28e-d3c7efd6c050",
+        "trail": [
+          "navigate: Navigate to https://en.wikipedia.org/wiki/Main_Page",
+          "click: Clicking Tools menu button",
+          "click: Clicking Save to add the article to a book",
+          "analyze: the current article is added to a book on screen",
+          "assert: the current article is added to a book on screen"
+        ],
+        "objective": "Goal: the current article is added to a book. Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\nHint: an old tutorial said \"Next browse to any Wikipedia page and click the “Add this page to your book” link to include that article into your ebook.\", but those labels may have moved or been renamed.\nWhen the goal is met, verify it on screen. If the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "testing",
+        "source": "live"
+      },
+      "actual_path": "Tools → Save",
+      "note": "The goal can't be reached by any route Kane could find.",
+      "credits": 40.3,
+      "started_at": "https://en.wikipedia.org/wiki/Main_Page"
+    }
+  ],
+  "totals": {
+    "steps": 2,
+    "checkable": 2,
+    "accurate": 0,
+    "drifted": 1,
+    "fixed": 0,
+    "broken": 1,
+    "skipped": 0,
+    "unchecked": 0,
+    "credits": 178,
+    "seconds": 1501
+  },
+  "agent_calls": [
+    {
+      "role": "rewrite",
+      "input": "Original doc sentence: Alternatively, you can open any Wikipedia page and choose **Book Creator** from the toolbox menu in the right sidebar.\nGoal of the step: Wikipedia's book creator is on for this article\nPath Kane actually clicked (goal pass): Tools → Search → Wikipedia:Books → Book Creator → Start book creator\nHeading Kane landed on: Welcome to Wikipedia\n",
+      "output": "{\"text\": \"Alternatively, you can open **Tools**, then **Search** for **Wikipedia:Books**, choose **Book Creator** and click **Start book creator**.\", \"labels\": [\"Tools\", \"Search\", \"Wikipedia:Books\", \"Book Creator\", \"Start book creator\"]}",
+      "ms": 9298
+    },
+    {
+      "role": "rewrite",
+      "input": "Original doc sentence: Alternatively, you can open any Wikipedia page and choose **Book Creator** from the toolbox menu in the right sidebar.\nGoal of the step: Wikipedia's book creator is on for this article\nPath Kane actually clicked (goal pass): Tools → Search → Search → Wikipedia:Books → Book Creator → Start book creator\nHeading Kane landed on: Welcome to Wikipedia\nEarlier rewrites failed Kane's literal proof:\n- \"Alternatively, you can open **Tools**, then **Search** for **Wikipedia:Books**, choose **Book Creator** and click **Start book creator**.\" → failed: The run reached the normal empty Search page, but the test then expected a result link that only appears after performing a search, which the rules forbade.",
+      "output": "{\"text\": \"Alternatively, you can open **Tools** and click **Search**, type Wikipedia:Books into the search box and click the **Search** button, then open the **Wikipedia:Books** result, choose **Book Creator** and click **Start book creator**.\", \"labels\": [\"Tools\", \"Search\", \"Search\", \"Wikipedia:Books\", \"Book Creator\", \"Start book creator\"]}",
+      "ms": 12270
+    },
+    {
+      "role": "rewrite",
+      "input": "Original doc sentence: Alternatively, you can open any Wikipedia page and choose **Book Creator** from the toolbox menu in the right sidebar.\nGoal of the step: Wikipedia's book creator is on for this article\nPath Kane actually clicked (goal pass): Tools → Search → Search → Wikipedia:Books → Book Creator → Start book creator\nHeading Kane landed on: Welcome to Wikipedia\nEarlier rewrites failed Kane's literal proof:\n- \"Alternatively, you can open **Tools**, then **Search** for **Wikipedia:Books**, choose **Book Creator** and click **Start book creator**.\" → failed: The run reached the normal empty Search page, but the test then expected a result link that only appears after performing a search, which the rules forbade.\n- \"Alternatively, you can open **Tools** and click **Search**, type Wikipedia:Books into the search box and click the **Search** button, then open the **Wikipedia:Books** result, choose **Book Creator** and click **Start book creator**.\" → failed: The run searched with an empty query, so no Wikipedia:Books result was available to click.",
+      "output": "{\"text\": \"Alternatively, open **Tools** and click **Search**, then type the exact text Wikipedia:Books into the search box and only then click the **Search** button. In the results, open **Wikipedia:Books**, choose **Book Creator** and click **Start book creator**.\", \"labels\": [\"Tools\", \"Search\", \"Search\", \"Wikipedia:Books\", \"Book Creator\", \"Start book creator\"]}",
+      "ms": 13575
+    }
+  ],
+  "input": "corpus/tutorials/hunt-labnol-wikipedia-book.tutorial.json"
+}

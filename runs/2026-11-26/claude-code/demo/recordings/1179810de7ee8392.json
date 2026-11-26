@@ -1,0 +1,103 @@
+{
+  "key": "1179810de7ee8392",
+  "recorded_at": "2026-11-26T09:30:03.444Z",
+  "exit_code": 0,
+  "mode": "testing",
+  "url": "http://localhost:4177",
+  "objective": "Goal: a form to create a new API key or token is visible. Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\nHint: an old tutorial said \"Click Settings → API Keys and press Create key.\", but those labels may have moved or been renamed.\nWhen the goal is met, verify it on screen. If the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+  "clicks": [
+    {
+      "label": "Developers",
+      "x": 552,
+      "y": 16
+    },
+    {
+      "label": "Tokens",
+      "x": 456,
+      "y": 92
+    },
+    {
+      "label": "New token",
+      "names": [
+        "form"
+      ],
+      "x": 703,
+      "y": 206
+    }
+  ],
+  "actions": [
+    {
+      "type": "navigate",
+      "status": "success",
+      "intent": "Navigate to http://localhost:4177",
+      "instr": "Navigate to http://localhost:4177"
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Developers\"i]",
+      "intent": "PRIMARY: Developers link; role=link; text=\"Developers\" | HINTS: container=top navigation",
+      "instr": "Clicking Developers link",
+      "x": 552,
+      "y": 16
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Tokens\"i]",
+      "intent": "PRIMARY: Tokens link; role=link; text=\"Tokens\" | HINTS: container=Developers navigation",
+      "instr": "Clicking Tokens link",
+      "x": 456,
+      "y": 92
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"New token\"i]",
+      "intent": "PRIMARY: form to create a new API key or token; role=link; text=\"New token\" | HINTS: container=Tokens page",
+      "instr": "Clicking form to create a new API key or token",
+      "x": 703,
+      "y": 206
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "whether a main heading on the page you end on is present (in the main page content)",
+      "instr": "Checking whether the main page heading is present"
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "whether a form to create a new API key or token is present (in the main page content)",
+      "instr": "Checking whether the new API token creation form is present"
+    },
+    {
+      "type": "assert",
+      "status": "success",
+      "intent": "",
+      "instr": "Assertion check"
+    },
+    {
+      "type": "if_else",
+      "status": "success",
+      "instr": "If-else checkpoint cp_2: condition 'the page you end on has a main heading' matched"
+    },
+    {
+      "type": "child_agent_start",
+      "status": "executing",
+      "instr": "\"store it as 'landed_on'\""
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "the value it is stored as {{landed_on}}",
+      "instr": "Storing the current page URL"
+    },
+    {
+      "type": "child_agent_end",
+      "status": "success",
+      "instr": "\"store it as 'landed_on'\""
+    }
+  ],
+  "ndjson": "{\"type\":\"stream_start\",\"cli_version\":\"0.10.4\",\"surface\":\"run\",\"pid\":9264,\"v\":1,\"ts\":\"2026-11-26T09:26:02.476Z\"}\n{\"type\":\"recording_state\",\"enabled\":true,\"session_id\":\"636d6c96-1a0a-4794-b661-fb3e965f31de\",\"persist\":false,\"v\":1,\"ts\":\"2026-11-26T09:26:02.714Z\"}\n{\"type\":\"update_available\",\"current\":\"0.10.4\",\"latest\":\"0.10.9\",\"severity\":\"patch\",\"v\":1,\"ts\":\"2026-11-26T09:26:39.894Z\"}\n{\"type\":\"skill_update_available\",\"current\":null,\"latest\":\"0.1.4\",\"install_cmd\":\"kane-cli install skill\",\"v\":1,\"ts\":\"2026-11-26T09:26:39.904Z\"}\n{\"type\":\"bifurcation\",\"flows\":[\"Navigate to http://localhost:4177 then Goal: a form to create a new API key or token is visible.\\nReach it from the current page by clicking through the visible UI, by any route.\\nNever type a URL or use the address bar.\\nHint: an old tutorial said \\\"Click Settings → API Keys and press Create key.\\\", but those labels may have moved or been renamed.\\nWhen the goal is met, verify it on screen.\\nIf the page you end on has a main heading, @v16:\\\"store it as 'landed_on'\\\"; a page without a heading is fine.\"],\"count\":1,\"v\":1,\"ts\":\"2026-11-26T09:27:11.816Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"v\":1,\"ts\":\"2026-11-26T09:27:18.602Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"navigate: Navigate to http://localhost:4177\",\"v\":1,\"ts\":\"2026-11-26T09:27:18.675Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"v\":1,\"ts\":\"2026-11-26T09:27:40.565Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"click: Clicking Developers link\",\"v\":1,\"ts\":\"2026-11-26T09:27:53.729Z\"}\n{\"step\":4,\"status\":\"running\",\"remark\":\"Step 3\",\"v\":1,\"ts\":\"2026-11-26T09:27:54.525Z\"}\n{\"step\":4,\"status\":\"done\",\"remark\":\"click: Clicking Tokens link\",\"v\":1,\"ts\":\"2026-11-26T09:27:58.913Z\"}\n{\"step\":5,\"status\":\"running\",\"remark\":\"Step 4\",\"v\":1,\"ts\":\"2026-11-26T09:27:59.677Z\"}\n{\"step\":5,\"status\":\"done\",\"remark\":\"click: Clicking form to create a new API key or token\",\"v\":1,\"ts\":\"2026-11-26T09:28:07.933Z\"}\n{\"step\":6,\"status\":\"running\",\"remark\":\"Step 5\",\"v\":1,\"ts\":\"2026-11-26T09:28:08.725Z\"}\n{\"step\":6,\"status\":\"done\",\"remark\":\"analyze: ANALYZE(textual_visual, 'a form to create a new API key or token is visible on s\",\"v\":1,\"ts\":\"2026-11-26T09:28:37.911Z\"}\n{\"step\":7,\"status\":\"running\",\"remark\":\"Step 6\",\"v\":1,\"ts\":\"2026-11-26T09:28:38.804Z\"}\n{\"step\":7,\"status\":\"done\",\"remark\":\"assert: a form to create a new API key or token is visible on screen\",\"v\":1,\"ts\":\"2026-11-26T09:28:38.865Z\"}\n{\"step\":8,\"status\":\"running\",\"remark\":\"Step 7\",\"v\":1,\"ts\":\"2026-11-26T09:28:39.748Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"child_id\":\"d7250c1d\",\"v\":1,\"ts\":\"2026-11-26T09:28:40.218Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"analyze: the value it is stored as {{landed_on}}\",\"child_id\":\"d7250c1d\",\"v\":1,\"ts\":\"2026-11-26T09:28:50.542Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"child_id\":\"d7250c1d\",\"v\":1,\"ts\":\"2026-11-26T09:28:51.483Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"wait: Waiting verification complete\",\"child_id\":\"d7250c1d\",\"v\":1,\"ts\":\"2026-11-26T09:28:54.538Z\"}\n{\"step\":9,\"status\":\"running\",\"remark\":\"Step 8\",\"v\":1,\"ts\":\"2026-11-26T09:29:06.747Z\"}\n{\"step\":9,\"status\":\"done\",\"remark\":\"wait: Waiting with the API token creation form visible\",\"v\":1,\"ts\":\"2026-11-26T09:29:11.709Z\"}\n{\"type\":\"coverage\",\"status\":\"skipped\",\"reason\":\"not_assurance_project\",\"pack\":\"~\\\\.testmuai\\\\kaneai\\\\sessions\\\\636d6c96-1a0a-4794-b661-fb3e965f31de\\\\evidence\\\\2b137567-a2a7-40c0-8530-3ce5b86bd238.evidence\",\"v\":1,\"ts\":\"2026-11-26T09:29:57.882Z\"}\n{\"type\":\"run_end\",\"status\":\"passed\",\"summary\":\"You asked to navigate through the site to a page where a new API key or token can be created.\\nReached the “Create a new API token” page, where the token creation form and token name field are visible.\\nThe task was completed successfully without creating a token.\",\"one_liner\":\"opened the new API token creation form on the developers site\",\"final_state\":{\"url\":\"http://localhost:4177/developers/tokens/new\",\"page_heading\":\"Create a new API token\",\"api_key_or_token_creation_form_visible\":\"true\"},\"reason\":\"Objective completed\",\"duration\":138,\"bifurcated\":false,\"total_runs\":1,\"context\":{\"memory\":{\"main_heading_present\":{\"extracted_value\":\"true\",\"operator\":\"equals\",\"transforms\":[],\"json_path\":null,\"reasoning\":\"value: 'true' -> 'true'; equals 'true' -> PASS\",\"analyzer_type\":\"textual_visual\",\"step\":5,\"query\":\"whether a main heading on the page you end on is present (in the main page content)\",\"condition\":\"the page you end on has a main heading\",\"human_description\":\"Checking whether the main page heading is present\",\"expected_value\":\"true\",\"subject\":\"a main heading on the page you end on\",\"must_be\":\"present\",\"code_js\":\"!!el(15).textContent.trim()\",\"wrapped_js\":\"(els) => {\\n  const __m = {15: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (!!el(15).textContent.trim());\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:role=heading[name=\\\"Create a new API token\\\"i]\"],\"needs_unit_conversion\":false},\"api_key_or_token_creation_form_visible\":{\"extracted_value\":\"true\",\"operator\":\"equals\",\"transforms\":[],\"json_path\":null,\"reasoning\":\"value: 'true' -> 'true'; equals 'true' -> PASS\",\"analyzer_type\":\"textual_visual\",\"step\":5,\"query\":\"whether a form to create a new API key or token is present (in the main page content)\",\"condition\":\"a form to create a new API key or token is visible on screen\",\"human_description\":\"Checking whether the new API token creation form is present\",\"expected_value\":\"true\",\"subject\":\"a form to create a new API key or token\",\"must_be\":\"present\",\"code_js\":\"!!(el(14).querySelector('h1') && /create a new api token/i.test(el(14).querySelector('h1').textContent) && el(14).querySelector('input[aria-label=\\\"Token name\\\"], input'))\",\"wrapped_js\":\"(els) => {\\n  const __m = {14: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (!!(el(14).querySelector('h1') && /create a new api token/i.test(el(14).querySelector('h1').textContent) && el(14).querySelector('input[aria-label=\\\"Token name\\\"], input')));\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:text=\\\"Create a new API tokenToken\\\"i\"],\"needs_unit_conversion\":false}},\"variables\":{\"main_heading_present\":{\"syntax\":\"{{main_heading_present}}\",\"value\":\"true\",\"type\":\"memory\",\"secret\":false},\"api_key_or_token_creation_form_visible\":{\"syntax\":\"{{api_key_or_token_creation_form_visible}}\",\"value\":\"true\",\"type\":\"memory\",\"secret\":false},\"landed_on\":{\"syntax\":\"{{landed_on}}\",\"value\":\"http://localhost:4177/developers/tokens/new\",\"type\":\"memory\",\"secret\":false}},\"pointer\":\"(passed) opened the new API token creation form on the developers site\"},\"credits_consumed\":32.183565,\"session_dir\":\"~/.testmuai/kaneai/sessions\\\\636d6c96-1a0a-4794-b661-fb3e965f31de\",\"run_dir\":\"~/.testmuai/kaneai/sessions\\\\636d6c96-1a0a-4794-b661-fb3e965f31de\\\\runs\\\\0\",\"result_code\":100,\"reason_code\":\"success.complete\",\"per_flow_metadata\":[{\"result_code\":\"100\",\"reason_code\":\"success.complete\",\"error_message\":null,\"summary\":\"You asked to navigate through the site to a page where a new API key or token can be created.\\nReached the “Create a new API token” page, where the token creation form and token name field are visible.\\nThe task was completed successfully without creating a token.\",\"one_liner\":\"opened the new API token creation form on the developers site\",\"credits_consumed\":32.183565}],\"run_id\":\"run-0\",\"test_url\":\"https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BJVBCQRNABQQVJQDYJ0S4J/dashboard/share/US_EIIVIYKXBT8CESKTJGE14KEGPR5ID3H5WKR2BMAERFWJMLNHXUR60JF6S7XJIPIV?type=summary&agentView=true&fqdn=summary-page\",\"coverage\":{\"status\":\"skipped\"},\"v\":1,\"ts\":\"2026-11-26T09:29:57.883Z\"}\n"
+}

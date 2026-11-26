@@ -1,9 +1,11 @@
 // The agent: reads a tutorial into steps, and rewrites a drifted step from what Kane found.
-// Two implementations behind one interface:
-//   ClaudeAgent  - Claude API, structured outputs (used when ANTHROPIC_API_KEY or an `ant` profile is present)
-//   RulesAgent   - deterministic, offline; good for numbered "Click X → Y" docs and for reproducible demos
-// Both obey the same honesty rule, enforced in code (see guardRewrite): a rewrite may only use labels Kane saw.
-import { readFileSync } from "node:fs";
+// Three implementations behind one interface:
+//   ClaudeAgent      - Claude API, structured outputs (used when ANTHROPIC_API_KEY or an `ant` profile is present)
+//   ClaudeCodeAgent  - the Claude Code CLI (`claude -p`), signed in with your own plan; no API key needed
+//   RulesAgent       - deterministic, offline; good for numbered "Click X → Y" docs and for reproducible demos
+// All obey the same honesty rule, enforced in code (see guardRewrite): a rewrite may only use labels Kane saw.
+import { existsSync, readFileSync } from "node:fs";
+import { execFileSync, spawn } from "node:child_process";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { Step, Tutorial } from "./types.js";
@@ -184,14 +186,148 @@ export class ClaudeAgent implements Agent {
   async rewrite(input: RewriteInput): Promise<RewriteOutput> {
     const { z } = await import("zod/v4");
     const Schema = z.object({ text: z.string(), labels: z.array(z.string()) });
-    const user = [
-      `Original doc sentence: ${input.step.quote}`,
-      `Goal of the step: ${input.step.goal}`,
-      `Path Kane actually clicked (goal pass): ${input.actual_path}`,
-      `Heading Kane landed on: ${input.landed_on ?? "(not captured)"}`,
-      input.failures.length ? `Earlier rewrites failed Kane's literal proof:\n- ${input.failures.join("\n- ")}` : "",
-    ].join("\n");
-    return this.json(prompt("rewrite"), user, Schema, Schema);
+    return this.json(prompt("rewrite"), rewriteUser(input), Schema, Schema);
+  }
+}
+
+/** What the agent is told for a rewrite. Kane's failed proofs are fed back here, newest last. */
+export function rewriteUser(input: RewriteInput): string {
+  return [
+    `Original doc sentence: ${input.step.quote}`,
+    `Goal of the step: ${input.step.goal}`,
+    `Path Kane actually clicked (goal pass): ${input.actual_path}`,
+    `Heading Kane landed on: ${input.landed_on ?? "(not captured)"}`,
+    input.failures.length ? `Earlier rewrites failed Kane's literal proof:\n- ${input.failures.join("\n- ")}` : "",
+  ].join("\n");
+}
+
+// ---------------------------------------------------------------- Claude Code agent
+
+let cachedClaude: string[] | null = null;
+/** Resolve the Claude Code CLI without a shell (safe quoting on every OS). */
+export function claudeCodeCommand(): string[] {
+  if (cachedClaude) return cachedClaude;
+  if (process.env.CLAUDE_CODE_BIN) return (cachedClaude = [process.env.CLAUDE_CODE_BIN]);
+  try {
+    const root = execFileSync(process.platform === "win32" ? "npm.cmd" : "npm", ["root", "-g"], {
+      encoding: "utf8",
+      shell: process.platform === "win32",
+      stdio: ["ignore", "pipe", "ignore"],
+    }).trim();
+    for (const f of ["claude.exe", "claude"]) {
+      const bin = join(root, "@anthropic-ai", "claude-code", "bin", f);
+      if (existsSync(bin)) return (cachedClaude = [bin]);
+    }
+  } catch {
+    /* fall through */
+  }
+  return (cachedClaude = [process.platform === "win32" ? "claude.exe" : "claude"]);
+}
+
+/** Pull the first JSON object out of an agent's reply (it may wrap it in prose or a code fence). */
+export function firstJson(text: string): unknown {
+  const fenced = text.match(/```(?:json)?\s*([\s\S]*?)```/);
+  const body = fenced ? fenced[1] : text;
+  const start = body.indexOf("{");
+  if (start < 0) throw new Error("no JSON object in the agent's reply");
+  let depth = 0;
+  let inStr = false;
+  for (let i = start; i < body.length; i++) {
+    const ch = body[i];
+    if (inStr) {
+      if (ch === "\\") i++;
+      else if (ch === '"') inStr = false;
+    } else if (ch === '"') inStr = true;
+    else if (ch === "{") depth++;
+    else if (ch === "}" && --depth === 0) return JSON.parse(body.slice(start, i + 1));
+  }
+  throw new Error("unterminated JSON object in the agent's reply");
+}
+
+export interface AgentCall {
+  role: "rewrite" | "extract";
+  input: string;
+  output: string;
+  ms: number;
+}
+
+/**
+ * The coding agent itself in the loop: each rewrite is a headless Claude Code call (`claude -p`), and every
+ * failed Kane proof goes back to it in the next call. No tools, no files: it only reads and answers.
+ */
+export class ClaudeCodeAgent implements Agent {
+  readonly name: string;
+  /** Every call, for the report: what Claude Code was told and what it answered. */
+  readonly transcript: AgentCall[] = [];
+  constructor(private model = process.env.ERRATA_MODEL || "") {
+    this.name = `claude-code (Claude Code CLI${model ? `, ${model}` : ""})`;
+  }
+
+  /** One headless call. The prompt goes in on stdin, so nothing is quoted through a shell. */
+  call(system: string, user: string): Promise<string> {
+    const [cmd, ...pre] = claudeCodeCommand();
+    const args = [...pre, "-p", "--output-format", "json", "--append-system-prompt", system, "--tools", "", "--max-turns", "1"];
+    if (this.model) args.push("--model", this.model);
+    return new Promise((resolveP, reject) => {
+      const child = spawn(cmd, args, { stdio: ["pipe", "pipe", "pipe"], windowsHide: true });
+      let out = "";
+      let err = "";
+      const timer = setTimeout(() => child.kill(), 180_000);
+      child.stdout.on("data", (d) => (out += d));
+      child.stderr.on("data", (d) => (err += d));
+      child.on("error", (e: any) => {
+        clearTimeout(timer);
+        reject(new Error(e?.code === "ENOENT" ? "Claude Code CLI not found (npm i -g @anthropic-ai/claude-code, then run claude once to sign in)" : String(e?.message ?? e)));
+      });
+      child.on("close", (code) => {
+        clearTimeout(timer);
+        let res: any;
+        try {
+          res = JSON.parse(out);
+        } catch {
+          return reject(new Error(`Claude Code exited ${code}: ${(err || out).trim().split("\n").slice(-3).join(" ") || "no output"}`));
+        }
+        if (res.is_error || typeof res.result !== "string") return reject(new Error(`Claude Code: ${res.result ?? res.subtype ?? "error"}`));
+        resolveP(res.result);
+      });
+      child.stdin.end(user);
+    });
+  }
+
+  private async json<T>(role: AgentCall["role"], system: string, user: string, shape: string, schema: { parse(v: unknown): T }): Promise<T> {
+    const sys = `${system}\n\nAnswer with ONLY one JSON object of this shape, no prose, no code fence:\n${shape}`;
+    const t0 = Date.now();
+    const text = await this.call(sys, user);
+    this.transcript.push({ role, input: user, output: text, ms: Date.now() - t0 });
+    return schema.parse(firstJson(text));
+  }
+
+  async extract(doc: { title: string; source: string; markdown: string; start_url: string }): Promise<Tutorial> {
+    const { z } = await import("zod/v4");
+    const Schema = z.object({
+      title: z.string(),
+      start_url: z.string(),
+      steps: z.array(z.object({ quote: z.string(), text: z.string(), goal: z.string(), labels: z.array(z.string()), checkable: z.boolean(), continues: z.boolean(), skip_reason: z.string() })),
+    });
+    const out = await this.json(
+      "extract",
+      prompt("extract"),
+      `Tutorial source: ${doc.source}\nKnown start URL (may be empty): ${doc.start_url}\nTitle hint: ${doc.title}\n\n<doc>\n${doc.markdown}\n</doc>`,
+      `{"title": string, "start_url": string, "steps": [{"quote": string, "text": string, "goal": string, "labels": string[], "checkable": boolean, "continues": boolean, "skip_reason": string}]}`,
+      Schema,
+    );
+    return {
+      title: out.title || doc.title,
+      source: doc.source,
+      start_url: doc.start_url || out.start_url,
+      steps: out.steps.map((s, i) => ({ ...s, n: i + 1, skip_reason: s.checkable ? undefined : s.skip_reason || "Not checkable in a browser." })),
+    };
+  }
+
+  async rewrite(input: RewriteInput): Promise<RewriteOutput> {
+    const { z } = await import("zod/v4");
+    const Schema = z.object({ text: z.string(), labels: z.array(z.string()) });
+    return this.json("rewrite", prompt("rewrite"), rewriteUser(input), `{"text": string, "labels": string[]}`, Schema);
   }
 }
 
@@ -199,6 +335,7 @@ export async function pickAgent(pref?: string): Promise<Agent> {
   const want = pref ?? process.env.ERRATA_AGENT ?? "auto";
   if (want === "rules") return new RulesAgent();
   if (want === "claude") return new ClaudeAgent();
+  if (want === "claude-code") return new ClaudeCodeAgent();
   if (process.env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_AUTH_TOKEN) return new ClaudeAgent();
   return new RulesAgent();
 }

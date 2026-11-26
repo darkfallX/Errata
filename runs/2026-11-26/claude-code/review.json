@@ -1,0 +1,62 @@
+{
+  "localhost/driftwood-quickstart#2": {
+    "verdict": "confirmed",
+    "fix": "good",
+    "why": "Driftwood v2 moved API keys to Developers → Tokens. Claude Code's rewrite (Click Developers → Tokens and press New token.) passed Kane's literal run on loop 1.",
+    "reviewer": "Claude (pending approval)"
+  },
+  "localhost/driftwood-quickstart#5": {
+    "verdict": "confirmed",
+    "fix": "good",
+    "why": "Driftwood v2 moved invoices to Account → Billing history. Claude Code's rewrite passed Kane's literal run on loop 1.",
+    "reviewer": "Claude (pending approval)"
+  },
+  "localhost/driftwood-quickstart#6": {
+    "verdict": "confirmed",
+    "fix": "none",
+    "why": "Export CSV was removed in v2; the Reports page says exports are unavailable. Correctly reported as broken.",
+    "reviewer": "Claude (pending approval)"
+  },
+  "dignited-com/dignited-2019-export-a-wikipedia-page-as-a-pdf#1": {
+    "verdict": "confirmed",
+    "fix": "good",
+    "why": "Same drift as the 16 Nov run: print and export options now sit under the article's Tools menu. Claude Code's rewrite passed a literal run on loop 1.",
+    "reviewer": "Claude (pending approval)"
+  },
+  "howtogeek-com/how-to-geek-2010-wikipedia-article-to-pdf#1": {
+    "verdict": "confirmed",
+    "fix": "good",
+    "why": "Same drift as the 16 Nov run (Tools menu). Claude Code's rewrite passed a literal run on loop 1.",
+    "reviewer": "Claude (pending approval)"
+  },
+  "smartcompany-com-au/smartcompany-2011-convert-wikipedia-articles-into-pdf-files#1": {
+    "verdict": "confirmed",
+    "fix": "good",
+    "why": "Same drift as the 16 Nov run (Tools menu). Claude Code's rewrite passed a literal run on loop 1.",
+    "reviewer": "Claude (pending approval)"
+  },
+  "howtogeek-com/how-to-geek-2010-make-a-book-from-wikipedia-articles#1": {
+    "verdict": "confirmed",
+    "fix": "none",
+    "why": "Same result as the 16 Nov rules agent: Kane reached the book page only by typing a search. Claude Code's 3 rewrites asked the reader to type into Search, which a click-only literal run cannot prove, so it still needs a human.",
+    "reviewer": "Claude (pending approval)"
+  },
+  "howtogeek-com/how-to-geek-2010-make-a-book-from-wikipedia-articles#2": {
+    "verdict": "false_alarm",
+    "fix": "rejected",
+    "why": "Errata bug, not drift. Step 1's goal run had already switched the book creator on, so Start book creator was not shown when step 2 was checked; Kane's own verdict called it a state transition problem. The 'proven' rewrite (Suggest pages → Wikipedia The Free Encyclopedia) does not match what a fresh reader sees. On 16 Nov this step was accurate. Do not publish this fix.",
+    "reviewer": "Darkfallx (approved rejection, 26 Nov)"
+  },
+  "labnol-org/labnol-2015-create-ebooks-from-wikipedia#1": {
+    "verdict": "inconclusive",
+    "fix": "none",
+    "why": "Kane's literal run clicked Tools but the menu state was not confirmed (Kane: state transition problem). The 17 Nov re-run found both steps accurate. Not counted either way.",
+    "reviewer": "Claude (pending approval)"
+  },
+  "labnol-org/labnol-2015-create-ebooks-from-wikipedia#2": {
+    "verdict": "inconclusive",
+    "fix": "none",
+    "why": "Reported broken only because step 1 did not leave the book creator on; Kane looked on the Main Page instead of an article. A knock-on from step 1, not evidence the link is gone.",
+    "reviewer": "Claude (pending approval)"
+  }
+}

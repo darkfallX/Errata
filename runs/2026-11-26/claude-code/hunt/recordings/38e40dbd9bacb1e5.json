@@ -1,0 +1,62 @@
+{
+  "key": "38e40dbd9bacb1e5",
+  "recorded_at": "2026-11-26T11:21:07.768Z",
+  "exit_code": 1,
+  "mode": "testing",
+  "url": "https://en.wikipedia.org/wiki/Main_Page",
+  "objective": "Goal: the current article is added to a book. Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\nHint: an old tutorial said \"Next browse to any Wikipedia page and click the “Add this page to your book” link to include that article into your ebook.\", but those labels may have moved or been renamed.\nWhen the goal is met, verify it on screen. If the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+  "clicks": [
+    {
+      "label": "Tools",
+      "names": [
+        "Tools menu"
+      ],
+      "x": 1402,
+      "y": 198
+    },
+    {
+      "label": "Save",
+      "x": 1371,
+      "y": 199
+    }
+  ],
+  "actions": [
+    {
+      "type": "navigate",
+      "status": "success",
+      "intent": "Navigate to https://en.wikipedia.org/wiki/Main_Page",
+      "instr": "Navigate to https://en.wikipedia.org/wiki/Main_Page"
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=button[name=\"Tools\"i]",
+      "intent": "PRIMARY: Tools menu button; role=button; text=\"Tools\" | HINTS: container=article navigation near the top",
+      "instr": "Clicking Tools menu button",
+      "x": 1402,
+      "y": 198
+    },
+    {
+      "type": "click",
+      "status": "success",
+      "selector": "internal:role=link[name=\"Save\"i]",
+      "intent": "PRIMARY: Add the current article to a book; role=link; text=\"Save\" | HINTS: container=article views navigation near the top",
+      "instr": "Clicking Save to add the article to a book",
+      "x": 1371,
+      "y": 199
+    },
+    {
+      "type": "analyze",
+      "status": "success",
+      "intent": "whether the current article added to a book is present (in the visible Wikipedia article toolbar and page content)",
+      "instr": "Checking whether the current article is added to a book"
+    },
+    {
+      "type": "assert",
+      "status": "failed",
+      "intent": "",
+      "instr": "Assertion check"
+    }
+  ],
+  "ndjson": "{\"type\":\"stream_start\",\"cli_version\":\"0.10.4\",\"surface\":\"run\",\"pid\":24220,\"v\":1,\"ts\":\"2026-11-26T11:18:28.729Z\"}\n{\"type\":\"recording_state\",\"enabled\":true,\"session_id\":\"3bacb9de-82fe-4117-a28e-d3c7efd6c050\",\"persist\":false,\"v\":1,\"ts\":\"2026-11-26T11:18:28.770Z\"}\n{\"type\":\"update_available\",\"current\":\"0.10.4\",\"latest\":\"0.10.9\",\"severity\":\"patch\",\"v\":1,\"ts\":\"2026-11-26T11:18:36.391Z\"}\n{\"type\":\"skill_update_available\",\"current\":null,\"latest\":\"0.1.4\",\"install_cmd\":\"kane-cli install skill\",\"v\":1,\"ts\":\"2026-11-26T11:18:36.395Z\"}\n{\"type\":\"bifurcation\",\"flows\":[\"Navigate to https://en.wikipedia.org/wiki/Main_Page then Goal: the current article is added to a book.\\nReach it from the current page by clicking through the visible UI, by any route.\\nNever type a URL or use the address bar.\\nHint: an old tutorial said \\\"Next browse to any Wikipedia page and click the “Add this page to your book” link to include that article into your ebook.\\\", but those labels may have moved or been renamed.\\nWhen the goal is met, verify it on screen.\\nIf the page you end on has a main heading, @v16:\\\"Get the main heading and save it as {{landed_on}}.\\\" a page without a heading is fine.\"],\"count\":1,\"v\":1,\"ts\":\"2026-11-26T11:19:06.434Z\"}\n{\"step\":2,\"status\":\"running\",\"remark\":\"Step 1\",\"v\":1,\"ts\":\"2026-11-26T11:19:12.843Z\"}\n{\"step\":2,\"status\":\"done\",\"remark\":\"navigate: Navigate to https://en.wikipedia.org/wiki/Main_Page\",\"v\":1,\"ts\":\"2026-11-26T11:19:12.859Z\"}\n{\"step\":3,\"status\":\"running\",\"remark\":\"Step 2\",\"v\":1,\"ts\":\"2026-11-26T11:19:18.116Z\"}\n{\"step\":3,\"status\":\"done\",\"remark\":\"click: Clicking Tools menu button\",\"v\":1,\"ts\":\"2026-11-26T11:19:28.026Z\"}\n{\"step\":4,\"status\":\"running\",\"remark\":\"Step 3\",\"v\":1,\"ts\":\"2026-11-26T11:19:29.573Z\"}\n{\"step\":4,\"status\":\"done\",\"remark\":\"click: Clicking Save to add the article to a book\",\"v\":1,\"ts\":\"2026-11-26T11:19:47.428Z\"}\n{\"step\":5,\"status\":\"running\",\"remark\":\"Step 4\",\"v\":1,\"ts\":\"2026-11-26T11:19:48.787Z\"}\n{\"step\":5,\"status\":\"done\",\"remark\":\"analyze: the current article is added to a book on screen\",\"v\":1,\"ts\":\"2026-11-26T11:20:10.706Z\"}\n{\"step\":6,\"status\":\"running\",\"remark\":\"Step 5\",\"v\":1,\"ts\":\"2026-11-26T11:20:11.921Z\"}\n{\"step\":6,\"status\":\"failed\",\"remark\":\"assert: the current article is added to a book on screen\",\"v\":1,\"ts\":\"2026-11-26T11:20:11.940Z\"}\n{\"type\":\"coverage\",\"status\":\"skipped\",\"reason\":\"not_assurance_project\",\"pack\":\"~\\\\.testmuai\\\\kaneai\\\\sessions\\\\3bacb9de-82fe-4117-a28e-d3c7efd6c050\\\\evidence\\\\3575f64b-da04-4f07-95d3-44e8832fa7e3.evidence\",\"v\":1,\"ts\":\"2026-11-26T11:21:02.655Z\"}\n{\"type\":\"run_end\",\"status\":\"failed\",\"summary\":\"The test started without a logged-in account or other setup required to save articles. The visible page offered only “Create account” and “Log in,” not a confirmation that the article was added.\\nRun this task with a prepared signed-in test account, then verify a visible saved-list or book confirmation after selecting Save.\",\"one_liner\":\"The run tried to save the Main Page while signed out, so Wikipedia asked for an account instead of adding it to a saved list.\",\"final_state\":{},\"reason\":\"Checkpoint assertion failed: \\\"the current article is added to a book on screen\\\"\",\"duration\":99,\"bifurcated\":false,\"total_runs\":1,\"context\":{\"memory\":{\"current_article_added_to_book\":{\"extracted_value\":\"false\",\"operator\":\"equals\",\"transforms\":[],\"json_path\":null,\"reasoning\":\"value: 'false' -> 'false'; equals 'true' -> FAIL\",\"analyzer_type\":\"visual\",\"step\":4,\"query\":\"whether the current article added to a book is present (in the visible Wikipedia article toolbar and page content)\",\"condition\":\"the current article is added to a book on screen\",\"human_description\":\"Checking whether the current article is added to a book\",\"expected_value\":\"true\",\"subject\":\"the current article added to a book\",\"must_be\":\"present\"}},\"variables\":{\"landed_on\":{\"syntax\":\"{{landed_on}}\",\"value\":\"\",\"type\":\"text\",\"secret\":false,\"source\":\"runtime\"},\"current_article_added_to_book\":{\"syntax\":\"{{current_article_added_to_book}}\",\"value\":\"false\",\"type\":\"memory\",\"secret\":false}},\"pointer\":\"(failed) The run tried to save the Main Page while signed out, so Wikipedia asked for an account instead of adding it to a saved list.\"},\"credits_consumed\":25.7225825,\"session_dir\":\"~/.testmuai/kaneai/sessions\\\\3bacb9de-82fe-4117-a28e-d3c7efd6c050\",\"run_dir\":\"~/.testmuai/kaneai/sessions\\\\3bacb9de-82fe-4117-a28e-d3c7efd6c050\\\\runs\\\\0\",\"result_code\":720,\"reason_code\":\"assertion_error.checkpoint_failed\",\"per_flow_metadata\":[{\"result_code\":\"720\",\"reason_code\":\"assertion_error.checkpoint_failed\",\"error_message\":\"Checkpoint assertion failed: \\\"the current article is added to a book on screen\\\"\",\"summary\":\"The test started without a logged-in account or other setup required to save articles. The visible page offered only “Create account” and “Log in,” not a confirmation that the article was added.\\nRun this task with a prepared signed-in test account, then verify a visible saved-list or book confirmation after selecting Save.\",\"one_liner\":\"The run tried to save the Main Page while signed out, so Wikipedia asked for an account instead of adding it to a saved list.\",\"credits_consumed\":25.7225825}],\"run_id\":\"run-0\",\"verdict\":{\"confirmed\":false,\"status\":\"broken\",\"family\":\"automation_bug\",\"category\":\"test_data_issue\",\"category_proposal\":\"\",\"severity\":\"minor\",\"root_cause\":\"The test started without a logged-in account or other setup required to save articles. The visible page offered only “Create account” and “Log in,” not a confirmation that the article was added.\",\"agent_fault_assessment\":\"The agent used the visible save control, but it did not establish the required signed-in state and then treated the attempted save as if it had completed. The product correctly blocked saving for the anonymous session, so this is not evidence of a product defect.\",\"bug_title\":\"Unauthenticated session cannot save the article\",\"signals\":[],\"confidence\":0.97,\"suggestion\":\"Run this task with a prepared signed-in test account, then verify a visible saved-list or book confirmation after selecting Save.\",\"one_liner\":\"The run tried to save the Main Page while signed out, so Wikipedia asked for an account instead of adding it to a saved list.\",\"relevant_steps\":[2,3,4,5],\"culprit_step\":\"0-3\",\"credits_consumed\":3.85345,\"mode\":\"terminal\"},\"test_url\":\"https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BS8B1RTTN6WS83HZWZT2DN/dashboard/share/US_YPM0CUBTOFQB306189RJD1CCYBOYO4CN9YCZA3DAKNZ2RMSR363FGKTS76U7SPX7?type=summary&agentView=true&fqdn=summary-page\",\"coverage\":{\"status\":\"skipped\"},\"v\":1,\"ts\":\"2026-11-26T11:21:02.655Z\"}\n"
+}

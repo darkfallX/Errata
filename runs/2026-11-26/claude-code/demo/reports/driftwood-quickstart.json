@@ -1,0 +1,755 @@
+{
+  "errata": "1",
+  "tutorial": "Driftwood quickstart",
+  "source": "~\\Music\\Errata\\runs\\2026-11-26\\claude-code\\demo\\demo\\quickstart.md",
+  "start_url": "http://localhost:4177",
+  "checked_at": "2026-11-26T09:35:58.472Z",
+  "agent": "claude-code (Claude Code CLI)",
+  "kane": "live",
+  "steps": [
+    {
+      "quote": "Open the Driftwood dashboard and click **Projects**.",
+      "text": "Open the Driftwood dashboard and click Projects.",
+      "goal": "The Projects list is visible",
+      "labels": [
+        "Projects"
+      ],
+      "checkable": true,
+      "continues": false,
+      "n": 1,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "The requested action was to open Projects from the Driftwood dashboard.\nThe run reached the Projects page, where a main heading was present.",
+        "one_liner": "opened Projects on the Driftwood dashboard",
+        "reason_code": "success.complete",
+        "reason": "AP(text) failed: ",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\110086bc-37d9-4721-ac75-2210ea8d7b0f\\evidence\\cab36271-30e0-4390-9aa0-be521b67e103.evidence",
+        "final_state": {
+          "url": "http://localhost:4177/projects",
+          "main_heading_present": "true"
+        },
+        "end_url": "http://localhost:4177/projects",
+        "clicks": [
+          {
+            "label": "Projects",
+            "x": 242,
+            "y": 16
+          }
+        ],
+        "credits": 29.8,
+        "duration": 240.5,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BJNNFZARS7XFK3FZS91HHZ/dashboard/share/US_A3J9XGCA5RJGJRFBBO7SWVXCYE1DPTHDCT5SCKBZXUV668M1U65O6TWFFLJEGRQP?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\110086bc-37d9-4721-ac75-2210ea8d7b0f\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\110086bc-37d9-4721-ac75-2210ea8d7b0f",
+        "trail": [
+          "navigate: Navigate to http://localhost:4177",
+          "click: Clicking Projects link",
+          "wait: PRIMARY: wait for the heading 'Projects' to be visible",
+          "analyze: The page you end on has a main heading.",
+          "analyze: The main heading is saved as {{landed_on}}.",
+          "wait: Waiting after main heading extraction",
+          "wait: Waiting after confirming the Projects page heading"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Open the Driftwood dashboard and click Projects.\"\n1. Click the element whose visible label is exactly 'Projects'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "true",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 29.8,
+      "started_at": "http://localhost:4177"
+    },
+    {
+      "quote": "Click **Settings** → **API Keys** and press **Create key**.",
+      "text": "Click Settings → API Keys and press Create key.",
+      "goal": "A form to create a new API key or token is visible",
+      "labels": [
+        "Settings",
+        "API Keys",
+        "Create key"
+      ],
+      "checkable": true,
+      "continues": false,
+      "n": 2,
+      "status": "drifted",
+      "literal": {
+        "status": "failed",
+        "exit_code": 1,
+        "summary": "The test assumed the current account or application state would show API Keys, but the Settings page only offered General and Appearance.\nUpdate the test setup to use an account and application state that includes API Keys, or revise the tutorial and test steps to match the available Settings options.",
+        "one_liner": "The run expected an API Keys option that was not available after opening Settings.",
+        "reason_code": "assertion_error.step_not_achievable",
+        "reason": "Settings shows only General and Appearance; no API Keys element exists.",
+        "verdict": {
+          "confirmed": false,
+          "status": "broken",
+          "family": "automation_bug",
+          "category": "state_transition_bug",
+          "category_proposal": "",
+          "severity": "minor",
+          "root_cause": "The test assumed the current account or application state would show API Keys, but the Settings page only offered General and Appearance.",
+          "agent_fault_assessment": "The agent did not cause the failure: it clicked the required Settings element exactly as instructed. The failure occurred because the test then expected an API Keys element that was not present in the reached state.",
+          "bug_title": "API Keys path unavailable in current test state",
+          "signals": [],
+          "confidence": 0.88,
+          "suggestion": "Update the test setup to use an account and application state that includes API Keys, or revise the tutorial and test steps to match the available Settings options.",
+          "one_liner": "The run expected an API Keys option that was not available after opening Settings.",
+          "relevant_steps": [
+            1,
+            2
+          ],
+          "culprit_step": "0-2",
+          "credits_consumed": 2.45865,
+          "mode": "terminal"
+        },
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\17186966-8877-4f52-ae34-3574cdd41272\\evidence\\91ddf290-4988-404b-846f-8cc2ba1e531a.evidence",
+        "final_state": {},
+        "clicks": [
+          {
+            "label": "Settings",
+            "x": 469,
+            "y": 16
+          }
+        ],
+        "credits": 14.1,
+        "duration": 75.8,
+        "run_dir": "~/.testmuai/kaneai/sessions\\17186966-8877-4f52-ae34-3574cdd41272\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\17186966-8877-4f52-ae34-3574cdd41272",
+        "trail": [
+          "navigate: Navigate to http://localhost:4177",
+          "click: Clicking Settings link in navigation",
+          "wait: Waiting after checking for the element whose visible label is exactly 'API Keys'"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Click Settings → API Keys and press Create key.\"\n1. Click the element whose visible label is exactly 'Settings'.\n2. Click the element whose visible label is exactly 'API Keys'.\n3. Click the element whose visible label is exactly 'Create key'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "action",
+        "source": "live"
+      },
+      "goal_pass": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "You asked to navigate through the site to a page where a new API key or token can be created.\nReached the “Create a new API token” page, where the token creation form and token name field are visible.\nThe task was completed successfully without creating a token.",
+        "one_liner": "opened the new API token creation form on the developers site",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\636d6c96-1a0a-4794-b661-fb3e965f31de\\evidence\\2b137567-a2a7-40c0-8530-3ce5b86bd238.evidence",
+        "final_state": {
+          "url": "http://localhost:4177/developers/tokens/new",
+          "page_heading": "Create a new API token",
+          "api_key_or_token_creation_form_visible": "true"
+        },
+        "end_url": "http://localhost:4177/developers/tokens/new",
+        "clicks": [
+          {
+            "label": "Developers",
+            "x": 552,
+            "y": 16
+          },
+          {
+            "label": "Tokens",
+            "x": 456,
+            "y": 92
+          },
+          {
+            "label": "New token",
+            "names": [
+              "form"
+            ],
+            "x": 703,
+            "y": 206
+          }
+        ],
+        "credits": 32.2,
+        "duration": 138,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BJVBCQRNABQQVJQDYJ0S4J/dashboard/share/US_EIIVIYKXBT8CESKTJGE14KEGPR5ID3H5WKR2BMAERFWJMLNHXUR60JF6S7XJIPIV?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\636d6c96-1a0a-4794-b661-fb3e965f31de\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\636d6c96-1a0a-4794-b661-fb3e965f31de",
+        "trail": [
+          "navigate: Navigate to http://localhost:4177",
+          "click: Clicking Developers link",
+          "click: Clicking Tokens link",
+          "click: Clicking form to create a new API key or token",
+          "analyze: ANALYZE(textual_visual, 'a form to create a new API key or token is visible on s",
+          "assert: a form to create a new API key or token is visible on screen",
+          "analyze: the value it is stored as {{landed_on}}",
+          "wait: Waiting verification complete",
+          "wait: Waiting with the API token creation form visible"
+        ],
+        "objective": "Goal: a form to create a new API key or token is visible. Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\nHint: an old tutorial said \"Click Settings → API Keys and press Create key.\", but those labels may have moved or been renamed.\nWhen the goal is met, verify it on screen. If the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "testing",
+        "source": "live"
+      },
+      "actual_path": "Developers → Tokens → New token",
+      "landed_on": "Create a new API token",
+      "rewrite": "Click **Developers** → **Tokens** and press **New token**.",
+      "attempts": [
+        {
+          "loop": 1,
+          "rewrite": "Click **Developers** → **Tokens** and press **New token**.",
+          "labels": [
+            "Developers",
+            "Tokens",
+            "New token"
+          ],
+          "proof": {
+            "status": "passed",
+            "exit_code": 0,
+            "summary": "Opened the Developers section, then selected Tokens as requested.\nPressed New token and reached the page for creating a new API token.\nThe final page displayed a main heading, confirming the new-token page loaded.",
+            "one_liner": "opened the new API token page on localhost",
+            "reason_code": "success.complete",
+            "reason": "Objective completed",
+            "evidence": "~\\.testmuai\\kaneai\\sessions\\840cd0c0-bd2d-43a1-a0a6-a7f7bba715fa\\evidence\\0cf267d3-8542-4953-866e-260e9d18d6e1.evidence",
+            "final_state": {
+              "url": "http://localhost:4177/developers/tokens/new",
+              "main_heading_present": "true"
+            },
+            "end_url": "http://localhost:4177/developers/tokens/new",
+            "clicks": [
+              {
+                "label": "Developers",
+                "x": 552,
+                "y": 16
+              },
+              {
+                "label": "Tokens",
+                "x": 456,
+                "y": 92
+              },
+              {
+                "label": "New token",
+                "x": 703,
+                "y": 206
+              }
+            ],
+            "credits": 30.3,
+            "duration": 112.7,
+            "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BK2EB3VSF2QBMXAJXJ2SA3/dashboard/share/US_NCHT1QTQ36F90AZUL2M5BJ6S1RO3OLSF4N12ZAELFY5Z07FC231STUBMI0X2BTAX?type=summary&agentView=true&fqdn=summary-page",
+            "run_dir": "~/.testmuai/kaneai/sessions\\840cd0c0-bd2d-43a1-a0a6-a7f7bba715fa\\runs\\0",
+            "session_dir": "~/.testmuai/kaneai/sessions\\840cd0c0-bd2d-43a1-a0a6-a7f7bba715fa",
+            "trail": [
+              "navigate: Navigate to http://localhost:4177",
+              "click: Clicking Developers in the top navigation",
+              "click: Clicking Tokens link in Developers navigation",
+              "click: Clicking New token link",
+              "analyze: the page you end on has a main heading",
+              "analyze: ANALYZE(textual_visual, 'The main heading on the page you end on is saved as {{l",
+              "wait: Waiting after saving the main heading",
+              "wait: Waiting 1000 ms after confirming the Create a new API token page heading"
+            ],
+            "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Click Developers → Tokens and press New token.\"\n1. Click the element whose visible label is exactly 'Developers'.\n2. Click the element whose visible label is exactly 'Tokens'.\n3. Click the element whose visible label is exactly 'New token'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+            "mode": "action",
+            "source": "live"
+          }
+        }
+      ],
+      "note": "The doc's words no longer work. Kane found the real path; the rewrite passed a literal run in loop 1.",
+      "credits": 76.6,
+      "started_at": "http://localhost:4177"
+    },
+    {
+      "quote": "Copy the key into your `.env` file as `DRIFTWOOD_KEY`.",
+      "text": "Copy the key into your `.env` file as `DRIFTWOOD_KEY`.",
+      "goal": "The key is saved in the `.env` file as `DRIFTWOOD_KEY`",
+      "labels": [],
+      "checkable": false,
+      "continues": true,
+      "skip_reason": "Editing a local .env file happens outside the browser.",
+      "n": 3,
+      "status": "skipped",
+      "note": "Editing a local .env file happens outside the browser.",
+      "credits": 0,
+      "started_at": "http://localhost:4177/developers/tokens/new"
+    },
+    {
+      "quote": "Open **Team** and click **Invite member**.",
+      "text": "Open Team and click Invite member.",
+      "goal": "A form to invite a new member by email is visible",
+      "labels": [
+        "Team",
+        "Invite member"
+      ],
+      "checkable": true,
+      "continues": false,
+      "n": 4,
+      "status": "accurate",
+      "literal": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "Opened the Team section as requested.\nSelected “Invite member.”\nReached the invite page, which displays a main heading.",
+        "one_liner": "opened the member invitation page on localhost",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\40bb1d28-18ac-44aa-b794-3782513b691f\\evidence\\3362d055-70f8-41cb-ad71-4fafb70571ee.evidence",
+        "final_state": {
+          "url": "http://localhost:4177/team/invite",
+          "main_heading_present": "true"
+        },
+        "end_url": "http://localhost:4177/team/invite",
+        "clicks": [
+          {
+            "label": "Team",
+            "x": 324,
+            "y": 16
+          },
+          {
+            "label": "Invite member",
+            "x": 489,
+            "y": 206
+          }
+        ],
+        "credits": 29.5,
+        "duration": 142.5,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BJNQTA8AABN6YBZTW832E2/dashboard/share/US_RQL7JWW5511U5R60JQUHJJLT7O5OBTANDVCKPM24YPWTZH9XUYBXCQ8Z839BW1FL?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\40bb1d28-18ac-44aa-b794-3782513b691f\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\40bb1d28-18ac-44aa-b794-3782513b691f",
+        "trail": [
+          "navigate: Navigate to http://localhost:4177",
+          "click: Clicking Team in the top navigation",
+          "click: Clicking Invite member link",
+          "wait: PRIMARY: wait for the heading 'Invite a member' to be visible",
+          "analyze: The page you end on has a main heading.",
+          "analyze: the main heading on the page is saved as {{landed_on}}",
+          "wait: Waiting checkpoint verification is complete",
+          "wait: Waiting after completing the Team invitation navigation"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Open Team and click Invite member.\"\n1. Click the element whose visible label is exactly 'Team'.\n2. Click the element whose visible label is exactly 'Invite member'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "action",
+        "source": "live"
+      },
+      "landed_on": "true",
+      "note": "Kane followed the doc's exact words and reached the goal.",
+      "credits": 29.5,
+      "started_at": "http://localhost:4177"
+    },
+    {
+      "quote": "Go to **Settings** → **Billing** and open **Invoices**.",
+      "text": "Go to Settings → Billing and open Invoices.",
+      "goal": "A list of past invoices with dates and amounts is visible",
+      "labels": [
+        "Settings",
+        "Billing",
+        "Invoices"
+      ],
+      "checkable": true,
+      "continues": false,
+      "n": 5,
+      "status": "drifted",
+      "literal": {
+        "status": "failed",
+        "exit_code": 1,
+        "summary": "The test assumed that this account's Settings page would include Billing and Invoices. The available Settings state did not match that assumption.\nUpdate the tutorial or test setup to use an account and application state that includes Billing, or remove the Billing and Invoices steps for this version.",
+        "one_liner": "The run expected a Billing option after opening Settings, but that option was not available.",
+        "reason_code": "assertion_error.step_not_achievable",
+        "reason": "The Settings page contains General and Appearance only; no Billing element exists.",
+        "verdict": {
+          "confirmed": false,
+          "status": "broken",
+          "family": "automation_bug",
+          "category": "state_transition_bug",
+          "category_proposal": "",
+          "severity": "minor",
+          "root_cause": "The test assumed that this account's Settings page would include Billing and Invoices. The available Settings state did not match that assumption.",
+          "agent_fault_assessment": "The agent followed the required route and clicked the visible Settings control. The request for Billing relied on a Settings-page state that was not available in this run; there is no evidence that the agent clicked a wrong control or that the application failed to load Settings.",
+          "bug_title": "Billing navigation expected in unavailable Settings state",
+          "signals": [],
+          "confidence": 0.9,
+          "suggestion": "Update the tutorial or test setup to use an account and application state that includes Billing, or remove the Billing and Invoices steps for this version.",
+          "one_liner": "The run expected a Billing option after opening Settings, but that option was not available.",
+          "relevant_steps": [
+            1,
+            2
+          ],
+          "culprit_step": "0-2",
+          "credits_consumed": 2.42345,
+          "mode": "terminal"
+        },
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\45a645be-4421-4ebf-b57d-9d5cda1309da\\evidence\\43158746-00f8-4f8d-8e3a-8b234545c6cb.evidence",
+        "final_state": {},
+        "clicks": [
+          {
+            "label": "Settings",
+            "x": 469,
+            "y": 16
+          }
+        ],
+        "credits": 13.3,
+        "duration": 49.5,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BJXN0QPWXZBSNKFDWZH5K6/dashboard/share/US_R5RVMKSJY7X6VEBR6YNAS3ZIDM6QUI2HZ89TRO5IFRE3B2F715Y0GTI3UJ5KR2W0?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\45a645be-4421-4ebf-b57d-9d5cda1309da\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\45a645be-4421-4ebf-b57d-9d5cda1309da",
+        "trail": [
+          "navigate: Navigate to http://localhost:4177",
+          "click: Clicking Settings in the top navigation bar",
+          "wait: Waiting after checking the Settings page"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Go to Settings → Billing and open Invoices.\"\n1. Click the element whose visible label is exactly 'Settings'.\n2. Click the element whose visible label is exactly 'Billing'.\n3. Click the element whose visible label is exactly 'Invoices'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "action",
+        "source": "live"
+      },
+      "goal_pass": {
+        "status": "passed",
+        "exit_code": 0,
+        "summary": "Opened the account billing history through the site’s visible navigation, as requested.\nReached the Billing history page, where past invoice entries with dates and dollar amounts are displayed.\nThe page’s main heading is “Billing history.”",
+        "one_liner": "viewed past invoices on the account billing history page",
+        "reason_code": "success.complete",
+        "reason": "Objective completed",
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\aee3dd73-ea50-4f75-99e9-31c02e501558\\evidence\\19f98438-c039-42b0-b0e3-654b8a90b2e6.evidence",
+        "final_state": {
+          "url": "http://localhost:4177/account/billing-history",
+          "main_heading": "Billing history",
+          "past_invoices_list_visible": "true"
+        },
+        "end_url": "http://localhost:4177/account/billing-history",
+        "clicks": [
+          {
+            "label": "Settings",
+            "x": 469,
+            "y": 16
+          },
+          {
+            "label": "Account",
+            "x": 1795,
+            "y": 16
+          },
+          {
+            "label": "Billing history",
+            "x": 1701,
+            "y": 104
+          }
+        ],
+        "credits": 33.6,
+        "duration": 141.4,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BK15D8V6NCBCZEHSSKDTSJ/dashboard/share/US_MWSU9XXUUC0QT93HUB8D6OW7519LQ9PMSSOC4GOQIROSIYRHSR61OMWVRZ83HAPD?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\aee3dd73-ea50-4f75-99e9-31c02e501558\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\aee3dd73-ea50-4f75-99e9-31c02e501558",
+        "trail": [
+          "navigate: Navigate to http://localhost:4177",
+          "click: Clicking Settings in the navigation menu",
+          "click: Clicking Account in the top navigation dropdown",
+          "click: Clicking Billing history in the account menu",
+          "analyze: the page you end on has a main heading",
+          "assert: a list of past invoices with dates and amounts is visible on screen",
+          "analyze: ANALYZE(textual_visual, 'The main heading on the page is saved as {{landed_on}}.",
+          "wait: Waiting after required heading extraction",
+          "wait: Waiting after verifying the Billing history page"
+        ],
+        "objective": "Goal: a list of past invoices with dates and amounts is visible. Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\nHint: an old tutorial said \"Go to Settings → Billing and open Invoices.\", but those labels may have moved or been renamed.\nWhen the goal is met, verify it on screen. If the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "testing",
+        "source": "live"
+      },
+      "actual_path": "Settings → Account → Billing history",
+      "trimmed_path": "Account → Billing history",
+      "landed_on": "Billing history",
+      "rewrite": "Go to **Account** → **Billing history**.",
+      "attempts": [
+        {
+          "loop": 1,
+          "rewrite": "Go to **Account** → **Billing history**.",
+          "labels": [
+            "Account",
+            "Billing history"
+          ],
+          "proof": {
+            "status": "passed",
+            "exit_code": 0,
+            "summary": "You asked to open the Billing history section through Account.\nSelected Account, then selected Billing history.\nThe Billing history page opened successfully and displayed its main heading.",
+            "one_liner": "opened Billing history on the account site",
+            "reason_code": "success.complete",
+            "reason": "Objective completed",
+            "evidence": "~\\.testmuai\\kaneai\\sessions\\20b53ebb-e3a8-40dc-9069-a4ad92ae25a5\\evidence\\598e27f0-eae2-4830-995c-b42b7d1c020c.evidence",
+            "final_state": {
+              "url": "http://localhost:4177/account/billing-history",
+              "main_heading_present": "true",
+              "landed_on": "Billing history"
+            },
+            "end_url": "http://localhost:4177/account/billing-history",
+            "clicks": [
+              {
+                "label": "Account",
+                "x": 1795,
+                "y": 16
+              },
+              {
+                "label": "Billing history",
+                "x": 1701,
+                "y": 104
+              }
+            ],
+            "credits": 31.2,
+            "duration": 100.7,
+            "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BK7HV13V06YNJGE1BR9GNH/dashboard/share/US_S8RRNQW037BCIGZFVBXZ6YRR9KCFI8XLLKZFJOIEESMDAWJE1X1P1PB61JSQBROH?type=summary&agentView=true&fqdn=summary-page",
+            "run_dir": "~/.testmuai/kaneai/sessions\\20b53ebb-e3a8-40dc-9069-a4ad92ae25a5\\runs\\0",
+            "session_dir": "~/.testmuai/kaneai/sessions\\20b53ebb-e3a8-40dc-9069-a4ad92ae25a5",
+            "trail": [
+              "navigate: Navigate to http://localhost:4177",
+              "click: Clicking Account in the left sidebar",
+              "click: Clicking Billing history in the expanded account menu",
+              "wait: PRIMARY: wait for the Billing history page heading to appear",
+              "analyze: The page you end on has a main heading.",
+              "analyze: ANALYZE(textual_visual, 'Get the main heading on the page you end on and save it",
+              "wait: Waiting verification is complete",
+              "wait: Waiting after confirming the Billing history destination page"
+            ],
+            "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Go to Account → Billing history.\"\n1. Click the element whose visible label is exactly 'Account'.\n2. Click the element whose visible label is exactly 'Billing history'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+            "mode": "action",
+            "source": "live"
+          }
+        }
+      ],
+      "note": "The doc's words no longer work. Kane found the real path; the rewrite passed a literal run in loop 1.",
+      "credits": 78.1,
+      "started_at": "http://localhost:4177"
+    },
+    {
+      "quote": "Open **Reports** and click **Export CSV**.",
+      "text": "Open Reports and click Export CSV.",
+      "goal": "A CSV export of the reports is ready to download",
+      "labels": [
+        "Reports",
+        "Export CSV"
+      ],
+      "checkable": true,
+      "continues": false,
+      "n": 6,
+      "status": "broken",
+      "literal": {
+        "status": "failed",
+        "exit_code": 1,
+        "summary": "The test expected an Export CSV option even though the Reports page says exports are unavailable. No evidence shows that the page was supposed to make exports available for this run.\nUpdate the test setup or expected outcome so it uses a state with exports enabled, or treats the unavailable-exports message as the expected result.",
+        "one_liner": "The test reached Reports successfully, but that page did not offer CSV export in the current state.",
+        "reason_code": "assertion_error.step_not_achievable",
+        "reason": "Reports explicitly states exports are unavailable, and no Export CSV element exists.",
+        "verdict": {
+          "confirmed": false,
+          "status": "broken",
+          "family": "automation_bug",
+          "category": "state_transition_bug",
+          "category_proposal": "",
+          "severity": "minor",
+          "root_cause": "The test expected an Export CSV option even though the Reports page says exports are unavailable. No evidence shows that the page was supposed to make exports available for this run.",
+          "agent_fault_assessment": "The agent followed the required route and clicked the exact visible label “Reports.” The Reports request returned successfully, so its action did not cause the missing export control. The run failed because the test expected an export option in a state where Reports says exports are unavailable.",
+          "bug_title": "Export CSV test assumes exports are available",
+          "signals": [],
+          "confidence": 0.91,
+          "suggestion": "Update the test setup or expected outcome so it uses a state with exports enabled, or treats the unavailable-exports message as the expected result.",
+          "one_liner": "The test reached Reports successfully, but that page did not offer CSV export in the current state.",
+          "relevant_steps": [
+            1,
+            2
+          ],
+          "culprit_step": "0-2",
+          "credits_consumed": 2.3314,
+          "mode": "terminal"
+        },
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\ff962983-8bb9-4404-9b8d-bb96db99f04e\\evidence\\7838513a-8323-4a41-991c-d9e09920a486.evidence",
+        "final_state": {},
+        "clicks": [
+          {
+            "label": "Reports",
+            "x": 388,
+            "y": 16
+          }
+        ],
+        "credits": 14.8,
+        "duration": 47.7,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BK01V953BD1C0PBEWAJ2QR/dashboard/share/US_71MYNJP3PAS3PFMMQELC95I67WJ3HJNCDB9SCA7NLV5GQBU35AI3Q52RZV57UK52?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\ff962983-8bb9-4404-9b8d-bb96db99f04e\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\ff962983-8bb9-4404-9b8d-bb96db99f04e",
+        "trail": [
+          "navigate: Navigate to http://localhost:4177",
+          "click: Clicking Reports link in navigation",
+          "wait: Waiting after checking the Reports page"
+        ],
+        "objective": "Follow these steps literally, one at a time, from the current page. Click only what each step names. Never type a URL, search, or take another route.\nWhere to find them, in the tutorial's own words: \"Open Reports and click Export CSV.\"\n1. Click the element whose visible label is exactly 'Reports'.\n2. Click the element whose visible label is exactly 'Export CSV'.\nIf the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "action",
+        "source": "live"
+      },
+      "goal_pass": {
+        "status": "failed",
+        "exit_code": 1,
+        "summary": "The test objective expects a CSV export feature that is not included in the version under test. Reports states that exports are being rebuilt and are not available, and no alternate visible route provided an export control.\nUpdate the test objective or run it against a version where report CSV exports are enabled. If exports are required for this release, restore the feature and then add a visible export control to Reports.",
+        "one_liner": "The run could not prepare a report CSV because this version of Reports explicitly says exports are unavailable.",
+        "reason_code": "assertion_error.step_not_achievable",
+        "reason": "Reports explicitly says exports are unavailable; all visible primary, account, settings, and developer routes lack CSV export controls.",
+        "verdict": {
+          "confirmed": false,
+          "status": "broken",
+          "family": "automation_bug",
+          "category": "config_issue",
+          "category_proposal": "",
+          "severity": "major",
+          "root_cause": "The test objective expects a CSV export feature that is not included in the version under test. Reports states that exports are being rebuilt and are not available, and no alternate visible route provided an export control.",
+          "agent_fault_assessment": "The agent first used the appropriate Reports navigation, then checked visible account, settings, and developer-related routes after finding no export action. Those actions did not cause the outcome; the run was configured with an objective that cannot be completed in this product version.",
+          "bug_title": "CSV export objective targets a version where exports are unavailable",
+          "signals": [],
+          "confidence": 0.97,
+          "suggestion": "Update the test objective or run it against a version where report CSV exports are enabled. If exports are required for this release, restore the feature and then add a visible export control to Reports.",
+          "one_liner": "The run could not prepare a report CSV because this version of Reports explicitly says exports are unavailable.",
+          "relevant_steps": [
+            2,
+            3,
+            10,
+            17
+          ],
+          "culprit_step": "0-2",
+          "credits_consumed": 4.4523,
+          "mode": "terminal"
+        },
+        "evidence": "~\\.testmuai\\kaneai\\sessions\\77590c83-477d-4e76-abef-1004b9198532\\evidence\\add459f0-af7c-48c9-9bf2-9109b247222b.evidence",
+        "final_state": {},
+        "clicks": [
+          {
+            "label": "Reports",
+            "x": 388,
+            "y": 16
+          },
+          {
+            "label": "Account",
+            "x": 1795,
+            "y": 16
+          },
+          {
+            "label": "Settings",
+            "x": 468,
+            "y": 16
+          },
+          {
+            "label": "Developers",
+            "x": 552,
+            "y": 16
+          },
+          {
+            "label": "Projects",
+            "x": 240,
+            "y": 16
+          },
+          {
+            "label": "Team",
+            "x": 324,
+            "y": 16
+          },
+          {
+            "label": "Dashboard",
+            "x": 138,
+            "y": 16
+          },
+          {
+            "label": "Account",
+            "x": 1795,
+            "y": 16
+          },
+          {
+            "label": "billing history",
+            "names": [
+              "Billing history"
+            ],
+            "x": 1701,
+            "y": 104
+          },
+          {
+            "label": "Account",
+            "x": 1795,
+            "y": 16
+          },
+          {
+            "label": "Profile",
+            "x": 1701,
+            "y": 66
+          },
+          {
+            "label": "Developers",
+            "x": 549,
+            "y": 16
+          },
+          {
+            "label": "Tokens",
+            "x": 456,
+            "y": 92
+          },
+          {
+            "label": "Webhooks",
+            "x": 456,
+            "y": 134
+          },
+          {
+            "label": "Settings",
+            "x": 466,
+            "y": 16
+          },
+          {
+            "label": "Appearance",
+            "x": 456,
+            "y": 134
+          }
+        ],
+        "credits": 41.1,
+        "duration": 204.1,
+        "test_url": "https://test-manager.lambdatest.com/projects/01M7GPR4WEAG287QY8865MNHXP/test-cases/01M8BK435H0SFBETH1HM291PZ2/dashboard/share/US_S3DBO4BIP72TUQY739STRP90GHCNYCMUN15KJCK79PQU8EJFKZL83A5I29JJX8ZM?type=summary&agentView=true&fqdn=summary-page",
+        "run_dir": "~/.testmuai/kaneai/sessions\\77590c83-477d-4e76-abef-1004b9198532\\runs\\0",
+        "session_dir": "~/.testmuai/kaneai/sessions\\77590c83-477d-4e76-abef-1004b9198532",
+        "trail": [
+          "navigate: Navigate to http://localhost:4177",
+          "click: Clicking Reports in the top navigation",
+          "click: Clicking the Account menu",
+          "click: Clicking Settings in the top navigation",
+          "click: Clicking Developers",
+          "click: Clicking Projects in the top navigation",
+          "click: Clicking Team in the top navigation",
+          "click: Clicking Dashboard link in the top navigation",
+          "click: Clicking the Account menu in the top-right header",
+          "click: Clicking billing history link",
+          "click: Clicking Account menu in the top-right corner",
+          "click: Clicking Profile link in the top-right account menu",
+          "click: Clicking Developers in the top navigation",
+          "click: Clicking Tokens in the Developers sidebar",
+          "click: Clicking Webhooks in Developers sidebar",
+          "click: Clicking Settings in the top navigation",
+          "click: Clicking Appearance in settings sidebar",
+          "wait: Waiting after checking all visible navigation routes for a reports CSV export"
+        ],
+        "objective": "Goal: a CSV export of the reports is ready to download. Reach it from the current page by clicking through the visible UI, by any route. Never type a URL or use the address bar.\nHint: an old tutorial said \"Open Reports and click Export CSV.\", but those labels may have moved or been renamed.\nWhen the goal is met, verify it on screen. If the page you end on has a main heading, store it as 'landed_on'; a page without a heading is fine.",
+        "mode": "testing",
+        "source": "live"
+      },
+      "actual_path": "Reports → Account → Settings → Developers → Projects → Team → Dashboard → Account → billing history → Account → Profile → Developers → Tokens → Webhooks → Settings → Appearance",
+      "note": "The goal can't be reached by any route Kane could find.",
+      "credits": 55.9,
+      "started_at": "http://localhost:4177"
+    }
+  ],
+  "totals": {
+    "steps": 6,
+    "checkable": 5,
+    "accurate": 2,
+    "drifted": 2,
+    "fixed": 2,
+    "broken": 1,
+    "skipped": 1,
+    "unchecked": 0,
+    "credits": 269.9,
+    "seconds": 754
+  },
+  "agent_calls": [
+    {
+      "role": "extract",
+      "input": "Tutorial source: ~\\Music\\Errata\\runs\\2026-11-26\\claude-code\\demo\\demo\\quickstart.md\nKnown start URL (may be empty): http://localhost:4177\nTitle hint: Driftwood quickstart\n\n<doc>\n# Driftwood quickstart\r\n\r\n<!-- errata:start http://localhost:4177 -->\r\n\r\nGet from a new workspace to your first API call in five minutes.\r\n\r\n1. Open the Driftwood dashboard and click **Projects**. <!-- goal: The Projects list is visible -->\r\n2. Click **Settings** → **API Keys** and press **Create key**. <!-- goal: A form to create a new API key or token is visible -->\r\n3. Copy the key into your `.env` file as `DRIFTWOOD_KEY`.\r\n4. Open **Team** and click **Invite member**. <!-- goal: A form to invite a new member by email is visible -->\r\n5. Go to **Settings** → **Billing** and open **Invoices**. <!-- goal: A list of past invoices with dates and amounts is visible -->\r\n6. Open **Reports** and click **Export CSV**. <!-- goal: A CSV export of the reports is ready to download -->\r\n\r\nThat's it. Your workspace is ready.\r\n\n</doc>",
+      "output": "{\"title\": \"Driftwood quickstart\", \"start_url\": \"http://localhost:4177\", \"steps\": [{\"quote\": \"Open the Driftwood dashboard and click **Projects**.\", \"text\": \"Open the Driftwood dashboard and click Projects.\", \"goal\": \"The Projects list is visible\", \"labels\": [\"Projects\"], \"checkable\": true, \"continues\": false, \"skip_reason\": \"\"}, {\"quote\": \"Click **Settings** → **API Keys** and press **Create key**.\", \"text\": \"Click Settings → API Keys and press Create key.\", \"goal\": \"A form to create a new API key or token is visible\", \"labels\": [\"Settings\", \"API Keys\", \"Create key\"], \"checkable\": true, \"continues\": false, \"skip_reason\": \"\"}, {\"quote\": \"Copy the key into your `.env` file as `DRIFTWOOD_KEY`.\", \"text\": \"Copy the key into your `.env` file as `DRIFTWOOD_KEY`.\", \"goal\": \"The key is saved in the `.env` file as `DRIFTWOOD_KEY`\", \"labels\": [], \"checkable\": false, \"continues\": true, \"skip_reason\": \"Editing a local .env file happens outside the browser.\"}, {\"quote\": \"Open **Team** and click **Invite member**.\", \"text\": \"Open Team and click Invite member.\", \"goal\": \"A form to invite a new member by email is visible\", \"labels\": [\"Team\", \"Invite member\"], \"checkable\": true, \"continues\": false, \"skip_reason\": \"\"}, {\"quote\": \"Go to **Settings** → **Billing** and open **Invoices**.\", \"text\": \"Go to Settings → Billing and open Invoices.\", \"goal\": \"A list of past invoices with dates and amounts is visible\", \"labels\": [\"Settings\", \"Billing\", \"Invoices\"], \"checkable\": true, \"continues\": false, \"skip_reason\": \"\"}, {\"quote\": \"Open **Reports** and click **Export CSV**.\", \"text\": \"Open Reports and click Export CSV.\", \"goal\": \"A CSV export of the reports is ready to download\", \"labels\": [\"Reports\", \"Export CSV\"], \"checkable\": true, \"continues\": false, \"skip_reason\": \"\"}]}",
+      "ms": 20093
+    },
+    {
+      "role": "rewrite",
+      "input": "Original doc sentence: Click **Settings** → **API Keys** and press **Create key**.\nGoal of the step: A form to create a new API key or token is visible\nPath Kane actually clicked (goal pass): Developers → Tokens → New token\nHeading Kane landed on: Create a new API token\n",
+      "output": "{\"text\": \"Click **Developers** → **Tokens** and press **New token**.\", \"labels\": [\"Developers\", \"Tokens\", \"New token\"]}",
+      "ms": 19085
+    },
+    {
+      "role": "rewrite",
+      "input": "Original doc sentence: Go to **Settings** → **Billing** and open **Invoices**.\nGoal of the step: A list of past invoices with dates and amounts is visible\nPath Kane actually clicked (goal pass): Account → Billing history\nHeading Kane landed on: Billing history\n",
+      "output": "{\"text\": \"Go to **Account** → **Billing history**.\", \"labels\": [\"Account\", \"Billing history\"]}",
+      "ms": 9455
+    }
+  ],
+  "input": "runs/2026-11-26/claude-code/demo/demo/quickstart.md",
+  "patch": "===================================================================\n--- a/runs/2026-11-26/claude-code/demo/demo/quickstart.md\t\n+++ b/runs/2026-11-26/claude-code/demo/demo/quickstart.md\t\n@@ -6,8 +6,8 @@\n \r\n 1. Open the Driftwood dashboard and click **Projects**. <!-- goal: The Projects list is visible -->\r\n-2. Click **Settings** → **API Keys** and press **Create key**. <!-- goal: A form to create a new API key or token is visible -->\r\n+2. Click **Developers** → **Tokens** and press **New token**. <!-- goal: A form to create a new API key or token is visible -->\r\n 3. Copy the key into your `.env` file as `DRIFTWOOD_KEY`.\r\n 4. Open **Team** and click **Invite member**. <!-- goal: A form to invite a new member by email is visible -->\r\n-5. Go to **Settings** → **Billing** and open **Invoices**. <!-- goal: A list of past invoices with dates and amounts is visible -->\r\n+5. Go to **Account** → **Billing history**. <!-- goal: A list of past invoices with dates and amounts is visible -->\r\n 6. Open **Reports** and click **Export CSV**. <!-- goal: A CSV export of the reports is ready to download -->\r\n \r\n",
+  "patch_target": "~\\Music\\Errata\\runs\\2026-11-26\\claude-code\\demo\\demo\\quickstart.md"
+}
