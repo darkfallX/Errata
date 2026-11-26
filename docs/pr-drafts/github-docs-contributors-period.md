@@ -1,4 +1,4 @@
-# Draft PR for github/docs (not opened yet)
+# PR for github/docs: opened as https://github.com/github/docs/pull/47081 (26 Nov 2026)
 
 **Repository:** github/docs
 **File:** `content/repositories/viewing-activity-and-data-for-your-repository/viewing-a-projects-contributors.md` (line 34)

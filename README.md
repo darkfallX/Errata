@@ -169,7 +169,7 @@ What a docs maintainer wants to know: *what does this catch that my tests miss, 
 
 The goal-only row is partly inferred: we run the goal pass only where the word-for-word run fails, and assume a goal-only run passes wherever the exact words work. Every disagreement (9 steps) went to a [blind reviewer](runs/2026-11-26/blind-review/), a separate AI agent that never saw our verdicts. It agreed on 8 and couldn't check the 9th (GitHub's buttons need JavaScript), which we checked in a browser.
 
-**Getting fixes to maintainers:** GitHub Docs' "Period: All" is the one finding in actively maintained docs, and the [github/docs](https://github.com/github/docs) source still says **Period: All**; a one-line correction is [drafted](docs/pr-drafts/github-docs-contributors-period.md). The 5 drift-hunt errors are in blog posts from 2010 to 2019, which take no pull requests. No maintainer has confirmed a fix yet.
+**Getting fixes to maintainers:** GitHub Docs' "Period: All" is the one finding in actively maintained docs, and the [github/docs](https://github.com/github/docs) source still says **Period: All**. We opened a one-line correction: **[github/docs#47081](https://github.com/github/docs/pull/47081)** (26 Nov), with the failed run and the corrected tutorial passing end to end in a fresh browser ([proof](runs/2026-11-26/pr-proof/)). It's waiting for review; no maintainer has responded yet. The 5 drift-hunt errors are in blog posts from 2010 to 2019, which take no pull requests.
 
 ## The insight
 
